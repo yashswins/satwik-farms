@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaInstagram, FaWhatsapp, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaPhone, FaMapMarkerAlt, FaFacebook } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -11,7 +11,7 @@ export default function Footer() {
             Harvest to home: Freshness delivered
           </p>
           <p className="text-white/80 text-sm">
-            Organic vegetables and premium dairy from Kisarawe, Tanzania
+            Residue free vegetables and premium dairy from Kisarawe, Tanzania
           </p>
         </div>
 
@@ -56,6 +56,15 @@ export default function Footer() {
               aria-label="Instagram"
             >
               <FaInstagram className="text-2xl" />
+            </a>
+            <a
+              href="https://www.facebook.com/share/1BPLUDwqWq/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition"
+              aria-label="Facebook"
+            >
+              <FaFacebook className="text-2xl" />
             </a>
             <a
               href="https://chat.whatsapp.com/Fe6U6ym7i0FCNJzoN951fM"

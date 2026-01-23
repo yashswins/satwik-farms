@@ -21,8 +21,7 @@ export default function WhatsAppButton() {
   }, []);
 
   const handleClick = () => {
-    const message = encodeURIComponent("Hi Satwik Farms! I'm interested in your products.");
-    window.open(`https://wa.me/255767211422?text=${message}`, '_blank');
+    window.open('https://chat.whatsapp.com/Fe6U6ym7i0FCNJzoN951fM', '_blank');
   };
 
   return (

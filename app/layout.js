@@ -8,11 +8,11 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 export const metadata = {
   metadataBase: new URL('https://satwikfarms.com'),
   title: {
-    default: 'Satwik Farms - Organic Farm in Kisarawe, Tanzania | Fresh Vegetables & Dairy',
+    default: 'Satwik Farms - Residue Free Farm in Kisarawe, Tanzania | Fresh Vegetables & Dairy',
     template: '%s | Satwik Farms'
   },
-  description: 'Satwik Farms delivers fresh organic vegetables, milk, yoghurt, and ghee from our farm in Kisarawe, Tanzania. Order via WhatsApp or our Android app. Farm visits available. Harvest to home: Freshness delivered.',
-  keywords: ['organic farm Tanzania', 'Kisarawe farm', 'fresh vegetables Dar es Salaam', 'organic dairy Tanzania', 'farm visits Kisarawe', 'Satwik Farms', 'organic milk Tanzania', 'farm to table Tanzania', 'chemical-free vegetables', 'sustainable farming Tanzania'],
+  description: 'Satwik Farms delivers fresh residue free vegetables, milk, yoghurt, and ghee from our farm in Kisarawe, Tanzania. Order via WhatsApp or our Android app. Farm visits available. Harvest to home: Freshness delivered.',
+  keywords: ['residue free farm Tanzania', 'Kisarawe farm', 'fresh vegetables Dar es Salaam', 'residue free dairy Tanzania', 'farm visits Kisarawe', 'Satwik Farms', 'residue free milk Tanzania', 'farm to table Tanzania', 'chemical-free vegetables', 'sustainable farming Tanzania'],
   authors: [{ name: 'Satwik Farms' }],
   creator: 'Satwik Farms',
   publisher: 'Satwik Farms',
@@ -26,21 +26,21 @@ export const metadata = {
     locale: 'en_US',
     url: 'https://satwikfarms.com',
     siteName: 'Satwik Farms',
-    title: 'Satwik Farms - Organic Farm in Kisarawe, Tanzania',
-    description: 'Fresh organic vegetables and premium dairy products delivered from our farm to your doorstep. Order via WhatsApp or Android app.',
+    title: 'Satwik Farms - Residue Free Farm in Kisarawe, Tanzania',
+    description: 'Fresh residue free vegetables and premium dairy products delivered from our farm to your doorstep. Order via WhatsApp or Android app.',
     images: [
       {
         url: '/images/farm/1.jpg',
         width: 1200,
         height: 630,
-        alt: 'Satwik Farms - Organic farm in Kisarawe, Tanzania',
+        alt: 'Satwik Farms - Residue free farm in Kisarawe, Tanzania',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Satwik Farms - Organic Farm in Tanzania',
-    description: 'Fresh organic vegetables and dairy delivered to your doorstep',
+    title: 'Satwik Farms - Residue Free Farm in Tanzania',
+    description: 'Fresh residue free vegetables and dairy delivered to your doorstep',
     images: ['/images/farm/1.jpg'],
   },
   robots: {

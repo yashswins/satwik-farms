@@ -6,10 +6,10 @@ import Image from 'next/image';
 const activities = [
   {
     title: 'Farm Tours',
-    description: 'Guided tours of our fields, dairy operations, and facilities. Learn about organic farming practices and see where your food comes from.',
+    description: 'Guided tours of our fields, dairy operations, and facilities. Learn about residue free farming practices and see where your food comes from.',
     icon: '🚜',
     image: '/images/activities/1.jpg',
-    features: ['Guided tours', 'Learn organic methods', 'See dairy operations', 'Meet our team']
+    features: ['Guided tours', 'Learn residue free methods', 'See dairy operations', 'Meet our team']
   },
   {
     title: 'Nature Walks & Experiences',

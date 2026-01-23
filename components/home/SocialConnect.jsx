@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaExpand, FaCompress } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaExpand, FaCompress, FaFacebook } from 'react-icons/fa';
 
 export default function SocialConnect() {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -97,6 +97,28 @@ export default function SocialConnect() {
                   </h3>
                   <p className="text-sm md:text-base text-text-secondary">
                     @satwik.farms - Daily updates and farm life
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            {/* Facebook */}
+            <a
+              href="https://www.facebook.com/share/1BPLUDwqWq/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card p-6 md:p-8 rounded-3xl hover:bg-farm-green-light/20 transition-all duration-300 hover:-translate-y-2 group"
+            >
+              <div className="flex items-center gap-3 md:gap-4">
+                <div className="bg-blue-600 p-3 md:p-4 rounded-2xl flex-shrink-0">
+                  <FaFacebook className="text-2xl md:text-4xl text-white" />
+                </div>
+                <div>
+                  <h3 className="text-lg md:text-2xl font-bold text-farm-green-primary mb-1">
+                    Follow us on Facebook
+                  </h3>
+                  <p className="text-sm md:text-base text-text-secondary">
+                    Stay connected with our community
                   </p>
                 </div>
               </div>

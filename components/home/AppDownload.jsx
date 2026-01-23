@@ -53,17 +53,18 @@ export default function AppDownload() {
             >
               {/* WhatsApp QR Code */}
               <div className="flex flex-col items-center">
-                <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border-4 border-green-500">
-                  <QRCodeSVG
-                    value={whatsappUrl}
-                    size={180}
-                    level="H"
-                    includeMargin
-                    fgColor="#25D366"
+                <div className="bg-white p-4 md:p-6 rounded-2xl shadow-lg border-4 border-green-500">
+                  <Image
+                    src="/images/WhatsApp QR.jpeg"
+                    alt="Scan for WhatsApp Catalog"
+                    width={180}
+                    height={180}
+                    className="rounded-lg"
+                    quality={90}
                   />
                 </div>
                 <p className="text-center mt-3 font-bold text-green-600 text-base md:text-lg">
-                  Scan for WhatsApp
+                  Scan for WhatsApp Catalog
                 </p>
                 <p className="text-xs text-text-secondary">Primary Ordering</p>
               </div>
@@ -97,10 +98,10 @@ export default function AppDownload() {
                 Get Started Today
               </h3>
               <p className="text-sm md:text-base text-text-secondary mb-4">
-                Browse our fresh organic vegetables, premium dairy products (milk, yoghurt, ghee), and place orders for home delivery to Dar es Salaam or farm pickup in Kisarawe.
+                Browse our fresh residue free vegetables, premium dairy products (milk, yoghurt, ghee), and place orders for home delivery to Dar es Salaam or farm pickup in Kisarawe.
               </p>
               <p className="text-sm md:text-base text-text-secondary mb-6 md:mb-8">
-                Experience the taste of Tanzania with produce grown organically and delivered fresh from our farm.
+                Experience the taste of Tanzania with produce grown residue free and delivered fresh from our farm.
               </p>
 
               {/* WhatsApp Button - Primary */}
@@ -118,7 +119,7 @@ export default function AppDownload() {
                   </div>
                 </a>
                 <p className="text-xs text-text-secondary mt-2 italic">
-                  Our main ordering platform - Join 1400+ happy customers!
+                  Our main ordering platform - Join 5000+ happy customers!
                 </p>
               </div>
 

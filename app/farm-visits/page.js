@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Visit Satwik Farms in Kisarawe, Tanzania for guided farm tours, nature walks, mud bath experiences, tree planting, cattle interaction, and fresh farm meals. Perfect for families, school field trips, and groups. Pricing: Adults TZS 15,000, Children TZS 10,000.',
   keywords: ['farm visits Tanzania', 'Kisarawe tours', 'farm activities', 'school field trips', 'agro-tourism Tanzania', 'farm tours Dar es Salaam', 'family activities Tanzania'],
   openGraph: {
-    title: 'Farm Visits at Satwik Farms - Experience Organic Farming',
+    title: 'Farm Visits at Satwik Farms - Experience Residue Free Farming',
     description: 'Guided tours, nature walks, and hands-on farm activities in Kisarawe',
     url: 'https://satwikfarms.com/farm-visits',
     images: ['/images/activities/1.jpg'],

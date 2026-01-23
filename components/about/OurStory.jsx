@@ -18,7 +18,7 @@ export default function OurStory() {
             Our Story
           </h1>
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
-            Bringing the bounty of organic farming from Kisarawe to your doorstep
+            Bringing the bounty of residue free farming from Kisarawe to your doorstep
           </p>
         </motion.div>
 
@@ -52,10 +52,10 @@ export default function OurStory() {
               Discover the taste of Tanzania
             </h2>
             <p className="text-base md:text-lg text-text-secondary mb-4">
-              Satwik Farms brings the bounty of our organically grown produce directly from our farm in Kisarawe to your doorstep. Experience the vibrant flavors and exceptional quality that only comes from fresh, carefully nurtured ingredients.
+              Satwik Farms brings the bounty of our residue free produce directly from our farm in Kisarawe to your doorstep. Experience the vibrant flavors and exceptional quality that only comes from fresh, carefully nurtured ingredients.
             </p>
             <p className="text-base md:text-lg text-text-secondary mb-4">
-              We grow our vegetables organically and have cattle through which we deliver the highest quality milk, yoghurt, ghee, and more. We never compromise on quality - customer satisfaction is of utmost importance to us.
+              We grow our vegetables residue free and have cattle through which we deliver the highest quality milk, yoghurt, ghee, and more. We never compromise on quality - customer satisfaction is of utmost importance to us.
             </p>
             <p className="text-base md:text-lg text-text-secondary">
               We are transparent about everything, which is why we encourage people to come to our farms and experience it themselves. Taste the difference with Satwik Farms and elevate your meals with nature's best.

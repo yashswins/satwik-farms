@@ -10,7 +10,7 @@ const ventures = [
     title: 'Farm Visits',
     icon: '🚜',
     description: 'Educational and fun experiences for families, schools, and groups',
-    image: '/images/activities/1.jpg',
+    image: '/images/ventures/farm-visits.jpg',
     features: [
       'Guided farm tours',
       'Nature walks and mud baths',
@@ -21,14 +21,14 @@ const ventures = [
     ]
   },
   {
-    id: 'organic-produce',
-    title: 'Organic Produce',
+    id: 'residue-free-produce',
+    title: 'Residue Free Produce',
     icon: '🌾',
-    description: 'Fresh vegetables grown without chemicals, delivered to your door',
-    image: '/images/farm/1.jpg',
+    description: 'Fresh vegetables grown without chemical residues, delivered to your door',
+    image: '/images/ventures/residue-free-produce.jpg',
     features: [
-      '100% organic farming',
-      'Chemical-free vegetables',
+      '100% residue free farming',
+      'No harmful chemical residues',
       'Seasonal variety',
       'Home delivery in Dar es Salaam',
       'Farm pickup available',
@@ -40,7 +40,7 @@ const ventures = [
     title: 'Dairy Products',
     icon: '🥛',
     description: 'Premium dairy from happy, healthy cattle',
-    image: '/images/farm/2.jpg',
+    image: '/images/ventures/dairy-products.jpg',
     features: [
       'Fresh milk daily',
       'Homemade yoghurt',
@@ -51,33 +51,33 @@ const ventures = [
     ]
   },
   {
-    id: 'education',
-    title: 'Educational Programs',
-    icon: '📚',
-    description: 'Learn about sustainable agriculture and organic farming',
-    image: '/images/farm/3.jpg',
+    id: 'holistic-living',
+    title: 'Holistic (Satwik) Living',
+    icon: '🧘',
+    description: 'Embrace a balanced lifestyle rooted in nature and traditional wisdom',
+    image: '/images/ventures/holistic-living.jpg',
     features: [
-      'School field trips',
-      'Agricultural workshops',
-      'Sustainability training',
-      'Hands-on learning',
-      'Environmental education',
-      'Custom programs available'
+      'Natural living practices',
+      'Traditional Satwik lifestyle guidance',
+      'Farm-to-table healthy eating',
+      'Mindful living workshops',
+      'Connection with nature',
+      'Sustainable lifestyle tips'
     ]
   },
   {
-    id: 'events',
-    title: 'Corporate Events',
-    icon: '🎉',
-    description: 'Team building and corporate gatherings in nature',
-    image: '/images/farm/4.jpg',
+    id: 'wellness-products',
+    title: 'Wellness Products',
+    icon: '🍯',
+    description: 'Natural honey and handmade soaps crafted with care from our farm',
+    image: '/images/ventures/wellness-products.jpg',
     features: [
-      'Team building activities',
-      'Corporate retreats',
-      'Meeting spaces available',
-      'Farm-to-table catering',
-      'Unique venue experience',
-      'Customized packages'
+      'Pure natural honey',
+      'Handmade natural soaps',
+      'Chemical-free ingredients',
+      'Farm-fresh quality',
+      'Traditional recipes',
+      'Wellness gift sets'
     ]
   },
   {
@@ -85,7 +85,7 @@ const ventures = [
     title: 'Future Ventures',
     icon: '🚀',
     description: 'Expanding our impact on sustainable agriculture',
-    image: '/images/activities/3.jpeg',
+    image: '/images/ventures/future-ventures.jpg',
     features: [
       'Agro-tourism expansion',
       'Farm stay accommodations',
@@ -114,7 +114,7 @@ export default function VenturesTabs() {
             Our Ventures
           </h1>
           <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
-            From farm visits to organic produce, discover all that Satwik Farms has to offer
+            From farm visits to residue free produce, discover all that Satwik Farms has to offer
           </p>
         </motion.div>
 

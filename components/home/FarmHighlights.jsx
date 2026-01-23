@@ -2,11 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const highlights = [
   {
-    title: 'Organic Farming',
-    description: 'Chemical-free, sustainable practices for healthier produce',
+    title: 'Residue Free Farming',
+    description: 'Sustainable practices for healthier, chemical-residue-free produce',
     image: '/images/farm/1.jpg',
     icon: '🌾'
   },
@@ -20,13 +21,14 @@ const highlights = [
     title: 'Farm Visits',
     description: 'Experience farm life with activities for all ages',
     image: '/images/farm/3.jpg',
-    icon: '🚜'
+    icon: '🚜',
+    link: '/farm-visits'
   },
   {
-    title: 'Happy Cattle',
-    description: 'Well-cared animals in natural, spacious environment',
+    title: 'Natural Products',
+    description: 'Pure honey straight from farm and handmade natural soaps',
     image: '/images/farm/4.jpg',
-    icon: '🐄'
+    icon: '🍯'
   }
 ];
 
@@ -77,33 +79,50 @@ export default function FarmHighlights() {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
         >
-          {highlights.map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={itemVariants}
-              className="relative overflow-hidden rounded-3xl h-80 md:h-96 group hover-zoom"
-            >
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                quality={75}
-                loading="lazy"
-              />
+          {highlights.map((item, idx) => {
+            const CardContent = (
+              <>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  quality={75}
+                  loading="lazy"
+                />
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-              {/* Content */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <div className="text-4xl md:text-5xl mb-3 md:mb-4">{item.icon}</div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm md:text-base text-white/90">{item.description}</p>
-              </div>
-            </motion.div>
-          ))}
+                {/* Content */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                  <div className="text-4xl md:text-5xl mb-3 md:mb-4">{item.icon}</div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm md:text-base text-white/90">{item.description}</p>
+                </div>
+              </>
+            );
+
+            return item.link ? (
+              <Link key={idx} href={item.link}>
+                <motion.div
+                  variants={itemVariants}
+                  className="relative overflow-hidden rounded-3xl h-80 md:h-96 group hover-zoom cursor-pointer"
+                >
+                  {CardContent}
+                </motion.div>
+              </Link>
+            ) : (
+              <motion.div
+                key={idx}
+                variants={itemVariants}
+                className="relative overflow-hidden rounded-3xl h-80 md:h-96 group hover-zoom"
+              >
+                {CardContent}
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

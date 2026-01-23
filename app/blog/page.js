@@ -8,15 +8,15 @@ const blogPosts = [
   {
     id: 1,
     title: 'What\'s Growing This Month: January Harvest',
-    excerpt: 'Discover the fresh produce available this month from our organic farm. From leafy greens to juicy tomatoes, see what\'s in season.',
+    excerpt: 'Discover the fresh produce available this month from our residue free farm. From leafy greens to juicy tomatoes, see what\'s in season.',
     image: '/images/farm/1.jpg',
     date: 'January 15, 2024',
     category: 'Farm Updates'
   },
   {
     id: 2,
-    title: 'The Benefits of Organic Farming',
-    excerpt: 'Learn why organic farming matters for your health and the environment. We explain our chemical-free approach to agriculture.',
+    title: 'The Benefits of Residue Free Farming',
+    excerpt: 'Learn why residue free farming matters for your health and the environment. We explain our chemical-free approach to agriculture.',
     image: '/images/farm/2.jpg',
     date: 'January 10, 2024',
     category: 'Education'

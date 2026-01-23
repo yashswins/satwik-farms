@@ -12,7 +12,7 @@ const slides = [
   },
   {
     image: '/images/slideshow/2.jpg',
-    title: 'Organic Vegetables from Kisarawe',
+    title: 'Residue Free Vegetables from Kisarawe',
     subtitle: 'Grown with care, delivered fresh to your doorstep'
   },
   {

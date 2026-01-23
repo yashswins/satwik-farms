@@ -30,7 +30,7 @@ const testimonials = [
     name: 'David Mwamba',
     location: 'Oyster Bay',
     rating: 5,
-    text: 'The transparency and commitment to organic farming is impressive. I trust Satwik Farms with my family\'s food and health.',
+    text: 'The transparency and commitment to residue free farming is impressive. I trust Satwik Farms with my family\'s food and health.',
     avatar: '👨‍🦲'
   },
   {

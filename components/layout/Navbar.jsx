@@ -29,7 +29,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3">
           <div className="relative w-12 h-12">
             <Image
-              src="/images/logo.png"
+              src="/images/logo_transparent.png"
               alt="Satwik Farms"
               fill
               className="object-contain"

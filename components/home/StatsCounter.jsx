@@ -28,25 +28,25 @@ function Counter({ value, suffix = '' }) {
 
 const stats = [
   {
-    value: 1400,
+    value: 5000,
     suffix: '+',
     label: 'Happy Customers',
     icon: '😊'
   },
   {
-    value: 10000,
+    value: 25000,
     suffix: '+',
-    label: 'kg Organic Produce',
+    label: 'kg Monthly Produce',
     icon: '🌾'
   },
   {
     value: 100,
     suffix: '%',
-    label: 'Organic & Chemical-Free',
+    label: 'Residue Free',
     icon: '✅'
   },
   {
-    value: 5,
+    value: 4.6,
     suffix: '★',
     label: 'Customer Satisfaction',
     icon: '⭐'

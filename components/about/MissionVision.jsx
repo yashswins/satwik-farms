@@ -20,7 +20,7 @@ export default function MissionVision() {
               Our Mission
             </h2>
             <p className="text-base md:text-lg text-text-secondary">
-              To deliver the freshest, highest-quality organic produce and dairy products from our farm to your table, while maintaining complete transparency in our farming practices and building lasting relationships with our community through trust and exceptional customer service.
+              To deliver the freshest, highest-quality residue free produce and dairy products from our farm to your table, while maintaining complete transparency in our farming practices and building lasting relationships with our community through trust and exceptional customer service.
             </p>
           </motion.div>
 
@@ -37,7 +37,7 @@ export default function MissionVision() {
               Our Vision
             </h2>
             <p className="text-base md:text-lg text-text-secondary">
-              To become Tanzania's most trusted source of organic produce and premium dairy products, setting the standard for sustainable farming practices, quality assurance, and customer satisfaction while nurturing a healthier, more connected community.
+              To become Tanzania's most trusted source of residue free produce and premium dairy products, setting the standard for sustainable farming practices, quality assurance, and customer satisfaction while nurturing a healthier, more connected community.
             </p>
           </motion.div>
         </div>
