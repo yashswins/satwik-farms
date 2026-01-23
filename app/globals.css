@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../styles/farm-glass.css';
+
+:root {
+  /* Primary Colors - Vibrant Greens */
+  --farm-green-primary: #2D5016;
+  --farm-green-bright: #68B030;
+  --farm-green-light: #98D84E;
+  --farm-green-mint: #C8E6C9;
+
+  /* Secondary Colors */
+  --farm-white: #FFFFFF;
+  --farm-cream: #FAFAF8;
+  --farm-earth: #8B7355;
+
+  /* Accent Colors */
+  --farm-sunshine: #FFD54F;
+  --farm-sky: #81C3D7;
+
+  /* Text Colors */
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A5568;
+  --text-light: #718096;
+
+  /* Glass Effects */
+  --glass-fill-green: rgba(104, 176, 48, 0.15);
+  --glass-fill-white: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px rgba(45, 80, 22, 0.15);
+  --glass-shadow-hover: 0 16px 48px rgba(45, 80, 22, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--farm-white);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--farm-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--farm-green-bright);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--farm-green-primary);
+}
+
+/* Utility Classes */
+.btn-primary {
+  background: var(--farm-green-bright);
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(104, 176, 48, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--farm-green-primary);
+  box-shadow: 0 8px 20px rgba(104, 176, 48, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--farm-green-primary);
+  border: 2px solid var(--farm-green-bright);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--farm-green-light);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 4rem 1.5rem;
+  }
+}
+
+/* Parallax Background */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
