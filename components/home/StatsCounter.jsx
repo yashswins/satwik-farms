@@ -6,7 +6,16 @@ import { useInView } from 'react-intersection-observer';
 
 function Counter({ value, suffix = '' }) {
   const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
+  const decimals = Number.isInteger(value)
+    ? 0
+    : String(value).split('.')[1]?.length || 0;
+  const rounded = useTransform(count, (latest) => {
+    if (decimals === 0) {
+      return String(Math.round(latest));
+    }
+    const factor = 10 ** decimals;
+    return (Math.round(latest * factor) / factor).toFixed(decimals);
+  });
   const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
   const hasAnimated = useRef(false);
 
