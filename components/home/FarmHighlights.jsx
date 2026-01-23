@@ -26,9 +26,9 @@ const highlights = [
   },
   {
     title: 'Natural Products',
-    description: 'Pure honey straight from farm and handmade natural soaps',
+    description: 'Handmade natural soaps, multani mitti (fuller\'s earth mask) and natural honey',
     image: '/images/farm/4.jpg',
-    icon: '🍯'
+    icon: '🌿'
   }
 ];
 
