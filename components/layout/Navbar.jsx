@@ -64,6 +64,12 @@ export default function Navbar() {
             Our Ventures
           </Link>
           <Link
+            href="/gallery"
+            className="text-text-primary hover:text-farm-green-bright transition font-medium"
+          >
+            Gallery
+          </Link>
+          <Link
             href="/blog"
             className="text-text-primary hover:text-farm-green-bright transition font-medium"
           >
@@ -123,6 +129,13 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
           >
             Our Ventures
+          </Link>
+          <Link
+            href="/gallery"
+            className="block text-text-primary hover:text-farm-green-bright py-2"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Gallery
           </Link>
           <Link
             href="/blog"

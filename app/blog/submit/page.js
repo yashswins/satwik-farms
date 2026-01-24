@@ -21,8 +21,30 @@ export default function BlogSubmitPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real application, this would send to an API
-    console.log('Form submitted:', formData);
+
+    // Format the message for WhatsApp
+    const categoryLabels = {
+      'farm-experience': 'Farm Visit Experience',
+      'recipe': 'Recipe Using Farm Produce',
+      'farming-tip': 'Farming Tip or Advice',
+      'testimonial': 'Product Testimonial',
+      'other': 'Other'
+    };
+
+    const message = `*New Blog Story Submission*
+
+*From:* ${formData.name}
+*Email:* ${formData.email}
+*Category:* ${categoryLabels[formData.category]}
+*Title:* ${formData.title}
+
+*Story:*
+${formData.content}`;
+
+    // Open WhatsApp with the pre-filled message
+    const whatsappUrl = `https://wa.me/255767211422?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
