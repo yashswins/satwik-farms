@@ -1,5 +1,6 @@
 import VisitHero from '@/components/farm-visits/VisitHero';
 import ActivitiesGrid from '@/components/farm-visits/ActivitiesGrid';
+import Gallery from '@/components/farm-visits/Gallery';
 import PricingInfo from '@/components/farm-visits/PricingInfo';
 import BookingForm from '@/components/farm-visits/BookingForm';
 
@@ -20,6 +21,7 @@ export default function FarmVisitsPage() {
     <div className="pt-20">
       <VisitHero />
       <ActivitiesGrid />
+      <Gallery />
       <PricingInfo />
       <BookingForm />
     </div>
