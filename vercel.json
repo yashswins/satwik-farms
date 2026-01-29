@@ -57,5 +57,18 @@
       "source": "/robots.txt",
       "destination": "/robots.txt"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.satwikfarms.com"
+        }
+      ],
+      "destination": "https://satwikfarms.com/:path*",
+      "permanent": true
+    }
   ]
 }

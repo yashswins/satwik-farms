@@ -21,6 +21,21 @@ export const metadata = {
     address: false,
     telephone: false,
   },
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+    apple: [
+      { url: '/apple-icon.png', type: 'image/png' }
+    ],
+    other: [
+      {
+        rel: 'icon',
+        url: '/images/logo.png',
+      }
+    ]
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -30,7 +45,7 @@ export const metadata = {
     description: 'Fresh residue free vegetables and premium dairy products delivered from our farm to your doorstep. Order via WhatsApp or Android app.',
     images: [
       {
-        url: '/images/farm/1.jpg',
+        url: 'https://satwikfarms.com/images/farm/1.jpg',
         width: 1200,
         height: 630,
         alt: 'Satwik Farms - Residue free farm in Kisarawe, Tanzania',
@@ -41,7 +56,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Satwik Farms - Residue Free Farm in Tanzania',
     description: 'Fresh residue free vegetables and dairy delivered to your doorstep',
-    images: ['/images/farm/1.jpg'],
+    images: ['https://satwikfarms.com/images/farm/1.jpg'],
   },
   robots: {
     index: true,
@@ -53,6 +68,12 @@ export const metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  alternates: {
+    canonical: 'https://satwikfarms.com',
+  },
+  verification: {
+    google: 'your-google-verification-code-here',
   },
 };
 
