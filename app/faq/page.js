@@ -14,7 +14,7 @@ export default function FAQ() {
       questions: [
         {
           q: "Where can I buy fresh vegetables in Dar es Salaam?",
-          a: "Satwik Farms delivers fresh, residue-free vegetables directly to your door in Dar es Salaam and surrounding areas. You can order via WhatsApp at +255 767 211 422 or join our WhatsApp community group for regular updates and easy ordering."
+          a: "Satwik Farms delivers fresh, residue-free vegetables directly to your door in Dar es Salaam. You can order via WhatsApp at +255 767 211 422 or join our WhatsApp community group for regular updates and easy ordering."
         },
         {
           q: "What does 'residue-free' mean?",
@@ -43,11 +43,11 @@ export default function FAQ() {
         },
         {
           q: "Which areas in Tanzania does Satwik Farms serve?",
-          a: "We primarily serve Dar es Salaam and the Pwani Region. Our farm is located in Kisarawe, allowing us to deliver fresh produce quickly to customers throughout the area. Contact us to confirm delivery availability to your specific location."
+          a: "We deliver exclusively to Dar es Salaam. Our farm is located in Kisarawe, Pwani Region, allowing us to deliver fresh produce quickly to customers in the city. Contact us via WhatsApp at +255 767 211 422 to confirm delivery availability to your specific location."
         },
         {
           q: "How often do you deliver?",
-          a: "We offer regular delivery services throughout the week. Delivery schedules depend on your location within Dar es Salaam and the Pwani Region. Join our WhatsApp group or contact us directly to learn about delivery days for your area."
+          a: "We offer regular delivery services throughout the week to locations in Dar es Salaam. Delivery schedules depend on your specific location within the city. Join our WhatsApp group or contact us directly at +255 767 211 422 to learn about delivery days for your area."
         },
         {
           q: "How do you ensure freshness during delivery?",

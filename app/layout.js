@@ -86,7 +86,7 @@ export default function RootLayout({ children }) {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'Store'],
     name: 'Satwik Farms',
-    description: 'Residue-free vegetable farm and dairy in Tanzania. Fresh, residue-free vegetables and premium dairy products delivered to your door in Dar es Salaam and surrounding areas. Farm-to-table experiences with sustainable farming practices.',
+    description: 'Residue-free vegetable farm and dairy in Tanzania. Fresh, residue-free vegetables and premium dairy products delivered to your door in Dar es Salaam. Farm-to-table experiences with sustainable farming practices.',
     image: 'https://satwikfarms.com/images/logo.png',
     '@id': 'https://satwikfarms.com',
     url: 'https://satwikfarms.com',
@@ -105,20 +105,14 @@ export default function RootLayout({ children }) {
       longitude: 38.9,
     },
     // Service area for AI understanding
-    areaServed: [
-      {
-        '@type': 'City',
-        name: 'Dar es Salaam',
+    areaServed: {
+      '@type': 'City',
+      name: 'Dar es Salaam',
+      containedIn: {
+        '@type': 'Country',
+        name: 'Tanzania',
       },
-      {
-        '@type': 'AdministrativeArea',
-        name: 'Pwani Region',
-        containedIn: {
-          '@type': 'Country',
-          name: 'Tanzania',
-        },
-      },
-    ],
+    },
     // What we offer - helps AIs understand our products/services
     makesOffer: [
       {
