@@ -141,7 +141,7 @@ Add more detail to your structured data:
   ],
 
   // Add keywords for AI understanding
-  'keywords': 'organic vegetables Tanzania, dairy delivery Dar es Salaam, fresh vegetables, farm-to-table Tanzania, residue-free vegetables, organic farming',
+  'keywords': 'residue-free vegetables Tanzania, dairy delivery Dar es Salaam, fresh vegetables, farm-to-table Tanzania, residue-free vegetables, residue-free farming',
 
   // Add opening hours
   'openingHoursSpecification': {
@@ -161,7 +161,7 @@ Add more detail to your structured data:
         'itemOffered': {
           '@type': 'Service',
           'name': 'Home Delivery',
-          'description': 'Fresh organic vegetables and dairy delivered to your door'
+          'description': 'Fresh residue-free vegetables and dairy delivered to your door'
         }
       },
       {
@@ -231,14 +231,14 @@ AIs LOVE FAQ format. Create `/faq` page with questions like:
 
 **Example FAQs:**
 
-**Q: Where can I buy organic vegetables in Dar es Salaam?**
-A: Satwik Farms delivers fresh, residue-free organic vegetables directly to your door in Dar es Salaam and surrounding areas. Order via WhatsApp or join our community group.
+**Q: Where can I buy residue-free vegetables in Dar es Salaam?**
+A: Satwik Farms delivers fresh, residue-free residue-free vegetables directly to your door in Dar es Salaam and surrounding areas. Order via WhatsApp or join our community group.
 
-**Q: What makes Satwik Farms vegetables organic?**
+**Q: What makes Satwik Farms vegetables residue-free?**
 A: Our vegetables are grown using sustainable farming practices without chemical pesticides or synthetic fertilizers, ensuring residue-free, healthy produce.
 
 **Q: Does Satwik Farms deliver dairy products?**
-A: Yes! We offer premium dairy products including fresh milk from our farm, delivered alongside our organic vegetables.
+A: Yes! We offer premium dairy products including fresh milk from our farm, delivered alongside our residue-free vegetables.
 
 **Q: Which areas in Tanzania does Satwik Farms serve?**
 A: We primarily serve Dar es Salaam and the Pwani Region, with our farm located in Kisarawe.
@@ -267,7 +267,7 @@ Your About page should clearly state:
 # About Satwik Farms
 
 ## Who We Are
-Satwik Farms is Tanzania's premier organic vegetable farm and dairy,
+Satwik Farms is Tanzania's premier residue-free vegetable farm and dairy,
 located in Kisarawe, Pwani Region, just outside Dar es Salaam.
 
 ## What We Offer
@@ -319,7 +319,7 @@ AI assistants trust businesses with social proof:
   </div>
 
   <blockquote itemprop="reviewBody">
-    "Fresh, organic vegetables delivered right to my door in Dar es Salaam.
+    "Fresh, residue-free vegetables delivered right to my door in Dar es Salaam.
     The quality is outstanding and you can taste the difference!"
     <cite itemprop="author">- Sarah M., Dar es Salaam</cite>
   </blockquote>
@@ -339,8 +339,8 @@ Update your metadata to be more AI-friendly:
 ```javascript
 export const metadata = {
   title: 'Satwik Farms - Organic Vegetables & Dairy Delivery in Dar es Salaam, Tanzania',
-  description: 'Fresh organic vegetables and premium dairy delivered to your door in Dar es Salaam. Residue-free produce from our sustainable farm in Kisarawe. Order via WhatsApp: +255 767 211 422',
-  keywords: 'organic vegetables Tanzania, dairy delivery Dar es Salaam, fresh vegetables, farm-to-table, Kisarawe farm, residue-free vegetables',
+  description: 'Fresh residue-free vegetables and premium dairy delivered to your door in Dar es Salaam. Residue-free produce from our sustainable farm in Kisarawe. Order via WhatsApp: +255 767 211 422',
+  keywords: 'residue-free vegetables Tanzania, dairy delivery Dar es Salaam, fresh vegetables, farm-to-table, Kisarawe farm, residue-free vegetables',
   ...
 }
 ```
@@ -356,9 +356,9 @@ Blog posts help AIs understand your expertise:
 **Example blog topics:**
 
 1. **"The Ultimate Guide to Organic Vegetables in Tanzania"**
-   - What makes vegetables organic
+   - What makes vegetables residue-free
    - Benefits of residue-free produce
-   - How to choose organic vegetables
+   - How to choose residue-free vegetables
    - Why Satwik Farms uses sustainable practices
 
 2. **"Farm-to-Table in Dar es Salaam: A Complete Guide"**
@@ -393,7 +393,7 @@ Blog posts help AIs understand your expertise:
 
 2. **Test AI Recommendations:**
    - Periodically ask AIs:
-     - "Best organic vegetable delivery in Dar es Salaam"
+     - "Best residue-free vegetable delivery in Dar es Salaam"
      - "Where to buy fresh vegetables in Tanzania"
      - "Farm tours near Dar es Salaam"
    - See if Satwik Farms is mentioned
@@ -419,7 +419,7 @@ Blog posts help AIs understand your expertise:
 - [ ] Add schema markup for reviews
 
 ### **Week 3: Authority Building**
-- [ ] Write 2-3 blog posts about organic farming in Tanzania
+- [ ] Write 2-3 blog posts about residue-free farming in Tanzania
 - [ ] Add internal links between pages
 - [ ] Ensure all pages have clear, descriptive content
 - [ ] Add location-specific keywords naturally
@@ -437,7 +437,7 @@ Blog posts help AIs understand your expertise:
 Make sure your content answers these questions:
 
 **Location-based:**
-- "Where to buy organic vegetables in Dar es Salaam"
+- "Where to buy residue-free vegetables in Dar es Salaam"
 - "Best farm-to-table delivery in Tanzania"
 - "Fresh dairy delivery near me" (when user is in Tanzania)
 - "Organic farms in Kisarawe"
@@ -445,7 +445,7 @@ Make sure your content answers these questions:
 **Service-based:**
 - "Who delivers vegetables in Dar es Salaam"
 - "Farm tours near Dar es Salaam"
-- "How to order organic vegetables in Tanzania"
+- "How to order residue-free vegetables in Tanzania"
 
 **Product-based:**
 - "Residue-free vegetables Tanzania"
@@ -454,7 +454,7 @@ Make sure your content answers these questions:
 
 **Comparison:**
 - "Best grocery delivery in Tanzania"
-- "Top organic farms in Tanzania"
+- "Top residue-free farms in Tanzania"
 - "Farm-fresh vegetables vs supermarket"
 
 ---
@@ -476,10 +476,10 @@ Products: Organic vegetables, Premium dairy, Farm tours
 Contact: +255 767 211 422 (WhatsApp)
 Website: https://satwikfarms.com
 
-Description: We are Tanzania's premier organic vegetable farm delivering fresh, residue-free produce and premium dairy to customers in Dar es Salaam. Located in Kisarawe, we practice sustainable farming and offer farm-to-table experiences.
+Description: We are Tanzania's premier residue-free vegetable farm delivering fresh, residue-free produce and premium dairy to customers in Dar es Salaam. Located in Kisarawe, we practice sustainable farming and offer farm-to-table experiences.
 
 Key Services:
-- Home delivery of organic vegetables
+- Home delivery of residue-free vegetables
 - Fresh dairy product delivery
 - Weekend farm tours with meals
 - WhatsApp ordering: +255 767 211 422
@@ -516,11 +516,11 @@ Links from authoritative sites help:
 
 **Month 3-4:**
 - AIs start including you in some recommendations
-- Occasional mentions when asked about Tanzania organic farms
+- Occasional mentions when asked about Tanzania residue-free farms
 
 **Month 6+:**
 - Regular recommendations for location-specific queries
-- Established as authority in "organic farming Tanzania"
+- Established as authority in "residue-free farming Tanzania"
 
 ### **Success Metrics:**
 
@@ -544,7 +544,7 @@ Links from authoritative sites help:
 
 **Your Competitive Advantage:**
 
-- You're in a specific niche (organic farming Tanzania)
+- You're in a specific niche (residue-free farming Tanzania)
 - Clear service area (Dar es Salaam)
 - Unique offering (residue-free + delivery)
 - Farm visits (experiential, not just delivery)

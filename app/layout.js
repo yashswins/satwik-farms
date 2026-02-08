@@ -84,9 +84,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'Store', 'OrganicStore'],
+    '@type': ['LocalBusiness', 'Store'],
     name: 'Satwik Farms',
-    description: 'Organic vegetable farm and dairy in Tanzania. Fresh, residue-free vegetables and premium dairy products delivered to your door in Dar es Salaam and surrounding areas. Farm-to-table experiences with sustainable farming practices.',
+    description: 'Residue-free vegetable farm and dairy in Tanzania. Fresh, residue-free vegetables and premium dairy products delivered to your door in Dar es Salaam and surrounding areas. Farm-to-table experiences with sustainable farming practices.',
     image: 'https://satwikfarms.com/images/logo.png',
     '@id': 'https://satwikfarms.com',
     url: 'https://satwikfarms.com',
@@ -125,7 +125,7 @@ export default function RootLayout({ children }) {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Product',
-          name: 'Organic Vegetables',
+          name: 'Residue-Free Vegetables',
           description: 'Fresh, residue-free vegetables grown using sustainable farming practices',
         },
       },
@@ -150,12 +150,12 @@ export default function RootLayout({ children }) {
         itemOffered: {
           '@type': 'Service',
           name: 'Home Delivery',
-          description: 'Fresh organic produce delivered to your door in Dar es Salaam',
+          description: 'Fresh residue-free produce delivered to your door in Dar es Salaam',
         },
       },
     ],
     // Keywords for AI understanding
-    keywords: 'organic vegetables Tanzania, dairy delivery Dar es Salaam, fresh vegetables, farm-to-table Tanzania, residue-free vegetables, organic farming, sustainable agriculture, farm tours Kisarawe',
+    keywords: 'residue-free vegetables Tanzania, dairy delivery Dar es Salaam, fresh vegetables, farm-to-table Tanzania, chemical-free vegetables, sustainable agriculture, farm tours Kisarawe',
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: [

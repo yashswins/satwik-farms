@@ -1,6 +1,6 @@
 # Satwik Farms Website
 
-Official website for Satwik Farms - an organic farm in Kisarawe, Tanzania, delivering fresh vegetables and premium dairy products.
+Official website for Satwik Farms - a residue-free farm in Kisarawe, Tanzania, delivering fresh vegetables and premium dairy products.
 
 ## 🌾 Features
 
