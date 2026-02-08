@@ -122,6 +122,12 @@ ${formData.content}`;
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    minLength={2}
+                    maxLength={100}
+                    pattern="^[a-zA-Z\s\-'\.]+$"
+                    title="Please enter a valid name (letters, spaces, hyphens, apostrophes only)"
+                    autoComplete="name"
+                    aria-required="true"
                     className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-farm-green-bright focus:outline-none transition"
                     placeholder="John Doe"
                   />
@@ -139,6 +145,11 @@ ${formData.content}`;
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    pattern="^[a-zA-Z0-9._%+\-]{1,64}@[a-zA-Z0-9.\-]{1,255}\.[a-zA-Z]{2,}$"
+                    title="Please enter a valid email address"
+                    autoComplete="email"
+                    aria-required="true"
+                    maxLength={320}
                     className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-farm-green-bright focus:outline-none transition"
                     placeholder="john@example.com"
                   />
@@ -177,6 +188,9 @@ ${formData.content}`;
                     value={formData.title}
                     onChange={handleChange}
                     required
+                    minLength={5}
+                    maxLength={150}
+                    aria-required="true"
                     className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-farm-green-bright focus:outline-none transition"
                     placeholder="My Amazing Farm Visit"
                   />
@@ -193,7 +207,10 @@ ${formData.content}`;
                     value={formData.content}
                     onChange={handleChange}
                     required
+                    minLength={20}
+                    maxLength={5000}
                     rows={8}
+                    aria-required="true"
                     className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-farm-green-bright focus:outline-none transition resize-none"
                     placeholder="Share your experience, recipe, or farming tips..."
                   />

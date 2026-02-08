@@ -80,8 +80,21 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/20 text-center text-white/60">
-        © {new Date().getFullYear()} Satwik Farms. All rights reserved.
+      <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/20">
+        {/* Privacy & Analytics Notice */}
+        <div className="text-center text-white/60 text-sm mb-6">
+          <p className="mb-2">
+            This website uses analytics to improve your experience. We collect anonymous usage data to understand how visitors interact with our site.
+          </p>
+          <p className="text-white/50 text-xs">
+            No personal information is collected without your consent. By using this site, you agree to our use of analytics cookies.
+          </p>
+        </div>
+
+        {/* Copyright */}
+        <div className="text-center text-white/60">
+          © {new Date().getFullYear()} Satwik Farms. All rights reserved.
+        </div>
       </div>
     </footer>
   );

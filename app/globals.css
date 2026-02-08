@@ -1,8 +1,8 @@
+@import '../styles/farm-glass.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import '../styles/farm-glass.css';
 
 :root {
   /* Primary Colors - Vibrant Greens */

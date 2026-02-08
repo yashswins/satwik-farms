@@ -72,9 +72,6 @@ export const metadata = {
   alternates: {
     canonical: 'https://satwikfarms.com',
   },
-  verification: {
-    google: 'your-google-verification-code-here',
-  },
 };
 
 export default function RootLayout({ children }) {

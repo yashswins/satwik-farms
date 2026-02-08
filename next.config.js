@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  productionBrowserSourceMaps: false,
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
@@ -55,6 +56,30 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              // Next.js requires 'unsafe-inline' for initial hydration, but we remove 'unsafe-eval'
+              "script-src 'self' 'unsafe-inline' https://cdn.vercel-analytics.com https://va.vercel-scripts.com",
+              // Style requires 'unsafe-inline' for CSS-in-JS (framer-motion, Next.js)
+              "style-src 'self' 'unsafe-inline'",
+              // Restrict images to specific domains instead of all HTTPS
+              "img-src 'self' data: blob: https://satwikfarms.com https://*.vercel.app",
+              "font-src 'self' data:",
+              "connect-src 'self' https://cdn.vercel-analytics.com https://va.vercel-scripts.com https://vitals.vercel-insights.com",
+              "frame-src 'self'",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self' https://wa.me",
+              "frame-ancestors 'self'",
+              "upgrade-insecure-requests"
+            ].join('; ')
+          },
+          {
+            key: 'X-Permitted-Cross-Domain-Policies',
+            value: 'none'
           },
         ],
       },

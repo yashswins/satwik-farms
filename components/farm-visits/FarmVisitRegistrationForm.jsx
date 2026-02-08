@@ -214,6 +214,12 @@ _Note: All meals are vegetarian. No alcoholic drinks permitted on farm premises.
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  minLength={2}
+                  maxLength={100}
+                  pattern="^[a-zA-Z\s\-'\.]+$"
+                  title="Please enter a valid name (letters, spaces, hyphens, apostrophes only)"
+                  autoComplete="name"
+                  aria-required="true"
                   className="w-full px-4 py-3 md:py-4 rounded-xl border-2 border-gray-200 focus:border-farm-green-bright focus:outline-none transition text-base md:text-lg"
                   placeholder="Your full name"
                 />
@@ -233,6 +239,8 @@ _Note: All meals are vegetarian. No alcoholic drinks permitted on farm premises.
                     onChange={handleChange}
                     required
                     min="0"
+                    max="100"
+                    aria-required="true"
                     className="w-full px-4 py-3 md:py-4 rounded-xl border-2 border-gray-200 focus:border-farm-green-bright focus:outline-none transition text-base md:text-lg"
                   />
                 </div>
@@ -247,6 +255,7 @@ _Note: All meals are vegetarian. No alcoholic drinks permitted on farm premises.
                     value={formData.children}
                     onChange={handleChange}
                     min="0"
+                    max="100"
                     className="w-full px-4 py-3 md:py-4 rounded-xl border-2 border-gray-200 focus:border-farm-green-bright focus:outline-none transition text-base md:text-lg"
                   />
                 </div>
@@ -264,6 +273,12 @@ _Note: All meals are vegetarian. No alcoholic drinks permitted on farm premises.
                   value={formData.mobile}
                   onChange={handleChange}
                   required
+                  pattern="^\+?[0-9]{1,4}[\s\-]?(\([0-9]{1,4}\)|[0-9]{1,4})[\s\-]?[0-9]{1,4}[\s\-]?[0-9]{1,9}$"
+                  title="Please enter a valid phone number (e.g., +255 767 211 422)"
+                  autoComplete="tel"
+                  aria-required="true"
+                  minLength={10}
+                  maxLength={20}
                   className="w-full px-4 py-3 md:py-4 rounded-xl border-2 border-gray-200 focus:border-farm-green-bright focus:outline-none transition text-base md:text-lg"
                   placeholder="+255 XXX XXX XXX"
                 />
@@ -300,6 +315,7 @@ _Note: All meals are vegetarian. No alcoholic drinks permitted on farm premises.
                   name="dietary"
                   value={formData.dietary}
                   onChange={handleChange}
+                  maxLength={200}
                   className="w-full px-4 py-3 md:py-4 rounded-xl border-2 border-gray-200 focus:border-farm-green-bright focus:outline-none transition text-base md:text-lg"
                   placeholder="Any allergies or special dietary needs? (All meals are vegetarian)"
                 />
@@ -316,6 +332,7 @@ _Note: All meals are vegetarian. No alcoholic drinks permitted on farm premises.
                   value={formData.additionalNeeds}
                   onChange={handleChange}
                   rows={4}
+                  maxLength={500}
                   className="w-full px-4 py-3 md:py-4 rounded-xl border-2 border-gray-200 focus:border-farm-green-bright focus:outline-none transition resize-none text-base md:text-lg"
                   placeholder="Any special requirements or questions?"
                 />
