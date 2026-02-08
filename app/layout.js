@@ -118,27 +118,17 @@ export default function RootLayout({ children }) {
       {
         '@type': 'Offer',
         itemOffered: {
-          '@type': 'Product',
+          '@type': 'Service',
           name: 'Residue-Free Vegetables',
-          description: 'Fresh, residue-free vegetables grown using sustainable farming practices',
-          offers: {
-            '@type': 'Offer',
-            availability: 'https://schema.org/InStock',
-            priceCurrency: 'TZS',
-          },
+          description: 'Fresh, residue-free vegetables grown using sustainable farming practices and delivered to Dar es Salaam',
         },
       },
       {
         '@type': 'Offer',
         itemOffered: {
-          '@type': 'Product',
+          '@type': 'Service',
           name: 'Premium Dairy Products',
-          description: 'Fresh milk and dairy products from our farm',
-          offers: {
-            '@type': 'Offer',
-            availability: 'https://schema.org/InStock',
-            priceCurrency: 'TZS',
-          },
+          description: 'Fresh milk and dairy products from our farm delivered to Dar es Salaam',
         },
       },
       {
