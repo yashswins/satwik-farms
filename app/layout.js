@@ -127,6 +127,11 @@ export default function RootLayout({ children }) {
           '@type': 'Product',
           name: 'Residue-Free Vegetables',
           description: 'Fresh, residue-free vegetables grown using sustainable farming practices',
+          offers: {
+            '@type': 'Offer',
+            availability: 'https://schema.org/InStock',
+            priceCurrency: 'TZS',
+          },
         },
       },
       {
@@ -135,6 +140,11 @@ export default function RootLayout({ children }) {
           '@type': 'Product',
           name: 'Premium Dairy Products',
           description: 'Fresh milk and dairy products from our farm',
+          offers: {
+            '@type': 'Offer',
+            availability: 'https://schema.org/InStock',
+            priceCurrency: 'TZS',
+          },
         },
       },
       {
