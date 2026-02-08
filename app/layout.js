@@ -68,6 +68,13 @@ export const metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+    // Allow AI crawlers for training and search
+    'GPTBot': 'index, follow',
+    'ChatGPT-User': 'index, follow',
+    'ClaudeBot': 'index, follow',
+    'anthropic-ai': 'index, follow',
+    'Google-Extended': 'index, follow',
+    'PerplexityBot': 'index, follow',
   },
   alternates: {
     canonical: 'https://satwikfarms.com',
@@ -77,8 +84,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'Store', 'OrganicStore'],
     name: 'Satwik Farms',
+    description: 'Organic vegetable farm and dairy in Tanzania. Fresh, residue-free vegetables and premium dairy products delivered to your door in Dar es Salaam and surrounding areas. Farm-to-table experiences with sustainable farming practices.',
     image: 'https://satwikfarms.com/images/logo.png',
     '@id': 'https://satwikfarms.com',
     url: 'https://satwikfarms.com',
@@ -96,6 +104,58 @@ export default function RootLayout({ children }) {
       latitude: -6.9,
       longitude: 38.9,
     },
+    // Service area for AI understanding
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'Dar es Salaam',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Pwani Region',
+        containedIn: {
+          '@type': 'Country',
+          name: 'Tanzania',
+        },
+      },
+    ],
+    // What we offer - helps AIs understand our products/services
+    makesOffer: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Organic Vegetables',
+          description: 'Fresh, residue-free vegetables grown using sustainable farming practices',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Premium Dairy Products',
+          description: 'Fresh milk and dairy products from our farm',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Farm Visits & Tours',
+          description: 'Weekend farm tours with farm-to-table dining experiences',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Home Delivery',
+          description: 'Fresh organic produce delivered to your door in Dar es Salaam',
+        },
+      },
+    ],
+    // Keywords for AI understanding
+    keywords: 'organic vegetables Tanzania, dairy delivery Dar es Salaam, fresh vegetables, farm-to-table Tanzania, residue-free vegetables, organic farming, sustainable agriculture, farm tours Kisarawe',
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: [
@@ -112,6 +172,7 @@ export default function RootLayout({ children }) {
     },
     sameAs: [
       'https://www.instagram.com/satwik.farms/',
+      'https://www.facebook.com/share/1BPLUDwqWq/',
       'https://chat.whatsapp.com/Fe6U6ym7i0FCNJzoN951fM',
     ],
   };

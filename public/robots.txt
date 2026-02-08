@@ -1,9 +1,38 @@
-# Allow all crawlers
+# robots.txt for Satwik Farms
+# Allow all search engines and AI crawlers
+
+# Default: Allow all
 User-agent: *
+Allow: /
+
+# Explicitly allow AI crawlers for training and search
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
 Allow: /
 
 # Disallow admin or private pages (if any)
 # Disallow: /admin/
+# Disallow: /api/
 
 # Sitemap location
 Sitemap: https://satwikfarms.com/sitemap.xml
