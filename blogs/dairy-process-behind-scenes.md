@@ -2,7 +2,7 @@
 title: "Behind the Scenes: Our Dairy Process"
 date: "December 20, 2023"
 category: "Farm Updates"
-image: "/images/farm/4.jpg"
+image: "/images/farm/2.jpg"
 excerpt: "Take a look at how we produce fresh milk, yoghurt, and ghee from our happy, healthy cattle."
 ---
 

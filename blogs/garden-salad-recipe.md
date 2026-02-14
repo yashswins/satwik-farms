@@ -2,7 +2,7 @@
 title: "Fresh Recipes: Garden Salad with Satwik Greens"
 date: "December 28, 2023"
 category: "Recipes"
-image: "/images/farm/3.jpg"
+image: "/images/slideshow/6.jpg"
 excerpt: "A simple and delicious salad recipe using fresh produce from our farm. Perfect for a healthy lunch or dinner side."
 ---
 
