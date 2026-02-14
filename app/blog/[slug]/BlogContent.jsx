@@ -1,6 +1,7 @@
 'use client';
 
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 export default function BlogContent({ content }) {
   return (
@@ -17,12 +18,15 @@ export default function BlogContent({ content }) {
       prose-a:text-farm-green-bright prose-a:no-underline hover:prose-a:text-farm-green-primary
       prose-blockquote:border-l-4 prose-blockquote:border-farm-green-bright prose-blockquote:pl-4 prose-blockquote:italic
       prose-code:text-farm-green-primary prose-code:bg-farm-cream prose-code:px-2 prose-code:py-1 prose-code:rounded
-      prose-table:w-full prose-table:border-collapse
-      prose-th:bg-farm-green-bright prose-th:text-white prose-th:p-3 prose-th:text-left
-      prose-td:border prose-td:border-gray-300 prose-td:p-3
+      prose-table:w-full prose-table:border-collapse prose-table:my-8 prose-table:overflow-x-auto
+      prose-thead:bg-farm-green-primary
+      prose-th:bg-farm-green-primary prose-th:text-white prose-th:p-3 prose-th:text-left prose-th:font-semibold
+      prose-td:border prose-td:border-gray-300 prose-td:p-3 prose-td:text-text-secondary
+      prose-tr:border-b prose-tr:border-gray-200
+      prose-tbody:divide-y prose-tbody:divide-gray-200
       prose-hr:border-farm-green-bright prose-hr:my-8
     ">
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
     </div>
   );
 }
