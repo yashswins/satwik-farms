@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function BlogGrid({ blogPosts }) {
   return (
@@ -40,9 +41,12 @@ export default function BlogGrid({ blogPosts }) {
             <p className="text-sm md:text-base text-text-secondary mb-4">
               {post.excerpt}
             </p>
-            <button className="text-farm-green-bright hover:text-farm-green-primary font-semibold text-sm md:text-base transition">
+            <Link
+              href={`/blog/${post.slug}`}
+              className="text-farm-green-bright hover:text-farm-green-primary font-semibold text-sm md:text-base transition inline-block"
+            >
               Read More →
-            </button>
+            </Link>
           </div>
         </motion.article>
       ))}
