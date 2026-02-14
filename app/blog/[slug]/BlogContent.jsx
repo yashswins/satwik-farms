@@ -5,28 +5,218 @@ import remarkGfm from 'remark-gfm';
 
 export default function BlogContent({ content }) {
   return (
-    <div className="prose prose-lg max-w-none
-      prose-headings:text-farm-green-primary
-      prose-h1:text-3xl prose-h1:md:text-4xl prose-h1:font-bold prose-h1:mb-6
-      prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:font-bold prose-h2:mt-8 prose-h2:mb-4
-      prose-h3:text-xl prose-h3:md:text-2xl prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3
-      prose-p:text-text-secondary prose-p:leading-relaxed prose-p:mb-4
-      prose-strong:text-farm-green-primary prose-strong:font-semibold
-      prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6
-      prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6
-      prose-li:text-text-secondary prose-li:mb-2
-      prose-a:text-farm-green-bright prose-a:no-underline hover:prose-a:text-farm-green-primary
-      prose-blockquote:border-l-4 prose-blockquote:border-farm-green-bright prose-blockquote:pl-4 prose-blockquote:italic
-      prose-code:text-farm-green-primary prose-code:bg-farm-cream prose-code:px-2 prose-code:py-1 prose-code:rounded
-      prose-table:w-full prose-table:border-collapse prose-table:my-8 prose-table:overflow-x-auto
-      prose-thead:bg-farm-green-primary
-      prose-th:bg-farm-green-primary prose-th:text-white prose-th:p-3 prose-th:text-left prose-th:font-semibold
-      prose-td:border prose-td:border-gray-300 prose-td:p-3 prose-td:text-text-secondary
-      prose-tr:border-b prose-tr:border-gray-200
-      prose-tbody:divide-y prose-tbody:divide-gray-200
-      prose-hr:border-farm-green-bright prose-hr:my-8
-    ">
+    <article className="blog-content">
+      <style jsx global>{`
+        .blog-content {
+          line-height: 1.8;
+        }
+
+        /* Headings */
+        .blog-content h1 {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: #2d5016;
+          margin-top: 3rem;
+          margin-bottom: 1.5rem;
+          line-height: 1.2;
+        }
+
+        .blog-content h2 {
+          font-size: 2rem;
+          font-weight: 700;
+          color: #2d5016;
+          margin-top: 3rem;
+          margin-bottom: 1.25rem;
+          line-height: 1.3;
+        }
+
+        .blog-content h3 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #2d5016;
+          margin-top: 2.5rem;
+          margin-bottom: 1rem;
+          line-height: 1.4;
+        }
+
+        /* Paragraphs */
+        .blog-content p {
+          font-size: 1.125rem;
+          color: #4a5568;
+          margin-bottom: 1.5rem;
+          line-height: 1.8;
+        }
+
+        /* Strong/Bold */
+        .blog-content strong,
+        .blog-content b {
+          font-weight: 700;
+          color: #2d5016;
+        }
+
+        /* Emphasis/Italic */
+        .blog-content em {
+          font-style: italic;
+          color: #2d5016;
+        }
+
+        /* Lists */
+        .blog-content ul,
+        .blog-content ol {
+          margin: 2rem 0;
+          padding-left: 2rem;
+        }
+
+        .blog-content ul {
+          list-style-type: disc;
+        }
+
+        .blog-content ol {
+          list-style-type: decimal;
+        }
+
+        .blog-content li {
+          font-size: 1.125rem;
+          color: #4a5568;
+          margin-bottom: 1rem;
+          line-height: 1.8;
+          padding-left: 0.5rem;
+        }
+
+        .blog-content li::marker {
+          color: #6fb83c;
+          font-weight: 600;
+        }
+
+        .blog-content ul ul,
+        .blog-content ol ol {
+          margin-top: 0.75rem;
+          margin-bottom: 0.75rem;
+        }
+
+        /* Tables */
+        .blog-content table {
+          width: 100%;
+          border-collapse: separate;
+          border-spacing: 0;
+          margin: 3rem 0;
+          font-size: 1rem;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          border-radius: 0.5rem;
+          overflow: hidden;
+        }
+
+        .blog-content thead {
+          background: #2d5016;
+        }
+
+        .blog-content th {
+          background: #2d5016;
+          color: white;
+          font-weight: 600;
+          text-align: left;
+          padding: 1rem 1.25rem;
+          border-bottom: 2px solid #6fb83c;
+          font-size: 1rem;
+          white-space: nowrap;
+        }
+
+        .blog-content td {
+          padding: 1rem 1.25rem;
+          border-bottom: 1px solid #e2e8f0;
+          color: #4a5568;
+          line-height: 1.6;
+          vertical-align: top;
+        }
+
+        .blog-content tbody tr {
+          background: white;
+          transition: background-color 0.2s;
+        }
+
+        .blog-content tbody tr:hover {
+          background: #f7fafc;
+        }
+
+        .blog-content tbody tr:last-child td {
+          border-bottom: none;
+        }
+
+        /* Make tables responsive */
+        @media (max-width: 768px) {
+          .blog-content table {
+            font-size: 0.875rem;
+          }
+
+          .blog-content th,
+          .blog-content td {
+            padding: 0.75rem;
+          }
+        }
+
+        /* Links */
+        .blog-content a {
+          color: #6fb83c;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.2s;
+        }
+
+        .blog-content a:hover {
+          color: #2d5016;
+          text-decoration: underline;
+        }
+
+        /* Blockquotes */
+        .blog-content blockquote {
+          border-left: 4px solid #6fb83c;
+          padding-left: 1.5rem;
+          margin: 2rem 0;
+          font-style: italic;
+          color: #4a5568;
+          background: #f7fafc;
+          padding: 1.5rem;
+          border-radius: 0.25rem;
+        }
+
+        /* Code */
+        .blog-content code {
+          background: #f0f4e8;
+          color: #2d5016;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.25rem;
+          font-size: 0.9em;
+          font-family: 'Monaco', 'Courier New', monospace;
+        }
+
+        .blog-content pre {
+          background: #f7fafc;
+          padding: 1.5rem;
+          border-radius: 0.5rem;
+          overflow-x: auto;
+          margin: 2rem 0;
+        }
+
+        .blog-content pre code {
+          background: transparent;
+          padding: 0;
+        }
+
+        /* Horizontal Rule */
+        .blog-content hr {
+          border: none;
+          border-top: 2px solid #6fb83c;
+          margin: 3rem 0;
+        }
+
+        /* First paragraph after heading */
+        .blog-content h1 + p,
+        .blog-content h2 + p,
+        .blog-content h3 + p {
+          margin-top: 1rem;
+        }
+      `}</style>
       <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
-    </div>
+    </article>
   );
 }
