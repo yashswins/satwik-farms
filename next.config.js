@@ -18,12 +18,26 @@ const nextConfig = {
   // Redirect www to non-www for canonical URLs
   async redirects() {
     return [
+      // Redirect www to non-www (handles both http and https)
       {
         source: '/:path*',
         has: [
           {
             type: 'host',
             value: 'www.satwikfarms.com',
+          },
+        ],
+        destination: 'https://satwikfarms.com/:path*',
+        permanent: true,
+      },
+      // Redirect HTTP to HTTPS for non-www
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
           },
         ],
         destination: 'https://satwikfarms.com/:path*',
