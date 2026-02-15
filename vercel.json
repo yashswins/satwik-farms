@@ -56,8 +56,7 @@
         }
       ],
       "destination": "https://satwikfarms.com/:path",
-      "permanent": true,
-      "statusCode": 301
+      "permanent": true
     },
     {
       "source": "/:path(.*)",
@@ -69,8 +68,7 @@
         }
       ],
       "destination": "https://satwikfarms.com/:path",
-      "permanent": true,
-      "statusCode": 301
+      "permanent": true
     }
   ],
   "trailingSlash": false,
