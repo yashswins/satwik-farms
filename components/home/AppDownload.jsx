@@ -116,8 +116,8 @@ export default function AppDownload() {
                   <Image
                     src="/images/play-store-download.svg"
                     alt="Get it on Google Play"
-                    width={180}
-                    height={54}
+                    width={195}
+                    height={58}
                     loading="lazy"
                   />
                 </a>
