@@ -76,9 +76,7 @@ export default function Navbar() {
             Blog
           </Link>
           <a
-            href="https://play.google.com/store/apps/details?id=com.satwikfarms.satwik"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#app-download"
             className="btn-primary px-6 py-3 rounded-full"
           >
             Download App
@@ -145,10 +143,9 @@ export default function Navbar() {
             Blog
           </Link>
           <a
-            href="https://play.google.com/store/apps/details?id=com.satwikfarms.satwik"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#app-download"
             className="block btn-primary px-6 py-3 rounded-full text-center"
+            onClick={() => setMobileMenuOpen(false)}
           >
             Download App
           </a>

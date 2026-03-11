@@ -114,11 +114,10 @@ export default function AppDownload() {
                   className="inline-block hover:scale-105 transition-transform duration-300"
                 >
                   <Image
-                    src="/images/play-store.png"
+                    src="/images/play-store-download.svg"
                     alt="Get it on Google Play"
                     width={180}
                     height={54}
-                    quality={90}
                     loading="lazy"
                   />
                 </a>
@@ -133,7 +132,6 @@ export default function AppDownload() {
                     alt="Download on the App Store"
                     width={180}
                     height={54}
-                    quality={90}
                     loading="lazy"
                   />
                 </a>
