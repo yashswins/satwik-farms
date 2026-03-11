@@ -126,20 +126,16 @@ export default function AppDownload() {
                   href={appStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-black hover:bg-gray-800 text-white px-5 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
-                  style={{ width: 180, height: 54 }}
+                  className="inline-block hover:scale-105 transition-transform duration-300"
                 >
                   <Image
-                    src="/images/app-store.png"
-                    alt=""
-                    width={32}
-                    height={32}
-                    className="flex-shrink-0"
+                    src="/images/app-store-download.svg"
+                    alt="Download on the App Store"
+                    width={180}
+                    height={54}
+                    quality={90}
+                    loading="lazy"
                   />
-                  <div className="text-left">
-                    <div className="text-xs opacity-80 leading-none mb-0.5">Download on the</div>
-                    <div className="text-base font-bold leading-none">App Store</div>
-                  </div>
                 </a>
               </div>
               <p className="text-xs text-text-secondary italic mb-6">
