@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { QRCodeSVG } from 'qrcode.react';
-import { FaWhatsapp, FaApple } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function AppDownload() {
   const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.satwikfarms';
@@ -129,7 +129,13 @@ export default function AppDownload() {
                   className="inline-flex items-center gap-3 bg-black hover:bg-gray-800 text-white px-5 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
                   style={{ width: 180, height: 54 }}
                 >
-                  <FaApple className="text-3xl flex-shrink-0" />
+                  <Image
+                    src="/images/app-store.png"
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="flex-shrink-0"
+                  />
                   <div className="text-left">
                     <div className="text-xs opacity-80 leading-none mb-0.5">Download on the</div>
                     <div className="text-base font-bold leading-none">App Store</div>
