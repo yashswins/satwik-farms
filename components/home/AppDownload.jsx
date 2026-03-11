@@ -52,6 +52,23 @@ export default function AppDownload() {
               transition={{ duration: 0.8 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-6"
             >
+              {/* iOS QR Code — App Store first (Apple guideline) */}
+              <div className="flex flex-col items-center">
+                <div className="bg-white p-4 rounded-2xl shadow-lg border-4 border-farm-green-primary">
+                  <QRCodeSVG
+                    value={appStoreUrl}
+                    size={160}
+                    level="H"
+                    includeMargin
+                    fgColor="#2D5016"
+                  />
+                </div>
+                <p className="text-center mt-3 font-bold text-farm-green-primary text-base md:text-lg">
+                  iPhone
+                </p>
+                <p className="text-xs text-text-secondary">Apple App Store</p>
+              </div>
+
               {/* Android QR Code */}
               <div className="flex flex-col items-center">
                 <div className="bg-white p-4 rounded-2xl shadow-lg border-4 border-farm-green-primary">
@@ -67,23 +84,6 @@ export default function AppDownload() {
                   Android
                 </p>
                 <p className="text-xs text-text-secondary">Google Play Store</p>
-              </div>
-
-              {/* iOS QR Code */}
-              <div className="flex flex-col items-center">
-                <div className="bg-white p-4 rounded-2xl shadow-lg border-4 border-farm-green-primary">
-                  <QRCodeSVG
-                    value={appStoreUrl}
-                    size={160}
-                    level="H"
-                    includeMargin
-                    fgColor="#2D5016"
-                  />
-                </div>
-                <p className="text-center mt-3 font-bold text-farm-green-primary text-base md:text-lg">
-                  iPhone
-                </p>
-                <p className="text-xs text-text-secondary">Apple App Store</p>
               </div>
             </motion.div>
 
@@ -105,22 +105,8 @@ export default function AppDownload() {
                 Experience the taste of Tanzania with produce grown residue free and delivered fresh from our farm.
               </p>
 
-              {/* App Download Buttons — Primary */}
-              <div className="flex flex-col items-center md:items-start gap-3 mb-3">
-                <a
-                  href={playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block hover:scale-105 transition-transform duration-300"
-                >
-                  <Image
-                    src="/images/play-store-download.svg"
-                    alt="Get it on Google Play"
-                    width={195}
-                    height={58}
-                    loading="lazy"
-                  />
-                </a>
+              {/* App Download Buttons — App Store first (Apple guideline), Play Store same size or larger (Google guideline) */}
+              <div className="flex flex-col items-center md:items-start gap-4 mb-3">
                 <a
                   href={appStoreUrl}
                   target="_blank"
@@ -132,6 +118,20 @@ export default function AppDownload() {
                     alt="Download on the App Store"
                     width={180}
                     height={54}
+                    loading="lazy"
+                  />
+                </a>
+                <a
+                  href={playStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block hover:scale-105 transition-transform duration-300"
+                >
+                  <Image
+                    src="/images/play-store-download.svg"
+                    alt="Get it on Google Play"
+                    width={195}
+                    height={58}
                     loading="lazy"
                   />
                 </a>
