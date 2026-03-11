@@ -3,10 +3,11 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { QRCodeSVG } from 'qrcode.react';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaApple } from 'react-icons/fa';
 
 export default function AppDownload() {
-  const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.satwikfarms.satwik';
+  const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.satwikfarms';
+  const appStoreUrl = 'https://apps.apple.com/us/app/satwikfarms/id6759561187';
   const whatsappUrl = 'https://chat.whatsapp.com/Fe6U6ym7i0FCNJzoN951fM';
 
   return (
@@ -37,7 +38,7 @@ export default function AppDownload() {
             Order Fresh from Our Farm
           </h2>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            Place orders through WhatsApp or download our Android app for easy browsing and ordering
+            Download our app for the easiest way to browse products and place orders — available on Android and iPhone
           </p>
         </motion.div>
 
@@ -49,40 +50,40 @@ export default function AppDownload() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="flex flex-col items-center gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center gap-6"
             >
-              {/* WhatsApp QR Code */}
+              {/* Android QR Code */}
               <div className="flex flex-col items-center">
-                <div className="bg-white p-4 md:p-6 rounded-2xl shadow-lg border-4 border-green-500">
-                  <Image
-                    src="/images/WhatsApp QR.jpeg"
-                    alt="Scan for WhatsApp Catalog"
-                    width={180}
-                    height={180}
-                    className="rounded-lg"
-                    quality={90}
-                  />
-                </div>
-                <p className="text-center mt-3 font-bold text-green-600 text-base md:text-lg">
-                  Scan for WhatsApp Catalog
-                </p>
-                <p className="text-xs text-text-secondary">Primary Ordering</p>
-              </div>
-
-              {/* Play Store QR Code */}
-              <div className="flex flex-col items-center">
-                <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                <div className="bg-white p-4 rounded-2xl shadow-lg border-4 border-farm-green-primary">
                   <QRCodeSVG
                     value={playStoreUrl}
-                    size={180}
+                    size={160}
                     level="H"
                     includeMargin
                     fgColor="#2D5016"
                   />
                 </div>
-                <p className="text-center mt-3 font-semibold text-farm-green-primary text-base md:text-lg">
-                  Scan for Android App
+                <p className="text-center mt-3 font-bold text-farm-green-primary text-base md:text-lg">
+                  Android
                 </p>
+                <p className="text-xs text-text-secondary">Google Play Store</p>
+              </div>
+
+              {/* iOS QR Code */}
+              <div className="flex flex-col items-center">
+                <div className="bg-white p-4 rounded-2xl shadow-lg border-4 border-farm-green-primary">
+                  <QRCodeSVG
+                    value={appStoreUrl}
+                    size={160}
+                    level="H"
+                    includeMargin
+                    fgColor="#2D5016"
+                  />
+                </div>
+                <p className="text-center mt-3 font-bold text-farm-green-primary text-base md:text-lg">
+                  iPhone
+                </p>
+                <p className="text-xs text-text-secondary">Apple App Store</p>
               </div>
             </motion.div>
 
@@ -104,51 +105,58 @@ export default function AppDownload() {
                 Experience the taste of Tanzania with produce grown residue free and delivered fresh from our farm.
               </p>
 
-              {/* WhatsApp Button - Primary */}
-              <div className="mb-6">
+              {/* App Download Buttons — Primary */}
+              <div className="flex flex-col items-center md:items-start gap-3 mb-3">
                 <a
-                  href={whatsappUrl}
+                  href={playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+                  className="inline-block hover:scale-105 transition-transform duration-300"
                 >
-                  <FaWhatsapp className="text-3xl" />
+                  <Image
+                    src="/images/play-store.png"
+                    alt="Get it on Google Play"
+                    width={180}
+                    height={54}
+                    quality={90}
+                    loading="lazy"
+                  />
+                </a>
+                <a
+                  href={appStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-black hover:bg-gray-800 text-white px-5 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+                  style={{ width: 180, height: 54 }}
+                >
+                  <FaApple className="text-3xl flex-shrink-0" />
                   <div className="text-left">
-                    <div className="text-sm opacity-90">Order Now on</div>
-                    <div className="text-lg">WhatsApp</div>
+                    <div className="text-xs opacity-80 leading-none mb-0.5">Download on the</div>
+                    <div className="text-base font-bold leading-none">App Store</div>
                   </div>
                 </a>
-                <p className="text-xs text-text-secondary mt-2 italic">
-                  Our main ordering platform - Join 5000+ happy customers!
-                </p>
               </div>
+              <p className="text-xs text-text-secondary italic mb-6">
+                Join 5,000+ happy customers!
+              </p>
 
               {/* Divider */}
-              <div className="flex items-center gap-3 my-6">
+              <div className="flex items-center gap-3 my-4">
                 <div className="flex-1 h-px bg-gray-300"></div>
-                <span className="text-sm text-text-secondary">OR</span>
+                <span className="text-sm text-text-secondary">or</span>
                 <div className="flex-1 h-px bg-gray-300"></div>
               </div>
 
-              {/* Play Store Download */}
+              {/* WhatsApp — Secondary */}
               <a
-                href={playStoreUrl}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block hover:scale-105 transition-transform duration-300"
+                className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium transition-colors duration-300"
               >
-                <Image
-                  src="/images/play-store.png"
-                  alt="Get it on Google Play"
-                  width={200}
-                  height={60}
-                  quality={90}
-                  loading="lazy"
-                />
+                <FaWhatsapp className="text-xl" />
+                <span className="text-sm">Join our WhatsApp group for updates</span>
               </a>
-              <p className="text-xs text-text-secondary mt-2">
-                Download our Android app for the best experience
-              </p>
             </motion.div>
           </div>
         </div>

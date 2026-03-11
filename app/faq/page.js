@@ -14,7 +14,7 @@ export default function FAQ() {
       questions: [
         {
           q: "Where can I buy fresh vegetables in Dar es Salaam?",
-          a: "Satwik Farms delivers fresh, residue-free vegetables directly to your door in Dar es Salaam. You can order via WhatsApp at +255 767 211 422 or join our WhatsApp community group for regular updates and easy ordering."
+          a: "Satwik Farms delivers fresh, residue-free vegetables directly to your door in Dar es Salaam. Download our app (Android or iPhone) to browse products and place orders, or call us on +255 767 211 422."
         },
         {
           q: "What does 'residue-free' mean?",
@@ -39,7 +39,7 @@ export default function FAQ() {
       questions: [
         {
           q: "How do I order from Satwik Farms?",
-          a: "Ordering is easy! You can place orders through WhatsApp at +255 767 211 422, join our WhatsApp community group for regular updates, or download our Android app from the Google Play Store. Simply send us a message with what you'd like to order."
+          a: "Ordering is easy! Download our app — available on Android (Google Play) and iPhone (App Store) — browse our products and place your order in a few taps. You can also call or WhatsApp us at +255 767 211 422."
         },
         {
           q: "Which areas in Tanzania does Satwik Farms serve?",
@@ -114,7 +114,7 @@ export default function FAQ() {
         },
         {
           q: "What payment methods do you accept?",
-          a: "We accept various payment methods including mobile money and bank transfers. Specific payment details will be provided when you place your order via WhatsApp or our Android app."
+          a: "We accept various payment methods including mobile money and bank transfers. Specific payment details will be provided when you place your order through the app or by calling us."
         },
         {
           q: "Why should I pay more for residue-free vegetables?",
@@ -127,11 +127,11 @@ export default function FAQ() {
       questions: [
         {
           q: "Do you have an app for ordering?",
-          a: "Yes! We have an Android app available on the Google Play Store. You can download it from our website or search for 'Satwik Farms' in the Play Store. The app makes ordering easy and keeps you updated on available products."
+          a: "Yes! Our app is available on both Android (Google Play Store) and iPhone (Apple App Store). Search for 'Satwik Farms' or download it directly from our website. The app is the easiest way to browse products, track orders, and get updates."
         },
         {
           q: "How can I stay updated on available products?",
-          a: "The best way to stay updated is to join our WhatsApp community group. We regularly post updates about available vegetables, dairy products, special offers, and farm news. You can also follow us on Instagram @satwik.farms or check our Android app."
+          a: "Download our app — it shows live product availability and lets you order directly. You can also join our WhatsApp community group for farm news and announcements, or follow us on Instagram @satwik.farms."
         },
         {
           q: "Can I buy vegetables directly from your farm?",

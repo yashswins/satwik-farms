@@ -140,7 +140,7 @@ export default function SocialConnect() {
                     Join our WhatsApp Group
                   </h3>
                   <p className="text-sm md:text-base text-text-secondary">
-                    Browse catalogue, place orders, and get exclusive offers
+                    Updates, announcements, and community news
                   </p>
                 </div>
               </div>
