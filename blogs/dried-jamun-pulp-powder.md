@@ -8,7 +8,7 @@ excerpt: "Jamun has been used in Ayurveda for centuries to manage blood sugar. D
 
 # Dried Jamun Pulp
 
-Jamun (*Syzygium cumini*), also known as Indian Blackberry or Black Plum, has been a cornerstone of Ayurvedic medicine for centuries — particularly for managing blood sugar. When the pulp is dried and powdered, it becomes a concentrated source of the compounds that make this fruit so therapeutic.
+Jamun (*Syzygium cumini*), also known as Indian Blackberry or Black Plum, has been a cornerstone of Ayurvedic medicine for centuries — particularly for managing blood sugar. In its dried form, the pulp becomes a concentrated source of the compounds that make this fruit so therapeutic.
 
 ## Key Benefits
 
