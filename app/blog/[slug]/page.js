@@ -11,19 +11,68 @@ export async function generateStaticParams() {
   }));
 }
 
+const BASE_URL = 'https://satwikfarms.com';
+
+function toISODate(dateStr) {
+  try {
+    return new Date(dateStr).toISOString().split('T')[0];
+  } catch {
+    return undefined;
+  }
+}
+
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
   const blog = getBlogBySlug(resolvedParams.slug);
 
   if (!blog) {
-    return {
-      title: 'Blog Not Found',
-    };
+    return { title: 'Blog Not Found' };
   }
+
+  const canonicalUrl = `${BASE_URL}/blog/${resolvedParams.slug}`;
+  const imageUrl = blog.image
+    ? blog.image.startsWith('http')
+      ? blog.image
+      : `${BASE_URL}${blog.image}`
+    : `${BASE_URL}/images/farm/1.jpg`;
+  const isoDate = toISODate(blog.date);
 
   return {
     title: `${blog.title} | Satwik Farms Blog`,
     description: blog.excerpt,
+    keywords: blog.keywords ?? [blog.category, 'Satwik Farms', 'Tanzania', 'residue free farming'],
+    authors: [{ name: 'Satwik Farms', url: BASE_URL }],
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      type: 'article',
+      url: canonicalUrl,
+      title: blog.title,
+      description: blog.excerpt,
+      siteName: 'Satwik Farms',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
+      ...(isoDate && {
+        article: {
+          publishedTime: isoDate,
+          section: blog.category,
+          authors: ['https://satwikfarms.com'],
+        },
+      }),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.title,
+      description: blog.excerpt,
+      images: [imageUrl],
+    },
   };
 }
 
@@ -35,8 +84,54 @@ export default async function BlogPost({ params }) {
     notFound();
   }
 
+  const canonicalUrl = `${BASE_URL}/blog/${resolvedParams.slug}`;
+  const imageUrl = blog.image
+    ? blog.image.startsWith('http')
+      ? blog.image
+      : `${BASE_URL}${blog.image}`
+    : `${BASE_URL}/images/farm/1.jpg`;
+  const isoDate = toISODate(blog.date);
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: blog.title,
+    description: blog.excerpt,
+    image: imageUrl,
+    url: canonicalUrl,
+    datePublished: isoDate,
+    dateModified: isoDate,
+    author: {
+      '@type': 'Organization',
+      name: 'Satwik Farms',
+      url: BASE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Satwik Farms',
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/images/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+    articleSection: blog.category,
+    keywords: Array.isArray(blog.keywords)
+      ? blog.keywords.join(', ')
+      : [blog.category, 'Satwik Farms', 'Tanzania'].join(', '),
+  };
+
   return (
     <div className="pt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 px-6 bg-farm-cream">
         <div className="max-w-4xl mx-auto">
@@ -60,7 +155,7 @@ export default async function BlogPost({ params }) {
           <p className="text-lg text-text-secondary mb-6">{blog.excerpt}</p>
 
           <div className="text-sm text-text-light">
-            <time dateTime={blog.date}>{blog.date}</time>
+            <time dateTime={isoDate ?? blog.date}>{blog.date}</time>
           </div>
         </div>
       </section>

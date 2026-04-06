@@ -4,6 +4,7 @@ date: "February 14, 2026"
 category: "Education"
 image: "/images/glycemic-index.jpeg"
 excerpt: "Learn how the Glycemic Index affects your blood sugar, why it matters for diabetes management, and discover healthier Indian food alternatives for everyday meals."
+keywords: ["glycemic index India", "low GI foods Indian diet", "blood sugar management foods", "glycemic index for diabetics", "low GI Indian food alternatives", "glycemic load explained"]
 ---
 
 # Understanding Glycemic Index (GI)

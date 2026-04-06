@@ -4,6 +4,7 @@ date: "March 29, 2026"
 category: "Education"
 image: "/images/jamun_powder.jpg"
 excerpt: "Jamun Beej Churna — dried jamun seed powder — is an Ayurvedic staple for blood sugar control, digestion, and detox. Here's everything you need to know about using it daily."
+keywords: ["jamun seed powder diabetes", "jamun beej churna benefits", "jamun seed powder blood sugar", "Syzygium cumini powder", "jamun churna how to use", "natural diabetes remedy Ayurveda"]
 ---
 
 # Dried Jamun Seed Powder (Jamun Beej Churna)

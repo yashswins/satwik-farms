@@ -4,6 +4,7 @@ date: "March 28, 2026"
 category: "Education"
 image: "/images/multigrain_atta.jpeg"
 excerpt: "Discover our 100% wheat-free multigrain atta, engineered for glycemic control with complex millets and high-quality plant proteins for stable blood sugar."
+keywords: ["diabetic flour India", "multigrain atta for diabetics", "wheat-free flour blend", "low GI flour India", "millet flour blood sugar", "gluten-free diabetic roti"]
 ---
 
 # Millet Master: Our Diabetic-Friendly Multigrain Atta

@@ -15,6 +15,7 @@ This folder contains all blog posts for Satwik Farms website. Each blog post is 
    category: "Farm Updates"
    image: "/images/your-image.jpg"
    excerpt: "A short description of your blog post that appears in the preview."
+   keywords: ["keyword one", "keyword two", "keyword three"]
    ---
    ```
 
@@ -86,9 +87,21 @@ Simply delete the `.md` file from this folder. The blog will disappear from the 
 
 - **Filename**: Use lowercase letters and hyphens (e.g., `my-blog-post.md`)
 - **Date format**: Use full month name (e.g., "February 14, 2026")
-- **Excerpt**: Keep it under 150 characters for best display
+- **Excerpt**: Keep it under 160 characters. Write it like a Google search result snippet — describe what the reader will learn, include the main keyword naturally
+- **Keywords**: Add 3–6 specific keywords to the frontmatter `keywords` array. Think about what someone would type into Google to find this post (e.g., "residue free vegetables Tanzania", "glycemic index Indian food")
 - **Images**: Use high-quality images but compress them for web to ensure fast loading
 - **Content**: Write in markdown format - use # for headings, ** for bold, * for italic
+
+## SEO Writing Tips
+
+Good SEO means Google can understand what your post is about and show it to the right people. Follow these guidelines:
+
+- **Title**: Include the main keyword early. E.g., instead of "Our Barley Article", write "Barley for Diabetics: Benefits, GI Values & How to Use It"
+- **Content length**: Aim for at least 400–600 words per post. Longer, more thorough posts rank better
+- **Use headings (## and ###)**: Break the content into clear sections. Google uses headings to understand the structure
+- **Answer a real question**: Think "what is someone Googling?" and answer it directly. E.g., "Is barley good for diabetics?" → write a post that answers it completely
+- **Internal links**: Mention and link to related products or other blog posts where relevant
+- **Keyword placement**: Use your main keyword in the title, first paragraph, at least one heading, and a few times naturally in the body — but don't force it
 
 ## Markdown Formatting Quick Reference
 
