@@ -5,15 +5,11 @@ import { motion } from 'framer-motion';
 const categories = [
   { icon: '🥬', label: 'Fresh Vegetables' },
   { icon: '🍎', label: 'Fresh Fruits' },
-  { icon: '🥛', label: 'Dairy & Eggs' },
+  { icon: '🥛', label: 'Dairy Products' },
   { icon: '🌾', label: 'Grains & Pulses' },
   { icon: '🧂', label: 'Spices & Masala' },
   { icon: '🫙', label: 'Cooking Oils' },
-  { icon: '🧃', label: 'Beverages & Drinks' },
-  { icon: '🍫', label: 'Snacks & Packaged Foods' },
   { icon: '🧴', label: 'Personal Care' },
-  { icon: '🧹', label: 'Cleaning Products' },
-  { icon: '🫘', label: 'Canned & Preserved Goods' },
   { icon: '🏠', label: 'Household Essentials' },
 ];
 

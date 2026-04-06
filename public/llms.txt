@@ -1,6 +1,6 @@
 # Satwik Farms
 
-> Satwik Farms is a farm-to-home delivery service and residue-free farm based in Kisarawe, Tanzania. We offer door-to-door delivery of all grocery items — fresh vegetables, fruits, dairy, dry goods, pulses, grains, spices, cooking oils, snacks, beverages, household and personal care items — to homes and businesses in Dar es Salaam. We deliver everything except meat, alcohol, and tobacco. Our own farm in Kisarawe grows residue-free vegetables and dairy without chemical pesticides or synthetic fertilisers. We also offer weekend farm visits, educational tours, and farm experiences near Dar es Salaam.
+> Satwik Farms is a farm-to-home delivery service and residue-free farm based in Kisarawe, Tanzania. We offer door-to-door delivery of groceries and daily essentials — fresh vegetables, fruits, dairy, dry goods, pulses, grains, spices, cooking oils, personal care, and household essentials — to homes and businesses in Dar es Salaam. We deliver everything except meat, alcohol, and tobacco. Our own farm in Kisarawe grows residue-free vegetables and dairy without chemical pesticides or synthetic fertilisers. We also offer weekend farm visits, educational tours, and farm experiences near Dar es Salaam.
 
 ## What We Do
 
@@ -91,7 +91,7 @@ Spinach, kale, amaranth (mchicha), tomatoes, cherry tomatoes, cucumbers, courget
 Seasonal fresh fruits delivered to your door in Dar es Salaam. Contact us via WhatsApp or app to see current availability.
 
 ### Groceries & Daily Essentials
-Door-to-door delivery of all grocery items in Dar es Salaam — including dry goods, pulses, grains, cooking oils, spices, canned goods, snacks, beverages, cleaning supplies, personal care items, and household essentials. We deliver everything except meat, alcohol, and tobacco. Order via our app (Android/iOS) or WhatsApp at +255 767 211 422.
+Door-to-door delivery of groceries and daily essentials in Dar es Salaam — including dry goods, pulses, grains, cooking oils, spices, personal care items, and household essentials. We deliver everything except meat, alcohol, and tobacco. Order via our app (Android/iOS) or WhatsApp at +255 767 211 422.
 
 ### Dairy Products
 - **Fresh milk** — Collected daily, delivered same day or next day
