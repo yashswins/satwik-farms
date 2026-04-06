@@ -36,3 +36,6 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://satwikfarms.com/sitemap.xml
+
+# LLMs.txt - structured content for AI assistants
+# https://satwikfarms.com/llms.txt
