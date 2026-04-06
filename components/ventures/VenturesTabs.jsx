@@ -6,6 +6,21 @@ import Image from 'next/image';
 
 const ventures = [
   {
+    id: 'grocery-delivery',
+    title: 'Grocery Delivery',
+    icon: '🛒',
+    description: 'Everything you need delivered to your door across Dar es Salaam — fresh produce, dairy, dry goods, spices, snacks, household essentials, and more. Everything except meat, alcohol, and tobacco.',
+    image: '/images/farm/1.jpg',
+    features: [
+      'Fresh vegetables & fruits',
+      'Dairy, grains & pulses',
+      'Spices, oils & packaged foods',
+      'Household & personal care essentials',
+      'Same-day & next-day delivery',
+      'Order via WhatsApp or our app'
+    ]
+  },
+  {
     id: 'farm-visits',
     title: 'Farm Visits',
     icon: '🚜',
