@@ -1,9 +1,29 @@
 export const metadata = {
   title: 'Frequently Asked Questions',
   description: 'Common questions about Satwik Farms residue-free vegetables, dairy products, farm visits, and delivery services in Dar es Salaam and Tanzania.',
+  keywords: ['Satwik Farms FAQ', 'residue free vegetables Tanzania questions', 'farm delivery Dar es Salaam', 'farm visit booking Tanzania', 'fresh dairy delivery Tanzania'],
+  alternates: {
+    canonical: 'https://satwikfarms.com/faq',
+  },
   openGraph: {
+    type: 'website',
+    url: 'https://satwikfarms.com/faq',
     title: 'FAQ - Satwik Farms',
     description: 'Find answers to common questions about our residue-free vegetables, dairy products, and farm visits.',
+    images: [
+      {
+        url: 'https://satwikfarms.com/images/farm/1.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Satwik Farms FAQ',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FAQ - Satwik Farms',
+    description: 'Common questions about residue-free vegetables, dairy, farm visits, and delivery in Tanzania.',
+    images: ['https://satwikfarms.com/images/farm/1.jpg'],
   },
 };
 
@@ -149,8 +169,26 @@ export default function FAQ() {
     }
   ];
 
+  const allQuestions = faqs.flatMap((cat) => cat.questions);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: allQuestions.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#2D5016] via-[#68B030] to-[#2D5016]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Header */}
       <section className="relative py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
