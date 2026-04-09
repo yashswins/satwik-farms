@@ -7,10 +7,6 @@ excerpt: "Fatty liver affects 1 in 4 people worldwide. Discover how Satwik food,
 keywords: ["fatty liver disease natural remedies", "NAFLD Ayurvedic treatment", "Satwik diet for fatty liver", "foods to heal liver", "liver detox India", "fatty liver home remedies"]
 ---
 
-> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice, diagnosis, or treatment. It does not replace consultation with a qualified medical professional. Always consult your doctor or a certified Ayurvedic practitioner before making changes to your diet, lifestyle, or health regimen — especially if you have an existing medical condition or are on medication. Natural remedies and dietary approaches may interact with medications or may not be suitable for everyone. Use this information responsibly and in conjunction with professional medical guidance.
-
----
-
 # Fatty Liver Disease: A Satwik & Holistic Perspective
 
 Fatty liver disease is one of the fastest-growing lifestyle disorders of our time — and yet, most people don't know they have it until the damage has already begun. Often called a "silent disease," it progresses quietly in the background of our daily choices: the meals we eat, the hours we sleep, the stress we carry.
@@ -338,3 +334,7 @@ Your kitchen holds the first pharmacy. Your daily choices are the medicine.
 ---
 
 *At Satwik Farms, we grow food that is free from harmful residues — food that supports your body's natural healing. Because true wellness begins at the root.*
+
+---
+
+> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice, diagnosis, or treatment. It does not replace consultation with a qualified medical professional. Always consult your doctor or a certified Ayurvedic practitioner before making changes to your diet, lifestyle, or health regimen — especially if you have an existing medical condition or are on medication. Natural remedies and dietary approaches may interact with medications or may not be suitable for everyone.

@@ -7,8 +7,6 @@ excerpt: "Discover why barley, an ancient grain cultivated for thousands of year
 keywords: ["barley for diabetics", "barley glycemic index", "low GI grains for diabetes", "barley health benefits India", "beta-glucan blood sugar", "barley sattu benefits"]
 ---
 
-> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice. If you have diabetes or any other health condition, please consult your doctor or a registered dietitian before making dietary changes.
-
 # Barley – A Superfood
 
 **Scientific name:** *Hordeum vulgare* — a cereal grain belonging to the Poaceae (grass) family. It has been cultivated for thousands of years and is one of the world's oldest grains still in regular use.
@@ -122,3 +120,7 @@ These preparations retain a lot of fiber and nutrients, benefiting blood sugar c
 ---
 
 *At Satwik Farms, we believe in the power of traditional, nutrient-dense foods like barley to support your health and well-being.*
+
+---
+
+> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice. If you have diabetes or any other health condition, please consult your doctor or a registered dietitian before making dietary changes.

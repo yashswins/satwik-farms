@@ -82,6 +82,13 @@ export default function Footer() {
       </div>
 
       <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/20">
+        {/* Medical Disclaimer */}
+        <div className="text-center text-white/60 text-sm mb-4">
+          <p className="text-white/50 text-xs">
+            Content on this site is for informational purposes only and is not medical advice. Always consult a qualified healthcare professional before making changes to your diet or health routine.
+          </p>
+        </div>
+
         {/* Privacy & Analytics Notice */}
         <div className="text-center text-white/60 text-sm mb-6">
           <p className="mb-2">

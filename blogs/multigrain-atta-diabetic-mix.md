@@ -7,8 +7,6 @@ excerpt: "Discover our 100% wheat-free multigrain atta, engineered for glycemic 
 keywords: ["diabetic flour India", "multigrain atta for diabetics", "wheat-free flour blend", "low GI flour India", "millet flour blood sugar", "gluten-free diabetic roti"]
 ---
 
-> **Disclaimer:** The information in this article is for general educational purposes only and does not constitute medical advice, diagnosis, or treatment. If you have diabetes or any other medical condition, please consult your doctor or a registered dietitian before making changes to your diet. Individual responses to foods vary — what works for one person may not work for another.
-
 # Millet Master: Our Diabetic-Friendly Multigrain Atta
 
 Our Millet Master Diabetic Mix is a 100% wheat-free flour blend formulated with glycemic control in mind. By replacing simple carbohydrates with complex starches and high-quality plant proteins, this flour is designed to be a smarter, lower-GI alternative to refined wheat flour.
@@ -90,3 +88,7 @@ Since this mix is entirely gluten-free, the dough will lack the elasticity of wh
 ---
 
 *At Satwik Farms, we believe in the power of whole, natural ingredients. Our Millet Master Diabetic Mix is crafted to make every roti a smarter, more nourishing choice — as part of a balanced diet and healthy lifestyle.*
+
+---
+
+> **Disclaimer:** The information in this article is for general educational purposes only and does not constitute medical advice, diagnosis, or treatment. If you have diabetes or any other medical condition, please consult your doctor or a registered dietitian before making changes to your diet. Individual responses to foods vary — what works for one person may not work for another.

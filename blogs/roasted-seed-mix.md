@@ -7,8 +7,6 @@ excerpt: "Our roasted seed mix — flax, chia, pumpkin, sunflower, sesame, and w
 keywords: ["roasted seed mix benefits", "flaxseed chia pumpkin seeds health", "seed mix for diabetics", "omega-3 omega-6 balance foods India", "seeds for blood sugar control", "nutrient dense healthy snack"]
 ---
 
-> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice. Nutritional benefits vary between individuals. If you have diabetes, a cardiovascular condition, or any other health concern, please consult your doctor or a registered dietitian before making dietary changes.
-
 # The Power of Our Roasted Seed Mix
 
 Our roasted seed mix is a synergistic blend of six seeds — **Flax, Chia, Pumpkin, Sunflower, Sesame, and Watermelon** — crafted to deliver maximum nutritional benefit in every tablespoon. Because the seeds are roasted, the mix is not only more flavorful but also easier to digest: heat helps break down anti-nutrients like phytic acid, which can otherwise block mineral absorption.
@@ -120,3 +118,7 @@ Since seeds are calorie-dense, a typical serving is **1–2 tablespoons (approx.
 ---
 
 *At Satwik Farms, we believe in the power of whole, natural foods. Our roasted seed mix is carefully crafted to support your health, one tablespoon at a time.*
+
+---
+
+> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice. Nutritional benefits vary between individuals. If you have diabetes, a cardiovascular condition, or any other health concern, please consult your doctor or a registered dietitian before making dietary changes.

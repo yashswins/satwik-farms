@@ -7,8 +7,6 @@ excerpt: "Jamun Beej Churna — dried jamun seed powder — is an Ayurvedic stap
 keywords: ["jamun seed powder diabetes", "jamun beej churna benefits", "jamun seed powder blood sugar", "Syzygium cumini powder", "jamun churna how to use", "natural diabetes remedy Ayurveda"]
 ---
 
-> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice, diagnosis, or treatment. Jamun seed powder is a traditional food supplement, not a replacement for prescribed diabetes medication. If you are diabetic or on any medication, please consult your doctor before use — it may lower blood sugar levels and interact with existing medication.
-
 # Dried Jamun Seed Powder (Jamun Beej Churna)
 
 Jamun (*Syzygium cumini*), or Indian Blackberry, has been a cornerstone of Ayurvedic medicine for centuries. While the fruit itself is well known, it is the **seed** that holds the most concentrated therapeutic compounds. Dried and powdered, Jamun Beej Churna is one of the most trusted natural aids for blood sugar management and overall wellness.
@@ -77,3 +75,7 @@ Jamun seed powder has traditionally been used to strengthen gums and reduce bad 
 ---
 
 *At Satwik Farms, our Jamun Beej Churna is prepared from carefully dried seeds — pure, additive-free, and traditionally processed to preserve its full potency.*
+
+---
+
+> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice, diagnosis, or treatment. Jamun seed powder is a traditional food supplement, not a replacement for prescribed diabetes medication. If you are diabetic or on any medication, please consult your doctor before use — it may lower blood sugar levels and interact with existing medication.

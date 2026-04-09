@@ -7,8 +7,6 @@ excerpt: "Jamun has been used in Ayurveda for centuries to manage blood sugar. D
 keywords: ["jamun pulp for diabetes", "dried jamun benefits", "jamun blood sugar control", "jamboline jambosine diabetes", "Indian blackberry health benefits", "jamun Ayurveda blood sugar"]
 ---
 
-> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice, diagnosis, or treatment. Jamun pulp is a traditional food, not a substitute for prescribed medication. If you are diabetic or on any medication, consult your doctor before adding this to your routine — it may have an additive effect on blood sugar.
-
 # Dried Jamun Pulp
 
 Jamun (*Syzygium cumini*), also known as Indian Blackberry or Black Plum, has been a cornerstone of Ayurvedic medicine for centuries — particularly for managing blood sugar. In its dried form, the pulp becomes a concentrated source of the compounds that make this fruit so therapeutic.
@@ -79,3 +77,7 @@ Helps reduce post-meal sugar spikes throughout the day.
 ---
 
 *At Satwik Farms, we source and prepare our dried jamun pulp with care — no additives, no fillers, just the pure fruit as nature intended.*
+
+---
+
+> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice, diagnosis, or treatment. Jamun pulp is a traditional food, not a substitute for prescribed medication. If you are diabetic or on any medication, consult your doctor before adding this to your routine — it may have an additive effect on blood sugar.
