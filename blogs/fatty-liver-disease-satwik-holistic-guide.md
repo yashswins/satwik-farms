@@ -87,7 +87,7 @@ No supplement or herb works in isolation. **Disciplined lifestyle changes are th
 - Maintain fixed meal timings — no late-night eating
 - Walk at least **30–45 minutes** every day
 - Practice yoga and pranayama
-- Sleep before 10–11 PM
+- Sleep before 9 PM
 
 ---
 
@@ -317,7 +317,7 @@ Your kitchen is more powerful than you may realise. These seven spices — used 
 - **30–45 min walking** daily — non-negotiable
 - **Yoga:** Bhujangasana (Cobra Pose), Kapalbhati (cleansing breath), Anulom Vilom (alternate nostril breathing)
 - **Stress management:** Meditation, journaling, time in nature
-- **Proper sleep:** Consistent bedtime before 10–11 PM
+- **Proper sleep:** Consistent bedtime before 9 PM
 
 ---
 
