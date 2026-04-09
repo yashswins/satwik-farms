@@ -5,6 +5,8 @@ category: "Education"
 image: "/images/barley.jpg"
 excerpt: "Discover why barley, an ancient grain cultivated for thousands of years, is considered a superfood with exceptional benefits for blood sugar management and overall health."
 keywords: ["barley for diabetics", "barley glycemic index", "low GI grains for diabetes", "barley health benefits India", "beta-glucan blood sugar", "barley sattu benefits"]
+> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice. If you have diabetes or any other health condition, please consult your doctor or a registered dietitian before making dietary changes.
+
 ---
 
 # Barley – A Superfood

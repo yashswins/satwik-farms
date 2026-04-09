@@ -20,7 +20,7 @@ These are digested and absorbed rapidly, causing a sharp spike in blood sugar an
 These are broken down more slowly, resulting in a gradual and sustained release of glucose. This promotes better blood sugar management, improved insulin sensitivity, and longer-lasting satiety.
 
 ### Health Outcomes
-Consistently choosing low-GI foods is associated with a reduced risk of type 2 diabetes, coronary heart disease, and certain cancers.
+Consistently choosing low-GI foods is associated with a reduced risk of type 2 diabetes, coronary heart disease, and certain other chronic conditions.
 
 ## Critical Precautions for Using GI
 

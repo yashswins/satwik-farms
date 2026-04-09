@@ -5,6 +5,8 @@ category: "Education"
 image: "/images/seed_mix.jpg"
 excerpt: "Our roasted seed mix — flax, chia, pumpkin, sunflower, sesame, and watermelon seeds — delivers an ideal Omega-3 to Omega-6 ratio, exceptional minerals, and outstanding benefits for blood sugar management."
 keywords: ["roasted seed mix benefits", "flaxseed chia pumpkin seeds health", "seed mix for diabetics", "omega-3 omega-6 balance foods India", "seeds for blood sugar control", "nutrient dense healthy snack"]
+> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice. Nutritional benefits vary between individuals. If you have diabetes, a cardiovascular condition, or any other health concern, please consult your doctor or a registered dietitian before making dietary changes.
+
 ---
 
 # The Power of Our Roasted Seed Mix
@@ -97,10 +99,10 @@ For a standard **30g serving**, the **Glycemic Load (GL) is less than 1** — co
 
 ### Seed-Specific Diabetic Advantages
 
-- **Flaxseeds** — Contain lignans and soluble fiber shown to significantly reduce fasting blood sugar levels
+- **Flaxseeds** — Contain lignans and soluble fiber associated in research with supporting healthy fasting blood sugar levels
 - **Chia Seeds** — Their gelatinous fiber creates a barrier in the gut, slowing carbohydrate digestion
 - **Pumpkin Seeds** — One of the best natural sources of magnesium; diets rich in magnesium are associated with significantly lower diabetes risk
-- **Sunflower Seeds** — Contain chlorogenic acid, which may help reduce the release of glucose from the liver
+- **Sunflower Seeds** — Contain chlorogenic acid, a compound studied for its potential role in supporting healthy glucose metabolism
 
 ### Key Mechanisms
 

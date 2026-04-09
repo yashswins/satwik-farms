@@ -5,6 +5,8 @@ category: "Education"
 image: "/images/jamun_pulp.jpeg"
 excerpt: "Jamun has been used in Ayurveda for centuries to manage blood sugar. Discover how dried jamun pulp works, its key benefits, and how to use it daily."
 keywords: ["jamun pulp for diabetes", "dried jamun benefits", "jamun blood sugar control", "jamboline jambosine diabetes", "Indian blackberry health benefits", "jamun Ayurveda blood sugar"]
+> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice, diagnosis, or treatment. Jamun pulp is a traditional food, not a substitute for prescribed medication. If you are diabetic or on any medication, consult your doctor before adding this to your routine — it may have an additive effect on blood sugar.
+
 ---
 
 # Dried Jamun Pulp
