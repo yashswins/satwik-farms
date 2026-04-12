@@ -16,12 +16,12 @@ export default function BlogGrid({ blogPosts }) {
           transition={{ duration: 0.8, delay: idx * 0.1 }}
           className="glass-card rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
         >
-          <div className="relative h-48 md:h-56 hover-zoom">
+          <div className={`relative h-48 md:h-56 hover-zoom ${post.imageFit === 'contain' ? 'bg-farm-cream' : ''}`}>
             <Image
               src={post.image}
               alt={post.title}
               fill
-              className="object-cover"
+              className={post.imageFit === 'contain' ? 'object-contain p-2' : 'object-cover'}
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               quality={75}
               loading="lazy"

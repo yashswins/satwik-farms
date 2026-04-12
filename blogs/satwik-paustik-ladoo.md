@@ -3,6 +3,7 @@ title: "Satwik Paustik Ladoo: Healthy Sugar-Free Ladoo with Ayurvedic Benefits"
 date: "April 12, 2026"
 category: "Education"
 image: "/images/paustik-ladoo.jpeg"
+imageFit: "contain"
 excerpt: "A sugar-free, Ayurvedic energy ladoo crafted with premium whole ingredients and no refined sugar. Discover the health benefits, nutrition, and daily usage of Satwik Paustik Ladoo."
 keywords: ["sugar free ladoo benefits", "healthy Ayurvedic ladoo", "healthy ladoo for kids and elders", "Ayurvedic energy ladoo", "paustik ladoo nutrition", "natural energy snack no sugar"]
 ---

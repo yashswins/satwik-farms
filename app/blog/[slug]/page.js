@@ -164,12 +164,12 @@ export default async function BlogPost({ params }) {
       {blog.image && (
         <section className="px-6 py-8 bg-white">
           <div className="max-w-4xl mx-auto">
-            <div className="relative w-full h-64 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
+            <div className={`relative w-full h-64 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden ${blog.imageFit === 'contain' ? 'bg-farm-cream' : ''}`}>
               <Image
                 src={blog.image}
                 alt={blog.title}
                 fill
-                className="object-cover"
+                className={blog.imageFit === 'contain' ? 'object-contain p-4' : 'object-cover'}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                 quality={90}
                 priority
