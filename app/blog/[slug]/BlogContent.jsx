@@ -202,6 +202,28 @@ export default function BlogContent({ content }) {
           padding: 0;
         }
 
+        /* Images */
+        .blog-content img {
+          width: 100% !important;
+          height: 820px !important;
+          object-fit: cover !important;
+          object-position: center !important;
+          display: block !important;
+          margin: 2rem auto !important;
+          border-radius: 0.75rem !important;
+        }
+
+        .blog-content p:has(> img) {
+          margin: 0;
+          padding: 0;
+          line-height: 0;
+        }
+
+        .blog-content img[src*="why-satwik-2"] {
+          height: 600px !important;
+          object-position: center !important;
+        }
+
         /* Horizontal Rule */
         .blog-content hr {
           border: none;
