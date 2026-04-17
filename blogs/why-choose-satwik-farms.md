@@ -3,6 +3,7 @@ title: "Why Choose Satwik Farms: Regenerative, Residue-Free Farming for a Better
 date: "April 16, 2026"
 category: "Education"
 image: "/images/why-satwik.jpeg"
+ogImage: "/images/og-why-satwik.jpg"
 excerpt: "In a world of processed, chemically-grown food, Satwik Farms bridges traditional wisdom and modern wellness — growing residue-free produce through regenerative farming in Kisarawe, Tanzania."
 keywords: ["why choose Satwik Farms", "residue free farming Tanzania", "regenerative farming Kisarawe", "sustainable organic farming Africa", "chemical free vegetables Tanzania", "Satwik Farms mission"]
 ---

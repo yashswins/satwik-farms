@@ -3,6 +3,7 @@ title: "Raw Forest Honey from Kisarawe: Benefits, Ayurvedic Uses & Why It's Bett
 date: "April 16, 2026"
 category: "Education"
 image: "/images/honey.jpg"
+ogImage: "/images/og-honey.jpg"
 excerpt: "Harvested from the wild Miombo forests of Kisarawe, our raw forest honey is unheated, unfiltered, and packed with enzymes, antioxidants, and natural healing properties that processed honey simply cannot match."
 keywords: ["raw forest honey benefits", "raw honey vs processed honey", "Kisarawe honey Tanzania", "Ayurvedic honey Madhu", "wild honey health benefits", "unfiltered honey antioxidants"]
 ---

@@ -30,10 +30,11 @@ export async function generateMetadata({ params }) {
   }
 
   const canonicalUrl = `${BASE_URL}/blog/${resolvedParams.slug}`;
-  const imageUrl = blog.image
-    ? blog.image.startsWith('http')
-      ? blog.image
-      : `${BASE_URL}${blog.image}`
+  const ogImageSource = blog.ogImage || blog.image;
+  const imageUrl = ogImageSource
+    ? ogImageSource.startsWith('http')
+      ? ogImageSource
+      : `${BASE_URL}${ogImageSource}`
     : `${BASE_URL}/images/farm/1.jpg`;
   const isoDate = toISODate(blog.date);
 
