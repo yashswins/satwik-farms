@@ -224,6 +224,12 @@ export default function BlogContent({ content }) {
           object-position: center !important;
         }
 
+        .blog-content img[src*="neem-leaf"],
+        .blog-content img[src*="tulsi-leaf"] {
+          height: 420px !important;
+          object-position: center !important;
+        }
+
         /* Horizontal Rule */
         .blog-content hr {
           border: none;
