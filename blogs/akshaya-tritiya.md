@@ -14,8 +14,6 @@ Akshaya Tritiya falls on the third lunar day of the bright fortnight in the Hind
 
 It marks the beginning of Treta Yuga, the birth of Lord Parashurama, and the day Sage Vyasa began dictating the Mahabharata to Lord Ganesha. Celebrated as a perfect day for new beginnings, charity, purchasing gold, and performing ancestral rituals, Akshaya Tritiya carries the promise of endless prosperity and blessings.
 
-![Akshaya Tritiya celebration — auspicious beginnings and eternal prosperity](/images/akshay_tritya2.jpg)
-
 ---
 
 ## The Deeper Significance
