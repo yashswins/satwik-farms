@@ -6,6 +6,7 @@ image: "/images/akshay_tritya.jpg"
 ogImage: "/images/og-akshay-tritya.jpg"
 excerpt: "Akshaya Tritiya — the festival of imperishable prosperity — marks an auspicious day for new beginnings, charity, and spiritual renewal. Discover its legends, rituals, and the sacred significance of the Amla tree."
 keywords: ["Akshaya Tritiya significance", "Akshaya Tritiya rituals", "what to do on Akshaya Tritiya", "Amla tree puja Akshaya Tritiya", "Hindu festival prosperity", "Akshaya Tritiya traditions India"]
+hideCoverImage: true
 ---
 
 # Akshaya Tritiya: Significance, Rituals & the Sacred Amla Tree
@@ -13,6 +14,8 @@ keywords: ["Akshaya Tritiya significance", "Akshaya Tritiya rituals", "what to d
 Akshaya Tritiya falls on the third lunar day of the bright fortnight in the Hindu month of Vaishakha (April/May), and is one of the most auspicious days in the Hindu calendar. *"Akshaya"* means imperishable or never-diminishing, and *"Tritiya"* refers to the third day.
 
 It marks the beginning of Treta Yuga, the birth of Lord Parashurama, and the day Sage Vyasa began dictating the Mahabharata to Lord Ganesha. Celebrated as a perfect day for new beginnings, charity, purchasing gold, and performing ancestral rituals, Akshaya Tritiya carries the promise of endless prosperity and blessings.
+
+![Akshaya Tritiya celebration — auspicious beginnings and eternal prosperity](/images/akshay_tritya2.jpg)
 
 ---
 

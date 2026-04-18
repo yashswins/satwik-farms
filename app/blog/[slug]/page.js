@@ -162,7 +162,7 @@ export default async function BlogPost({ params }) {
       </section>
 
       {/* Featured Image */}
-      {blog.image && (
+      {blog.image && !blog.hideCoverImage && (
         <section className="px-6 py-8 bg-white">
           <div className="max-w-4xl mx-auto">
             <div className={`relative w-full h-64 md:h-80 lg:h-[520px] rounded-2xl overflow-hidden ${blog.imageFit === 'contain' ? 'bg-farm-cream' : ''}`}>
