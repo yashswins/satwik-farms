@@ -170,7 +170,7 @@ export default async function BlogPost({ params }) {
                 src={blog.image}
                 alt={blog.title}
                 fill
-                className={blog.imageFit === 'contain' ? 'object-contain p-4' : 'object-cover object-[center_20%]'}
+                className={blog.imageFit === 'contain' ? 'object-contain p-4' : `object-cover object-[center_${blog.imagePosition ?? '20%'}]`}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                 quality={90}
                 priority
