@@ -235,6 +235,12 @@ export default function BlogContent({ content }) {
           object-position: center !important;
         }
 
+        .blog-content img[src*="gut1"],
+        .blog-content img[src*="gut2"] {
+          height: 420px !important;
+          object-position: center !important;
+        }
+
         /* Horizontal Rule */
         .blog-content hr {
           border: none;
