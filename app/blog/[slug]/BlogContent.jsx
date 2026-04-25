@@ -236,7 +236,8 @@ export default function BlogContent({ content }) {
         }
 
         .blog-content img[src*="gut1"],
-        .blog-content img[src*="gut2"] {
+        .blog-content img[src*="gut2"],
+        .blog-content img[src*="triphala1-conv"] {
           height: 420px !important;
           object-position: center !important;
         }

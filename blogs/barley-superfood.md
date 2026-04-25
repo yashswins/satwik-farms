@@ -1,7 +1,7 @@
 ---
 title: "Barley – A Superfood for Diabetics and Beyond"
 date: "February 14, 2026"
-category: "Education"
+category: "Products"
 image: "/images/barley.jpg"
 excerpt: "Discover why barley, an ancient grain cultivated for thousands of years, is considered a superfood with exceptional benefits for blood sugar management and overall health."
 keywords: ["barley for diabetics", "barley glycemic index", "low GI grains for diabetes", "barley health benefits India", "beta-glucan blood sugar", "barley sattu benefits"]

@@ -1,7 +1,7 @@
 ---
 title: "Meet Our Cattle: The Heart of Our Dairy"
 date: "December 15, 2023"
-category: "Farm Life"
+category: "Farm Updates"
 image: "/images/activities/3.jpeg"
 excerpt: "Our dairy products are only as good as the animals that produce them. Get to know the cattle at Satwik Farms — how we care for them and why it makes all the difference."
 keywords: ["dairy cattle Tanzania", "fresh milk Dar es Salaam", "Satwik Farms cattle", "residue free dairy Tanzania", "grass-fed cattle dairy Tanzania", "farm fresh milk Kisarawe"]

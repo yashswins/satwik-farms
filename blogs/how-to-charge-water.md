@@ -1,7 +1,7 @@
 ---
 title: "How to Charge Water for Positive Energy: A Simple Daily Ritual for Mind, Body & Life"
 date: "April 5, 2026"
-category: "Education"
+category: "Wellness"
 image: "/images/water-charge.png"
 excerpt: "Discover a simple yet powerful daily ritual of charging water with intention—rooted in ancient wisdom and modern curiosity—to support your mind, body, and overall well-being."
 keywords: ["how to charge water with intention", "charging water positive energy", "Masaru Emoto water crystals", "water intention ritual", "mindfulness daily ritual", "positive energy morning habits"]

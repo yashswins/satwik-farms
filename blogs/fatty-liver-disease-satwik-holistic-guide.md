@@ -1,7 +1,7 @@
 ---
 title: "Fatty Liver Disease: A Satwik & Holistic Guide to Healing Naturally"
 date: "April 9, 2026"
-category: "Education"
+category: "Wellness"
 image: "/images/Fatty_Liver_cover.jpg"
 excerpt: "Fatty liver affects 1 in 4 people worldwide. Discover how Satwik food, Ayurvedic herbs, healing spices, and lifestyle changes can support liver health naturally."
 keywords: ["fatty liver disease natural remedies", "NAFLD Ayurvedic treatment", "Satwik diet for fatty liver", "foods to heal liver", "liver detox India", "fatty liver home remedies"]

@@ -1,7 +1,7 @@
 ---
 title: "Neem Tulsi Soap with Virgin Coconut Oil: Nature's Answer to Clear, Healthy Skin"
 date: "April 18, 2026"
-category: "Wellness"
+category: "Products"
 image: "/images/soap-cover.jpg"
 ogImage: "/images/og-soap.jpg"
 excerpt: "Satwik's handcrafted Neem Tulsi Soap combines real neem and tulsi leaf extracts with virgin coconut oil and glycerin — an Ayurvedic remedy for acne, rashes, and deep skin nourishment without any harsh chemicals."
