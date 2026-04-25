@@ -237,7 +237,10 @@ export default function BlogContent({ content }) {
 
         .blog-content img[src*="gut1"],
         .blog-content img[src*="gut2"],
-        .blog-content img[src*="triphala1-conv"] {
+        .blog-content img[src*="triphala1-conv"],
+        .blog-content img[src*="avocado-oil-conv"],
+        .blog-content img[src*="ash-gourd-juice-conv"],
+        .blog-content img[src*="bitter-gourd2-conv"] {
           height: 420px !important;
           object-position: center !important;
         }
