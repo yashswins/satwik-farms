@@ -242,7 +242,8 @@ export default function BlogContent({ content }) {
         .blog-content img[src*="ash-gourd-juice-conv"],
         .blog-content img[src*="bitter-gourd2-conv"],
         .blog-content img[src*="farming-conv"],
-        .blog-content img[src*="farming3-conv"] {
+        .blog-content img[src*="farming3-conv"],
+        .blog-content img[src*="microgreen-conv"] {
           height: 420px !important;
           object-position: center !important;
         }
