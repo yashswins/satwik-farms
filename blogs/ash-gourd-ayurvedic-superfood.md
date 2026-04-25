@@ -1,7 +1,7 @@
 ---
 title: "Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse You Need to Know"
 date: "April 25, 2026"
-category: "Education"
+category: "Products"
 image: "/images/ash_gourd.jpg"
 ogImage: "/images/og-ash-gourd.jpg"
 excerpt: "Ash gourd — known as Kushmanda in Ayurveda — is a cooling, detoxifying superfood with remarkable benefits for digestion, mental clarity, immunity, and more. Discover why it's called a yogic superfood."
