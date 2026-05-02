@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: blog.title,
+          alt: blog.imageAlt || blog.title,
         },
       ],
       ...(isoDate && {
@@ -92,6 +92,7 @@ export default async function BlogPost({ params }) {
       : `${BASE_URL}${blog.image}`
     : `${BASE_URL}/images/farm/1.jpg`;
   const isoDate = toISODate(blog.date);
+  const modifiedDate = blog.dateModified || isoDate;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -101,7 +102,7 @@ export default async function BlogPost({ params }) {
     image: imageUrl,
     url: canonicalUrl,
     datePublished: isoDate,
-    dateModified: isoDate,
+    dateModified: modifiedDate,
     author: {
       '@type': 'Organization',
       name: 'Satwik Farms',
@@ -168,7 +169,7 @@ export default async function BlogPost({ params }) {
             <div className={`relative w-full h-64 md:h-80 lg:h-[520px] rounded-2xl overflow-hidden ${blog.imageFit === 'contain' ? 'bg-farm-cream' : ''}`}>
               <Image
                 src={blog.image}
-                alt={blog.title}
+                alt={blog.imageAlt || blog.title}
                 fill
                 className={blog.imageFit === 'contain' ? 'object-contain p-4' : `object-cover object-[center_${blog.imagePosition ?? '20%'}]`}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"

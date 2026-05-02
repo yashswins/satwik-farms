@@ -3,6 +3,7 @@ title: "Flax Seeds: Benefits, Nutrition, How to Use & Daily Dosage"
 date: "May 2, 2026"
 category: "Education"
 image: "/images/flax2.jpg"
+imageAlt: "Whole brown flax seeds in a wooden spoon over a light background — a daily superfood source of omega-3, fibre and lignans"
 ogImage: "/images/og-flax.jpg"
 excerpt: "Flax seeds are a tiny powerhouse of omega-3, fibre and lignans — supporting heart health, digestion, hormonal balance and weight management when used daily."
 keywords: ["flax seeds benefits", "flaxseed nutrition", "how to use flax seeds", "flaxseed water", "omega 3 plant source", "lignans flax", "flaxseed dosage", "ground flax seeds"]

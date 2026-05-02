@@ -1,5 +1,13 @@
 import OurStory from '@/components/about/OurStory';
 import MissionVision from '@/components/about/MissionVision';
+import RelatedArticles from '@/components/shared/RelatedArticles';
+
+const aboutPosts = [
+  { slug: 'why-choose-satwik-farms', title: 'Why Choose Satwik Farms: Regenerative, Residue-Free Farming', excerpt: 'The values, practices, and people behind every box we deliver.' },
+  { slug: 'satwik-farming-technique', title: 'Satwik Farming: Holistic, Regenerative Agriculture Rooted in Ancient Indian Wisdom', excerpt: 'How we farm in tune with the land — and why it produces healthier food.' },
+  { slug: 'benefits-of-residue-free-farming', title: 'The Benefits of Residue-Free Farming', excerpt: 'What "residue-free" really means and why it matters for you and the environment.' },
+  { slug: 'meet-our-cattle', title: 'Meet Our Cattle: The Heart of Our Dairy', excerpt: 'How we raise our cows and what that means for the milk you drink.' },
+];
 
 export const metadata = {
   title: 'About Us - Our Story & Mission',
@@ -35,6 +43,11 @@ export default function AboutPage() {
     <div className="pt-20">
       <OurStory />
       <MissionVision />
+      <RelatedArticles
+        posts={aboutPosts}
+        heading="More about how we farm"
+        intro="Stories, methods, and philosophy behind Satwik Farms — straight from our blog."
+      />
     </div>
   );
 }

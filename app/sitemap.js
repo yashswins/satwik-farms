@@ -1,4 +1,5 @@
 import { getAllBlogs } from '@/lib/blogUtils';
+import { getAllServiceSlugs } from '@/lib/services';
 
 const BASE_URL = 'https://satwikfarms.com';
 
@@ -15,16 +16,32 @@ export default function sitemap() {
     { path: '/blog/submit', changeFrequency: 'monthly', priority: 0.5 },
   ];
 
+  const serviceRoutes = getAllServiceSlugs().map((slug) => ({
+    path: `/${slug}`,
+    changeFrequency: 'monthly',
+    priority: 0.9,
+  }));
+
   const blogs = getAllBlogs();
   const blogRoutes = blogs.map((blog) => ({
     url: `${BASE_URL}/blog/${blog.slug}`,
-    lastModified: blog.date ? new Date(blog.date) : lastModified,
+    lastModified: blog.dateModified
+      ? new Date(blog.dateModified)
+      : blog.date
+        ? new Date(blog.date)
+        : lastModified,
     changeFrequency: 'monthly',
     priority: 0.7,
   }));
 
   return [
     ...staticRoutes.map((route) => ({
+      url: `${BASE_URL}${route.path}`,
+      lastModified,
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+    })),
+    ...serviceRoutes.map((route) => ({
       url: `${BASE_URL}${route.path}`,
       lastModified,
       changeFrequency: route.changeFrequency,

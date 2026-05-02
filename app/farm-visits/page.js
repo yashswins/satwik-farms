@@ -3,6 +3,14 @@ import ActivitiesGrid from '@/components/farm-visits/ActivitiesGrid';
 import FarmVisitRegistrationForm from '@/components/farm-visits/FarmVisitRegistrationForm';
 import PricingInfo from '@/components/farm-visits/PricingInfo';
 import BookingForm from '@/components/farm-visits/BookingForm';
+import RelatedArticles from '@/components/shared/RelatedArticles';
+
+const farmVisitPosts = [
+  { slug: 'school-trip-success', title: 'Farm Visit Highlights: School Trip Success at Satwik Farms', excerpt: 'A peek at what a school group experiences during a Satwik Farms visit.' },
+  { slug: 'satwik-farming-technique', title: 'Satwik Farming: Holistic, Regenerative Agriculture', excerpt: 'See the farming methods you will encounter on a guided tour.' },
+  { slug: 'meet-our-cattle', title: 'Meet Our Cattle: The Heart of Our Dairy', excerpt: 'Get to know the cows you might meet on your visit.' },
+  { slug: 'whats-growing-january', title: "What's Growing This Month: Seasonal Harvest at Satwik Farms", excerpt: 'See what is in season — visit during the right month for the best experience.' },
+];
 
 export const metadata = {
   title: 'Farm Visits & Tours - Book Your Experience',
@@ -41,6 +49,11 @@ export default function FarmVisitsPage() {
       <FarmVisitRegistrationForm />
       <PricingInfo />
       <BookingForm />
+      <RelatedArticles
+        posts={farmVisitPosts}
+        heading="Get to know us before you visit"
+        intro="A few articles to help you make the most of your time on the farm."
+      />
     </div>
   );
 }
