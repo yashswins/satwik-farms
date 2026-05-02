@@ -2,14 +2,29 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { buildServiceJsonLd } from '@/lib/services';
 
+const BASE_URL = 'https://satwikfarms.com';
+
 export default function ServiceLanding({ service }) {
   const jsonLd = buildServiceJsonLd(service);
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Our Ventures', item: `${BASE_URL}/ventures` },
+      { '@type': 'ListItem', position: 3, name: service.title, item: `${BASE_URL}/${service.slug}` },
+    ],
+  };
 
   return (
     <div className="pt-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Hero */}
