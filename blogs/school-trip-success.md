@@ -63,3 +63,15 @@ Get in touch via WhatsApp to discuss dates, group size, and what your students a
 ---
 
 *Satwik Farms is located in Kisarawe, approximately 45km from Dar es Salaam. We host visits from schools, community groups, and families throughout the year.*
+
+---
+
+## Related Reading
+
+Learn more about our farm and approach:
+
+- [Why Choose Satwik Farms](/blog/why-choose-satwik-farms)
+- [Satwik Farming: Holistic, Regenerative Agriculture](/blog/satwik-farming-technique)
+- [The Benefits of Residue Free Farming](/blog/benefits-of-residue-free-farming)
+- [What's Growing This Month: January Harvest](/blog/whats-growing-january)
+- [Meet Our Cattle: The Heart of Our Dairy](/blog/meet-our-cattle)

@@ -133,6 +133,8 @@ It is energy, connection, and intention.
 
 By simply becoming aware of what you consume—not just physically, but energetically—you can begin to shift your daily experience in subtle yet meaningful ways.
 
+> **A note on this practice:** Charging water is a mindfulness ritual, not a medical treatment. The benefits described above come primarily from the daily practice of intention-setting, mindful consumption, and conscious habit-building. If you are experiencing physical or mental health concerns, please consult a qualified healthcare professional — this ritual is meant to complement, not replace, medical care.
+
 ## Try It Yourself
 
 Start this practice for a few days. Observe how you feel.
@@ -142,3 +144,14 @@ Sometimes, the smallest rituals create the biggest transformations.
 ---
 
 *At Satwik Farms, we believe in aligning daily habits with natural wisdom—bringing simplicity, mindfulness, and balance into modern life.*
+
+---
+
+## Related Reading
+
+Continue exploring mindful living and Ayurvedic wisdom:
+
+- [Akshaya Tritiya: Significance, Rituals & the Sacred Amla Tree](/blog/akshaya-tritiya)
+- [Triphala: The Ayurvedic Three-Fruit Wonder](/blog/triphala-ayurvedic-guide)
+- [The Gut: Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
+- [Ash Gourd: The Yogic Superfood](/blog/ash-gourd-ayurvedic-superfood)

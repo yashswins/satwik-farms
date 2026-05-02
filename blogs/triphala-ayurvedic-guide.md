@@ -73,7 +73,7 @@ By supporting fat metabolism and reducing lipid accumulation — especially arou
 Rich in Vitamin C and antioxidants, Triphala actively stimulates the immune system. Research has shown it increases the activity of natural killer (NK) cells and cytotoxic T-cells.
 
 ### Eye Health Tonic
-Traditionally, Triphala is used to strengthen vision and protect the eyes. It is believed to slow the progression of conditions like cataracts, glaucoma, and age-related decline in eyesight.
+Traditionally, Triphala is used to support vision and eye health. In Ayurvedic tradition it is believed to help slow age-related decline in eyesight and is used as a supportive measure in conditions like cataracts and glaucoma. Cataracts and glaucoma are serious conditions that require ophthalmologist care — Triphala is not a substitute for prescribed eye treatment or surgery.
 
 ### Skin and Hair Health
 By purifying the blood and improving digestion, Triphala reduces skin issues like acne and psoriasis from within. Externally, its astringent properties tighten the skin and help manage dandruff when used as a hair rinse.
@@ -122,10 +122,14 @@ By purifying the blood and improving digestion, Triphala reduces skin issues lik
 
 ## Precautions
 
-- **Pregnancy and breastfeeding:** Avoid — Triphala has a downward-moving (*Apana Vata*) action
+- **Pregnancy and breastfeeding:** Avoid — Triphala has a downward-moving (*Apana Vata*) action and laxative effect that may not be appropriate during pregnancy
 - **Menstruation:** Generally avoided on the heaviest days
-- **Children:** Can be used in lower amounts, ideally under guidance
-- **Diabetes medication:** Monitor blood sugar closely — Triphala can lower it further
+- **Children:** Can be used in lower amounts, ideally under paediatrician or qualified Ayurvedic practitioner guidance
+- **Diabetes medication:** Monitor blood sugar closely — Triphala may further lower it; consult your doctor before regular use to avoid hypoglycaemia
+- **Blood thinners:** Triphala may have mild blood-thinning effects — consult your doctor if on anticoagulant medication
+- **Surgery:** Stop use at least 2 weeks before any planned surgery
+- **Medication absorption:** Like other fibre-containing remedies, Triphala may affect the absorption of oral medications — take at least 1–2 hours apart from prescription drugs
+- **Diarrhoea or IBD:** Avoid during active diarrhoea or in inflammatory bowel disease flares
 - **Dosage:** Start with a small amount to assess your body's response; high doses may cause loose stools or abdominal discomfort
 
 ---
@@ -137,3 +141,19 @@ Triphala is more than an herbal laxative. It is a profound Ayurvedic *Rasayana* 
 By consistently incorporating this three-fruit formulation into your daily routine, you build the foundation for long-term health: a clean gut, strong digestion, and resilient immunity.
 
 > *"Triphala is to the body what the sun is to nature — a daily source of cleansing, nourishment, and renewal."*
+
+---
+
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. If you have an existing medical condition, are on medication (especially diabetes drugs or blood thinners), or are pregnant or breastfeeding, please consult your healthcare provider or a qualified Ayurvedic practitioner before starting Triphala.*
+
+---
+
+## Related Reading
+
+If you enjoyed this, you may also like:
+
+- [The Gut: Where Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
+- [Constipation: Natural Relief Through Ayurveda & Naturopathy](/blog/constipation-ayurvedic-guide)
+- [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)
+- [Fatty Liver Disease: A Satwik & Holistic Guide](/blog/fatty-liver-disease-satwik-holistic-guide)
+- [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)

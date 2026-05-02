@@ -249,6 +249,12 @@ export default function BlogContent({ content }) {
           object-position: center !important;
         }
 
+        /* Flax seeds blog — photo uses cover crop at 420px */
+        .blog-content img[src*="flax1"] {
+          height: 420px !important;
+          object-position: center !important;
+        }
+
         /* Horizontal Rule */
         .blog-content hr {
           border: none;

@@ -121,3 +121,24 @@ Satwik Paneer is not just food — it is conscious nourishment. Prepared with pu
 At Satwik Farms, we believe that what you eat shapes not just your health, but your entire being. Every block of paneer we prepare carries that intention.
 
 > *"Ahara Shuddhou Sattva Shuddhih"* — When food is pure, the mind becomes pure. — Chandogya Upanishad
+
+---
+
+## A Note on Suitability
+
+Paneer is a dairy product. Those with **lactose intolerance, milk allergy, or specific dietary restrictions** should consume cautiously or avoid. People watching saturated fat intake (e.g. with high cholesterol) should keep portions moderate.
+
+---
+
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. If you have an existing medical condition, a dairy allergy or intolerance, or specific dietary requirements, please consult your healthcare provider or a registered dietitian before making significant changes to your diet.*
+
+---
+
+## Related Reading
+
+If you enjoyed this, you may also like:
+
+- [Satwik Yoghurt (Dahi): Gut-Healing Superfood](/blog/satwik-yoghurt-dahi)
+- [Meet Our Cattle: The Heart of Our Dairy](/blog/meet-our-cattle)
+- [Behind the Scenes: Our Dairy Process](/blog/dairy-process-behind-scenes)
+- [Fresh Garden Salad with Satwik Greens](/blog/garden-salad-recipe)

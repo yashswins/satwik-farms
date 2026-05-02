@@ -4,7 +4,7 @@ date: "May 2, 2026"
 category: "Products"
 image: "/images/guava-cover.jpg"
 ogImage: "/images/og-guava.jpg"
-excerpt: "Guava leaf tea is a Satwik herbal infusion that supports blood sugar balance, gut health, weight management, and natural detoxification — backed by Ayurveda and modern research."
+excerpt: "Guava leaf tea is a Satwik herbal infusion that supports blood sugar balance, gut health, weight management, and natural detox — backed by Ayurveda and science."
 keywords: ["guava leaf tea benefits", "guava leaves for diabetes", "guava leaf tea blood sugar", "psidium guajava tea", "ayurvedic herbal tea", "satwik herbal tea", "guava leaf weight loss", "natural detox tea"]
 ---
 
@@ -49,31 +49,31 @@ These bioactive elements make guava leaf tea a functional herbal drink, not just
 
 ### 1. Supports Blood Sugar Balance
 
-One of the strongest benefits of guava leaf tea is its ability to regulate glucose metabolism.
+One of the most studied benefits of guava leaf tea is its supportive role in glucose metabolism.
 
-- Helps reduce post-meal sugar spikes
-- Supports insulin sensitivity
-- Aids in long-term metabolic balance
+- May help reduce post-meal sugar spikes
+- May support insulin sensitivity
+- Can complement a balanced diet for long-term metabolic wellness
 
-> **Ideal for:** Diabetes management, insulin resistance, and pre-diabetes lifestyle care.
+> **A supportive lifestyle drink** — not a substitute for prescribed diabetes treatment. If you have diabetes or pre-diabetes, please continue your medication and check with your doctor before adding guava leaf tea, as it may further lower blood sugar.
 
 ### 2. Improves Digestion & Gut Health
 
-Guava leaves have natural antimicrobial and anti-inflammatory properties.
+Guava leaves contain natural antimicrobial and anti-inflammatory compounds.
 
-- Helps manage diarrhea and bloating
-- Strengthens gut lining
-- Supports healthy digestion
+- May help ease mild diarrhoea and bloating (persistent or severe diarrhoea always needs medical attention)
+- Supports a healthy gut environment
+- Aids overall digestion
 
-A perfect Satwik digestive tonic.
+A gentle Satwik digestive tonic for everyday wellness.
 
 ### 3. Aids in Weight Management
 
-Guava leaf tea works as a natural metabolic regulator:
+Guava leaf tea may act as a natural metabolic helper:
 
-- Reduces conversion of carbohydrates into fat
+- May slow the conversion of carbohydrates into fat
 - Supports fat metabolism
-- Helps in sustainable weight management
+- Useful as part of a sustainable weight-management routine (alongside diet and exercise)
 
 ### 4. Promotes Heart Health
 
@@ -85,19 +85,19 @@ Regular consumption may:
 
 Supporting cardiovascular wellness — naturally.
 
-### 5. Natural Detox & Liver Support
+### 5. Liver & Antioxidant Support
 
-Guava leaves assist the body in detoxification:
+The antioxidant compounds in guava leaves support the body's own detox pathways:
 
-- Support liver function
-- Reduce oxidative stress
-- Aid in cleansing the system
+- May support healthy liver function
+- Help reduce oxidative stress
+- Aid the body's natural cleansing processes
 
 ### 6. Boosts Immunity
 
-With strong antioxidant and antimicrobial properties, it:
+With antioxidant and natural antimicrobial properties, it:
 
-- Helps fight infections
+- May help the body resist common infections
 - Supports immune resilience
 - Promotes overall vitality
 
@@ -181,12 +181,26 @@ The presence of **quercetin and polyphenols** plays a major role in these effect
 
 ## Precautions
 
-Even Satwik herbs require mindful usage:
+Even Satwik herbs require mindful usage. Please keep the following in mind:
 
-- Avoid excessive consumption (may cause constipation)
-- Monitor blood sugar closely if on medication
-- Not recommended in large doses during pregnancy
-- People with high Vata should use in moderation
+### Medication Interactions
+- **Diabetes medications:** Guava leaf may further lower blood sugar — those on glucose-lowering drugs should monitor levels closely and check with their doctor before regular use, to avoid hypoglycaemia
+- **Blood-pressure medications:** Guava leaf may have a mild blood-pressure-lowering effect; consult your doctor if you are on antihypertensives
+- **Surgery:** Because of its blood-sugar-lowering effects, stop use at least 2 weeks before any planned surgery
+
+### Pregnancy & Breastfeeding
+**Avoid guava leaf tea during pregnancy** unless cleared by your healthcare provider. Traditional sources caution against it during pregnancy because of its astringent and uterine-active properties. **Breastfeeding mothers** should also consult a doctor before regular use.
+
+### Children
+Use only mild infusions and small quantities for children, and only with paediatrician guidance — herbal teas are not regulated as foods for young children.
+
+### Allergies
+Allergic reactions to guava are uncommon but possible (especially in those with latex or birch-pollen allergies). Stop use immediately if you notice itching, swelling, or any allergic symptoms.
+
+### General Use
+- Avoid excessive consumption — too much may cause constipation due to its astringent nature
+- People with **high Vata** constitution should use in moderation
+- Do not use guava leaf tea as a replacement for prescribed medication for any condition
 
 ---
 
@@ -206,3 +220,19 @@ At **Satwik Line**, we focus on purity and intention:
 Guava leaf tea is more than a herbal drink — it is a bridge between **ancient healing and modern wellness**. Whether you seek better digestion, controlled blood sugar, or overall vitality, this simple tea can become a powerful daily ritual.
 
 Incorporating it into your Satwik lifestyle brings you closer to **balance, purity, and sustainable health**.
+
+---
+
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. If you have an existing medical condition (especially diabetes, low blood pressure, or are pregnant or breastfeeding), or are taking any medication, please consult your healthcare provider before making guava leaf tea a regular part of your routine.*
+
+---
+
+## Related Reading
+
+If you found this helpful, explore more from the Satwik herbal and metabolic-health collection:
+
+- [Understanding the Glycemic Index](/blog/understanding-glycemic-index)
+- [Bitter Gourd Powder: Benefits for Blood Sugar & Detox](/blog/bitter-gourd-powder-benefits)
+- [Gut Health: Where Ayurveda Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
+- [Fatty Liver Disease: A Satwik Holistic Guide](/blog/fatty-liver-disease-satwik-holistic-guide)
+- [Triphala: The Ayurvedic Three-Fruit Wonder](/blog/triphala-ayurvedic-guide)

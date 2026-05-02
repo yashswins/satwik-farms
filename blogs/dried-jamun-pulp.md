@@ -13,16 +13,16 @@ Jamun (*Syzygium cumini*), also known as Indian Blackberry or Black Plum, has be
 
 ## Key Benefits
 
-### 1. Helps Manage Blood Sugar
+### 1. Supports Healthy Blood Sugar
 
-Jamun pulp contains two unique bioactive compounds — **jamboline** and **jambosine** — that are clinically recognized for their anti-diabetic properties. These compounds slow the conversion of starch into sugar, directly reducing post-meal glucose spikes. This makes dried jamun pulp especially valuable for diabetics and those with insulin resistance.
+Jamun pulp contains two unique bioactive compounds — **jamboline** and **jambosine** — studied for their anti-diabetic properties. These compounds may slow the conversion of starch into sugar, helping to soften post-meal glucose spikes. This makes dried jamun pulp a useful supportive food alongside a balanced diet — but it is not a substitute for prescribed diabetes treatment. If you have diabetes or pre-diabetes, please continue your medication and consult your doctor before adding jamun pulp to your routine.
 
 ### 2. Improves Digestion
 
 Jamun acts as a natural digestive tonic. Regular use can help:
 
 - Reduce acidity and bloating
-- Relieve diarrhea and loose motions
+- Ease mild diarrhea and loose motions (persistent or severe diarrhea always needs medical attention)
 - Strengthen overall gut function
 
 Its astringent properties make it particularly effective for calming an irritated digestive tract.
@@ -71,8 +71,11 @@ Helps reduce post-meal sugar spikes throughout the day.
 ## Precautions
 
 - **Do not exceed the recommended dose** — excessive intake can cause constipation or a sudden drop in blood sugar (hypoglycemia)
-- **Pregnant or lactating women** should consult a doctor before use
-- **If you are already on diabetes medication**, monitor your blood sugar levels regularly — jamun has an additive effect and may require dosage adjustments in consultation with your doctor
+- **Pregnant or lactating women** should consult a doctor before use; therapeutic doses are generally not recommended during pregnancy
+- **If you are already on diabetes medication**, monitor your blood sugar levels regularly — jamun may have an additive effect with glucose-lowering drugs and may require dosage adjustments in consultation with your doctor
+- **Blood-pressure medications:** Use cautiously and consult your doctor if you are on antihypertensives
+- **Surgery:** Because of its blood-sugar-lowering effects, stop use at least 2 weeks before any planned surgery
+- **Children:** Use only small amounts and consult a paediatrician before regular use
 
 ---
 
@@ -81,3 +84,15 @@ Helps reduce post-meal sugar spikes throughout the day.
 ---
 
 > **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice, diagnosis, or treatment. Jamun pulp is a traditional food, not a substitute for prescribed medication. If you are diabetic or on any medication, consult your doctor before adding this to your routine — it may have an additive effect on blood sugar.
+
+---
+
+## Related Reading
+
+Continue exploring blood-sugar wellness:
+
+- [Dried Jamun Seed Powder (Jamun Beej Churna)](/blog/dried-jamun-seed-powder)
+- [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
+- [Understanding Glycemic Index: A Guide to Better Blood Sugar Management](/blog/understanding-glycemic-index)
+- [Barley: A Superfood for Diabetics and Beyond](/blog/barley-superfood)
+- [Millet Master: Our Diabetic-Friendly Multigrain Atta](/blog/multigrain-atta-diabetic-mix)

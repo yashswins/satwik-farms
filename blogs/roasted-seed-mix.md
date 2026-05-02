@@ -64,7 +64,7 @@ For a full 30g serving (about 2 tablespoons), the mineral delivery is significan
 
 ### 1. Heart and Cardiovascular Health
 
-The combination of flax and chia seeds provides high levels of Omega-3 and fiber, helping lower LDL ("bad") cholesterol and reduce heart disease risk. Potassium and magnesium from pumpkin and sesame seeds act as natural vasodilators, relaxing blood vessels and supporting healthy blood pressure.
+The combination of flax and chia seeds provides high levels of Omega-3 and fiber, which may help lower LDL ("bad") cholesterol and support heart health. Potassium and magnesium from pumpkin and sesame seeds support healthy blood vessel function and may help maintain healthy blood pressure as part of a balanced diet.
 
 ### 2. Immunity and Cellular Defense
 
@@ -82,7 +82,9 @@ Sesame and chia seeds provide a high dose of plant-based Calcium and Phosphorus,
 
 Pumpkin seeds contain **Tryptophan**, an amino acid your body uses to produce serotonin and melatonin (the "sleep hormone"). Magnesium helps calm the nervous system for better rest, while healthy fats and B-vitamins in sunflower and sesame seeds support cognitive function and focus.
 
-## Why It's Excellent for Diabetics
+## A Diabetic-Friendly Profile
+
+> **A supportive lifestyle food** — not a substitute for prescribed diabetes treatment. If you have diabetes, please continue your medication and check with your doctor before making seeds a daily staple, especially if you take glucose-lowering drugs or blood thinners.
 
 ### Very Low Glycemic Index
 
@@ -117,8 +119,31 @@ Since seeds are calorie-dense, a typical serving is **1–2 tablespoons (approx.
 
 ---
 
+## Precautions
+
+- **Medication interactions:** Flax and chia (omega-3) may interact with **blood thinners**; the fiber and lignan content may enhance the effect of **diabetes medications** — monitor blood sugar carefully if you are on glucose-lowering drugs. Consult your doctor before regular use.
+- **Hormonal therapies:** Because flax contains lignans (phyto-oestrogens), those on HRT, tamoxifen, or oral contraceptives should consult their doctor before regular use.
+- **Pregnancy & breastfeeding:** Therapeutic doses of flax are generally not recommended during pregnancy because of phyto-oestrogenic activity. Small culinary amounts are usually fine — please consult your healthcare provider before regular use.
+- **Children:** Use much smaller amounts (½–1 teaspoon) and consult a paediatrician before making the mix a daily staple.
+- **Allergies:** Sesame and sunflower allergies are not uncommon. Stop use immediately if you notice itching, swelling, or any allergic reaction.
+- **Introduce gradually:** The high fibre content may cause bloating or gas if introduced suddenly — start small and drink plenty of water.
+
+---
+
 *At Satwik Farms, we believe in the power of whole, natural foods. Our roasted seed mix is carefully crafted to support your health, one tablespoon at a time.*
 
 ---
 
-> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice. Nutritional benefits vary between individuals. If you have diabetes, a cardiovascular condition, or any other health concern, please consult your doctor or a registered dietitian before making dietary changes.
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. Nutritional benefits vary between individuals. If you have diabetes, a cardiovascular condition, are on medication, or are pregnant or breastfeeding, please consult your healthcare provider before making significant changes to your diet.*
+
+---
+
+## Related Reading
+
+If you enjoyed this, you may also like:
+
+- [Flax Seeds: Benefits, Nutrition, Dosage](/blog/flax-seeds-superfood-benefits)
+- [Satwik Paustik Ladoo: Sugar-Free Energy Snack](/blog/satwik-paustik-ladoo)
+- [Multigrain Diabetic Atta: A Low-GI Flour Blend](/blog/multigrain-atta-diabetic-mix)
+- [Understanding the Glycemic Index](/blog/understanding-glycemic-index)
+- [The Gut: Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)

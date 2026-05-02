@@ -45,7 +45,7 @@ The antibacterial properties of neem and tulsi actively target *Propionibacteriu
 It removes deep-seated dirt, oil, and sweat without stripping the skin of its natural oils. The herbal actives work as a gentle detoxifying agent, eliminating impurities and environmental pollutants absorbed through the day.
 
 ### 3. Soothes Irritation and Rashes
-Neem is highly beneficial for inflamed, itchy skin — offering relief from dermatitis, eczema, and psoriasis-related discomfort. It calms the skin rather than aggravating it.
+Neem is traditionally used for inflamed, itchy skin and may help soothe minor irritation. Many people find it calming rather than aggravating. For diagnosed conditions like eczema, dermatitis, or psoriasis, this soap may complement — but is not a substitute for — treatment prescribed by a dermatologist.
 
 ### 4. Natural Moisturisation
 Unlike harsh soaps that leave skin tight and dry, the virgin coconut oil in this formula ensures your skin feels soft and hydrated after every shower — no moisturiser needed.
@@ -96,3 +96,27 @@ This soap is **handcrafted using a traditional cold-process method**, ensuring t
 At Satwik Farms, everything we make is rooted in the same philosophy as the food we grow: **real ingredients, no shortcuts, nothing hidden.**
 
 > Switch to natural. Let neem, tulsi, and the goodness of virgin coconut oil do what generations of Ayurvedic wisdom always knew they could.
+
+---
+
+## A Note on Use
+
+- **Patch-test first** if you have very sensitive skin or known plant allergies — apply to a small area and observe for 24 hours before regular use
+- **Avoid contact with eyes**; if irritation occurs, rinse thoroughly with water
+- **Discontinue use** if you notice redness, itching, burning, or any allergic reaction
+- For diagnosed skin conditions (eczema, psoriasis, severe acne, fungal infections), please consult a dermatologist — this soap is a gentle daily cleanser and not a medical treatment
+
+---
+
+*This article is for general informational purposes only and is not a substitute for professional medical or dermatological advice. Individual skin responses vary. If you have a persistent skin condition, please consult a qualified dermatologist.*
+
+---
+
+## Related Reading
+
+If you found this helpful, explore more Ayurvedic wellness:
+
+- [Triphala: The Ayurvedic Three-Fruit Wonder](/blog/triphala-ayurvedic-guide)
+- [Avocado: Nutrition, Health Benefits & Oil Guide](/blog/avocado-benefits-and-oil-guide)
+- [Raw Forest Honey from Kisarawe](/blog/raw-forest-honey-kisarawe)
+- [The Gut: Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)

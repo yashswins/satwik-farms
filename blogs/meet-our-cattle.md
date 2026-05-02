@@ -50,3 +50,15 @@ When you order milk, yoghurt, or ghee from Satwik Farms, you're getting the prod
 ---
 
 *Our cattle live in Kisarawe. Their milk reaches Dar es Salaam the same day it's collected. Order via WhatsApp or our Android app.*
+
+---
+
+## Related Reading
+
+If you enjoyed this, take a closer look at our dairy:
+
+- [Behind the Scenes: Our Dairy Process](/blog/dairy-process-behind-scenes)
+- [Satwik Yoghurt (Dahi): Gut-Healing Superfood](/blog/satwik-yoghurt-dahi)
+- [Satwik Paneer (Cottage Cheese)](/blog/satwik-paneer)
+- [Satwik Farming: Holistic, Regenerative Agriculture](/blog/satwik-farming-technique)
+- [Why Choose Satwik Farms](/blog/why-choose-satwik-farms)

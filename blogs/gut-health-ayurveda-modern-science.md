@@ -202,3 +202,19 @@ Gut health sits at the intersection of ancient practice and cutting-edge science
 Kanchi — a simple, affordable, homemade fermented drink — is one of the most accessible ways to begin rebuilding gut health. Combined with a diverse, fibre-rich diet, digestive spices, and a balanced lifestyle, it offers a time-tested path to a stronger gut and a clearer, calmer mind.
 
 > *"Rogo sarve api mande agnou"* — All diseases begin with weak digestive fire. — Ashtanga Hridayam
+
+---
+
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. Persistent digestive symptoms — chronic bloating, blood in stool, unexplained weight loss, severe abdominal pain, or sudden changes in bowel habits — warrant proper medical evaluation. If you have an existing medical condition (especially IBD, IBS, immune compromise), are on medication, or are pregnant or breastfeeding, please consult your healthcare provider before significantly changing your diet or starting fermented foods.*
+
+---
+
+## Related Reading
+
+Continue exploring gut and digestive wellness:
+
+- [Triphala: An Ayurvedic Guide to the Nectar of Life](/blog/triphala-ayurvedic-guide)
+- [Constipation: Natural Relief Through Ayurveda & Naturopathy](/blog/constipation-ayurvedic-guide)
+- [Satwik Yoghurt (Dahi): A Gut-Healing Superfood](/blog/satwik-yoghurt-dahi)
+- [Flax Seeds: Benefits, Nutrition & Daily Dosage](/blog/flax-seeds-superfood-benefits)
+- [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)

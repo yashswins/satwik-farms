@@ -15,14 +15,14 @@ Jamun (*Syzygium cumini*), or Indian Blackberry, has been a cornerstone of Ayurv
 
 ### 1. Supports Blood Sugar Control
 
-Jamun seeds contain **jamboline** and **jambosine** — bioactive compounds that slow the release of sugar into the bloodstream and improve insulin sensitivity. Jamun Beej Churna is one of the most studied natural remedies for **Type 2 Diabetes management**.
+Jamun seeds contain **jamboline** and **jambosine** — bioactive compounds studied for their potential to slow the release of sugar into the bloodstream and support insulin sensitivity. Jamun Beej Churna is among the more researched traditional supportive foods discussed alongside **Type 2 Diabetes management** — but it is not a replacement for prescribed treatment. Anyone with diabetes should continue their medication and consult a doctor before adding it to their routine.
 
 ### 2. Improves Digestion
 
 The natural astringent properties of jamun seed powder help calm the digestive tract. Regular use can reduce:
 
 - Acidity and bloating
-- Diarrhea and loose motions
+- Mild diarrhea and loose motions (persistent or severe diarrhea always needs medical attention)
 
 It acts as a natural tonic for overall gut health.
 
@@ -68,9 +68,12 @@ Jamun seed powder has traditionally been used to strengthen gums and reduce bad 
 
 ## Precautions
 
-- **Do not exceed the recommended dose** — excessive intake can cause hypoglycemia (low blood sugar)
-- **Pregnant or breastfeeding women** should consult a doctor before use
-- **If you are on diabetes medication**, monitor your blood sugar regularly — jamun seed powder has an additive effect and may require dosage adjustments
+- **Do not exceed the recommended dose** — excessive intake can cause hypoglycemia (low blood sugar) or constipation
+- **Pregnant or breastfeeding women** should consult a doctor before use; therapeutic doses are generally not recommended during pregnancy
+- **If you are on diabetes medication**, monitor your blood sugar regularly — jamun seed powder may have an additive effect with glucose-lowering drugs and may require dosage adjustments in consultation with your doctor
+- **Blood-pressure medications:** Use cautiously and consult your doctor if you are on antihypertensives
+- **Surgery:** Because of its blood-sugar-lowering effects, stop use at least 2 weeks before any planned surgery
+- **Children:** Use only small amounts and only with paediatrician guidance
 
 ---
 
@@ -79,3 +82,15 @@ Jamun seed powder has traditionally been used to strengthen gums and reduce bad 
 ---
 
 > **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice, diagnosis, or treatment. Jamun seed powder is a traditional food supplement, not a replacement for prescribed diabetes medication. If you are diabetic or on any medication, please consult your doctor before use — it may lower blood sugar levels and interact with existing medication.
+
+---
+
+## Related Reading
+
+More from the Satwik wellness collection:
+
+- [Dried Jamun Pulp: An Ancient Superfood for Blood Sugar Control](/blog/dried-jamun-pulp)
+- [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
+- [Understanding Glycemic Index: A Guide to Better Blood Sugar Management](/blog/understanding-glycemic-index)
+- [Barley: A Superfood for Diabetics and Beyond](/blog/barley-superfood)
+- [Guava Leaf Tea: An Ancient Healing Brew](/blog/guava-leaf-tea-benefits)

@@ -91,4 +91,20 @@ Since this mix is entirely gluten-free, the dough will lack the elasticity of wh
 
 ---
 
-> **Disclaimer:** The information in this article is for general educational purposes only and does not constitute medical advice, diagnosis, or treatment. If you have diabetes or any other medical condition, please consult your doctor or a registered dietitian before making changes to your diet. Individual responses to foods vary — what works for one person may not work for another.
+> **A supportive lifestyle food — not a substitute for prescribed diabetes treatment.** If you have diabetes or pre-diabetes, please continue your medication as prescribed. A lower-GI flour can shift post-meal glucose response, so those on insulin or other glucose-lowering drugs should monitor blood sugar when switching staples and consult their doctor or dietitian about possible dose adjustments to avoid hypoglycaemia. Soy-allergic individuals should also avoid this blend.
+
+---
+
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. If you have diabetes or any other medical condition, are on medication, or are pregnant or breastfeeding, please consult your doctor or a registered dietitian before making significant changes to your diet. Individual responses to foods vary — what works for one person may not work for another.*
+
+---
+
+## Related Reading
+
+More for the diabetic-friendly kitchen:
+
+- [Understanding Glycemic Index: A Guide to Better Blood Sugar Management](/blog/understanding-glycemic-index)
+- [Barley: A Superfood for Diabetics and Beyond](/blog/barley-superfood)
+- [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
+- [Dried Jamun Pulp: An Ancient Superfood for Blood Sugar Control](/blog/dried-jamun-pulp)
+- [Dried Jamun Seed Powder (Jamun Beej Churna)](/blog/dried-jamun-seed-powder)

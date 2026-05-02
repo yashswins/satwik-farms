@@ -21,9 +21,9 @@ At Satwik Farms in Kisarawe, Tanzania, we grow all our vegetables using residue 
 
 ### No Chemical Residues in Your Food
 
-The most direct benefit is straightforward: what you eat is clean. Conventional farming often relies on pesticides and herbicides that leave trace residues on — and sometimes inside — produce even after washing. Long-term exposure to these residues, even in small quantities, has been linked to hormonal disruption, immune system stress, and other chronic health concerns.
+The most direct benefit is straightforward: what you eat is clean. Conventional farming often relies on pesticides and herbicides that leave trace residues on — and sometimes inside — produce even after washing. Some studies suggest that long-term exposure to certain pesticide residues may be associated with hormonal and immune-system effects, though research is ongoing and the picture is far from settled.
 
-Residue free produce eliminates this risk entirely.
+Residue free produce sidesteps this concern at the source — by simply not using the chemicals in the first place.
 
 ### Higher Nutritional Value
 
@@ -63,3 +63,14 @@ We use a combination of traditional agricultural wisdom and modern agronomy to k
 ---
 
 *From our farm in Kisarawe to your table in Dar es Salaam — every vegetable we deliver is grown with your family's health in mind.*
+
+---
+
+## Related Reading
+
+If you found this helpful, you may also like:
+
+- [Satwik Farming: Holistic, Regenerative Agriculture](/blog/satwik-farming-technique)
+- [Why Choose Satwik Farms](/blog/why-choose-satwik-farms)
+- [What's Growing This Month: January Harvest](/blog/whats-growing-january)
+- [Microgreens: A Satwik Superfood](/blog/microgreens-satwik-superfood)

@@ -104,7 +104,7 @@ Consuming avocado oil alongside vegetables significantly increases the absorptio
 Rich in vitamins A, D, and E, along with lecithin and omega-9 fatty acids, avocado oil is a staple in natural skincare:
 
 - **Deep moisturisation:** Penetrates the skin deeply to hydrate dry patches, soften cuticles, and improve elasticity
-- **Healing and soothing:** Calms inflammatory conditions like eczema, psoriasis, and sunburn; may aid wound healing by promoting collagen synthesis
+- **Healing and soothing:** May help soothe inflammatory skin conditions like mild eczema, psoriasis, and sunburn, and may support wound healing by promoting collagen synthesis (not a substitute for prescribed treatment for these conditions)
 - **Anti-aging:** High antioxidant content combats free radicals, helping to reduce fine lines and dark under-eye circles
 - **Carrier oil:** Commonly used to dilute essential oils for massage and therapeutic applications
 
@@ -144,3 +144,18 @@ When choosing an oil for cooking, the smoke point — the temperature at which i
 From its extraordinary fat profile and fibre content to its oil's remarkable versatility across cooking, skincare, and haircare, avocado earns its place as one of nature's most complete foods. Whether eaten fresh, blended, or applied externally, every part of this fruit delivers real, meaningful benefit.
 
 > *The avocado is one of the rare foods where indulgence and nourishment are the same thing.*
+
+---
+
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. If you have an existing medical condition, are on medication, or are pregnant or breastfeeding, please consult your healthcare provider before making significant changes to your diet.*
+
+---
+
+## Related Reading
+
+If you enjoyed this, you may also like:
+
+- [Flax Seeds: Benefits, Nutrition & Daily Dosage](/blog/flax-seeds-superfood-benefits)
+- [The Power of Our Roasted Seed Mix](/blog/roasted-seed-mix)
+- [Fatty Liver Disease: A Satwik & Holistic Guide](/blog/fatty-liver-disease-satwik-holistic-guide)
+- [Microgreens: A Satwik Superfood](/blog/microgreens-satwik-superfood)

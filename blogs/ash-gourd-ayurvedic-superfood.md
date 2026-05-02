@@ -57,16 +57,16 @@ Ash gourd is remarkably low in calories and extraordinarily high in water — ma
 ## Medicinal Properties & Health Benefits
 
 ### Natural Detoxifier & Diuretic
-Ash gourd promotes the normal elimination of waste products, supports kidney health, and increases urine production — making it one of the most effective natural detoxifiers available through food.
+Ash gourd may support the normal elimination of waste products and kidney function, and gently increases urine production — making it a popular natural diuretic food.
 
 ### Cooling & Anti-Acidity
-With one of the most **high-intensity cooling effects** of any vegetable, ash gourd is ideal for reducing excess body heat, managing acidity, and calming heart palpitations associated with Pitta imbalance.
+With one of the most **high-intensity cooling effects** of any vegetable, ash gourd is traditionally used to reduce excess body heat, ease acidity, and calm the sensation of heart palpitations associated with Pitta imbalance. Persistent palpitations or chest discomfort always need medical evaluation.
 
 ### Digestive Health
-Its fibre content and mild laxative properties help treat constipation, acidity, peptic ulcers, and dyspepsia. It soothes the digestive tract without aggravating it.
+Its fibre content and mild laxative properties may help ease constipation, acidity, and dyspepsia, and it is traditionally used as a soothing food in cases of peptic ulcers. It is gentle on the digestive tract.
 
 ### Immunity Support
-Rich in Vitamin C and zinc, ash gourd actively strengthens the immune system — supporting the body's natural defences against infection and seasonal illness.
+Rich in Vitamin C and zinc, ash gourd may help support the immune system — contributing to the body's natural defences against infection and seasonal illness.
 
 ### Mental Clarity & Calm
 In Ayurveda, ash gourd is classified as both a **Medhya** (intellect promoter) and **Prasadana** (calmative). It has traditionally been used to improve memory, support mental clarity, and calm an overactive or anxious mind — one of the reasons it is considered a *yogic* food.
@@ -90,7 +90,7 @@ In Ayurveda, ash gourd (*Kushmanda*) is classified as:
 
 **Kushmanda Rasayana:** A classical Ayurvedic formulation using ash gourd as the primary ingredient — used to treat bleeding disorders, improve body weight in cases of emaciation, and act as a general rejuvenator.
 
-**Internal bleeding:** Fresh ash gourd juice is traditionally used to manage profuse bleeding from the nose and lungs and in cases of piles caused by Pitta aggravation.
+**Internal bleeding (traditional use):** Fresh ash gourd juice is traditionally used as a supportive food in cases of nosebleeds, blood-tinged sputum, and piles caused by Pitta aggravation. Any internal bleeding is a medical emergency — seek immediate medical care; do not rely on home remedies.
 
 **Nourishment therapy:** Frequently used in *Brimhana* (nourishing) therapies for wasted or weakened body tissues.
 
@@ -128,7 +128,11 @@ Drinking fresh ash gourd juice first thing in the morning is one of the most hig
 ## Precautions
 
 - **Kapha conditions:** Due to its strong cooling nature, those with sinusitis, asthma, cold, or Kapha-dominant constitution should consume ash gourd with **black pepper or ginger** to offset the cooling effect
-- **Kidney stones:** High in oxalates — consume in moderation if prone to kidney stone formation
+- **Kidney stones:** Contains oxalates — consume in moderation if prone to kidney stone formation
+- **Medication interactions:** Because of its diuretic action, those on **blood-pressure medication, diuretics, or lithium** should consult their doctor before regular therapeutic use, as it may amplify drug effects or affect electrolyte balance
+- **Pregnancy & breastfeeding:** Small culinary amounts are generally considered safe, but large therapeutic doses (such as daily juice on an empty stomach) should be discussed with your healthcare provider before use during pregnancy or breastfeeding
+- **Children:** Use small culinary amounts; avoid concentrated juice as a daily therapeutic drink without paediatrician guidance
+- **Asthma & respiratory conditions:** While traditionally used as an expectorant, asthma is a serious condition — do not stop or replace prescribed inhalers or medication
 - **Freshness matters:** Always use fresh ash gourd; older fruit may carry contaminants and loses its therapeutic potency
 
 ---
@@ -138,3 +142,19 @@ Drinking fresh ash gourd juice first thing in the morning is one of the most hig
 In a world of complex superfoods and exotic supplements, ash gourd stands out for being simple, accessible, affordable, and profoundly effective. Whether consumed as a morning juice, a cooling curry, or a traditional Ayurvedic preparation, it delivers real benefit — supporting the body, calming the mind, and restoring balance from within.
 
 > *Kushmanda — the great gourd — is a food that belongs in every kitchen and every healing practice.*
+
+---
+
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. If you have an existing medical condition, are on medication, or are pregnant or breastfeeding, please consult your healthcare provider before making significant changes to your diet.*
+
+---
+
+## Related Reading
+
+If you found this helpful, you may also like:
+
+- [Triphala: An Ayurvedic Guide to the Nectar of Life](/blog/triphala-ayurvedic-guide)
+- [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
+- [Fatty Liver Disease: A Satwik & Holistic Guide](/blog/fatty-liver-disease-satwik-holistic-guide)
+- [Constipation: Natural Relief Through Ayurveda & Naturopathy](/blog/constipation-ayurvedic-guide)
+- [The Gut: Where Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)

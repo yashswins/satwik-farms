@@ -40,11 +40,13 @@ Barley is rich in:
 
 These nutrients support overall health and help key metabolic functions.
 
-## Why Barley Is Considered Beneficial (Especially for Diabetics)
+## Why Barley Is Considered a Supportive Grain (Especially for Diabetics)
+
+> Barley is a **supportive lifestyle food** — not a substitute for prescribed diabetes treatment. If you are on glucose-lowering medication, please continue your medication and consult your doctor or dietitian before making barley a regular staple.
 
 ### 1. Low Glycemic Index (GI)
 
-The glycemic index (GI) measures how quickly a food raises blood glucose after eating. Foods with a lower GI are digested and absorbed more slowly, leading to more stable blood sugar levels — crucial for diabetes management.
+The glycemic index (GI) measures how quickly a food raises blood glucose after eating. Foods with a lower GI are digested and absorbed more slowly, which may help support more stable blood sugar levels — a key consideration in diabetes care.
 
 **Barley GI values:**
 - Barley flour (as sattu): ~25
@@ -52,17 +54,17 @@ The glycemic index (GI) measures how quickly a food raises blood glucose after e
 
 These are considered low GI (values <55).
 
-A low GI means slower glucose release into the bloodstream, helping reduce post-meal blood glucose spikes, a key target in diabetes care.
+A low GI means slower glucose release into the bloodstream, which may help reduce post-meal blood glucose spikes.
 
-### 2. Soluble Fiber (Beta-Glucans) Regulates Blood Sugar
+### 2. Soluble Fiber (Beta-Glucans) Supports Blood Sugar Balance
 
-Barley's beta-glucan fiber slows digestion, which:
+Barley's beta-glucan fiber slows digestion, which may:
 
-- Reduces the speed of carbohydrate absorption
-- Helps maintain steady blood glucose levels
-- Improves insulin sensitivity
+- Reduce the speed of carbohydrate absorption
+- Help maintain steadier blood glucose levels
+- Improve insulin sensitivity
 
-This makes barley particularly useful in diabetic diets.
+This makes barley a useful supportive grain in diabetic diets, alongside (not instead of) prescribed treatment.
 
 ### 3. Helps With Weight Management
 
@@ -75,7 +77,7 @@ Since excess weight is a risk factor for type 2 diabetes, barley can indirectly 
 
 ### 4. Heart Health and Cholesterol Control
 
-Fiber and bioactive compounds in barley help lower LDL cholesterol, reducing cardiovascular risk — a major concern in people with diabetes.
+Fiber and bioactive compounds in barley may help lower LDL cholesterol, supporting cardiovascular health — a major concern in people with diabetes.
 
 ### 5. Other General Benefits
 
@@ -123,4 +125,25 @@ These preparations retain a lot of fiber and nutrients, benefiting blood sugar c
 
 ---
 
-> **Disclaimer:** The information in this article is for general educational purposes only and is not intended as medical advice. If you have diabetes or any other health condition, please consult your doctor or a registered dietitian before making dietary changes.
+## Precautions
+
+- **Diabetes medication:** Because barley may help lower blood sugar, those on glucose-lowering medication should monitor their levels and consult their doctor before making it a daily staple, to avoid hypoglycaemia
+- **Gluten:** Barley contains gluten — those with coeliac disease or non-coeliac gluten sensitivity should avoid it
+- **Pregnancy & breastfeeding:** Culinary amounts are generally considered safe; consult your healthcare provider before consuming large therapeutic quantities (such as concentrated barley water as a daily remedy)
+- **Children:** Generally safe in normal food amounts as part of a balanced diet
+
+---
+
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. If you have diabetes, an existing medical condition, are on medication, or are pregnant or breastfeeding, please consult your healthcare provider or a registered dietitian before making significant changes to your diet.*
+
+---
+
+## Related Reading
+
+Continue exploring blood-sugar-friendly foods and education:
+
+- [Understanding Glycemic Index: A Guide to Better Blood Sugar Management](/blog/understanding-glycemic-index)
+- [Millet Master: Our Diabetic-Friendly Multigrain Atta](/blog/multigrain-atta-diabetic-mix)
+- [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
+- [Dried Jamun Pulp: An Ancient Superfood for Blood Sugar Control](/blog/dried-jamun-pulp)
+- [Guava Leaf Tea: An Ancient Healing Brew](/blog/guava-leaf-tea-benefits)

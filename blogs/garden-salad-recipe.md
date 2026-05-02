@@ -71,3 +71,15 @@ A salad made with supermarket produce that's been shipped from across the countr
 ---
 
 *All vegetables used in this recipe are available for delivery from Satwik Farms in Kisarawe to Dar es Salaam. Order via WhatsApp or our Android app.*
+
+---
+
+## Related Reading
+
+If you enjoyed this recipe, you may also like:
+
+- [Microgreens: A Satwik Superfood](/blog/microgreens-satwik-superfood)
+- [What's Growing This Month: January Harvest](/blog/whats-growing-january)
+- [The Benefits of Residue Free Farming](/blog/benefits-of-residue-free-farming)
+- [Satwik Yoghurt (Dahi): Gut-Healing Superfood](/blog/satwik-yoghurt-dahi)
+- [Avocado: Nutrition, Health Benefits & Oil Guide](/blog/avocado-benefits-and-oil-guide)

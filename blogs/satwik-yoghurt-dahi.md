@@ -54,7 +54,7 @@ Satwik yoghurt is a nutrient-dense food packed with essential macro and micronut
 | Vitamins | B12, B2, A |
 | Probiotics | Live beneficial bacteria |
 
-The fermentation process breaks down lactose, making satwik dahi easier to digest than milk — and suitable even for those with mild lactose intolerance. It also enhances the absorption of nutrients, supporting a healthier gut microbiome overall.
+The fermentation process breaks down some of the lactose, often making satwik dahi easier to digest than plain milk — many people with mild lactose intolerance tolerate it better, though individual responses vary. It also supports nutrient absorption and a healthier gut microbiome.
 
 ---
 
@@ -171,3 +171,26 @@ By choosing pure cow milk, naturally fermented dahi — and consuming it mindful
 At Satwik Farms, our dahi is prepared the way it always should be: fresh milk, natural culture, small batches, and nothing else.
 
 > *Pure food, pure mind, pure life.*
+
+---
+
+## A Note on Suitability
+
+- Those with a **milk allergy** should avoid dahi entirely. Those with **lactose intolerance** should introduce in small quantities and observe their response.
+- People with **frequent cold, congestion, sinus issues, or skin conditions** that worsen with dairy may want to consume dahi sparingly, or as buttermilk (*chaas*) instead.
+
+---
+
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. If you have a dairy allergy or intolerance, an existing medical condition, or specific dietary requirements, please consult your healthcare provider or a registered dietitian before making significant changes to your diet.*
+
+---
+
+## Related Reading
+
+If you found this helpful, you may also like:
+
+- [The Gut: Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
+- [Satwik Paneer (Cottage Cheese)](/blog/satwik-paneer)
+- [Meet Our Cattle: The Heart of Our Dairy](/blog/meet-our-cattle)
+- [Behind the Scenes: Our Dairy Process](/blog/dairy-process-behind-scenes)
+- [Constipation: Causes, Symptoms & Natural Relief](/blog/constipation-ayurvedic-guide)

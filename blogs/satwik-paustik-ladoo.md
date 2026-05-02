@@ -134,7 +134,7 @@ This is not factory food. It is food made with patience, intention, and pride.
 ## Frequently Asked Questions
 
 **Is this ladoo suitable for diabetics?**
-Yes, in moderation. The sweetness comes only from natural whole food sources — no refined sugar — and the ingredients are primarily low glycemic. Diabetics are advised to have ½ to 1 small ladoo in the morning and monitor their response. Consult your doctor if unsure.
+In moderation, yes — the sweetness comes only from natural whole food sources (no refined sugar) and the ingredients are primarily low glycemic. However, dates and nuts still contribute natural sugars and calories, so diabetics should have ½ to 1 small ladoo at most, monitor their blood sugar response, and consult their doctor before making it a daily food. This is a supportive snack, not a substitute for prescribed diabetes treatment.
 
 **Can children eat Paustik Ladoo?**
 Absolutely. It is one of the best natural energy foods for growing children — rich in calcium for bones, healthy fats for brain development, and fibre for digestion. ½ to 1 ladoo a day is ideal.

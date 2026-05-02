@@ -65,3 +65,15 @@ When selecting a sweetener for diabetes, it is critical to look beyond the "natu
 ---
 
 *At Satwik Farms, we're committed to educating our community about healthy eating choices that support long-term wellness and better blood sugar management.*
+
+---
+
+## Related Reading
+
+Continue exploring blood-sugar-friendly foods:
+
+- [Barley: A Superfood for Diabetics and Beyond](/blog/barley-superfood)
+- [Millet Master: Our Diabetic-Friendly Multigrain Atta](/blog/multigrain-atta-diabetic-mix)
+- [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
+- [Dried Jamun Pulp: An Ancient Superfood for Blood Sugar Control](/blog/dried-jamun-pulp)
+- [Dried Jamun Seed Powder (Jamun Beej Churna)](/blog/dried-jamun-seed-powder)

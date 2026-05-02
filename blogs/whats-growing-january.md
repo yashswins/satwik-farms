@@ -56,3 +56,15 @@ Seasonal availability changes weekly — follow our blog or WhatsApp channel for
 ---
 
 *Fresh. Residue free. Delivered from our farm in Kisarawe to your table in Dar es Salaam.*
+
+---
+
+## Related Reading
+
+Continue exploring the farm:
+
+- [The Benefits of Residue Free Farming](/blog/benefits-of-residue-free-farming)
+- [Satwik Farming: Holistic, Regenerative Agriculture](/blog/satwik-farming-technique)
+- [Fresh Garden Salad with Satwik Greens](/blog/garden-salad-recipe)
+- [Microgreens: A Satwik Superfood](/blog/microgreens-satwik-superfood)
+- [Why Choose Satwik Farms](/blog/why-choose-satwik-farms)

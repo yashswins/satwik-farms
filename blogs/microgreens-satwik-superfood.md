@@ -84,11 +84,11 @@ Rich in Vitamin C and antioxidants, microgreens actively strengthen the immune s
 ### 2. Support Gut Health & Digestion
 Their enzyme content improves digestion and nutrient absorption. In Ayurvedic terms, they enhance *Agni* and reduce bloating and digestive sluggishness.
 
-### 3. Help Manage Blood Sugar
-Certain microgreens — particularly **fenugreek (methi)** — help regulate blood sugar levels, making them a valuable addition to diets managing diabetes or insulin resistance.
+### 3. May Help Support Healthy Blood Sugar
+Certain microgreens — particularly **fenugreek (methi)** — may help support healthy blood sugar levels as part of a balanced diet. They are a useful supportive food, but not a substitute for prescribed diabetes treatment. Those on glucose-lowering medication should monitor their levels and consult a doctor before regular therapeutic use.
 
-### 4. Promote Heart Health
-Microgreens help reduce LDL ("bad") cholesterol and support healthy cardiovascular function through their antioxidant and phytochemical content.
+### 4. Support Heart Health
+Microgreens may help support healthy LDL ("bad") cholesterol and overall cardiovascular function through their antioxidant and phytochemical content.
 
 ### 5. Detoxify the Body
 They support liver function and help eliminate accumulated toxins — directly addressing the Ayurvedic concept of *Ama* reduction.
@@ -159,9 +159,11 @@ Microgreens are perfect for urban and Satwik kitchens — they require minimal s
 
 ## Precautions
 
-- Always wash thoroughly before consuming
-- Use clean growing methods — hygiene matters especially with raw sprouts
+- **Wash thoroughly** before consuming — raw greens can carry surface bacteria
+- **Hygiene matters** — use clean growing methods, sterile trays, and filtered water; raw sprouts have been linked to foodborne illness when grown unhygienically
 - Consume fresh — avoid storing cut microgreens for more than 1–2 days
+- **Pregnancy:** Pregnant women, young children, and those who are immunocompromised should be especially cautious with raw sprouted foods, as they carry a higher risk of bacterial contamination — lightly cook them or consult your doctor
+- **Fenugreek (methi) microgreens:** May lower blood sugar — monitor levels if on diabetes medication, and avoid in therapeutic quantities during pregnancy
 - Those with specific health conditions or on medication should consult a practitioner before making significant dietary changes
 
 ---
@@ -173,3 +175,19 @@ Microgreens beautifully bridge the gap between modern nutrition science and anci
 Whether you are searching for the best superfoods for health, natural immunity boosters, or the ideal addition to a Satwik diet — microgreens belong at your table.
 
 > *"Satwik Microgreens — Pure Prana, Maximum Nutrition."*
+
+---
+
+*This article is for general educational purposes only and is not a substitute for professional medical advice, diagnosis or treatment. If you have an existing medical condition, are on medication, or are pregnant or breastfeeding, please consult your healthcare provider before making significant changes to your diet.*
+
+---
+
+## Related Reading
+
+More from the Satwik wellness collection:
+
+- [The Gut: Where Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
+- [Flax Seeds: Benefits, Nutrition & Daily Dosage](/blog/flax-seeds-superfood-benefits)
+- [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)
+- [Fresh Garden Salad with Satwik Greens](/blog/garden-salad-recipe)
+- [Avocado: Nutrition, Benefits & the Complete Oil Guide](/blog/avocado-benefits-and-oil-guide)

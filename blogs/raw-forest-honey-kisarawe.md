@@ -10,6 +10,8 @@ keywords: ["raw forest honey benefits", "raw honey vs processed honey", "Kisaraw
 
 # Raw Forest Honey from Kisarawe: Benefits, Ayurvedic Uses & Why It's Better Than Processed Honey
 
+> **Important safety note:** Raw honey is **not safe for infants under 12 months** due to the risk of infant botulism. Never give honey — raw or processed — to babies under one year of age.
+
 Deep in the Miombo woodlands of Kisarawe, Tanzania, wild bees forage across indigenous trees — gathering nectar from species untouched by pesticides or industrial pollution. The result is a raw, multi-floral forest honey unlike anything found on a supermarket shelf.
 
 Our raw forest honey from Satwik Farms is a true **living food** — unheated, unfiltered, and harvested with care from hives nestled within one of East Africa's most biodiverse ecosystems.
