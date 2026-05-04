@@ -1,7 +1,7 @@
 ---
 title: "Satwik Agni Boost: An Ayurvedic Weight-Loss Drink from Indian Spices"
 date: "May 4, 2026"
-category: "Wellness"
+category: "Products"
 image: "/images/weight-loss-cover.jpg"
 ogImage: "/images/og-agni-boost.jpg"
 imageAlt: "A warm cup of Ayurvedic spice kadha with cumin, fennel, cinnamon and ginger — a daily metabolism elixir"
