@@ -157,3 +157,4 @@ If you enjoyed this, you may also like:
 - [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)
 - [Fatty Liver Disease: A Satwik & Holistic Guide](/blog/fatty-liver-disease-satwik-holistic-guide)
 - [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
+- [Satwik Agni Boost: An Ayurvedic Weight-Loss Drink from Indian Spices](/blog/agni-boost-ayurvedic-weight-loss-drink)

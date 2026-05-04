@@ -350,3 +350,4 @@ If you found this helpful, you may also like:
 - [The Gut: Where Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
 - [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
 - [Flax Seeds: Benefits, Nutrition & Daily Dosage](/blog/flax-seeds-superfood-benefits)
+- [Satwik Agni Boost: An Ayurvedic Weight-Loss Drink from Indian Spices](/blog/agni-boost-ayurvedic-weight-loss-drink)

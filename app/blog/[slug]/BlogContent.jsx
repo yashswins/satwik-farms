@@ -249,6 +249,12 @@ export default function BlogContent({ content }) {
           object-position: center !important;
         }
 
+        .blog-content img[src*="weight-loss-ingredients"] {
+          height: 420px !important;
+          object-fit: contain !important;
+          background: #f7fafc !important;
+        }
+
         /* Flax seeds blog — photo uses cover crop at 420px */
         .blog-content img[src*="flax1"] {
           height: 420px !important;
