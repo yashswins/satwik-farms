@@ -39,7 +39,9 @@ export async function generateMetadata({ params }) {
   const isoDate = toISODate(blog.date);
 
   return {
-    title: `${blog.title} | Satwik Farms Blog`,
+    // Layout's metadata template appends "| Satwik Farms" — keep the title clean
+    // here so the browser tab doesn't end up with a duplicated brand suffix.
+    title: blog.title,
     description: blog.excerpt,
     keywords: blog.keywords ?? [blog.category, 'Satwik Farms', 'Tanzania', 'residue free farming'],
     authors: [{ name: 'Satwik Farms', url: BASE_URL }],

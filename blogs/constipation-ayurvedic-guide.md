@@ -227,3 +227,4 @@ If you found this helpful, you may also like:
 - [Satwik Yoghurt (Dahi): A Gut-Healing Superfood](/blog/satwik-yoghurt-dahi)
 - [Flax Seeds: Benefits, Nutrition & Daily Dosage](/blog/flax-seeds-superfood-benefits)
 - [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)
+- [Satwik Mixed Aachar: Sun-Cured Pickle for Digestion & Gut Health](/blog/satwik-mixed-aachar)

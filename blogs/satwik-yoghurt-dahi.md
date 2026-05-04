@@ -194,3 +194,4 @@ If you found this helpful, you may also like:
 - [Meet Our Cattle: The Heart of Our Dairy](/blog/meet-our-cattle)
 - [Behind the Scenes: Our Dairy Process](/blog/dairy-process-behind-scenes)
 - [Constipation: Causes, Symptoms & Natural Relief](/blog/constipation-ayurvedic-guide)
+- [Satwik Mixed Aachar: Sun-Cured Pickle for Digestion & Gut Health](/blog/satwik-mixed-aachar)
