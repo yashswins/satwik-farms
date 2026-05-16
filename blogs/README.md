@@ -21,19 +21,14 @@ This folder contains all blog posts for Satwik Farms website. Each blog post is 
 
 3. **Write your content** below the frontmatter using markdown formatting:
    ```markdown
+   # Main Heading
+
    Your blog post content goes here...
 
    ## Subheading
 
    More content...
    ```
-
-   > **Don't add a `# Title` heading at the top of the body.** The page
-   > template renders the frontmatter `title` as the page's single `<h1>`.
-   > If the body also starts with a `# Heading`, it is automatically
-   > stripped (see `lib/blogUtils.js`) to avoid a duplicate title and a
-   > second `<h1>` (which hurts SEO). Start the body with a paragraph, and
-   > use `##`/`###` for all in-content headings.
 
 4. **Add your image** to the appropriate folder in `/public/images/`
 
@@ -57,6 +52,8 @@ category: "Farm Updates"
 image: "/images/farm/tomatoes.jpg"
 excerpt: "Our organic tomatoes are ready for harvest. Learn about this week's special varieties."
 ---
+
+# Fresh Tomatoes This Week
 
 Our organic tomatoes are ready for harvest! This week we have three special varieties available.
 
@@ -109,6 +106,7 @@ Good SEO means Google can understand what your post is about and show it to the 
 ## Markdown Formatting Quick Reference
 
 ```markdown
+# Heading 1
 ## Heading 2
 ### Heading 3
 
@@ -123,9 +121,6 @@ Good SEO means Google can understand what your post is about and show it to the 
 
 [Link text](https://example.com)
 ```
-
-> `# Heading 1` is intentionally omitted — the page title (frontmatter
-> `title`) is the only `<h1>`. Use `##` and `###` inside the post.
 
 ---
 
