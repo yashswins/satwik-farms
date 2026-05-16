@@ -155,3 +155,4 @@ Continue exploring mindful living and Ayurvedic wisdom:
 - [Triphala: The Ayurvedic Three-Fruit Wonder](/blog/triphala-ayurvedic-guide)
 - [The Gut: Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
 - [Ash Gourd: The Yogic Superfood](/blog/ash-gourd-ayurvedic-superfood)
+- [Coconut: Benefits, Uses, Ayurveda & How Much to Eat Daily](/blog/coconut-benefits-uses-and-ayurveda)

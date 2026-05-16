@@ -159,3 +159,4 @@ If you enjoyed this, you may also like:
 - [The Power of Our Roasted Seed Mix](/blog/roasted-seed-mix)
 - [Fatty Liver Disease: A Satwik & Holistic Guide](/blog/fatty-liver-disease-satwik-holistic-guide)
 - [Microgreens: A Satwik Superfood](/blog/microgreens-satwik-superfood)
+- [Coconut: Benefits, Uses, Ayurveda & How Much to Eat Daily](/blog/coconut-benefits-uses-and-ayurveda)

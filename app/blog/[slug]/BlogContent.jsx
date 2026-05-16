@@ -244,15 +244,25 @@ export default function BlogContent({ content }) {
         .blog-content img[src*="farming-conv"],
         .blog-content img[src*="farming3-conv"],
         .blog-content img[src*="microgreen-conv"],
-        .blog-content img[src*="guava2-conv"] {
+        .blog-content img[src*="guava2-conv"],
+        .blog-content img[src*="coconut-oil-conv"] {
           height: 420px !important;
           object-position: center !important;
         }
 
-        .blog-content img[src*="weight-loss-ingredients"] {
+        /* Text-bearing designed graphics — contain so titles/logos are not cropped */
+        .blog-content img[src*="weight-loss-ingredients"],
+        .blog-content img[src*="grounding2-conv"] {
           height: 420px !important;
           object-fit: contain !important;
           background: #f7fafc !important;
+        }
+
+        /* Coconut blog — branded product image: contain so text is not cropped */
+        .blog-content img[src*="coconut-oil-main"] {
+          height: 460px !important;
+          object-fit: contain !important;
+          background: #fdf8ee !important;
         }
 
         /* Flax seeds blog — photo uses cover crop at 420px */
