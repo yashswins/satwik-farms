@@ -69,5 +69,6 @@ Continue exploring our dairy and farm story:
 - [Meet Our Cattle: The Heart of Our Dairy](/blog/meet-our-cattle)
 - [Satwik Yoghurt (Dahi): Gut-Healing Superfood](/blog/satwik-yoghurt-dahi)
 - [Satwik Paneer (Cottage Cheese)](/blog/satwik-paneer)
+- [Cow Ghee: The Golden Elixir of Ayurveda, Nutrition & Modern Wellness](/blog/cow-ghee-ayurveda-nutrition-benefits)
 - [Satwik Farming: Holistic, Regenerative Agriculture](/blog/satwik-farming-technique)
 - [Why Choose Satwik Farms](/blog/why-choose-satwik-farms)

@@ -245,7 +245,9 @@ export default function BlogContent({ content }) {
         .blog-content img[src*="farming3-conv"],
         .blog-content img[src*="microgreen-conv"],
         .blog-content img[src*="guava2-conv"],
-        .blog-content img[src*="coconut-oil-conv"] {
+        .blog-content img[src*="coconut-oil-conv"],
+        .blog-content img[src*="ghee-product"],
+        .blog-content img[src*="ghee-diabetes-meal"] {
           height: 420px !important;
           object-position: center !important;
         }
