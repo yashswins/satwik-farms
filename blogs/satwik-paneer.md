@@ -139,6 +139,7 @@ Paneer is a dairy product. Those with **lactose intolerance, milk allergy, or sp
 If you enjoyed this, you may also like:
 
 - [Satwik Yoghurt (Dahi): Gut-Healing Superfood](/blog/satwik-yoghurt-dahi)
+- [Tofu: A Complete Plant Protein — Benefits & Nutrition](/blog/tofu-plant-protein-benefits)
 - [Meet Our Cattle: The Heart of Our Dairy](/blog/meet-our-cattle)
 - [Behind the Scenes: Our Dairy Process](/blog/dairy-process-behind-scenes)
 - [Fresh Garden Salad with Satwik Greens](/blog/garden-salad-recipe)

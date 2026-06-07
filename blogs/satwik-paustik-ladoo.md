@@ -158,6 +158,7 @@ Yes. One ladoo a day is a nourishing daily ritual — not an occasional treat. I
 If you are exploring natural, Ayurvedic-aligned nutrition, you may also find these helpful:
 
 - [The Power of Our Roasted Seed Mix](/blog/roasted-seed-mix)
+- [Tofu: A Complete Plant Protein — Benefits & Nutrition](/blog/tofu-plant-protein-benefits)
 - [Barley – A Superfood for Diabetics and Beyond](/blog/barley-superfood)
 - [Dried Jamun Pulp: Benefits for Blood Sugar](/blog/dried-jamun-pulp)
 

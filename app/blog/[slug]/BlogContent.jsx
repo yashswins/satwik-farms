@@ -273,6 +273,14 @@ export default function BlogContent({ content }) {
           object-position: center !important;
         }
 
+        /* Tofu blog — landscape branded graphic: cap the width and centre it so the
+           whole graphic shrinks to ~420px tall (no crop, no bars) */
+        .blog-content img[src*="tofu1-landscape"] {
+          height: auto !important;
+          max-width: 560px !important;
+          object-fit: contain !important;
+        }
+
         /* Horizontal Rule */
         .blog-content hr {
           border: none;
