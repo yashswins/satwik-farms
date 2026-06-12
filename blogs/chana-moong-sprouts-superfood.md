@@ -3,7 +3,7 @@ title: "Chana & Moong Sprouts: Nutrition, Ayurvedic Benefits & How to Eat Them D
 date: "June 12, 2026"
 category: "Education"
 image: "/images/chana-moong1-conv.jpg"
-imagePosition: "50%"
+imageFit: "contain"
 imageAlt: "Fresh moong and chana sprouts in a bowl — a nutrient-dense living superfood used in Ayurveda and modern nutrition"
 ogImage: "/images/og-sprouts.jpg"
 excerpt: "Chana and moong sprouts are among India's most affordable superfoods. Here's their full nutrition profile, Ayurvedic properties, disease-specific benefits, and how much to eat daily."
