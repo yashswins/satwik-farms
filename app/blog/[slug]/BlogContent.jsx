@@ -281,6 +281,13 @@ export default function BlogContent({ content }) {
           object-fit: contain !important;
         }
 
+        /* Sprouts blog — inline photo at standard 420px cover crop */
+        .blog-content img[src*="chana-moong2-conv"] {
+          height: 420px !important;
+          object-fit: cover !important;
+          object-position: center !important;
+        }
+
         /* Horizontal Rule */
         .blog-content hr {
           border: none;

@@ -186,8 +186,8 @@ Whether you are searching for the best superfoods for health, natural immunity b
 
 More from the Satwik wellness collection:
 
+- [Chana & Moong Sprouts: Nutrition, Ayurvedic Benefits & How to Eat Them Daily](/blog/chana-moong-sprouts-superfood)
 - [The Gut: Where Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
 - [Flax Seeds: Benefits, Nutrition & Daily Dosage](/blog/flax-seeds-superfood-benefits)
 - [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)
 - [Fresh Garden Salad with Satwik Greens](/blog/garden-salad-recipe)
-- [Avocado: Nutrition, Benefits & the Complete Oil Guide](/blog/avocado-benefits-and-oil-guide)
