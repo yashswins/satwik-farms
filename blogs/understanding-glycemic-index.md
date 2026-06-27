@@ -78,3 +78,4 @@ Continue exploring blood-sugar-friendly foods:
 - [Dried Jamun Pulp: An Ancient Superfood for Blood Sugar Control](/blog/dried-jamun-pulp)
 - [Dried Jamun Seed Powder (Jamun Beej Churna)](/blog/dried-jamun-seed-powder)
 - [Cow Ghee for Diabetes: Benefits, Uses & Ayurvedic Perspective](/blog/cow-ghee-for-diabetes-benefits-ayurveda)
+- [Methi (Fenugreek) Sprouts: A Blood-Sugar-Friendly Sprouted Superfood](/blog/methi-fenugreek-sprouts-benefits)

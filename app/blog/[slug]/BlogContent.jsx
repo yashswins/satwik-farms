@@ -288,6 +288,20 @@ export default function BlogContent({ content }) {
           object-position: center !important;
         }
 
+        /* Walking blog — inline night-walk photo at standard 420px cover crop */
+        .blog-content img[src*="walking2-conv"] {
+          height: 420px !important;
+          object-fit: cover !important;
+          object-position: center !important;
+        }
+
+        /* Methi sprouts blog — inline photo: contain so the corner logo is not cropped */
+        .blog-content img[src*="methi2-conv"] {
+          height: 420px !important;
+          object-fit: contain !important;
+          background: #fdf8ee !important;
+        }
+
         /* Horizontal Rule */
         .blog-content hr {
           border: none;

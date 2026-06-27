@@ -286,3 +286,4 @@ If you found this helpful, you may also like:
 - [Gut Health: Ayurveda & Modern Science Guide](/blog/gut-health-ayurveda-modern-science)
 - [Constipation: Ayurvedic Guide to Natural Relief](/blog/constipation-ayurvedic-guide)
 - [Flax Seeds: Superfood Benefits, Nutrition & How to Use Them](/blog/flax-seeds-superfood-benefits)
+- [Methi (Fenugreek) Sprouts: Benefits, Nutrition & How to Eat Them](/blog/methi-fenugreek-sprouts-benefits)

@@ -184,6 +184,7 @@ Ancient Ayurvedic wisdom recognised this deeply, and modern science is slowly un
 
 More from the Satwik wellness collection:
 
+- [Walking for Health: Benefits, Best Time, Steps & the Ayurvedic View](/blog/walking-for-health-benefits)
 - [How to Charge Water: An Ayurvedic Practice](/blog/how-to-charge-water)
 - [Gut Health: Where Ayurveda Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
 - [Triphala: A Complete Ayurvedic Guide](/blog/triphala-ayurvedic-guide)

@@ -122,3 +122,4 @@ More from the Satwik wellness collection:
 - [Understanding Glycemic Index: A Guide to Better Blood Sugar Management](/blog/understanding-glycemic-index)
 - [Millet Master: Our Diabetic-Friendly Multigrain Atta](/blog/multigrain-atta-diabetic-mix)
 - [Guava Leaf Tea: An Ancient Healing Brew](/blog/guava-leaf-tea-benefits)
+- [Methi (Fenugreek) Sprouts: Benefits, Nutrition & How to Eat Them](/blog/methi-fenugreek-sprouts-benefits)
