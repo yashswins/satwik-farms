@@ -1,6 +1,6 @@
 ---
 title: "Behind the Scenes: Our Dairy Process at Satwik Farms"
-date: "December 20, 2023"
+date: "February 5, 2026"
 category: "Farm Updates"
 image: "/images/farm/2.jpg"
 excerpt: "How does fresh milk become yoghurt and ghee? Take a look behind the scenes at our dairy process — from morning milking in Kisarawe to delivery in Dar es Salaam."

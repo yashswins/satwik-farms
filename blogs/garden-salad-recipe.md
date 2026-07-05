@@ -1,6 +1,6 @@
 ---
 title: "Fresh Garden Salad with Satwik Greens"
-date: "December 28, 2023"
+date: "February 7, 2026"
 category: "Recipes"
 image: "/images/slideshow/6.jpg"
 excerpt: "A simple, delicious salad using fresh residue free greens from Satwik Farms. Ready in 10 minutes and packed with nutrition — the best salad starts with the freshest vegetables."

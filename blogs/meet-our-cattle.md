@@ -1,6 +1,6 @@
 ---
 title: "Meet Our Cattle: The Heart of Our Dairy"
-date: "December 15, 2023"
+date: "February 3, 2026"
 category: "Farm Updates"
 image: "/images/activities/3.jpeg"
 excerpt: "Our dairy products are only as good as the animals that produce them. Get to know the cattle at Satwik Farms — how we care for them and why it makes all the difference."

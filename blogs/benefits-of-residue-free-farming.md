@@ -1,6 +1,6 @@
 ---
 title: "The Benefits of Residue Free Farming"
-date: "January 10, 2024"
+date: "February 11, 2026"
 category: "Education"
 image: "/images/slideshow/2.jpg"
 excerpt: "Learn why residue free farming matters for your health and the environment. We explain our chemical-free approach to agriculture and why it makes a real difference."

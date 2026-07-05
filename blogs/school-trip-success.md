@@ -1,6 +1,6 @@
 ---
 title: "Farm Visit Highlights: School Trip Success at Satwik Farms"
-date: "January 5, 2024"
+date: "February 9, 2026"
 category: "Events"
 image: "/images/activities/1.jpg"
 excerpt: "We recently hosted students from Dar es Salaam International School for a full-day farm visit. Here's what they learned and why we love hosting school groups."
