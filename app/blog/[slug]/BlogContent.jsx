@@ -302,6 +302,13 @@ export default function BlogContent({ content }) {
           background: #fdf8ee !important;
         }
 
+        /* Passion fruit series — inline photo at standard 420px cover crop */
+        .blog-content img[src*="passion1-conv"] {
+          height: 420px !important;
+          object-fit: cover !important;
+          object-position: center !important;
+        }
+
         /* Horizontal Rule */
         .blog-content hr {
           border: none;

@@ -160,3 +160,4 @@ If you enjoyed this, you may also like:
 - [Fatty Liver Disease: A Satwik & Holistic Guide](/blog/fatty-liver-disease-satwik-holistic-guide)
 - [Microgreens: A Satwik Superfood](/blog/microgreens-satwik-superfood)
 - [Coconut: Benefits, Uses, Ayurveda & How Much to Eat Daily](/blog/coconut-benefits-uses-and-ayurveda)
+- [Passion Fruit: The Superfruit of Wellness — Nutrition, Botany & Antioxidant Power](/blog/passion-fruit-superfruit-nutrition-part-1)

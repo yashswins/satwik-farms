@@ -220,3 +220,4 @@ Continue exploring gut and digestive wellness:
 - [Flax Seeds: Benefits, Nutrition & Daily Dosage](/blog/flax-seeds-superfood-benefits)
 - [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)
 - [Walking for Health: Benefits, Best Time & the Ayurvedic View](/blog/walking-for-health-benefits)
+- [Passion Fruit Health Benefits: Digestion, Gut Health & More](/blog/passion-fruit-health-benefits-part-2)
