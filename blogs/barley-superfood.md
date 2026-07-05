@@ -147,3 +147,4 @@ Continue exploring blood-sugar-friendly foods and education:
 - [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
 - [Dried Jamun Pulp: An Ancient Superfood for Blood Sugar Control](/blog/dried-jamun-pulp)
 - [Guava Leaf Tea: An Ancient Healing Brew](/blog/guava-leaf-tea-benefits)
+- [Jackfruit Health Benefits: Diabetes, Weight, Heart & Gut Health](/blog/jackfruit-health-benefits-part-2)

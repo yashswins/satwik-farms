@@ -262,3 +262,4 @@ More from the Satwik wellness collection:
 - [The Power of Our Roasted Seed Mix](/blog/roasted-seed-mix)
 - [Gut Health: Where Ayurveda Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
 - [Multigrain Diabetic Atta: A Low-GI Flour Blend](/blog/multigrain-atta-diabetic-mix)
+- [Jackfruit: Nature's Giant Superfruit — Nutrition, Botany & Raw vs Ripe](/blog/jackfruit-nutrition-raw-vs-ripe-part-1)
