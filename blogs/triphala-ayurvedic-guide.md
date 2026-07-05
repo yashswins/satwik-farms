@@ -158,3 +158,4 @@ If you enjoyed this, you may also like:
 - [Fatty Liver Disease: A Satwik & Holistic Guide](/blog/fatty-liver-disease-satwik-holistic-guide)
 - [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
 - [Satwik Agni Boost: An Ayurvedic Weight-Loss Drink from Indian Spices](/blog/agni-boost-ayurvedic-weight-loss-drink)
+- [Isabgol in Ayurveda & Satwik Living: A Cooling, Gentle Bowel Regulator](/blog/isabgol-ayurveda-satwik-part-3)
