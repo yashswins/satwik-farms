@@ -143,6 +143,7 @@ Since seeds are calorie-dense, a typical serving is **1–2 tablespoons (approx.
 If you enjoyed this, you may also like:
 
 - [Flax Seeds: Benefits, Nutrition, Dosage](/blog/flax-seeds-superfood-benefits)
+- [Chia Seeds: Benefits, Nutrition & How to Use Them Safely](/blog/chia-seeds-benefits-nutrition-uses)
 - [Satwik Paustik Ladoo: Sugar-Free Energy Snack](/blog/satwik-paustik-ladoo)
 - [Multigrain Diabetic Atta: A Low-GI Flour Blend](/blog/multigrain-atta-diabetic-mix)
 - [Understanding the Glycemic Index](/blog/understanding-glycemic-index)

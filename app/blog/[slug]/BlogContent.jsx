@@ -309,6 +309,47 @@ export default function BlogContent({ content }) {
           object-position: center !important;
         }
 
+        /* Chia blog — portrait pudding-glass photo: focus below the empty white
+           top so the garnish, chia layer and milk layer all stay in frame */
+        .blog-content img[src*="chia2-conv"] {
+          height: 420px !important;
+          object-fit: cover !important;
+          object-position: center 55% !important;
+        }
+
+        /* Papaya blog — portrait tree photo: focus on the green fruit cluster */
+        .blog-content img[src*="papaya2-conv"] {
+          height: 420px !important;
+          object-fit: cover !important;
+          object-position: center 45% !important;
+        }
+
+        /* Lemon pickle blog — inline jar photo: keep jar rim and plate of
+           slices both in frame */
+        .blog-content img[src*="lemon-pickle2-conv"] {
+          height: 420px !important;
+          object-fit: cover !important;
+          object-position: center 42% !important;
+        }
+
+        /* Kundalini series — text-bearing infographics: contain so no text is
+           ever cropped; cream background matches the graphics */
+        .blog-content img[src*="kundalini1-conv"],
+        .blog-content img[src*="kundalini2-conv"],
+        .blog-content img[src*="kundalini3-conv"],
+        .blog-content img[src*="kundalini4-conv"] {
+          height: 520px !important;
+          object-fit: contain !important;
+          background: #fdf8ee !important;
+        }
+
+        /* Hast mudras blog — six-mudra reference card (text-bearing): contain */
+        .blog-content img[src*="hast2-conv"] {
+          height: 520px !important;
+          object-fit: contain !important;
+          background: #fdf8ee !important;
+        }
+
         /* Horizontal Rule */
         .blog-content hr {
           border: none;

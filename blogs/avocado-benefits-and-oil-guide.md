@@ -161,3 +161,4 @@ If you enjoyed this, you may also like:
 - [Microgreens: A Satwik Superfood](/blog/microgreens-satwik-superfood)
 - [Coconut: Benefits, Uses, Ayurveda & How Much to Eat Daily](/blog/coconut-benefits-uses-and-ayurveda)
 - [Passion Fruit: The Superfruit of Wellness — Nutrition, Botany & Antioxidant Power](/blog/passion-fruit-superfruit-nutrition-part-1)
+- [Papaya Benefits: Nutrition, Digestion & the Ayurvedic View](/blog/papaya-benefits-nutrition-ayurveda)

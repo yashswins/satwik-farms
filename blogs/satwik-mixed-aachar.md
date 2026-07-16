@@ -228,6 +228,7 @@ In a world increasingly leaning toward clean eating and gut health, this humble 
 
 If you enjoyed this, you may also like:
 
+- [Sweet Lemon Pickle in Jaggery Syrup: Grandma's Traditional Recipe](/blog/sweet-lemon-pickle-jaggery-benefits)
 - [Gut Health: Where Ayurveda Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
 - [Satwik Yoghurt (Dahi): The Ultimate Gut-Healing Superfood](/blog/satwik-yoghurt-dahi)
 - [Constipation: Causes, Symptoms & Natural Relief](/blog/constipation-ayurvedic-guide)

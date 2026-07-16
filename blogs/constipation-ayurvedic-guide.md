@@ -231,3 +231,4 @@ If you found this helpful, you may also like:
 - [Walking for Health: How a Daily Walk Eases Constipation & More](/blog/walking-for-health-benefits)
 - [Jackfruit Health Benefits: Digestion, Gut Health & More](/blog/jackfruit-health-benefits-part-2)
 - [Isabgol (Psyllium Husk) Health Benefits: Constipation, Blood Sugar & Gut Health](/blog/isabgol-health-benefits-part-2)
+- [Chia Seeds: A Fibre-Rich Food for Regularity — Benefits & Safe Use](/blog/chia-seeds-benefits-nutrition-uses)

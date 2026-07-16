@@ -221,3 +221,4 @@ Continue exploring gut and digestive wellness:
 - [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)
 - [Walking for Health: Benefits, Best Time & the Ayurvedic View](/blog/walking-for-health-benefits)
 - [Passion Fruit Health Benefits: Digestion, Gut Health & More](/blog/passion-fruit-health-benefits-part-2)
+- [Sweet Lemon Pickle in Jaggery Syrup: A Traditional Digestive Companion](/blog/sweet-lemon-pickle-jaggery-benefits)

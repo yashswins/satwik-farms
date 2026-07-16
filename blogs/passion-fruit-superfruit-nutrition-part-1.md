@@ -130,6 +130,7 @@ For people with sedentary lifestyles or diets low in whole plant foods, this exc
 Continue exploring the Satwik wellness collection:
 
 - [Avocado: Nutrition, Health Benefits & the Complete Guide to Avocado Oil](/blog/avocado-benefits-and-oil-guide)
+- [Papaya Benefits: Nutrition, Digestion & the Ayurvedic View](/blog/papaya-benefits-nutrition-ayurveda)
 - [Microgreens: A Satwik Superfood Backed by Science & Ayurveda](/blog/microgreens-satwik-superfood)
 - [Understanding Glycemic Index: Your Guide to Better Blood Sugar Management](/blog/understanding-glycemic-index)
 - [Why Choose Satwik Farms: Regenerative, Residue-Free Farming for a Better Future](/blog/why-choose-satwik-farms)

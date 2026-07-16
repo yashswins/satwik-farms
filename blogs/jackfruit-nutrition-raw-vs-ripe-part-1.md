@@ -128,6 +128,7 @@ Health experts and food scientists keep returning to jackfruit because it is nat
 Continue exploring the Satwik wellness collection:
 
 - [Passion Fruit: The Superfruit of Wellness — Nutrition, Botany & Antioxidant Power](/blog/passion-fruit-superfruit-nutrition-part-1)
+- [Papaya Benefits: Nutrition, Digestion & the Ayurvedic View](/blog/papaya-benefits-nutrition-ayurveda)
 - [Tofu: Benefits, Nutrition, Ayurveda & How Much to Eat Daily](/blog/tofu-plant-protein-benefits)
 - [Microgreens: A Satwik Superfood Backed by Science & Ayurveda](/blog/microgreens-satwik-superfood)
 - [Why Choose Satwik Farms: Regenerative, Residue-Free Farming for a Better Future](/blog/why-choose-satwik-farms)

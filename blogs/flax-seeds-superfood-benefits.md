@@ -205,6 +205,7 @@ The formula is simple: **use them regularly, in ground form, and in moderation.*
 If you enjoyed this, you may also like:
 
 - [The Power of Our Roasted Seed Mix](/blog/roasted-seed-mix)
+- [Chia Seeds: Benefits, Nutrition & How to Use Them Safely](/blog/chia-seeds-benefits-nutrition-uses)
 - [Satwik Paustik Ladoo: A Wholesome Energy Snack](/blog/satwik-paustik-ladoo)
 - [Gut Health: Where Ayurveda Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
 - [Multigrain Diabetic Atta: A Low-GI Flour Blend](/blog/multigrain-atta-diabetic-mix)

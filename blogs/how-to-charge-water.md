@@ -151,6 +151,7 @@ Sometimes, the smallest rituals create the biggest transformations.
 
 Continue exploring mindful living and Ayurvedic wisdom:
 
+- [Kundalini Jagaran (Part 1): What Is Kundalini Shakti? The Seven Chakras & Satwik Foundations](/blog/kundalini-jagaran-seven-chakras-part-1)
 - [Akshaya Tritiya: Significance, Rituals & the Sacred Amla Tree](/blog/akshaya-tritiya)
 - [Triphala: The Ayurvedic Three-Fruit Wonder](/blog/triphala-ayurvedic-guide)
 - [The Gut: Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
