@@ -173,13 +173,14 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <head>
+      <body className="antialiased">
+        {/* JSON-LD lives in the body: Next.js owns <head> and interleaves its
+            own scripts there, which breaks React hydration matching. Google
+            parses JSON-LD identically in head or body. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className="antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />
