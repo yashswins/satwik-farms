@@ -37,7 +37,7 @@ export default function CustomerFields({ form, errors, onChange, showEmail = tru
           id="name"
           type="text"
           autoComplete="name"
-          placeholder="e.g. Asha Mohamed"
+          placeholder="Enter your full name"
           className={inputClass('name')}
           {...field('name')}
         />

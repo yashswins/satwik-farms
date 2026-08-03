@@ -1,12 +1,12 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { IoCallOutline } from 'react-icons/io5';
 
 import CustomerFields from '@/components/order/CustomerFields';
 import ScreenHeader from '@/components/order/ScreenHeader';
-import TurnstileWidget from '@/components/order/Turnstile';
+import TurnstileWidget, { resetTurnstile } from '@/components/order/Turnstile';
 import { formatPrice } from '@/lib/order/format';
 import { getDeviceId } from '@/lib/order/storage';
 import { useCartStore, useCustomerStore, useOrderHistoryStore } from '@/lib/order/stores';
@@ -28,9 +28,9 @@ export default function CheckoutScreen() {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [failure, setFailure] = useState(null);
-  const [turnstileToken, setTurnstileToken] = useState(null);
   const [mounted, setMounted] = useState(false);
   const honeypotRef = useRef(null);
+  const formRef = useRef(null);
 
   // One key per checkout attempt, reused across retries. This is what stops a
   // timeout-then-retry from creating two Sales Orders in the ERP.
@@ -70,7 +70,9 @@ export default function CheckoutScreen() {
     if (errors[name]) setErrors((e) => ({ ...e, [name]: undefined }));
   };
 
-  const handleToken = useCallback((token) => setTurnstileToken(token), []);
+  /** Token is injected into the form by api.js as a hidden input. */
+  const readTurnstileToken = () =>
+    formRef.current?.querySelector('[name="cf-turnstile-response"]')?.value || null;
 
   const submit = async (event) => {
     event.preventDefault();
@@ -112,7 +114,7 @@ export default function CheckoutScreen() {
       subtotal,
       delivery_fee: deliveryFee,
       total,
-      turnstileToken,
+      turnstileToken: readTurnstileToken(),
       idempotencyKey: idempotencyKey.current,
       website: honeypotRef.current?.value ?? '',
       deviceId: getDeviceId(),
@@ -145,6 +147,10 @@ export default function CheckoutScreen() {
       setFailure('We could not reach our ordering system. Your cart is safe — please try again.');
     } finally {
       setSubmitting(false);
+      // Any path that lands here did NOT navigate away, so the customer may
+      // retry. Their Turnstile token has already been redeemed; without a reset
+      // the retry fails as timeout-or-duplicate rather than for the real reason.
+      resetTurnstile();
     }
   };
 
@@ -163,7 +169,7 @@ export default function CheckoutScreen() {
     <>
       <ScreenHeader title="Checkout" fallbackHref="/order/cart" />
 
-      <form onSubmit={submit} className="px-4 pb-6 pt-4" noValidate>
+      <form ref={formRef} onSubmit={submit} className="px-4 pb-6 pt-4" noValidate>
         <h2 className="mb-3 text-[15px] font-semibold text-shop-text">Delivery details</h2>
         {mounted && <CustomerFields form={form} errors={errors} onChange={update} showEmail />}
 
@@ -219,7 +225,7 @@ export default function CheckoutScreen() {
           </div>
         </div>
 
-        <TurnstileWidget onToken={handleToken} />
+        <TurnstileWidget />
 
         {failure && (
           <div role="alert" className="mt-5 rounded-shop-sm border border-shop-error/30
