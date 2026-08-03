@@ -252,10 +252,6 @@ export default function CheckoutScreen() {
         >
           {submitting ? 'Placing your order…' : `Place order · ${formatPrice(total)}`}
         </button>
-
-        <p className="mt-3 text-center text-[12px] text-shop-text-secondary">
-          You&apos;ll pay on delivery. We&apos;ll call to confirm.
-        </p>
       </form>
     </>
   );
