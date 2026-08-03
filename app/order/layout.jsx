@@ -1,6 +1,6 @@
 import { Poppins } from 'next/font/google';
 
-import BottomTabs from '@/components/order/BottomTabs';
+import ShopShell from '@/components/order/ShopShell';
 
 /**
  * Self-hosted at build time by next/font, so the site's `font-src 'self'` CSP
@@ -37,9 +37,9 @@ export default function OrderLayout({ children }) {
     // native app (decision recorded in web_app.md §12.5).
     <div className={`${poppins.variable} min-h-screen bg-shop-primary-light/20 font-poppins`}>
       <div className="relative mx-auto min-h-screen w-full max-w-[480px] bg-shop-bg shadow-xl">
-        {/* Bottom tab bar is fixed; pad so it can never cover content. */}
-        <div className="pb-[76px]">{children}</div>
-        <BottomTabs />
+        {/* Tab bar and first-visit routing are client concerns; ShopShell also
+            decides which screens are full-screen routes without a tab bar. */}
+        <ShopShell>{children}</ShopShell>
       </div>
     </div>
   );
