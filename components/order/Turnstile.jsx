@@ -1,60 +1,118 @@
 'use client';
 
-import Script from 'next/script';
+import { useEffect, useRef } from 'react';
 
 /**
- * Cloudflare Turnstile widget, declarative form.
+ * Cloudflare Turnstile widget.
  *
- * api.js auto-renders any `.cf-turnstile` element and injects a hidden
- * `cf-turnstile-response` input into the surrounding form, which is where the
- * token is read from at submit time.
+ * Declarative markup PLUS an explicit render fallback, because neither alone is
+ * sufficient in a single-page app:
  *
- * An earlier version used `render=explicit` plus a manual `turnstile.render()`
- * call. That is the documented API but it is easy to get subtly wrong — calling
- * render() before the API settles, or routing through `turnstile.ready()` after
- * api.js has loaded, both leave the widget silently absent: no error, no
- * iframe, and checkout looking perfectly fine with no bot protection at all.
- * The declarative form has no such failure mode.
+ *  - api.js auto-renders `.cf-turnstile` elements when it loads. That covers a
+ *    fresh page load, but on a client-side navigation to checkout the script has
+ *    already run, so the newly mounted widget is never processed and no widget
+ *    appears at all. The customer then submits without a token and is told the
+ *    security check failed.
+ *  - Calling render() unconditionally would double-render on a fresh load.
  *
- * Renders nothing without a site key, so local and preview builds work without
- * one. The server decides whether a missing token is acceptable.
+ * So: leave the declarative attributes for the fresh-load path, and after mount
+ * check whether anything actually rendered. If not, render it ourselves.
+ *
+ * Do NOT route this through turnstile.ready() — after api.js has loaded that
+ * logs "turnstile.ready() would break if called before the Turnstile api.js
+ * script is loaded" and never runs the callback, leaving no widget and no error.
  */
+const SCRIPT_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+
 export default function TurnstileWidget() {
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const containerRef = useRef(null);
+  const widgetId = useRef(null);
+
+  useEffect(() => {
+    if (!siteKey) return undefined;
+
+    // Load api.js once per page.
+    if (!document.querySelector(`script[src^="${SCRIPT_SRC}"]`)) {
+      const script = document.createElement('script');
+      script.src = SCRIPT_SRC;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    let cancelled = false;
+    let elapsed = 0;
+    const timer = setInterval(() => {
+      if (cancelled) return;
+      const el = containerRef.current;
+      if (!el) return;
+
+      // Auto-render got there first — nothing to do.
+      if (el.children.length > 0) {
+        clearInterval(timer);
+        return;
+      }
+      if (window.turnstile && widgetId.current === null) {
+        clearInterval(timer);
+        try {
+          widgetId.current = window.turnstile.render(el, {
+            sitekey: siteKey,
+            action: 'turnstile-spin-v2',
+            theme: 'light',
+          });
+        } catch (error) {
+          console.error('[shop] Turnstile render failed:', error);
+        }
+        return;
+      }
+      elapsed += 200;
+      if (elapsed >= 15000) {
+        clearInterval(timer);
+        console.error('[shop] Turnstile did not initialise within 15s.');
+      }
+    }, 200);
+
+    return () => {
+      cancelled = true;
+      clearInterval(timer);
+      if (widgetId.current !== null && window.turnstile) {
+        try {
+          window.turnstile.remove(widgetId.current);
+        } catch {
+          /* already gone */
+        }
+        widgetId.current = null;
+      }
+    };
+  }, [siteKey]);
+
   if (!siteKey) return null;
 
   return (
-    <>
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="afterInteractive"
-      />
-      <div
-        className="cf-turnstile mt-4 flex justify-center"
-        data-sitekey={siteKey}
-        // Analytics attribution for Cloudflare's integration tooling.
-        data-action="turnstile-spin-v2"
-        data-theme="light"
-      />
-    </>
+    <div
+      ref={containerRef}
+      className="cf-turnstile mt-4 flex justify-center"
+      data-sitekey={siteKey}
+      data-action="turnstile-spin-v2"
+      data-theme="light"
+    />
   );
 }
 
 /**
- * Clear the redeemed token so a retry gets a fresh one.
+ * Clear the redeemed or expired token so a retry gets a fresh one.
  *
- * Turnstile tokens are single-use: once siteverify redeems one, the browser
- * still holds it in the DOM, and resubmitting sends the same value — which
- * Cloudflare rejects as `timeout-or-duplicate`. Without this, the FIRST failure
- * at checkout makes every subsequent retry fail too, for a different reason
- * than the customer was told.
+ * Tokens are single-use and expire after about five minutes, so the one issued
+ * when checkout loaded is often stale by the time someone finishes typing their
+ * address. Without a reset the retry fails as timeout-or-duplicate.
  */
 export function resetTurnstile() {
   if (typeof window !== 'undefined' && window.turnstile) {
     try {
       window.turnstile.reset();
     } catch {
-      /* widget not rendered; nothing to reset */
+      /* not rendered; nothing to reset */
     }
   }
 }

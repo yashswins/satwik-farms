@@ -34,6 +34,8 @@ export default function CheckoutScreen() {
   const [promo, setPromo] = useState(null);
   // True while re-checking an ambiguous submission.
   const [resolving, setResolving] = useState(false);
+  // True while waiting for the bot check to finish before submitting.
+  const [verifying, setVerifying] = useState(false);
   const [mounted, setMounted] = useState(false);
   const honeypotRef = useRef(null);
   const formRef = useRef(null);
@@ -111,6 +113,38 @@ export default function CheckoutScreen() {
   const readTurnstileToken = () =>
     formRef.current?.querySelector('[name="cf-turnstile-response"]')?.value || null;
 
+  /**
+   * Wait for Turnstile to finish before submitting.
+   *
+   * The widget takes a second or two to solve, and a customer who fills the
+   * form quickly will click Place Order before it does. Submitting then sends
+   * no token, the server returns 403, and the customer is told "we could not
+   * verify your browser" — blamed for being fast, with no way to understand
+   * what to do. Waiting is the correct behaviour; failing is not.
+   *
+   * Gives up after a while and submits anyway: the server decides, and if
+   * Turnstile is genuinely broken that is not the customer's problem to solve
+   * at checkout.
+   */
+  const awaitTurnstileToken = async () => {
+    // No widget configured means nothing to wait for.
+    if (!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) return null;
+    const existing = readTurnstileToken();
+    if (existing) return existing;
+    setVerifying(true);
+    try {
+      for (let waited = 0; waited < 15000; waited += 300) {
+        // eslint-disable-next-line no-await-in-loop
+        await new Promise((r) => { setTimeout(r, 300); });
+        const token = readTurnstileToken();
+        if (token) return token;
+      }
+      return null;
+    } finally {
+      setVerifying(false);
+    }
+  };
+
   const submit = async (event) => {
     event.preventDefault();
     setFailure(null);
@@ -129,6 +163,9 @@ export default function CheckoutScreen() {
     }
 
     setSubmitting(true);
+    // Let the bot check finish before sending, rather than failing a customer
+    // who filled the form faster than the widget could solve.
+    const turnstileToken = await awaitTurnstileToken();
     // Save details now so they survive even if the order itself fails.
     customer.setCustomer({ ...form, deliveryNotes: sanitizeNotes(form.notes) });
     customer.markOnboarded();
@@ -147,7 +184,7 @@ export default function CheckoutScreen() {
       // advisory and a mismatch is rejected there.
       promo_code: promo?.code || undefined,
       discount: discount || undefined,
-      turnstileToken: readTurnstileToken(),
+      turnstileToken,
       idempotencyKey: idempotencyKey.current,
       website: honeypotRef.current?.value ?? '',
       deviceId: getDeviceId(),
@@ -173,12 +210,27 @@ export default function CheckoutScreen() {
     try {
       let res;
       let data = {};
+      let refreshedToken = false;
       const MAX_ATTEMPTS = 3;
       for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
-        setResolving(attempt > 1);
+        setResolving(attempt > 1 && !verifying);
         try {
           res = await send();
           data = await res.json().catch(() => ({}));
+
+          // A 403 is almost always an EXPIRED token, not a suspicious visitor.
+          // Turnstile tokens are single-use and short-lived: the widget solves
+          // on page load, the customer then reads the summary and fills in
+          // their address, and by the time they press the button the token is
+          // stale. Blaming them for that is unacceptable — get a fresh token
+          // and resend once, invisibly.
+          if (res.status === 403 && !refreshedToken) {
+            refreshedToken = true;
+            resetTurnstile();
+            payload.turnstileToken = await awaitTurnstileToken();
+            continue;
+          }
+
           // 502/504 are our own "upstream did not answer" codes — ambiguous.
           // Anything else is a definite answer, success or failure.
           if (res.status !== 502 && res.status !== 504) break;
@@ -357,7 +409,8 @@ export default function CheckoutScreen() {
                      text-white disabled:opacity-60 active:bg-shop-primary-dark"
         >
           {submitting
-            ? (resolving ? 'Confirming your order…' : S.CHECKOUT_PROCESSING)
+            ? (verifying ? 'Checking your browser…'
+              : resolving ? 'Confirming your order…' : S.CHECKOUT_PROCESSING)
             : `${S.CHECKOUT_PLACE_ORDER} · ${formatPrice(total)}`}
         </button>
       </form>

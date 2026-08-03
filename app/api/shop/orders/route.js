@@ -118,7 +118,11 @@ export async function POST(request) {
   const turnstile = await verifyTurnstile(turnstileToken, ip);
   if (!turnstile.ok) {
     console.warn(`[shop/orders] turnstile rejected ${ip}: ${turnstile.reason}`);
-    return bad('We could not verify your browser. Please refresh the page and try again.', 403);
+    return bad(
+      'The security check did not complete. Please wait a moment for it to finish, '
+      + 'then try again.',
+      403,
+    );
   }
 
   // 4. Schema.
