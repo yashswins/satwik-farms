@@ -26,11 +26,16 @@ export default function ComboDetail({ comboId }) {
   const [added, setAdded] = useState(false);
 
   const combo = catalog?.combos.find((c) => c.id === comboId) ?? null;
-  const products = combo
-    ? combo.productIds.map((id) => catalog.productsById.get(id)).filter(Boolean)
+  // Repeated ids in product_ids are quantities ("Buy 5 kg" arrives as the same
+  // id five times), so group them rather than listing one product five times.
+  const lines = combo
+    ? combo.lineItems
+      .map(({ id, quantity }) => ({ product: catalog.productsById.get(id), quantity }))
+      .filter((l) => l.product)
     : [];
-  const available = products.filter((p) => p.isActive && p.inStock);
-  const partsTotal = available.reduce((sum, p) => sum + p.price, 0);
+  const available = lines.filter((l) => l.product.isActive && l.product.inStock);
+  const totalUnits = available.reduce((n, l) => n + l.quantity, 0);
+  const partsTotal = available.reduce((sum, l) => sum + l.product.price * l.quantity, 0);
 
   if (loading) {
     return (
@@ -56,7 +61,7 @@ export default function ComboDetail({ comboId }) {
   }
 
   const addAll = () => {
-    available.forEach((p) => addItem(p, 1));
+    available.forEach(({ product, quantity }) => addItem(product, quantity));
     setAdded(true);
     setTimeout(() => setAdded(false), 1600);
   };
@@ -67,6 +72,13 @@ export default function ComboDetail({ comboId }) {
       <div className="px-4 pb-6 pt-4">
         {combo.description && (
           <p className="text-[14px] leading-[21px] text-shop-text-secondary">{combo.description}</p>
+        )}
+
+        {combo.discountText && (
+          <p className="mt-3 inline-block rounded-full bg-shop-primary/10 px-3 py-1 text-[12px]
+                        font-semibold text-shop-primary-dark">
+            {combo.discountText}
+          </p>
         )}
 
         <div className="mt-4 flex items-baseline gap-2">
@@ -82,7 +94,7 @@ export default function ComboDetail({ comboId }) {
           What&apos;s included
         </h2>
         <ul className="divide-y divide-shop-border rounded-shop-md border border-shop-border bg-shop-surface">
-          {products.map((product) => {
+          {lines.map(({ product, quantity }) => {
             const sellable = product.isActive && product.inStock;
             return (
               <li key={product.id} className="flex items-center gap-3 px-3 py-2.5">
@@ -90,21 +102,26 @@ export default function ComboDetail({ comboId }) {
                   <ProductImage product={product} sizes="48px" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[14px] text-shop-text">{product.name}</p>
+                  <p className="truncate text-[14px] text-shop-text">
+                    {product.name}
+                    {quantity > 1 && (
+                      <span className="text-shop-text-secondary"> × {quantity}</span>
+                    )}
+                  </p>
                   <p className="text-[12px] text-shop-text-secondary">
                     {product.unit}
                     {!sellable && <span className="text-shop-error"> · unavailable</span>}
                   </p>
                 </div>
                 <span className="shrink-0 text-[13px] text-shop-text-secondary">
-                  {formatPrice(product.price)}
+                  {formatPrice(product.price * quantity)}
                 </span>
               </li>
             );
           })}
         </ul>
 
-        {available.length < products.length && (
+        {available.length < lines.length && (
           <p className="mt-3 text-[13px] text-shop-text-secondary">
             Only the available items will be added to your cart.
           </p>
@@ -113,8 +130,8 @@ export default function ComboDetail({ comboId }) {
         {available.length > 0 && (
           <div className="sticky bottom-0 mt-6 border-t border-shop-border bg-shop-surface py-3">
             <p className="mb-2 text-center text-[12px] text-shop-text-secondary">
-              Adds {available.length} {available.length === 1 ? 'item' : 'items'} ·{' '}
-              {formatPrice(partsTotal)}
+              Adds {totalUnits} {totalUnits === 1 ? 'item' : 'items'} ·{' '}
+              {formatPrice(partsTotal)} at normal prices
             </p>
             <button
               type="button"

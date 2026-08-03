@@ -16,6 +16,7 @@
  * threshold it liked.
  */
 import { rateLimit, clientIp } from '@/lib/order/rateLimit';
+import { getServerCatalog } from '@/lib/order/serverCatalog';
 
 export const dynamic = 'force-dynamic';
 
@@ -57,9 +58,10 @@ export async function POST(request) {
   }
 
   try {
-    const res = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' });
-    if (!res.ok) throw new Error(`catalog ${res.status}`);
-    const catalog = await res.json();
+    // Shared fetcher: retries and falls back to a cached copy. A bare fetch here
+    // meant a valid code was rejected with "Could not apply promo code" whenever
+    // the Apps Script endpoint hiccupped, which it does often.
+    const { catalog } = await getServerCatalog();
 
     const priceBySku = new Map();
     for (const product of catalog.products ?? []) {

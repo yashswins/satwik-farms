@@ -117,13 +117,19 @@ export function FeaturedSections({ catalog }) {
 /** Bundle deals — a fixed price for a set of products. */
 export function ComboDeals({ catalog }) {
   const combos = (catalog.combos ?? [])
-    .map((combo) => ({
-      ...combo,
-      products: combo.productIds
-        .map((id) => catalog.productsById.get(id))
-        .filter(Boolean),
-    }))
-    .filter((combo) => combo.products.length > 0);
+    .map((combo) => {
+      // lineItems collapses repeated ids into quantities; totalUnits is what the
+      // customer actually receives.
+      const lines = combo.lineItems
+        .map(({ id, quantity }) => ({ product: catalog.productsById.get(id), quantity }))
+        .filter((l) => l.product);
+      return {
+        ...combo,
+        lines,
+        totalUnits: lines.reduce((n, l) => n + l.quantity, 0),
+      };
+    })
+    .filter((combo) => combo.lines.length > 0);
 
   if (combos.length === 0) return null;
 
@@ -143,12 +149,12 @@ export function ComboDeals({ catalog }) {
           >
             <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-shop-sm
                             bg-shop-surface-alt">
-              <ProductImage product={combo.products[0]} sizes="64px" />
+              <ProductImage product={combo.lines[0].product} sizes="64px" />
             </div>
             <div className="min-w-0 flex-1">
               <p className="truncate text-[14px] font-medium text-shop-text">{combo.name}</p>
               <p className="text-[12px] text-shop-text-secondary">
-                {combo.products.length} items
+                {combo.totalUnits} {combo.totalUnits === 1 ? 'item' : 'items'}
               </p>
               <p className="mt-1 flex items-baseline gap-1.5">
                 <span className="text-[14px] font-semibold text-shop-text">
@@ -160,6 +166,12 @@ export function ComboDeals({ catalog }) {
                   </span>
                 )}
               </p>
+              {combo.discountText && (
+                <p className="mt-0.5 inline-block rounded-full bg-shop-primary/10 px-2 py-0.5
+                              text-[10px] font-semibold text-shop-primary-dark">
+                  {combo.discountText}
+                </p>
+              )}
             </div>
           </Link>
         ))}
