@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { IoSearch, IoRefresh, IoCart, IoLocationSharp, IoClose } from 'react-icons/io5';
 
-import ProductCard from '@/components/order/ProductCard';
+import { BannerCarousel, ComboDeals, FeaturedSections } from '@/components/order/HomeSections';
+import { ProductRow } from '@/components/order/ProductGrid';
 import { productsInCategory, sellableProducts } from '@/lib/order/catalog';
 import { greeting } from '@/lib/order/format';
 import { useCatalog } from '@/lib/order/useCatalog';
@@ -147,6 +148,10 @@ export default function ShopHome() {
               </p>
             )}
 
+            <BannerCarousel banners={catalog.banners} />
+            <FeaturedSections catalog={catalog} />
+            <ComboDeals catalog={catalog} />
+
             {catalog.categories.map((category) => {
               const products = productsInCategory(catalog, category.id, { limit: ROW_LIMIT });
               if (products.length === 0) return null;
@@ -161,12 +166,7 @@ export default function ShopHome() {
                       See all
                     </Link>
                   </div>
-                  <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1
-                                  [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                    {products.map((product) => (
-                      <ProductCard key={product.id} product={product} />
-                    ))}
-                  </div>
+                  <ProductRow products={products} />
                 </section>
               );
             })}

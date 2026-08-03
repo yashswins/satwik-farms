@@ -8,7 +8,7 @@ import ProductImage from '@/components/order/ProductImage';
 import { formatPrice } from '@/lib/order/format';
 import { useCartStore } from '@/lib/order/stores';
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, fluid = false }) {
   const addItem = useCartStore((s) => s.addItem);
   const [justAdded, setJustAdded] = useState(false);
 
@@ -24,11 +24,12 @@ export default function ProductCard({ product }) {
   return (
     <Link
       href={`/order/product/${encodeURIComponent(product.id)}`}
-      className="flex w-[150px] shrink-0 flex-col rounded-shop-md border border-shop-border
-                 bg-shop-surface p-3 transition-shadow active:shadow-sm"
+      className={`flex flex-col rounded-shop-md border border-shop-border bg-shop-surface p-3
+                  transition-shadow active:shadow-sm md:hover:shadow-md
+                  ${fluid ? 'w-full' : 'w-[150px] shrink-0 md:w-auto'}`}
     >
-      <div className="relative mb-2 h-[92px] w-full overflow-hidden rounded-shop-sm bg-shop-surface-alt">
-        <ProductImage product={product} sizes="150px" />
+      <div className="relative mb-2 h-[92px] w-full overflow-hidden rounded-shop-sm bg-shop-surface-alt sm:h-[120px] lg:h-[140px]">
+        <ProductImage product={product} sizes="(max-width: 768px) 150px, 240px" />
         {product.badge && (
           <span className="absolute left-1 top-1 rounded-full bg-shop-primary px-2 py-0.5
                            text-[10px] font-semibold text-white">

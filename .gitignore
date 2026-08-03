@@ -38,6 +38,11 @@ next-env.d.ts
 .claude/
 
 # Internal security/implementation notes — this repo is PUBLIC.
-# web_app.md documents unpatched vulnerabilities and must not be published.
-# Move it to a private repo if it needs version control.
+# These document unpatched behaviours and internal endpoints, and must not be
+# published. Move them to a private repo if they need version control.
 web_app.md
+web_app_launch_checklist.md
+web_app_enhancements.md
+
+# Throwaway verification scripts (Playwright drivers, debug probes)
+_*.mjs

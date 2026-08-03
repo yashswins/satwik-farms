@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { IoLockClosedOutline } from 'react-icons/io5';
 
 import CustomerFields from '@/components/order/CustomerFields';
-import { useCustomerStore } from '@/lib/order/stores';
+import { useCustomerStore, useStoreHydrated } from '@/lib/order/stores';
 import { validateCustomer, DEFAULT_COUNTRY_CODE } from '@/lib/order/validation';
 
 /**
@@ -16,15 +16,17 @@ import { validateCustomer, DEFAULT_COUNTRY_CODE } from '@/lib/order/validation';
 export default function WelcomeForm() {
   const router = useRouter();
   const customer = useCustomerStore();
+  const hydrated = useStoreHydrated(useCustomerStore);
   const [form, setForm] = useState({
     name: '', countryCode: DEFAULT_COUNTRY_CODE, phone: '', email: '', address: '',
   });
   const [errors, setErrors] = useState({});
-  const [hydrated, setHydrated] = useState(false);
+  const [ready, setReady] = useState(false);
 
   // Prefill from storage once mounted — this is the whole point of the screen:
   // a returning customer should never retype what they already gave us.
   useEffect(() => {
+    if (!hydrated) return;
     setForm({
       name: customer.name || '',
       countryCode: customer.countryCode || DEFAULT_COUNTRY_CODE,
@@ -32,10 +34,9 @@ export default function WelcomeForm() {
       email: customer.email || '',
       address: customer.address || '',
     });
-    setHydrated(true);
-    // Run once on mount; the store is the source of truth thereafter.
+    setReady(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [hydrated]);
 
   const update = (name, value) => {
     setForm((f) => ({ ...f, [name]: value }));
@@ -84,7 +85,7 @@ export default function WelcomeForm() {
           Tell us where to deliver. We&apos;ll remember it for next time.
         </p>
 
-        {hydrated && (
+        {ready && (
           <CustomerFields form={form} errors={errors} onChange={update} showEmail />
         )}
 

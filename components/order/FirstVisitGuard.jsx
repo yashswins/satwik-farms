@@ -1,9 +1,9 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-import { useCustomerStore } from '@/lib/order/stores';
+import { useCustomerStore, useStoreHydrated } from '@/lib/order/stores';
 
 /**
  * Sends a genuinely new visitor to /order/welcome once.
@@ -22,20 +22,16 @@ export default function FirstVisitGuard() {
   const router = useRouter();
   const pathname = usePathname() || '';
   const onboarded = useCustomerStore((s) => s.onboarded);
-  const [checked, setChecked] = useState(false);
+  // Must wait for the real hydration signal, not a timer. A setTimeout that
+  // fires before localStorage is read makes every returning customer look new
+  // and redirects them to the welcome screen mid-visit.
+  const hydrated = useStoreHydrated(useCustomerStore);
 
   useEffect(() => {
-    // Zustand's persist middleware rehydrates asynchronously; wait a tick so we
-    // read the stored value rather than the initial default.
-    const timer = setTimeout(() => setChecked(true), 0);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (!checked) return;
+    if (!hydrated) return;
     if (EXEMPT.some((p) => pathname.startsWith(p))) return;
     if (!onboarded) router.replace('/order/welcome');
-  }, [checked, onboarded, pathname, router]);
+  }, [hydrated, onboarded, pathname, router]);
 
   return null;
 }

@@ -6,6 +6,7 @@ import { IoAdd, IoRemove, IoTrashOutline, IoCartOutline } from 'react-icons/io5'
 
 import ProductImage from '@/components/order/ProductImage';
 import { formatPrice } from '@/lib/order/format';
+import { S } from '@/lib/order/strings';
 import { useCartStore } from '@/lib/order/stores';
 import { useCatalog } from '@/lib/order/useCatalog';
 
@@ -57,9 +58,9 @@ export default function CartScreen() {
     return (
       <div className="bg-shop-tab-cart px-6 py-20 text-center">
         <IoCartOutline aria-hidden className="mx-auto text-[56px] text-shop-primary-light" />
-        <h1 className="mt-4 text-[18px] font-semibold text-shop-text">Your cart is empty</h1>
+        <h1 className="mt-4 text-[18px] font-semibold text-shop-text">{S.CART_EMPTY_TITLE}</h1>
         <p className="mt-1 text-[14px] text-shop-text-secondary">
-          Add some fresh produce to get started.
+          {S.CART_EMPTY_SUBTITLE}
         </p>
         <Link
           href="/order"
@@ -75,7 +76,7 @@ export default function CartScreen() {
   return (
     <div className="bg-shop-tab-cart pb-4">
       <header className="px-4 pb-2 pt-5">
-        <h1 className="text-[20px] font-semibold text-shop-text">Your cart</h1>
+        <h1 className="text-[20px] font-semibold text-shop-text">{S.CART_TITLE}</h1>
         <p className="text-[13px] text-shop-text-secondary">
           {items.length} {items.length === 1 ? 'item' : 'items'}
         </p>
@@ -170,7 +171,7 @@ export default function CartScreen() {
 
       <div className="sticky bottom-0 mt-5 border-t border-shop-border bg-shop-surface px-4 py-3">
         <div className="mb-3 flex items-baseline justify-between">
-          <span className="text-[14px] text-shop-text-secondary">Subtotal</span>
+          <span className="text-[14px] text-shop-text-secondary">{S.CART_SUBTOTAL}</span>
           <span className="text-[18px] font-bold text-shop-text">{formatPrice(subtotal)}</span>
         </div>
         {unavailable.length > 0 ? (
@@ -188,7 +189,7 @@ export default function CartScreen() {
             className="block w-full rounded-full bg-shop-primary py-3.5 text-center
                        text-[15px] font-semibold text-white active:bg-shop-primary-dark"
           >
-            Continue to checkout
+            {S.CART_CHECKOUT_BUTTON}
           </Link>
         )}
       </div>

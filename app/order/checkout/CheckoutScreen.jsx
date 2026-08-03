@@ -2,14 +2,16 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { IoCallOutline } from 'react-icons/io5';
+import { IoCallOutline, IoCashOutline } from 'react-icons/io5';
 
 import CustomerFields from '@/components/order/CustomerFields';
+import PromoCodeField from '@/components/order/PromoCodeField';
 import ScreenHeader from '@/components/order/ScreenHeader';
 import TurnstileWidget, { resetTurnstile } from '@/components/order/Turnstile';
 import { formatPrice } from '@/lib/order/format';
+import { S } from '@/lib/order/strings';
 import { getDeviceId } from '@/lib/order/storage';
-import { useCartStore, useCustomerStore, useOrderHistoryStore } from '@/lib/order/stores';
+import { useCartStore, useCustomerStore, useOrderHistoryStore, useStoreHydrated } from '@/lib/order/stores';
 import { useCatalog } from '@/lib/order/useCatalog';
 import { DEFAULT_COUNTRY_CODE, fullPhoneNumber, sanitizeNotes, validateCustomer } from '@/lib/order/validation';
 
@@ -19,6 +21,7 @@ export default function CheckoutScreen() {
   const router = useRouter();
   const { catalog } = useCatalog();
   const customer = useCustomerStore();
+  const hydrated = useStoreHydrated(useCustomerStore);
   const cart = useCartStore();
   const history = useOrderHistoryStore();
 
@@ -28,6 +31,7 @@ export default function CheckoutScreen() {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [failure, setFailure] = useState(null);
+  const [promo, setPromo] = useState(null);
   const [mounted, setMounted] = useState(false);
   const honeypotRef = useRef(null);
   const formRef = useRef(null);
@@ -39,7 +43,11 @@ export default function CheckoutScreen() {
     idempotencyKey.current = crypto.randomUUID?.() ?? `web-${Date.now()}-${Math.random()}`;
   }
 
+  // Wait for the persisted store to rehydrate before copying values in. On a
+  // direct page load this effect would otherwise run against empty defaults and
+  // silently present blank fields to a returning customer.
   useEffect(() => {
+    if (!hydrated) return;
     setForm({
       name: customer.name || '',
       countryCode: customer.countryCode || DEFAULT_COUNTRY_CODE,
@@ -50,7 +58,7 @@ export default function CheckoutScreen() {
     });
     setMounted(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [hydrated]);
 
   const lines = useMemo(() => {
     if (!catalog) return cart.items.map((i) => ({ ...i, livePrice: i.price, ok: true }));
@@ -63,7 +71,19 @@ export default function CheckoutScreen() {
 
   const subtotal = lines.filter((l) => l.ok).reduce((s, l) => s + l.livePrice * l.quantity, 0);
   const deliveryFee = 0;
-  const total = subtotal + deliveryFee;
+  // Clamp so a discount can never exceed the basket and produce a negative total.
+  const discount = Math.min(promo?.amountOff ?? 0, subtotal);
+  const total = Math.max(0, subtotal + deliveryFee - discount);
+
+  const payloadItems = lines.map((l) => ({
+    product_id: l.productId,
+    accu360_sku: l.sku ?? l.accu360Sku ?? '',
+    name: l.name,
+    quantity: l.quantity,
+    unit_price: l.livePrice,
+    total_price: l.livePrice * l.quantity,
+    unit: l.unit ?? '',
+  }));
 
   const update = (name, value) => {
     setForm((f) => ({ ...f, [name]: value }));
@@ -102,18 +122,14 @@ export default function CheckoutScreen() {
       customer_email: form.email?.trim() || undefined,
       customer_address: form.address.trim(),
       delivery_notes: sanitizeNotes(form.notes) || undefined,
-      items: lines.map((l) => ({
-        product_id: l.productId,
-        accu360_sku: l.sku ?? l.accu360Sku ?? '',
-        name: l.name,
-        quantity: l.quantity,
-        unit_price: l.livePrice,
-        total_price: l.livePrice * l.quantity,
-        unit: l.unit ?? '',
-      })),
+      items: payloadItems,
       subtotal,
       delivery_fee: deliveryFee,
       total,
+      // The server revalidates the code and recomputes the discount; these are
+      // advisory and a mismatch is rejected there.
+      promo_code: promo?.code || undefined,
+      discount: discount || undefined,
       turnstileToken: readTurnstileToken(),
       idempotencyKey: idempotencyKey.current,
       website: honeypotRef.current?.value ?? '',
@@ -217,12 +233,51 @@ export default function CheckoutScreen() {
           </div>
           <div className="flex justify-between text-[14px] text-shop-text-secondary">
             <span>Delivery</span>
-            <span>{deliveryFee === 0 ? 'Free' : formatPrice(deliveryFee)}</span>
+            <span>{deliveryFee === 0 ? S.CART_DELIVERY_FREE : formatPrice(deliveryFee)}</span>
           </div>
+          {discount > 0 && (
+            <div className="flex justify-between text-[14px] font-medium text-shop-primary-dark">
+              <span>Discount {promo?.code ? `(${promo.code})` : ''}</span>
+              <span>−{formatPrice(discount)}</span>
+            </div>
+          )}
           <div className="flex justify-between border-t border-shop-border pt-2 text-[17px]
                           font-bold text-shop-text">
             <span>Total</span><span>{formatPrice(total)}</span>
           </div>
+        </div>
+
+        <PromoCodeField
+          items={payloadItems}
+          applied={promo}
+          onApply={setPromo}
+          onRemove={() => setPromo(null)}
+        />
+
+        {/*
+          Payment block, matching the app's checkout (CheckoutSheet.tsx:457) and
+          the FAQ's wording: Cash on Delivery AND Mobile Payment, collected on
+          delivery. Nothing is charged online, so saying so removes the main
+          reason a customer would hesitate at this button.
+        */}
+        <h2 className="mb-2 mt-7 text-[15px] font-semibold text-shop-text">
+          {S.CHECKOUT_PAYMENT_METHOD_LABEL}
+        </h2>
+        <div className="rounded-shop-md border border-shop-border bg-shop-surface p-3.5">
+          <div className="flex items-start gap-3">
+            <IoCashOutline aria-hidden className="mt-0.5 text-[20px] text-shop-primary-dark" />
+            <div>
+              <p className="text-[14px] font-medium text-shop-text">
+                {S.CHECKOUT_PAYMENT_CASH}
+              </p>
+              <p className="text-[13px] text-shop-text-secondary">
+                or {S.CHECKOUT_PAYMENT_MOBILE} ({S.CHECKOUT_PAYMENT_MOBILE_DETAIL})
+              </p>
+            </div>
+          </div>
+          <p className="mt-2.5 border-t border-shop-border pt-2.5 text-[12px] text-shop-text-secondary">
+            {S.CHECKOUT_PAYMENT_NOTE}
+          </p>
         </div>
 
         <TurnstileWidget />
@@ -250,7 +305,7 @@ export default function CheckoutScreen() {
           className="mt-6 w-full rounded-full bg-shop-primary py-3.5 text-[15px] font-semibold
                      text-white disabled:opacity-60 active:bg-shop-primary-dark"
         >
-          {submitting ? 'Placing your order…' : `Place order · ${formatPrice(total)}`}
+          {submitting ? S.CHECKOUT_PROCESSING : `${S.CHECKOUT_PLACE_ORDER} · ${formatPrice(total)}`}
         </button>
       </form>
     </>
