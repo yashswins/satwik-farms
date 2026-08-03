@@ -40,19 +40,19 @@ export function BannerCarousel({ banners }) {
         // so the gradient below shows through rather than leaving a blank box.
         <img
           src={banner.imageUrl}
-          alt={banner.title || ''}
+          alt={banner.title || (banner.targetId ? `Shop ${banner.targetId}` : 'Offer')}
           className="h-full w-full object-cover"
           onError={(e) => { e.currentTarget.style.display = 'none'; }}
         />
       ) : (
         <div className="h-full w-full bg-gradient-to-r from-shop-primary-dark to-shop-primary" />
       )}
-      {(banner.title || banner.subtitle) && (
+      {(banner.title || banner.subtitle || banner.targetId) && (
         <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t
                         from-black/55 to-transparent p-4">
-          {banner.title && (
-            <p className="text-[16px] font-semibold text-white">{banner.title}</p>
-          )}
+          <p className="text-[16px] font-semibold text-white">
+            {banner.title || banner.targetId}
+          </p>
           {banner.subtitle && (
             <p className="text-[13px] text-white/90">{banner.subtitle}</p>
           )}
@@ -63,7 +63,9 @@ export function BannerCarousel({ banners }) {
 
   return (
     <section className="mb-6" aria-label="Offers">
-      {banner.linkHref ? <Link href={banner.linkHref}>{content}</Link> : content}
+      {banner.href
+        ? <Link href={banner.href} aria-label={`Shop ${banner.title || banner.targetId}`}>{content}</Link>
+        : content}
       {banners.length > 1 && (
         <div className="mt-2 flex justify-center gap-1.5">
           {banners.map((b, i) => (
