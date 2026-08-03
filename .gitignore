@@ -36,3 +36,8 @@ next-env.d.ts
 
 # Claude Code
 .claude/
+
+# Internal security/implementation notes — this repo is PUBLIC.
+# web_app.md documents unpatched vulnerabilities and must not be published.
+# Move it to a private repo if it needs version control.
+web_app.md

@@ -76,14 +76,22 @@ const nextConfig = {
             value: [
               "default-src 'self'",
               // Next.js requires 'unsafe-inline' for initial hydration, but we remove 'unsafe-eval'
-              "script-src 'self' 'unsafe-inline' https://cdn.vercel-analytics.com https://va.vercel-scripts.com",
+              // challenges.cloudflare.com serves the Turnstile bot check on /order/checkout
+              "script-src 'self' 'unsafe-inline' https://cdn.vercel-analytics.com https://va.vercel-scripts.com https://challenges.cloudflare.com",
               // Style requires 'unsafe-inline' for CSS-in-JS (framer-motion, Next.js)
               "style-src 'self' 'unsafe-inline'",
-              // Restrict images to specific domains instead of all HTTPS
-              "img-src 'self' data: blob: https://satwikfarms.com https://*.vercel.app",
+              // Restrict images to specific domains instead of all HTTPS.
+              // res.cloudinary.com hosts the product photography for /order.
+              "img-src 'self' data: blob: https://satwikfarms.com https://*.vercel.app https://res.cloudinary.com",
+              // Poppins is self-hosted by next/font, so no external font origin is needed.
               "font-src 'self' data:",
+              // Deliberately NOT widened for the ordering backend: the browser only
+              // ever calls same-origin /api/shop/* routes, which proxy to Render and
+              // Apps Script server-side. Adding those origins here would be a
+              // symptom of the API key having leaked into the client bundle.
               "connect-src 'self' https://cdn.vercel-analytics.com https://va.vercel-scripts.com https://vitals.vercel-insights.com",
-              "frame-src 'self'",
+              // Turnstile renders in an iframe
+              "frame-src 'self' https://challenges.cloudflare.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self' https://wa.me",
