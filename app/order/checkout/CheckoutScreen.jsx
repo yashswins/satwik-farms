@@ -32,6 +32,8 @@ export default function CheckoutScreen() {
   const [submitting, setSubmitting] = useState(false);
   const [failure, setFailure] = useState(null);
   const [promo, setPromo] = useState(null);
+  // True while re-checking an ambiguous submission.
+  const [resolving, setResolving] = useState(false);
   const [mounted, setMounted] = useState(false);
   const honeypotRef = useRef(null);
   const formRef = useRef(null);
@@ -96,6 +98,15 @@ export default function CheckoutScreen() {
     if (errors[name]) setErrors((e) => ({ ...e, [name]: undefined }));
   };
 
+  // Warn before the tab closes mid-submission. The order may be in flight, and
+  // leaving now is how a customer ends up not knowing whether it went through.
+  useEffect(() => {
+    if (!submitting) return undefined;
+    const warn = (e) => { e.preventDefault(); e.returnValue = ''; };
+    window.addEventListener('beforeunload', warn);
+    return () => window.removeEventListener('beforeunload', warn);
+  }, [submitting]);
+
   /** Token is injected into the form by api.js as a hidden input. */
   const readTurnstileToken = () =>
     formRef.current?.querySelector('[name="cf-turnstile-response"]')?.value || null;
@@ -142,15 +153,45 @@ export default function CheckoutScreen() {
       deviceId: getDeviceId(),
     };
 
-    try {
-      const res = await fetch('/api/shop/orders', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json().catch(() => ({}));
+    // Resolve, never leave the customer guessing.
+    //
+    // A timeout or a 502/504 does NOT mean the order failed — the backend may
+    // have created the Sales Order and lost the response. Telling someone
+    // "we're not sure" at a checkout is the worst outcome: they either walk
+    // away from a real order or place a second one.
+    //
+    // Because the idempotency key is reused, resending is SAFE: the backend
+    // replays the original result if it succeeded, or genuinely retries if it
+    // did not. So an ambiguous response is retried until it becomes a definite
+    // yes or no, rather than surfaced as a maybe.
+    const send = () => fetch('/api/shop/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
 
-      if (res.ok && data.success) {
+    try {
+      let res;
+      let data = {};
+      const MAX_ATTEMPTS = 3;
+      for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
+        setResolving(attempt > 1);
+        try {
+          res = await send();
+          data = await res.json().catch(() => ({}));
+          // 502/504 are our own "upstream did not answer" codes — ambiguous.
+          // Anything else is a definite answer, success or failure.
+          if (res.status !== 502 && res.status !== 504) break;
+        } catch (networkError) {
+          if (attempt === MAX_ATTEMPTS) throw networkError;
+        }
+        if (attempt < MAX_ATTEMPTS) {
+          await new Promise((r) => { setTimeout(r, 2500 * attempt); });
+        }
+      }
+      setResolving(false);
+
+      if (res?.ok && data.success) {
         history.addOrder({
           orderId: data.order_id,
           items: payload.items,
@@ -166,9 +207,13 @@ export default function CheckoutScreen() {
       // Business rejection (unavailable item, stale price, duplicate) or failure.
       setFailure(data.error || 'We could not place your order. Please try again.');
     } catch {
-      setFailure('We could not reach our ordering system. Your cart is safe — please try again.');
+      setFailure(
+        'We could not reach our ordering system, so your order was NOT placed. '
+        + 'Your cart is safe — please try again, or call us and we will take it over the phone.',
+      );
     } finally {
       setSubmitting(false);
+      setResolving(false);
       // Any path that lands here did NOT navigate away, so the customer may
       // retry. Their Turnstile token has already been redeemed; without a reset
       // the retry fails as timeout-or-duplicate rather than for the real reason.
@@ -311,7 +356,9 @@ export default function CheckoutScreen() {
           className="mt-6 w-full rounded-full bg-shop-primary py-3.5 text-[15px] font-semibold
                      text-white disabled:opacity-60 active:bg-shop-primary-dark"
         >
-          {submitting ? S.CHECKOUT_PROCESSING : `${S.CHECKOUT_PLACE_ORDER} · ${formatPrice(total)}`}
+          {submitting
+            ? (resolving ? 'Confirming your order…' : S.CHECKOUT_PROCESSING)
+            : `${S.CHECKOUT_PLACE_ORDER} · ${formatPrice(total)}`}
         </button>
       </form>
     </>
