@@ -77,10 +77,18 @@ export default function Navbar() {
           </Link>
           <a
             href="/#app-download"
+            className="text-text-primary hover:text-farm-green-bright transition font-medium"
+          >
+            Get the App
+          </a>
+          {/* Ordering is the action we most want; the app download is the
+              alternative, not the headline. */}
+          <Link
+            href="/order"
             className="btn-primary px-6 py-3 rounded-full"
           >
-            Download App
-          </a>
+            Order Online
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -144,11 +152,18 @@ export default function Navbar() {
           </Link>
           <a
             href="/#app-download"
+            className="block text-text-primary hover:text-farm-green-bright py-2"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Get the App
+          </a>
+          <Link
+            href="/order"
             className="block btn-primary px-6 py-3 rounded-full text-center"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Download App
-          </a>
+            Order Online
+          </Link>
         </motion.div>
       )}
     </motion.nav>

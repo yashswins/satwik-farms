@@ -11,14 +11,16 @@ import { useCartStore } from '@/lib/order/stores';
 import { useCatalog } from '@/lib/order/useCatalog';
 
 /**
- * A combo is a bundle of products sold together.
+ * A combo is a bundle of products sold together at a fixed price.
  *
- * There is no bundle concept in the order payload — the backend and the ERP
- * only understand line items — so adding a combo adds each of its products
- * individually. The saving is expressed in the sheet's combo price; the line
- * items still carry catalogue prices, which is what the server re-validates
- * against. Discounting a bundle below the sum of its parts therefore needs a
- * promo code, not a combo, until the backend learns about bundles.
+ * The combo price is SPLIT EQUALLY across the in-stock products, exactly as the
+ * phone app does (useComboDetail.ts:64) — so "Buy 5 kg at 1900 TSH per kg"
+ * puts five lines of 1,900 in the cart and totals the advertised 9,500.
+ *
+ * Without this the customer saw one price advertised and a different, higher
+ * one charged, because the lines carried catalogue prices. Each line records
+ * its comboId so the backend can verify the discount is a real combo rather
+ * than a forged price.
  */
 export default function ComboDetail({ comboId }) {
   const { catalog, loading } = useCatalog();
@@ -61,7 +63,14 @@ export default function ComboDetail({ comboId }) {
   }
 
   const addAll = () => {
-    available.forEach(({ product, quantity }) => addItem(product, quantity));
+    // Split across UNITS, not distinct products, so a combo of 5×potato prices
+    // each unit at comboPrice/5 rather than putting the whole price on one line.
+    const pricePerUnit = totalUnits > 0 ? combo.price / totalUnits : 0;
+    available.forEach(({ product, quantity }) => addItem(product, quantity, {
+      priceOverride: pricePerUnit,
+      comboId: combo.id,
+      comboName: combo.name,
+    }));
     setAdded(true);
     setTimeout(() => setAdded(false), 1600);
   };
@@ -130,8 +139,11 @@ export default function ComboDetail({ comboId }) {
         {available.length > 0 && (
           <div className="sticky bottom-0 mt-6 border-t border-shop-border bg-shop-surface py-3">
             <p className="mb-2 text-center text-[12px] text-shop-text-secondary">
-              Adds {totalUnits} {totalUnits === 1 ? 'item' : 'items'} ·{' '}
-              {formatPrice(partsTotal)} at normal prices
+              Adds {totalUnits} {totalUnits === 1 ? 'item' : 'items'} for{' '}
+              <span className="font-semibold text-shop-text">{formatPrice(combo.price)}</span>
+              {partsTotal > combo.price && (
+                <span> · normally {formatPrice(partsTotal)}</span>
+              )}
             </p>
             <button
               type="button"

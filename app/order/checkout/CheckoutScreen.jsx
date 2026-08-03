@@ -65,7 +65,10 @@ export default function CheckoutScreen() {
     return cart.items.map((item) => {
       const product = catalog.productsById.get(item.productId);
       const ok = Boolean(product && product.isActive && product.inStock);
-      return { ...item, livePrice: product?.price ?? item.price, ok, sku: product?.accu360Sku ?? item.accu360Sku };
+      // Combo lines keep their combo-split price; re-pricing them from the
+      // catalogue would cancel the discount the customer was shown.
+      const livePrice = item.comboId ? item.price : (product?.price ?? item.price);
+      return { ...item, livePrice, ok, sku: product?.accu360Sku ?? item.accu360Sku };
     });
   }, [cart.items, catalog]);
 
@@ -83,6 +86,9 @@ export default function CheckoutScreen() {
     unit_price: l.livePrice,
     total_price: l.livePrice * l.quantity,
     unit: l.unit ?? '',
+    // Lets the backend verify a below-catalogue price is a real combo rather
+    // than a forged one.
+    combo_id: l.comboId ?? undefined,
   }));
 
   const update = (name, value) => {
@@ -215,7 +221,7 @@ export default function CheckoutScreen() {
         <h2 className="mb-2 mt-7 text-[15px] font-semibold text-shop-text">Order summary</h2>
         <ul className="divide-y divide-shop-border rounded-shop-md border border-shop-border bg-shop-surface">
           {lines.map((line) => (
-            <li key={line.productId} className="flex items-center justify-between gap-3 px-3 py-2.5">
+            <li key={line.lineId ?? line.productId} className="flex items-center justify-between gap-3 px-3 py-2.5">
               <span className="min-w-0 flex-1 truncate text-[14px] text-shop-text">
                 {line.name}
                 <span className="text-shop-text-secondary"> × {line.quantity}</span>

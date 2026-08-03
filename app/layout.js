@@ -112,6 +112,19 @@ export default function RootLayout({ children }) {
       },
     },
     // What we offer - helps AIs understand our products/services
+    // Tells search engines the site takes orders directly, and where.
+    potentialAction: {
+      '@type': 'OrderAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://satwikfarms.com/order',
+        actionPlatform: [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform',
+        ],
+      },
+      deliveryMethod: 'http://purl.org/goodrelations/v1#DeliveryModeOwnFleet',
+    },
     makesOffer: [
       {
         '@type': 'Offer',

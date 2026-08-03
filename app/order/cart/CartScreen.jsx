@@ -28,11 +28,14 @@ export default function CartScreen() {
       const product = catalog.productsById.get(item.productId);
       if (!product) return { ...item, status: 'gone', livePrice: item.price, product: null };
       const available = product.isActive && product.inStock;
+      // A combo line's price is the combo's split, not the catalogue price —
+      // re-pricing it from the catalogue would quietly cancel the discount.
+      const isCombo = Boolean(item.comboId);
       return {
         ...item,
         product,
-        livePrice: product.price,
-        priceChanged: Math.abs(product.price - item.price) > 0.5,
+        livePrice: isCombo ? item.price : product.price,
+        priceChanged: !isCombo && Math.abs(product.price - item.price) > 0.5,
         status: available ? 'ok' : 'unavailable',
       };
     });
@@ -99,7 +102,7 @@ export default function CartScreen() {
           const blocked = line.status === 'unavailable' || line.status === 'gone';
           return (
             <li
-              key={line.productId}
+              key={line.lineId ?? line.productId}
               className={`flex gap-3 rounded-shop-md border bg-shop-surface p-3
                           ${blocked ? 'border-shop-error/40' : 'border-shop-border'}`}
             >
@@ -110,6 +113,11 @@ export default function CartScreen() {
 
               <div className="min-w-0 flex-1">
                 <p className="truncate text-[14px] font-medium text-shop-text">{line.name}</p>
+                {line.comboName && (
+                  <p className="text-[11px] font-medium text-shop-primary-dark">
+                    part of {line.comboName}
+                  </p>
+                )}
                 {line.unit && (
                   <p className="text-[12px] text-shop-text-secondary">{line.unit}</p>
                 )}
@@ -133,7 +141,7 @@ export default function CartScreen() {
               <div className="flex flex-col items-end justify-between">
                 <button
                   type="button"
-                  onClick={() => removeItem(line.productId)}
+                  onClick={() => removeItem(line.lineId ?? line.productId)}
                   aria-label={`Remove ${line.name}`}
                   className="text-shop-text-tertiary active:text-shop-error"
                 >
@@ -144,7 +152,7 @@ export default function CartScreen() {
                   <div className="flex items-center gap-2 rounded-full border border-shop-border px-1.5 py-1">
                     <button
                       type="button"
-                      onClick={() => setQuantity(line.productId, line.quantity - 1)}
+                      onClick={() => setQuantity(line.lineId ?? line.productId, line.quantity - 1)}
                       aria-label={`Decrease ${line.name}`}
                       className="flex h-6 w-6 items-center justify-center text-shop-text"
                     >
@@ -155,7 +163,7 @@ export default function CartScreen() {
                     </span>
                     <button
                       type="button"
-                      onClick={() => setQuantity(line.productId, line.quantity + 1)}
+                      onClick={() => setQuantity(line.lineId ?? line.productId, line.quantity + 1)}
                       aria-label={`Increase ${line.name}`}
                       className="flex h-6 w-6 items-center justify-center text-shop-text"
                     >

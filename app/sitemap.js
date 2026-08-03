@@ -6,11 +6,14 @@ const BASE_URL = 'https://satwikfarms.com';
 // Bump this only when a static/service page meaningfully changes.
 // Using new Date() here stamped every URL with the request time, so lastmod
 // churned daily and Google learns to ignore the sitemap's dates entirely.
-const STATIC_LASTMOD = new Date('2026-07-05');
+const STATIC_LASTMOD = new Date('2026-08-03');
 
 export default function sitemap() {
   const lastModified = STATIC_LASTMOD;
   const staticRoutes = [
+    // Ordering storefront. Sub-routes (cart, checkout, account) are
+    // transactional and marked noindex in their own metadata.
+    { path: '/order', changeFrequency: 'daily', priority: 0.9 },
     { path: '/', changeFrequency: 'weekly', priority: 1.0 },
     { path: '/about', changeFrequency: 'monthly', priority: 0.8 },
     { path: '/faq', changeFrequency: 'monthly', priority: 0.9 },
