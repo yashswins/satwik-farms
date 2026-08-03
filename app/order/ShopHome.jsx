@@ -14,6 +14,17 @@ import { useCartStore, useCustomerStore } from '@/lib/order/stores';
 
 const ROW_LIMIT = 6; // matches the phone app's per-category row
 
+/**
+ * Whether the greeting has already been shown this page-load.
+ *
+ * Module scope on purpose: it survives client-side navigation but resets on a
+ * genuine reload. So the greeting appears once when someone arrives, and does
+ * not reappear every time they come back to the shop tab from a product or the
+ * cart — which made a one-time welcome feel like a banner that would not go
+ * away. The phone app shows it once per session for the same reason.
+ */
+let greetingShownThisLoad = false;
+
 function SkeletonRow() {
   return (
     <div className="mb-6">
@@ -32,13 +43,25 @@ export default function ShopHome() {
   const { catalog, loading, error, reload } = useCatalog();
   const customerName = useCustomerStore((s) => s.name);
   const cartItems = useCartStore((s) => s.items);
-  const [showGreeting, setShowGreeting] = useState(true);
+  const [showGreeting, setShowGreeting] = useState(!greetingShownThisLoad);
 
   // Greeting and cart count depend on the clock and on stored data, so defer to
   // after mount to avoid a hydration mismatch.
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const cartCount = mounted ? cartItems.length : 0;
+
+  // Count it as seen only once it has actually been on screen for a moment.
+  //
+  // A first-time visitor briefly mounts this screen before the guard redirects
+  // them to /welcome; marking it seen on unmount meant they never saw the
+  // greeting at all. A redirect is far quicker than this delay, so only a real
+  // viewing counts.
+  useEffect(() => {
+    if (!showGreeting) return undefined;
+    const t = setTimeout(() => { greetingShownThisLoad = true; }, 1500);
+    return () => clearTimeout(t);
+  }, [showGreeting]);
 
   return (
     <div className="bg-shop-tab-home">
@@ -104,7 +127,7 @@ export default function ShopHome() {
           </p>
           <button
             type="button"
-            onClick={() => setShowGreeting(false)}
+            onClick={() => { greetingShownThisLoad = true; setShowGreeting(false); }}
             aria-label="Dismiss greeting"
             className="shrink-0 text-shop-text-secondary"
           >

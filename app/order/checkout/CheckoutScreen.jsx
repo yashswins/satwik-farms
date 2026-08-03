@@ -133,7 +133,9 @@ export default function CheckoutScreen() {
     if (existing) return existing;
     setVerifying(true);
     try {
-      for (let waited = 0; waited < 15000; waited += 300) {
+      // Bounded: with the widget rendering correctly the token is normally
+      // there already, so this should almost never wait at all.
+      for (let waited = 0; waited < 8000; waited += 300) {
         // eslint-disable-next-line no-await-in-loop
         await new Promise((r) => { setTimeout(r, 300); });
         const token = readTurnstileToken();
