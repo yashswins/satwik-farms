@@ -43,7 +43,7 @@ export async function GET() {
     return Response.json(publicCatalog, {
       headers: {
         // A stale copy must not be cached at the edge as though it were fresh.
-        'Cache-Control': stale ? 'no-store' : 's-maxage=300, stale-while-revalidate=3600',
+        'Cache-Control': stale ? 'no-store' : 's-maxage=120, stale-while-revalidate=3600',
         'X-Catalog-Cache': stale ? 'stale' : (cached ? 'hit' : 'miss'),
       },
     });
