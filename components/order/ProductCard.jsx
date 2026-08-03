@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 import ProductImage from '@/components/order/ProductImage';
 import { formatPrice } from '@/lib/order/format';
+import { trackEvent } from '@/lib/order/metrics';
 import { useCartStore } from '@/lib/order/stores';
 
 export default function ProductCard({ product, fluid = false }) {
@@ -17,6 +18,7 @@ export default function ProductCard({ product, fluid = false }) {
     event.preventDefault();
     event.stopPropagation();
     addItem(product, 1);
+    trackEvent('added_to_cart');
     setJustAdded(true);
     setTimeout(() => setJustAdded(false), 1200);
   };

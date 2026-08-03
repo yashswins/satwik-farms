@@ -8,7 +8,9 @@ import CustomerFields from '@/components/order/CustomerFields';
 import PromoCodeField from '@/components/order/PromoCodeField';
 import ScreenHeader from '@/components/order/ScreenHeader';
 import TurnstileWidget, { resetTurnstile } from '@/components/order/Turnstile';
+import { isSameDayWindow } from '@/lib/order/delivery';
 import { formatPrice } from '@/lib/order/format';
+import { trackEvent } from '@/lib/order/metrics';
 import { S } from '@/lib/order/strings';
 import { getDeviceId } from '@/lib/order/storage';
 import { useCartStore, useCustomerStore, useOrderHistoryStore, useStoreHydrated } from '@/lib/order/stores';
@@ -39,6 +41,8 @@ export default function CheckoutScreen() {
   const [mounted, setMounted] = useState(false);
   const honeypotRef = useRef(null);
   const formRef = useRef(null);
+
+  useEffect(() => { trackEvent('checkout_started'); }, []);
 
   // One key per checkout attempt, reused across retries. This is what stops a
   // timeout-then-retry from creating two Sales Orders in the ERP.
@@ -249,6 +253,9 @@ export default function CheckoutScreen() {
       setResolving(false);
 
       if (res?.ok && data.success) {
+        // `returning` = this device has ordered before → the reorder-rate
+        // counter. Read BEFORE addOrder makes everyone look returning.
+        trackEvent('order_placed', { returning: history.orders.length > 0 });
         history.addOrder({
           orderId: data.order_id,
           items: payload.items,
@@ -262,8 +269,10 @@ export default function CheckoutScreen() {
       }
 
       // Business rejection (unavailable item, stale price, duplicate) or failure.
+      trackEvent('order_failed');
       setFailure(data.error || 'We could not place your order. Please try again.');
     } catch {
+      trackEvent('order_failed');
       setFailure(
         'We could not reach our ordering system, so your order was NOT placed. '
         + 'Your cart is safe — please try again, or call us and we will take it over the phone.',
@@ -343,6 +352,16 @@ export default function CheckoutScreen() {
             <span>Delivery</span>
             <span>{deliveryFee === 0 ? S.CART_DELIVERY_FREE : formatPrice(deliveryFee)}</span>
           </div>
+          {/* Owner-requested: say WHEN it arrives. Clock-dependent, so only
+              after mount (`mounted` flips post-hydration). */}
+          {mounted && (
+            <div className="flex justify-between text-[14px] text-shop-text-secondary">
+              <span>{S.CHECKOUT_DELIVERY_LABEL}</span>
+              <span className="font-medium text-shop-text">
+                {isSameDayWindow() ? S.CHECKOUT_DELIVERY_TODAY : S.CHECKOUT_DELIVERY_TOMORROW}
+              </span>
+            </div>
+          )}
           {discount > 0 && (
             <div className="flex justify-between text-[14px] font-medium text-shop-primary-dark">
               <span>Discount {promo?.code ? `(${promo.code})` : ''}</span>

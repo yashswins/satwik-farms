@@ -1,12 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { IoAdd, IoRemove, IoHeart, IoHeartOutline } from 'react-icons/io5';
 
 import ProductImage from '@/components/order/ProductImage';
 import ScreenHeader from '@/components/order/ScreenHeader';
+import { ProductRow } from '@/components/order/ProductGrid';
 import { formatPrice } from '@/lib/order/format';
+import { trackEvent } from '@/lib/order/metrics';
+import { relatedProducts } from '@/lib/order/related';
+import { S } from '@/lib/order/strings';
 import { useCartStore, useFavoritesStore } from '@/lib/order/stores';
 import { useCatalog } from '@/lib/order/useCatalog';
 
@@ -19,6 +23,12 @@ export default function ProductDetail({ productId }) {
 
   const product = catalog?.productsById.get(productId) ?? null;
   const isFavorite = favorites.ids.includes(productId);
+  const related = useMemo(
+    () => relatedProducts(catalog, product),
+    [catalog, product],
+  );
+
+  useEffect(() => { trackEvent('product_viewed'); }, [productId]);
 
   if (loading) {
     return (
@@ -56,6 +66,7 @@ export default function ProductDetail({ productId }) {
 
   const handleAdd = () => {
     addItem(product, quantity);
+    trackEvent('added_to_cart');
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
   };
@@ -80,7 +91,7 @@ export default function ProductDetail({ productId }) {
       />
 
       <div className="relative h-64 w-full bg-shop-surface-alt">
-        <ProductImage product={product} sizes="480px" width={800} />
+        <ProductImage product={product} sizes="480px" />
         {product.badge && (
           <span className="absolute left-3 top-3 rounded-full bg-shop-primary px-3 py-1
                            text-[11px] font-semibold text-white">
@@ -124,6 +135,15 @@ export default function ProductDetail({ productId }) {
                         font-medium text-shop-text-secondary">
             Out of stock right now — please check back soon.
           </p>
+        )}
+
+        {/* Curated suggestions (lib/order/related.js) — rule-based until real
+            basket data exists to replace them. */}
+        {related.length > 0 && (
+          <section className="mt-7">
+            <h3 className="mb-3 text-[16px] font-semibold text-shop-text">{S.RELATED_TITLE}</h3>
+            <ProductRow products={related} />
+          </section>
         )}
       </div>
 

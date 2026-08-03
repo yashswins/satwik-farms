@@ -10,7 +10,7 @@ import {
 import { S } from '@/lib/order/strings';
 import { clearAllStoredData } from '@/lib/order/storage';
 import {
-  useCartStore, useCustomerStore, useFavoritesStore, useOrderHistoryStore,
+  useCartStore, useCustomerStore, useFavoritesStore, useOrderHistoryStore, useSavedStore,
 } from '@/lib/order/stores';
 
 const MENU = [
@@ -24,6 +24,7 @@ export default function AccountScreen() {
   const customer = useCustomerStore();
   const cart = useCartStore();
   const favorites = useFavoritesStore();
+  const saved = useSavedStore();
   const history = useOrderHistoryStore();
   const [mounted, setMounted] = useState(false);
   const [confirmingClear, setConfirmingClear] = useState(false);
@@ -35,6 +36,7 @@ export default function AccountScreen() {
     customer.clearCustomer();
     cart.clearCart();
     favorites.clear();
+    saved.clear();
     history.clear();
     clearAllStoredData();
     setConfirmingClear(false);

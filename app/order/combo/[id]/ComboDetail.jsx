@@ -7,6 +7,7 @@ import ProductImage from '@/components/order/ProductImage';
 import ScreenHeader from '@/components/order/ScreenHeader';
 import { EmptyState } from '@/components/order/ShopStates';
 import { formatPrice } from '@/lib/order/format';
+import { trackEvent } from '@/lib/order/metrics';
 import { useCartStore } from '@/lib/order/stores';
 import { useCatalog } from '@/lib/order/useCatalog';
 
@@ -71,6 +72,8 @@ export default function ComboDetail({ comboId }) {
       comboId: combo.id,
       comboName: combo.name,
     }));
+    // One event per tap, not per line — this counts add DECISIONS.
+    trackEvent('added_to_cart');
     setAdded(true);
     setTimeout(() => setAdded(false), 1600);
   };

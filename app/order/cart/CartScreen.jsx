@@ -2,13 +2,82 @@
 
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
-import { IoAdd, IoRemove, IoTrashOutline, IoCartOutline } from 'react-icons/io5';
+import { IoAdd, IoRemove, IoTrashOutline, IoCartOutline, IoBookmarkOutline, IoClose } from 'react-icons/io5';
 
 import ProductImage from '@/components/order/ProductImage';
 import { formatPrice } from '@/lib/order/format';
 import { S } from '@/lib/order/strings';
-import { useCartStore } from '@/lib/order/stores';
+import { useCartStore, useSavedStore } from '@/lib/order/stores';
 import { useCatalog } from '@/lib/order/useCatalog';
+
+/**
+ * "Saved for later" — lines set aside from the cart instead of deleted.
+ * Rendered under the cart (and under the empty state, or saving a whole cart
+ * would make the saved items vanish with it). Each line re-resolves against
+ * the live catalogue: available items get "Move to cart" at today's price,
+ * unavailable ones say so and can only be removed.
+ */
+function SavedForLater({ catalog }) {
+  const saved = useSavedStore();
+  const addItem = useCartStore((s) => s.addItem);
+
+  if (saved.items.length === 0) return null;
+
+  return (
+    <section className="px-4 pt-6">
+      <h2 className="mb-3 text-[16px] font-semibold text-shop-text">
+        {S.SAVED_FOR_LATER_TITLE}
+      </h2>
+      <ul className="space-y-3">
+        {saved.items.map((item) => {
+          const product = catalog?.productsById.get(item.productId) ?? null;
+          const available = Boolean(product && product.isActive && product.inStock);
+          return (
+            <li
+              key={item.productId}
+              className="flex items-center gap-3 rounded-shop-md border border-shop-border
+                         bg-shop-surface p-3"
+            >
+              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-shop-sm
+                              bg-shop-surface-alt">
+                <ProductImage product={product ?? { name: item.name }} sizes="56px" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-[14px] font-medium text-shop-text">{item.name}</p>
+                {item.unit && (
+                  <p className="text-[12px] text-shop-text-secondary">
+                    {item.unit}{item.quantity > 1 ? ` × ${item.quantity}` : ''}
+                  </p>
+                )}
+                {available ? (
+                  <button
+                    type="button"
+                    onClick={() => { addItem(product, item.quantity); saved.remove(item.productId); }}
+                    className="mt-1 text-[13px] font-semibold text-shop-primary-dark"
+                  >
+                    {S.MOVE_TO_CART} · {formatPrice(product.price * item.quantity)}
+                  </button>
+                ) : (
+                  <p className="mt-1 text-[12px] font-medium text-shop-error">
+                    Currently unavailable
+                  </p>
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={() => saved.remove(item.productId)}
+                aria-label={`Remove ${item.name} from saved`}
+                className="shrink-0 text-shop-text-tertiary"
+              >
+                <IoClose aria-hidden className="text-[18px]" />
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
 
 /**
  * The cart is stored on the device, so its contents can be stale: prices change
@@ -19,6 +88,7 @@ import { useCatalog } from '@/lib/order/useCatalog';
 export default function CartScreen() {
   const { catalog, loading } = useCatalog();
   const { items, setQuantity, removeItem } = useCartStore();
+  const saveForLater = useSavedStore((s) => s.save);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -59,19 +129,22 @@ export default function CartScreen() {
 
   if (items.length === 0) {
     return (
-      <div className="bg-shop-tab-cart px-6 py-20 text-center">
-        <IoCartOutline aria-hidden className="mx-auto text-[56px] text-shop-primary-light" />
-        <h1 className="mt-4 text-[18px] font-semibold text-shop-text">{S.CART_EMPTY_TITLE}</h1>
-        <p className="mt-1 text-[14px] text-shop-text-secondary">
-          {S.CART_EMPTY_SUBTITLE}
-        </p>
-        <Link
-          href="/order"
-          className="mt-6 inline-block rounded-full bg-shop-primary px-7 py-3
-                     text-[15px] font-semibold text-white"
-        >
-          Start shopping
-        </Link>
+      <div className="bg-shop-tab-cart pb-8">
+        <div className="px-6 py-20 text-center">
+          <IoCartOutline aria-hidden className="mx-auto text-[56px] text-shop-primary-light" />
+          <h1 className="mt-4 text-[18px] font-semibold text-shop-text">{S.CART_EMPTY_TITLE}</h1>
+          <p className="mt-1 text-[14px] text-shop-text-secondary">
+            {S.CART_EMPTY_SUBTITLE}
+          </p>
+          <Link
+            href="/order"
+            className="mt-6 inline-block rounded-full bg-shop-primary px-7 py-3
+                       text-[15px] font-semibold text-white"
+          >
+            Start shopping
+          </Link>
+        </div>
+        <SavedForLater catalog={catalog} />
       </div>
     );
   }
@@ -136,6 +209,26 @@ export default function CartScreen() {
                     )}
                   </p>
                 )}
+
+                {/* A removed item is gone; a saved one is a future order. Combo
+                    lines are excluded — their price split only exists inside
+                    the combo. Deliberately available on UNAVAILABLE lines too:
+                    it clears the checkout blocker without asking the customer
+                    to give the item up. */}
+                {!line.comboId && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      saveForLater(line);
+                      removeItem(line.lineId ?? line.productId);
+                    }}
+                    className="mt-1.5 inline-flex items-center gap-1 text-[12px] font-medium
+                               text-shop-text-secondary active:text-shop-primary-dark"
+                  >
+                    <IoBookmarkOutline aria-hidden className="text-[13px]" />
+                    {S.SAVE_FOR_LATER}
+                  </button>
+                )}
               </div>
 
               <div className="flex flex-col items-end justify-between">
@@ -176,6 +269,8 @@ export default function CartScreen() {
           );
         })}
       </ul>
+
+      <SavedForLater catalog={catalog} />
 
       <div className="sticky bottom-0 mt-5 border-t border-shop-border bg-shop-surface px-4 py-3">
         <div className="mb-3 flex items-baseline justify-between">

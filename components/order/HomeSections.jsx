@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import ProductImage from '@/components/order/ProductImage';
 import { ProductRow } from '@/components/order/ProductGrid';
 import { formatPrice } from '@/lib/order/format';
+import { S } from '@/lib/order/strings';
 
 /**
  * Sections that are empty in the catalogue today but will be populated later:
@@ -16,6 +17,29 @@ import { formatPrice } from '@/lib/order/format';
  * appears, with no error to explain why. Each renders nothing when its source
  * array is empty, so they cost nothing until they are used.
  */
+
+/**
+ * The best active promo code, advertised exactly as the phone app does
+ * (HomeScreen.tsx:404-442): "Save TSH X / Use code: Y" on the promoBanner
+ * gradient, placed between the greeting and the banner carousel. The data is a
+ * single server-selected code — the full promo list never reaches the browser.
+ */
+export function PromoBanner({ promo }) {
+  if (!promo?.code || !(promo.amountOff > 0)) return null;
+  return (
+    <section aria-label="Promotion" className="mb-6">
+      <div className="rounded-shop-md bg-gradient-to-r from-shop-primary-dark via-shop-primary
+                      to-[#7BC67E] px-4 py-4">
+        <p className="text-[20px] font-semibold leading-[26px] text-white">
+          {S.PROMO_BANNER_SAVE} {promo.amountOff.toLocaleString('en-US')}
+        </p>
+        <p className="mt-0.5 text-[14px] leading-[20px] text-white/90">
+          {S.PROMO_BANNER_CODE} {promo.code}
+        </p>
+      </div>
+    </section>
+  );
+}
 
 /** Auto-advancing promotional banners. */
 export function BannerCarousel({ banners }) {

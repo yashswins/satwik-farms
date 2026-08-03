@@ -15,6 +15,7 @@
  * Fetching, retrying and caching live in lib/order/serverCatalog so that every
  * route touching the sheet gets the same resilience.
  */
+import { promoBannerFrom } from '@/lib/order/catalog';
 import { getServerCatalog } from '@/lib/order/serverCatalog';
 
 /**
@@ -38,8 +39,13 @@ export async function GET() {
 
   try {
     const { catalog, stale, cached } = await getServerCatalog();
-    // Never ship promo codes to the browser.
-    const { promo_codes: _promoCodes, ...publicCatalog } = catalog;
+    // Never ship promo codes to the browser. The one exception is deliberate:
+    // the single best active code is advertised as `promo_banner`, matching the
+    // phone app's home banner ("Save TSH X / Use code: Y"). One public code is
+    // marketing; the full list with minimum spends would be a leak.
+    const { promo_codes: promoCodes, ...publicCatalog } = catalog;
+    const promoBanner = promoBannerFrom(promoCodes);
+    if (promoBanner) publicCatalog.promo_banner = promoBanner;
     return Response.json(publicCatalog, {
       headers: {
         // A stale copy must not be cached at the edge as though it were fresh.
