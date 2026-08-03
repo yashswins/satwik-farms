@@ -122,9 +122,14 @@ export default function CheckoutScreen() {
    * verify your browser" — blamed for being fast, with no way to understand
    * what to do. Waiting is the correct behaviour; failing is not.
    *
-   * Gives up after a while and submits anyway: the server decides, and if
-   * Turnstile is genuinely broken that is not the customer's problem to solve
-   * at checkout.
+   * Kept SHORT. Turnstile normally solves within a second or two of the page
+   * loading, long before anyone finishes typing an address, so the token is
+   * already there and this waits for nothing. An 8s bound here added 8s to
+   * every real order — measured: 7.6s of backend plus 8s of waiting.
+   *
+   * If the token really is absent we submit anyway and let the 403 path
+   * refresh and resend, which costs one round trip in the rare case instead of
+   * a fixed delay in the common one.
    */
   const awaitTurnstileToken = async () => {
     // No widget configured means nothing to wait for.
@@ -133,11 +138,9 @@ export default function CheckoutScreen() {
     if (existing) return existing;
     setVerifying(true);
     try {
-      // Bounded: with the widget rendering correctly the token is normally
-      // there already, so this should almost never wait at all.
-      for (let waited = 0; waited < 8000; waited += 300) {
+      for (let waited = 0; waited < 2500; waited += 250) {
         // eslint-disable-next-line no-await-in-loop
-        await new Promise((r) => { setTimeout(r, 300); });
+        await new Promise((r) => { setTimeout(r, 250); });
         const token = readTurnstileToken();
         if (token) return token;
       }
