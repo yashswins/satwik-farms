@@ -47,36 +47,42 @@ async function main() {
   }
 
   const dates = Array.from({ length: DAYS }, (_, i) => darDate(DAYS - 1 - i));
-  const keys = dates.flatMap((date) => EVENTS.map((e) => `sf:m:${e}:${date}`));
 
-  // One MGET for everything.
-  const res = await fetch(`${URL_BASE}/mget/${keys.map(encodeURIComponent).join('/')}`, {
-    headers: { Authorization: `Bearer ${TOKEN}` },
-  });
-  if (!res.ok) {
-    console.error(`Upstash error: HTTP ${res.status}`);
-    process.exit(1);
-  }
-  const values = (await res.json()).result.map((v) => Number(v) || 0);
+  // The two shops count separately (see metricsShared.js): web keys under
+  // sf:m:, phone-app keys under sf:m:app:.
+  for (const [title, prefix] of [['WEB', 'sf:m'], ['APP', 'sf:m:app']]) {
+    const keys = dates.flatMap((date) => EVENTS.map((e) => `${prefix}:${e}:${date}`));
 
-  const header = ['date', ...EVENTS].map((h) => h.padStart(18)).join('');
-  console.log(header);
-  const totals = new Array(EVENTS.length).fill(0);
-  dates.forEach((date, row) => {
-    const cells = EVENTS.map((_, col) => {
-      const v = values[row * EVENTS.length + col];
-      totals[col] += v;
-      return String(v).padStart(18);
+    // One MGET per surface.
+    const res = await fetch(`${URL_BASE}/mget/${keys.map(encodeURIComponent).join('/')}`, {
+      headers: { Authorization: `Bearer ${TOKEN}` },
     });
-    console.log(date.padStart(18) + cells.join(''));
-  });
-  console.log('TOTAL'.padStart(18) + totals.map((t) => String(t).padStart(18)).join(''));
+    if (!res.ok) {
+      console.error(`Upstash error: HTTP ${res.status}`);
+      process.exit(1);
+    }
+    const values = (await res.json()).result.map((v) => Number(v) || 0);
 
-  const [, , added, started, placed] = totals;
-  if (added || started || placed) {
-    console.log('\nDrop-off: added_to_cart → checkout_started '
-      + `${started && added ? Math.round((100 * started) / added) : '–'}%, `
-      + `checkout_started → order_placed ${placed && started ? Math.round((100 * placed) / started) : '–'}%`);
+    console.log(`\n=== ${title} ===`);
+    const header = ['date', ...EVENTS].map((h) => h.padStart(18)).join('');
+    console.log(header);
+    const totals = new Array(EVENTS.length).fill(0);
+    dates.forEach((date, row) => {
+      const cells = EVENTS.map((_, col) => {
+        const v = values[row * EVENTS.length + col];
+        totals[col] += v;
+        return String(v).padStart(18);
+      });
+      console.log(date.padStart(18) + cells.join(''));
+    });
+    console.log('TOTAL'.padStart(18) + totals.map((t) => String(t).padStart(18)).join(''));
+
+    const [, , added, started, placed] = totals;
+    if (added || started || placed) {
+      console.log('\nDrop-off: added_to_cart → checkout_started '
+        + `${started && added ? Math.round((100 * started) / added) : '–'}%, `
+        + `checkout_started → order_placed ${placed && started ? Math.round((100 * placed) / started) : '–'}%`);
+    }
   }
 }
 
