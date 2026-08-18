@@ -10,6 +10,7 @@ import ScreenHeader from '@/components/order/ScreenHeader';
 import TurnstileWidget, { resetTurnstile } from '@/components/order/Turnstile';
 import { isSameDayWindow } from '@/lib/order/delivery';
 import { formatPrice } from '@/lib/order/format';
+import { orderTotals } from '@/lib/order/discounts';
 import { trackEvent } from '@/lib/order/metrics';
 import { S } from '@/lib/order/strings';
 import { getDeviceId } from '@/lib/order/storage';
@@ -82,9 +83,33 @@ export default function CheckoutScreen() {
 
   const subtotal = lines.filter((l) => l.ok).reduce((s, l) => s + l.livePrice * l.quantity, 0);
   const deliveryFee = 0;
-  // Clamp so a discount can never exceed the basket and produce a negative total.
-  const discount = Math.min(promo?.amountOff ?? 0, subtotal);
+
+  // Discounts apply by themselves and are itemised below. Customers were not
+  // typing codes — many did not realise they had to — so the only thing left to
+  // do is show them what they are getting. A typed code is still honoured and
+  // still wins if it beats the automatic one.
+  //
+  // computeAutoDiscount mirrors the backend exactly; the server revalidates and
+  // would reject anything we invented here.
+  const totals = useMemo(
+    () => orderTotals(subtotal, deliveryFee, catalog, cart.items, promo?.code ?? null),
+    [subtotal, deliveryFee, catalog, cart.items, promo],
+  );
+  const discount = Math.max(totals.discount.amount, Math.min(promo?.amountOff ?? 0, subtotal));
+  const discountLabel = totals.discount.amount >= (promo?.amountOff ?? 0)
+    ? totals.discount.label
+    : (promo?.code ? `Code ${promo.code}` : null);
   const total = Math.max(0, subtotal + deliveryFee - discount);
+
+  // The next tier up, and how far away it is.
+  const nextTier = useMemo(() => {
+    const tiers = (catalog?.discountTiers ?? [])
+      .filter((t) => t.minSpend > subtotal)
+      .sort((a, b) => a.minSpend - b.minSpend);
+    const t = tiers[0];
+    if (!t || subtotal <= 0) return null;
+    return { short: t.minSpend - subtotal, label: t.label || `${t.percentOff}% off` };
+  }, [catalog, subtotal]);
 
   const payloadItems = lines.map((l) => ({
     product_id: l.productId,
@@ -362,10 +387,27 @@ export default function CheckoutScreen() {
               </span>
             </div>
           )}
+          {/* A combo's saving is otherwise invisible: its lines are already
+              discounted, so the basket just looks cheap for no stated reason. */}
+          {totals.comboSavings.map((c) => (
+            <div key={c.comboId}
+                 className="flex justify-between text-[14px] font-medium text-shop-primary-dark">
+              <span>{c.name} saving</span>
+              <span>−{formatPrice(c.saved)}</span>
+            </div>
+          ))}
           {discount > 0 && (
             <div className="flex justify-between text-[14px] font-medium text-shop-primary-dark">
-              <span>Discount {promo?.code ? `(${promo.code})` : ''}</span>
+              <span>{discountLabel || 'Discount'}</span>
               <span>−{formatPrice(discount)}</span>
+            </div>
+          )}
+          {/* Tell them what one more item would earn — the tier is useless if
+              nobody knows it is there. */}
+          {nextTier && (
+            <div className="flex justify-between text-[13px] text-shop-text-tertiary">
+              <span>Spend {formatPrice(nextTier.short)} more for {nextTier.label}</span>
+              <span />
             </div>
           )}
           <div className="flex justify-between border-t border-shop-border pt-2 text-[17px]

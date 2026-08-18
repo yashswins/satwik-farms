@@ -8,14 +8,17 @@
  *     would weaken every page on the site.
  *  2. Apps Script `/exec` deployments do not reliably emit CORS headers, so the
  *     direct call would fail from a browser regardless.
- *  3. `promo_codes` are stripped here. The raw feed exposes every code, its
+ *  3. `promo_codes` are filtered here. The raw feed exposes every code, its
  *     discount and its minimum spend; that must never reach a customer's
- *     device. Promo validity is decided server-side.
+ *     device. Only AUTO-APPLYING codes are forwarded, because those are granted
+ *     to everyone who qualifies and are shown at checkout anyway — there is
+ *     nothing left to keep secret about them. Typed codes stay server-side, and
+ *     the server revalidates every discount regardless.
  *
  * Fetching, retrying and caching live in lib/order/serverCatalog so that every
  * route touching the sheet gets the same resilience.
  */
-import { promoBannerFrom } from '@/lib/order/catalog';
+import { promoBannerFrom, truthy } from '@/lib/order/catalog';
 import { getServerCatalog } from '@/lib/order/serverCatalog';
 
 /**
@@ -39,13 +42,22 @@ export async function GET() {
 
   try {
     const { catalog, stale, cached } = await getServerCatalog();
-    // Never ship promo codes to the browser. The one exception is deliberate:
-    // the single best active code is advertised as `promo_banner`, matching the
-    // phone app's home banner ("Save TSH X / Use code: Y"). One public code is
-    // marketing; the full list with minimum spends would be a leak.
+    // Two deliberate exceptions to "never ship promo codes":
+    //
+    //  - `promo_banner`: the single best active code, advertised exactly as the
+    //    phone app's home banner does. One public code is marketing; the full
+    //    list with minimum spends would be a leak.
+    //  - auto-applying codes: the customer gets these without typing anything
+    //    and sees them itemised at checkout, so withholding the rule would only
+    //    stop the browser showing a discount it is about to be given anyway.
+    //
+    // A code the customer must know to type is still withheld.
     const { promo_codes: promoCodes, ...publicCatalog } = catalog;
     const promoBanner = promoBannerFrom(promoCodes);
     if (promoBanner) publicCatalog.promo_banner = promoBanner;
+    publicCatalog.promo_codes = (promoCodes ?? []).filter(
+      (p) => truthy(p?.active) && truthy(p?.auto_apply),
+    );
     return Response.json(publicCatalog, {
       headers: {
         // A stale copy must not be cached at the edge as though it were fresh.

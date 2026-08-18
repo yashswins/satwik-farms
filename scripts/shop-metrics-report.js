@@ -2,17 +2,23 @@
  * Shop funnel readout.
  *
  * Prints the last N days of ordering-funnel counters written by
- * /api/shop/metrics. Run locally with the Upstash credentials in the
- * environment (same names the app itself uses):
+ * /api/shop/metrics. Keep the credentials in `.env.upstash.local` (gitignored
+ * via `.env*.local`, and deliberately NOT a name Next.js auto-loads — putting
+ * them in `.env.local` would make every local dev server and e2e run write
+ * rate-limit buckets and phantom funnel events into PRODUCTION Redis):
  *
- *   UPSTASH_REDIS_REST_URL=... UPSTASH_REDIS_REST_TOKEN=... node scripts/shop-metrics-report.js [days]
+ *   node --env-file=.env.upstash.local scripts/shop-metrics-report.js [days]
  *
- * KV_REST_API_URL / KV_REST_API_TOKEN work too. No PII exists in these keys —
- * they are bare per-day counters.
+ * Accepts both naming conventions (Upstash console vs Vercel marketplace),
+ * and the READ-ONLY token — this script only ever reads. No PII exists in
+ * these keys; they are bare per-day counters.
  */
 
 const URL_BASE = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
-const TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+const TOKEN = process.env.UPSTASH_REDIS_REST_READ_ONLY_TOKEN
+  || process.env.KV_REST_API_READ_ONLY_TOKEN
+  || process.env.UPSTASH_REDIS_REST_TOKEN
+  || process.env.KV_REST_API_TOKEN;
 
 const EVENTS = [
   'shop_viewed',
@@ -35,7 +41,8 @@ function darDate(offsetDays) {
 
 async function main() {
   if (!URL_BASE || !TOKEN) {
-    console.error('Set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN (or KV_REST_API_*).');
+    console.error('Set UPSTASH_REDIS_REST_URL and a token (READ_ONLY_TOKEN or TOKEN; KV_REST_API_* names work too).');
+    console.error('Usually: node --env-file=.env.upstash.local scripts/shop-metrics-report.js');
     process.exit(1);
   }
 
@@ -52,18 +59,18 @@ async function main() {
   }
   const values = (await res.json()).result.map((v) => Number(v) || 0);
 
-  const header = ['date', ...EVENTS].map((h) => h.padStart(16)).join('');
+  const header = ['date', ...EVENTS].map((h) => h.padStart(18)).join('');
   console.log(header);
   const totals = new Array(EVENTS.length).fill(0);
   dates.forEach((date, row) => {
     const cells = EVENTS.map((_, col) => {
       const v = values[row * EVENTS.length + col];
       totals[col] += v;
-      return String(v).padStart(16);
+      return String(v).padStart(18);
     });
-    console.log(date.padStart(16) + cells.join(''));
+    console.log(date.padStart(18) + cells.join(''));
   });
-  console.log('TOTAL'.padStart(16) + totals.map((t) => String(t).padStart(16)).join(''));
+  console.log('TOTAL'.padStart(18) + totals.map((t) => String(t).padStart(18)).join(''));
 
   const [, , added, started, placed] = totals;
   if (added || started || placed) {

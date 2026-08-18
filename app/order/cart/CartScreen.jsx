@@ -6,6 +6,7 @@ import { IoAdd, IoRemove, IoTrashOutline, IoCartOutline, IoBookmarkOutline, IoCl
 
 import ProductImage from '@/components/order/ProductImage';
 import { formatPrice } from '@/lib/order/format';
+import { orderTotals } from '@/lib/order/discounts';
 import { S } from '@/lib/order/strings';
 import { useCartStore, useSavedStore } from '@/lib/order/stores';
 import { useCatalog } from '@/lib/order/useCatalog';
@@ -115,6 +116,19 @@ export default function CartScreen() {
   const subtotal = lines
     .filter((l) => l.status === 'ok')
     .reduce((sum, l) => sum + l.livePrice * l.quantity, 0);
+
+  // Same calculation the checkout and the server use — one module, three
+  // callers, so the number never changes as the customer moves between screens.
+  const cartTotals = orderTotals(subtotal, 0, catalog, items, null);
+
+  // How far to the next tier, so "spend a bit more" is an informed choice.
+  const nextTier = (() => {
+    const t = (catalog?.discountTiers ?? [])
+      .filter((x) => x.minSpend > subtotal)
+      .sort((a, b) => a.minSpend - b.minSpend)[0];
+    if (!t || subtotal <= 0) return null;
+    return { short: t.minSpend - subtotal, label: t.label || `${t.percentOff}% off` };
+  })();
 
   if (!mounted || loading) {
     return (
@@ -273,10 +287,37 @@ export default function CartScreen() {
       <SavedForLater catalog={catalog} />
 
       <div className="sticky bottom-0 mt-5 border-t border-shop-border bg-shop-surface px-4 py-3">
+        {/* Show the discount HERE, not only at checkout. A customer deciding
+            whether to add one more thing needs to know what it earns them. */}
+        {cartTotals.discount.amount > 0 && (
+          <>
+            <div className="mb-1 flex items-baseline justify-between">
+              <span className="text-[13px] text-shop-text-secondary">{S.CART_SUBTOTAL}</span>
+              <span className="text-[14px] text-shop-text-secondary">{formatPrice(subtotal)}</span>
+            </div>
+            <div className="mb-1 flex items-baseline justify-between">
+              <span className="text-[13px] font-medium text-shop-primary-dark">
+                {cartTotals.discount.label || 'Discount'}
+              </span>
+              <span className="text-[14px] font-medium text-shop-primary-dark">
+                −{formatPrice(cartTotals.discount.amount)}
+              </span>
+            </div>
+          </>
+        )}
         <div className="mb-3 flex items-baseline justify-between">
-          <span className="text-[14px] text-shop-text-secondary">{S.CART_SUBTOTAL}</span>
-          <span className="text-[18px] font-bold text-shop-text">{formatPrice(subtotal)}</span>
+          <span className="text-[14px] text-shop-text-secondary">
+            {cartTotals.discount.amount > 0 ? S.CART_TOTAL : S.CART_SUBTOTAL}
+          </span>
+          <span className="text-[18px] font-bold text-shop-text">
+            {formatPrice(cartTotals.discount.amount > 0 ? cartTotals.total : subtotal)}
+          </span>
         </div>
+        {nextTier && (
+          <p className="mb-3 -mt-1 text-[12px] text-shop-text-tertiary">
+            Spend {formatPrice(nextTier.short)} more for {nextTier.label}
+          </p>
+        )}
         {unavailable.length > 0 ? (
           <button
             type="button"
