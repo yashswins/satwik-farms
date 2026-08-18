@@ -6,6 +6,7 @@ import { IoAdd, IoRemove, IoTrashOutline, IoCartOutline, IoBookmarkOutline, IoCl
 
 import ProductImage from '@/components/order/ProductImage';
 import { formatPrice } from '@/lib/order/format';
+import { totalQuantityLabel } from '@/lib/order/units';
 import { orderTotals } from '@/lib/order/discounts';
 import { S } from '@/lib/order/strings';
 import { useCartStore, useSavedStore } from '@/lib/order/stores';
@@ -88,7 +89,7 @@ function SavedForLater({ catalog }) {
  */
 export default function CartScreen() {
   const { catalog, loading } = useCatalog();
-  const { items, setQuantity, removeItem } = useCartStore();
+  const { items, setQuantity, removeItem, removeCombo } = useCartStore();
   const saveForLater = useSavedStore((s) => s.save);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -111,6 +112,31 @@ export default function CartScreen() {
       };
     });
   }, [items, catalog]);
+
+  // A combo is one thing in the basket, not a pile of separately-editable
+  // lines. Letting a customer trim one produced a basket the server correctly
+  // refuses (a partial bundle at bundle prices), which cost a real TSH 22,100
+  // order on 2026-08-18.
+  const groups = (() => {
+    const out = [];
+    const seen = new Map();
+    for (const line of lines) {
+      if (!line.comboId) { out.push({ kind: 'item', line }); continue; }
+      let group = seen.get(line.comboId);
+      if (!group) {
+        group = {
+          kind: 'combo',
+          comboId: line.comboId,
+          name: line.comboName || 'Combo',
+          lines: [],
+        };
+        seen.set(line.comboId, group);
+        out.push(group);
+      }
+      group.lines.push(line);
+    }
+    return out;
+  })();
 
   const unavailable = lines.filter((l) => l.status === 'unavailable' || l.status === 'gone');
   const subtotal = lines
@@ -185,7 +211,67 @@ export default function CartScreen() {
       )}
 
       <ul className="space-y-3 px-4">
-        {lines.map((line) => {
+        {groups.filter((g) => g.kind === 'combo').map((group) => {
+          const total = group.lines.reduce((s, l) => s + l.livePrice * l.quantity, 0);
+          const blocked = group.lines.some(
+            (l) => l.status === 'unavailable' || l.status === 'gone',
+          );
+          return (
+            <li
+              key={group.comboId}
+              className={`rounded-shop-md border bg-shop-surface p-3
+                          ${blocked ? 'border-shop-error/40' : 'border-shop-primary/30'}`}
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="truncate text-[14px] font-semibold text-shop-text">
+                    {group.name}
+                  </p>
+                  <p className="text-[11px] font-medium text-shop-primary-dark">
+                    Bundle price — edit as one
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => removeCombo(group.comboId)}
+                  aria-label={`Remove ${group.name}`}
+                  className="shrink-0 text-shop-text-tertiary active:text-shop-error"
+                >
+                  <IoTrashOutline aria-hidden className="text-[18px]" />
+                </button>
+              </div>
+
+              <ul className="mt-2 space-y-1.5">
+                {group.lines.map((l) => (
+                  <li key={l.lineId} className="flex items-center gap-2.5">
+                    <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-shop-sm
+                                    bg-shop-surface-alt">
+                      <ProductImage product={l.product ?? { name: l.name }} sizes="36px" />
+                    </div>
+                    <span className="min-w-0 flex-1 truncate text-[13px] text-shop-text">
+                      {l.name}
+                    </span>
+                    {/* What they actually get: 2 Kg, not "0.5 Kg x 4". */}
+                    <span className="shrink-0 text-[12px] text-shop-text-secondary">
+                      {totalQuantityLabel(l.unit, l.quantity) ?? `x ${l.quantity}`}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {blocked && (
+                <p className="mt-2 text-[12px] font-medium text-shop-error">
+                  Part of this combo is unavailable — please remove it to continue.
+                </p>
+              )}
+              <p className="mt-2 text-right text-[14px] font-semibold text-shop-text">
+                {formatPrice(total)}
+              </p>
+            </li>
+          );
+        })}
+
+        {groups.filter((g) => g.kind === 'item').map(({ line }) => {
           const blocked = line.status === 'unavailable' || line.status === 'gone';
           return (
             <li

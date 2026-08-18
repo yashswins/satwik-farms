@@ -7,6 +7,7 @@ import ProductImage from '@/components/order/ProductImage';
 import ScreenHeader from '@/components/order/ScreenHeader';
 import { EmptyState } from '@/components/order/ShopStates';
 import { formatPrice } from '@/lib/order/format';
+import { totalQuantityLabel } from '@/lib/order/units';
 import { trackEvent } from '@/lib/order/metrics';
 import { useCartStore } from '@/lib/order/stores';
 import { useCatalog } from '@/lib/order/useCatalog';
@@ -114,15 +115,18 @@ export default function ComboDetail({ comboId }) {
                   <ProductImage product={product} sizes="48px" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[14px] text-shop-text">
-                    {product.name}
-                    {quantity > 1 && (
-                      <span className="text-shop-text-secondary"> × {quantity}</span>
-                    )}
-                  </p>
+                  <p className="truncate text-[14px] text-shop-text">{product.name}</p>
+                  {/* What they get, in the unit they think in: "2 Kg", not
+                      "0.5 Kg x 4". The description promises 2kg of potato, so
+                      the listing should say 2kg back. */}
                   <p className="text-[12px] text-shop-text-secondary">
-                    {product.unit}
-                    {!sellable && <span className="text-shop-error"> · unavailable</span>}
+                    {totalQuantityLabel(product.unit, quantity) ?? product.unit}
+                    {quantity > 1 && product.unit && (
+                      <span className="text-shop-text-tertiary">
+                        {' '}({product.unit} &times; {quantity})
+                      </span>
+                    )}
+                    {!sellable && <span className="text-shop-error"> &middot; unavailable</span>}
                   </p>
                 </div>
                 <span className="shrink-0 text-[13px] text-shop-text-secondary">

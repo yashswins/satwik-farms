@@ -49,3 +49,7 @@ _*.mjs
 
 # Source images and working files staged for Cloudinary upload
 files/
+
+# Internal planning notes — not for the public repo
+sheet_changes.md
+apps_script.gs
