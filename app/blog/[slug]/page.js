@@ -13,12 +13,14 @@ export async function generateStaticParams() {
 
 const BASE_URL = 'https://satwikfarms.com';
 
+// Format from local date parts, not toISOString: frontmatter dates parse as
+// local midnight, so the UTC conversion shifts them back a day in any build
+// environment east of UTC.
 function toISODate(dateStr) {
-  try {
-    return new Date(dateStr).toISOString().split('T')[0];
-  } catch {
-    return undefined;
-  }
+  const d = new Date(dateStr);
+  if (isNaN(d)) return undefined;
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
 export async function generateMetadata({ params }) {
