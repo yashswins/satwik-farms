@@ -1,6 +1,7 @@
 ---
 title: "Satwik Farming: The Holistic, Regenerative Agriculture Rooted in Ancient Indian Wisdom"
 date: "April 25, 2026"
+dateModified: "September 2, 2026"
 category: "Education"
 image: "/images/farming2-cover.jpg"
 ogImage: "/images/og-farming.jpg"
@@ -202,7 +203,7 @@ At Satwik Farms, this is not theory — it is the daily practice behind everythi
 Continue exploring the Satwik approach:
 
 - [The Benefits of Residue Free Farming](/blog/benefits-of-residue-free-farming)
-- [Why Choose Satwik Farms](/blog/why-choose-satwik-farms)
+- [Behind the Scenes: Our Dairy Process at Satwik Farms](/blog/dairy-process-behind-scenes)
 - [What's Growing This Month: January Harvest](/blog/whats-growing-january)
 - [Meet Our Cattle: The Heart of Our Dairy](/blog/meet-our-cattle)
 - [Microgreens: A Satwik Superfood](/blog/microgreens-satwik-superfood)

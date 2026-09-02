@@ -1,6 +1,7 @@
 ---
 title: "Meet Our Cattle: The Heart of Our Dairy"
 date: "February 3, 2026"
+dateModified: "September 2, 2026"
 category: "Farm Updates"
 image: "/images/activities/3.jpeg"
 excerpt: "Our dairy products are only as good as the animals that produce them. Get to know the cattle at Satwik Farms — how we care for them and why it makes all the difference."
@@ -62,4 +63,4 @@ If you enjoyed this, take a closer look at our dairy:
 - [Satwik Paneer (Cottage Cheese)](/blog/satwik-paneer)
 - [Cow Ghee: The Golden Elixir of Ayurveda, Nutrition & Modern Wellness](/blog/cow-ghee-ayurveda-nutrition-benefits)
 - [Satwik Farming: Holistic, Regenerative Agriculture](/blog/satwik-farming-technique)
-- [Why Choose Satwik Farms](/blog/why-choose-satwik-farms)
+- [Farm Visit Highlights: School Trip Success at Satwik Farms](/blog/school-trip-success)

@@ -136,3 +136,4 @@ Continue exploring plant-powered nutrition from the Satwik collection:
 - [Tofu: Benefits, Nutrition, Ayurveda & How Much to Eat Daily](/blog/tofu-plant-protein-benefits)
 - [The Power of Our Roasted Seed Mix: A Nutritional Powerhouse](/blog/roasted-seed-mix)
 - [Understanding Glycemic Index: Your Guide to Better Blood Sugar Management](/blog/understanding-glycemic-index)
+- [Satwik Paustik Ladoo: Healthy Sugar-Free Ladoo with Ayurvedic Benefits](/blog/satwik-paustik-ladoo)

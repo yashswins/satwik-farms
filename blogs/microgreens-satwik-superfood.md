@@ -1,6 +1,7 @@
 ---
 title: "Microgreens: A Satwik Superfood Backed by Science & Ayurveda"
 date: "April 25, 2026"
+dateModified: "September 2, 2026"
 category: "Products"
 image: "/images/microgreen2-cover.jpg"
 ogImage: "/images/og-microgreen.jpg"
@@ -191,3 +192,4 @@ More from the Satwik wellness collection:
 - [Flax Seeds: Benefits, Nutrition & Daily Dosage](/blog/flax-seeds-superfood-benefits)
 - [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)
 - [Fresh Garden Salad with Satwik Greens](/blog/garden-salad-recipe)
+- [What's Growing This Month: Seasonal Harvest at Satwik Farms](/blog/whats-growing-january)

@@ -1,6 +1,7 @@
 ---
 title: "Why Choose Satwik Farms: Regenerative, Residue-Free Farming for a Better Future"
 date: "April 16, 2026"
+dateModified: "September 2, 2026"
 category: "Education"
 image: "/images/why-satwik.jpeg"
 ogImage: "/images/og-why-satwik.jpg"
@@ -125,6 +126,8 @@ Vitamins and antioxidants in vegetables degrade quickly after harvest. Produce t
 - [The Benefits of Residue Free Farming](/blog/benefits-of-residue-free-farming)
 - [Raw Forest Honey from Kisarawe](/blog/raw-forest-honey-kisarawe)
 - [Barley – A Superfood for Diabetics and Beyond](/blog/barley-superfood)
+- [Meet Our Cattle: The Heart of Our Dairy](/blog/meet-our-cattle)
+- [Farm Visit Highlights: School Trip Success at Satwik Farms](/blog/school-trip-success)
 - [Grounding (Earthing): Benefits, Techniques & the Ayurvedic View](/blog/grounding-earthing-ayurveda-natural-healing)
 
 ---
