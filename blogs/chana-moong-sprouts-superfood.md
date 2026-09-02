@@ -1,6 +1,7 @@
 ---
 title: "Chana & Moong Sprouts: Nutrition, Ayurvedic Benefits & How to Eat Them Daily"
 date: "June 12, 2026"
+dateModified: "September 2, 2026"
 category: "Education"
 image: "/images/chana-moong1-conv.jpg"
 imageFit: "contain"
@@ -284,6 +285,6 @@ If you found this helpful, you may also like:
 - [Microgreens: A Satwik Superfood Backed by Science & Ayurveda](/blog/microgreens-satwik-superfood)
 - [Tofu: Benefits, Nutrition, Ayurveda & How Much to Eat Daily](/blog/tofu-plant-protein-benefits)
 - [Gut Health: Ayurveda & Modern Science Guide](/blog/gut-health-ayurveda-modern-science)
-- [Constipation: Ayurvedic Guide to Natural Relief](/blog/constipation-ayurvedic-guide)
+- [Chana Sattu: The Traditional Protein-Rich Superfood for Modern Living](/blog/chana-sattu-protein-superfood)
 - [Flax Seeds: Superfood Benefits, Nutrition & How to Use Them](/blog/flax-seeds-superfood-benefits)
 - [Methi (Fenugreek) Sprouts: Benefits, Nutrition & How to Eat Them](/blog/methi-fenugreek-sprouts-benefits)

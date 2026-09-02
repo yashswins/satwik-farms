@@ -1,6 +1,7 @@
 ---
 title: "The Power of Our Roasted Seed Mix: A Nutritional Powerhouse"
 date: "March 28, 2026"
+dateModified: "September 2, 2026"
 category: "Products"
 image: "/images/seed_mix.jpg"
 excerpt: "Our roasted seed mix — flax, chia, pumpkin, sunflower, sesame, and watermelon seeds — delivers an ideal Omega-3 to Omega-6 ratio, exceptional minerals, and outstanding benefits for blood sugar management."
@@ -147,4 +148,4 @@ If you enjoyed this, you may also like:
 - [Satwik Paustik Ladoo: Sugar-Free Energy Snack](/blog/satwik-paustik-ladoo)
 - [Multigrain Diabetic Atta: A Low-GI Flour Blend](/blog/multigrain-atta-diabetic-mix)
 - [Understanding the Glycemic Index](/blog/understanding-glycemic-index)
-- [The Gut: Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
+- [Chana Sattu: The Traditional Protein-Rich Superfood for Modern Living](/blog/chana-sattu-protein-superfood)

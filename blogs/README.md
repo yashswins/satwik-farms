@@ -162,8 +162,8 @@ These are the established conventions for this blog. Follow them on every new bl
 - `imagePosition: "40%"` — vertically shifts the hero image focus (e.g. to keep a face/object visible after cropping).
 - `imageAlt: "..."` — descriptive alt text for the hero image. Falls back to the post title if omitted, but a richer keyword-aware sentence (what's in the image, the broader topic) ranks better in Google Images and is better for accessibility. Use a 1-line description, not a slogan.
 
-### Auto-tracked fields
-- `dateModified` — automatically derived from the file's modification time and emitted in the BlogPosting JSON-LD. You don't set this manually; just edit the file and the next build will pick up the new mtime. Google rewards freshness, so genuine edits matter.
+### Freshness field
+- `dateModified: "Month D, YYYY"` — set this manually in frontmatter when meaningfully editing a post; it feeds the sitemap lastmod and BlogPosting JSON-LD, falling back to the publish `date` if absent. It is deliberately NOT derived from file mtime (Vercel clones the repo fresh on every deploy, which used to stamp every post "modified today"). Google rewards freshness, so update it on genuine edits only.
 
 ### Layout: don't stack images back-to-back
 - If a post has only one or two inline images, **space them out** across different sections — not directly under the cover and not adjacent to each other. Body text between images keeps the page readable.
