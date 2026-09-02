@@ -21,7 +21,7 @@ export default function sitemap() {
     { path: '/gallery', changeFrequency: 'weekly', priority: 0.9 },
     { path: '/ventures', changeFrequency: 'monthly', priority: 0.7 },
     { path: '/blog', changeFrequency: 'weekly', priority: 0.8 },
-    { path: '/blog/submit', changeFrequency: 'monthly', priority: 0.5 },
+    // /blog/submit is a noindex form page — intentionally not listed.
   ];
 
   const serviceRoutes = getAllServiceSlugs().map((slug) => ({

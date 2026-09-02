@@ -4,6 +4,8 @@ export const metadata = {
   title: 'Share Your Farm Story',
   description: 'Submit your farm visit experience, recipe, farming tip, or product testimonial to be featured on the Satwik Farms blog.',
   keywords: ['Satwik Farms blog submission', 'share farm story', 'submit farm visit experience Tanzania', 'guest post farm blog'],
+  // Form page: keep it out of the index (was showing as "Crawled - currently not indexed").
+  robots: { index: false, follow: true },
   alternates: {
     canonical: 'https://satwikfarms.com/blog/submit',
   },
