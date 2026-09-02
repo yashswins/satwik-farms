@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import AppStoreBadges from '@/components/shared/AppStoreBadges';
 import { buildServiceJsonLd } from '@/lib/services';
 
 const BASE_URL = 'https://satwikfarms.com';
@@ -39,14 +40,12 @@ export default function ServiceLanding({ service }) {
               {service.tagline}
             </p>
             <div className="flex flex-wrap gap-4">
-              <a
-                href="https://wa.me/255767211422"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/order"
                 className="btn-primary px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg inline-block"
               >
-                Order on WhatsApp
-              </a>
+                Order online
+              </Link>
               <a
                 href="tel:+255767211422"
                 className="px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg inline-block bg-white text-farm-green-primary border border-farm-green-primary hover:bg-farm-green-light/20 transition"
@@ -54,6 +53,7 @@ export default function ServiceLanding({ service }) {
                 Call +255 767 211 422
               </a>
             </div>
+            <AppStoreBadges className="mt-5" />
           </div>
           <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
             <Image
@@ -128,17 +128,15 @@ export default function ServiceLanding({ service }) {
             Ready to order?
           </h2>
           <p className="text-base md:text-lg text-text-secondary mb-8">
-            Place your order in minutes via WhatsApp, or browse the full range in the Satwik Farms app.
+            Order online in minutes, or download the Satwik Farms app to browse the full range.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="https://wa.me/255767211422"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/order"
               className="btn-primary px-8 py-4 rounded-full text-lg inline-block"
             >
-              Order on WhatsApp
-            </a>
+              Order online
+            </Link>
             <Link
               href="/ventures"
               className="px-8 py-4 rounded-full text-lg inline-block bg-white text-farm-green-primary border border-farm-green-primary hover:bg-farm-green-light/20 transition"
@@ -146,6 +144,7 @@ export default function ServiceLanding({ service }) {
               See all ventures
             </Link>
           </div>
+          <AppStoreBadges className="justify-center mt-6" />
         </div>
       </section>
     </div>

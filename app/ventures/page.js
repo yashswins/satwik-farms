@@ -11,7 +11,7 @@ const venturePosts = [
 
 export const metadata = {
   title: 'Our Ventures - Grocery Delivery, Residue Free Produce, Dairy & Farm Experiences',
-  description: 'Satwik Farms delivers groceries, fresh residue-free vegetables, fruits, dairy (milk, yoghurt, ghee), and wellness products to your door in Dar es Salaam. Also offering weekend farm visits in Kisarawe. Order via WhatsApp or our app.',
+  description: 'Satwik Farms delivers groceries, fresh residue-free vegetables, fruits, dairy (milk, yoghurt, ghee), and wellness products to your door in Dar es Salaam. Also offering weekend farm visits in Kisarawe. Order online or via our app.',
   keywords: ['grocery delivery Dar es Salaam', 'home delivery groceries Tanzania', 'residue free vegetables Tanzania', 'dairy products Kisarawe', 'farm visits Tanzania', 'wellness products Tanzania'],
   alternates: {
     canonical: 'https://satwikfarms.com/ventures',

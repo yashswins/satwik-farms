@@ -17,7 +17,7 @@ const ventures = [
       'Spices, cooking oils & staples',
       'Personal care & household essentials',
       'Same-day & next-day delivery',
-      'Order via WhatsApp or our app'
+      'Order online or via our app'
     ]
   },
   {

@@ -1,6 +1,7 @@
 ---
 title: "What's Growing This Month: January Harvest at Satwik Farms"
 date: "February 1, 2026"
+dateModified: "September 2, 2026"
 category: "Farm Updates"
 image: "/images/farm/1.jpg"
 excerpt: "January at Satwik Farms means an abundance of fresh, residue free produce. Here's what's in season this month and why it's the best time to order."
@@ -49,7 +50,7 @@ The result is deeper flavour, more nutrients, and a freshness that's immediately
 
 ## How to Order
 
-All our produce is available for home delivery to Dar es Salaam. Place your order via WhatsApp or through our Android app, and we'll deliver direct from our farm in Kisarawe to your door.
+All our produce is available for home delivery to Dar es Salaam. Place your order online at [satwikfarms.com/order](/order) or through the Satwik Farms app (Android and iPhone), and we'll deliver direct from our farm in Kisarawe to your door.
 
 Seasonal availability changes weekly — follow our blog or WhatsApp channel for the latest updates on what's ready to harvest.
 

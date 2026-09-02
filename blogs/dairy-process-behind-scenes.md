@@ -1,6 +1,7 @@
 ---
 title: "Behind the Scenes: Our Dairy Process at Satwik Farms"
 date: "February 5, 2026"
+dateModified: "September 2, 2026"
 category: "Farm Updates"
 image: "/images/farm/2.jpg"
 excerpt: "How does fresh milk become yoghurt and ghee? Take a look behind the scenes at our dairy process — from morning milking in Kisarawe to delivery in Dar es Salaam."
@@ -58,7 +59,7 @@ Our process is built around the opposite premise: produce the freshest possible 
 
 ---
 
-*Order our fresh milk, yoghurt, or ghee via WhatsApp or the Satwik Farms Android app. Delivered from Kisarawe to Dar es Salaam.*
+*Order our fresh milk, yoghurt, or ghee online at [satwikfarms.com/order](/order) or through the Satwik Farms app. Delivered from Kisarawe to Dar es Salaam.*
 
 ---
 

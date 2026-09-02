@@ -6,7 +6,7 @@ const BASE_URL = 'https://satwikfarms.com';
 // Bump this only when a static/service page meaningfully changes.
 // Using new Date() here stamped every URL with the request time, so lastmod
 // churned daily and Google learns to ignore the sitemap's dates entirely.
-const STATIC_LASTMOD = new Date('2026-08-03');
+const STATIC_LASTMOD = new Date('2026-09-02');
 
 export default function sitemap() {
   const lastModified = STATIC_LASTMOD;

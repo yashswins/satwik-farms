@@ -1,6 +1,7 @@
 ---
 title: "Fresh Garden Salad with Satwik Greens"
 date: "February 7, 2026"
+dateModified: "September 2, 2026"
 category: "Recipes"
 image: "/images/slideshow/6.jpg"
 excerpt: "A simple, delicious salad using fresh residue free greens from Satwik Farms. Ready in 10 minutes and packed with nutrition — the best salad starts with the freshest vegetables."
@@ -70,7 +71,7 @@ A salad made with supermarket produce that's been shipped from across the countr
 
 ---
 
-*All vegetables used in this recipe are available for delivery from Satwik Farms in Kisarawe to Dar es Salaam. Order via WhatsApp or our Android app.*
+*All vegetables used in this recipe are available for delivery from Satwik Farms in Kisarawe to Dar es Salaam. Order online at [satwikfarms.com/order](/order) or through the Satwik Farms app.*
 
 ---
 

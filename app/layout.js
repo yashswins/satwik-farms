@@ -9,7 +9,7 @@ export const metadata = {
     default: 'Satwik Farms - Residue Free Farm in Kisarawe, Tanzania | Fresh Vegetables & Dairy',
     template: '%s | Satwik Farms'
   },
-  description: 'Satwik Farms delivers fresh residue free vegetables, milk, yoghurt, and ghee from our farm in Kisarawe, Tanzania. Order via WhatsApp or our Android app. Farm visits available. Harvest to home: Freshness delivered.',
+  description: 'Satwik Farms delivers fresh residue free vegetables, milk, yoghurt, and ghee from our farm in Kisarawe, Tanzania. Order online or via our app. Farm visits available. Harvest to home: Freshness delivered.',
   keywords: ['residue free farm Tanzania', 'Kisarawe farm', 'fresh vegetables Dar es Salaam', 'residue free dairy Tanzania', 'farm visits Kisarawe', 'Satwik Farms', 'residue free milk Tanzania', 'farm to table Tanzania', 'chemical-free vegetables', 'sustainable farming Tanzania'],
   authors: [{ name: 'Satwik Farms' }],
   creator: 'Satwik Farms',
@@ -40,7 +40,7 @@ export const metadata = {
     url: 'https://satwikfarms.com',
     siteName: 'Satwik Farms',
     title: 'Satwik Farms - Residue Free Farm in Kisarawe, Tanzania',
-    description: 'Fresh residue free vegetables and premium dairy products delivered from our farm to your doorstep. Order via WhatsApp or Android app.',
+    description: 'Fresh residue free vegetables and premium dairy products delivered from our farm to your doorstep. Order online or via our app.',
     images: [
       {
         url: 'https://satwikfarms.com/images/farm/1.jpg',

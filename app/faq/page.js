@@ -59,7 +59,7 @@ export default function FAQ() {
       questions: [
         {
           q: "How do I order from Satwik Farms?",
-          a: "Ordering is easy! Download our app — available on Android (Google Play) and iPhone (App Store) — browse our products and place your order in a few taps. You can also call or WhatsApp us at +255 767 211 422."
+          a: "Ordering is easy! Order online at satwikfarms.com/order, or download our app — available on Android (Google Play) and iPhone (App Store) — browse our products and place your order in a few taps. You can also call or WhatsApp us at +255 767 211 422."
         },
         {
           q: "Which areas in Tanzania does Satwik Farms serve?",
@@ -151,7 +151,7 @@ export default function FAQ() {
         },
         {
           q: "How can I stay updated on available products?",
-          a: "Download our app — it shows live product availability and lets you order directly. You can also join our WhatsApp community group for farm news and announcements, or follow us on Instagram @satwik.farms."
+          a: "Order online at satwikfarms.com/order or in our app — both show live product availability and let you order directly. You can also join our WhatsApp community group for farm news and announcements, or follow us on Instagram @satwik.farms."
         },
         {
           q: "Can I buy vegetables directly from your farm?",
