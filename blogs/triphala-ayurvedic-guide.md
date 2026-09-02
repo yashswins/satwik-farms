@@ -1,6 +1,7 @@
 ---
 title: "Triphala: The Ultimate Ayurvedic Guide to the Nectar of Life"
 date: "April 25, 2026"
+dateModified: "September 2, 2026"
 category: "Wellness"
 image: "/images/triphala.jpg"
 ogImage: "/images/og-triphala.jpg"
@@ -159,4 +160,4 @@ If you enjoyed this, you may also like:
 - [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
 - [Satwik Agni Boost: An Ayurvedic Weight-Loss Drink from Indian Spices](/blog/agni-boost-ayurvedic-weight-loss-drink)
 - [Isabgol in Ayurveda & Satwik Living: A Cooling, Gentle Bowel Regulator](/blog/isabgol-ayurveda-satwik-part-3)
-- [Sweet Lemon Pickle in Jaggery Syrup: Grandma's Traditional Recipe](/blog/sweet-lemon-pickle-jaggery-benefits)
+- [Curry Patta (Curry Leaves): A Small Leaf with Remarkable Health Benefits](/blog/curry-patta-curry-leaves-benefits)

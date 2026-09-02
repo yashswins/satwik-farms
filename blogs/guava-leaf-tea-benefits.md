@@ -1,6 +1,7 @@
 ---
 title: "Guava Leaf Tea: The Ancient Healing Brew for Modern Metabolic Health"
 date: "May 2, 2026"
+dateModified: "September 2, 2026"
 category: "Products"
 image: "/images/guava-cover.jpg"
 ogImage: "/images/og-guava.jpg"
@@ -234,5 +235,5 @@ If you found this helpful, explore more from the Satwik herbal and metabolic-hea
 - [Understanding the Glycemic Index](/blog/understanding-glycemic-index)
 - [Bitter Gourd Powder: Benefits for Blood Sugar & Detox](/blog/bitter-gourd-powder-benefits)
 - [Gut Health: Where Ayurveda Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
-- [Fatty Liver Disease: A Satwik Holistic Guide](/blog/fatty-liver-disease-satwik-holistic-guide)
+- [Curry Patta (Curry Leaves): A Small Leaf with Remarkable Health Benefits](/blog/curry-patta-curry-leaves-benefits)
 - [Triphala: The Ayurvedic Three-Fruit Wonder](/blog/triphala-ayurvedic-guide)

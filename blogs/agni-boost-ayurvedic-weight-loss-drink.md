@@ -1,6 +1,7 @@
 ---
 title: "Satwik Agni Boost: An Ayurvedic Weight-Loss Drink from Indian Spices"
 date: "May 4, 2026"
+dateModified: "September 2, 2026"
 category: "Products"
 image: "/images/weight-loss-cover.jpg"
 ogImage: "/images/og-agni-boost.jpg"
@@ -195,4 +196,4 @@ If you found this helpful, you may also like:
 - [Gut Health: An Ayurvedic & Modern Science Perspective](/blog/gut-health-ayurveda-modern-science)
 - [Fatty Liver Disease: A Satwik & Holistic Guide to Healing Naturally](/blog/fatty-liver-disease-satwik-holistic-guide)
 - [Bitter Gourd Powder: The Whole-Fruit Superfood for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
-- [Constipation: An Ayurvedic Guide to Lasting Relief](/blog/constipation-ayurvedic-guide)
+- [Curry Patta (Curry Leaves): A Small Leaf with Remarkable Health Benefits](/blog/curry-patta-curry-leaves-benefits)

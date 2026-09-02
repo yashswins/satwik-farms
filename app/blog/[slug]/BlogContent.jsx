@@ -288,8 +288,9 @@ export default function BlogContent({ content }) {
           object-position: center !important;
         }
 
-        /* Sattu blog — inline photo at 420px, bottom-anchored so the corner logo stays visible */
-        .blog-content img[src*="sattu-conv"] {
+        /* Sattu & curry patta blogs — inline photos at 420px, bottom-anchored so the corner logo stays visible */
+        .blog-content img[src*="sattu-conv"],
+        .blog-content img[src*="curry-leaf-conv"] {
           height: 420px !important;
           object-fit: cover !important;
           object-position: center bottom !important;
