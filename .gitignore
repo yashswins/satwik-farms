@@ -43,6 +43,7 @@ next-env.d.ts
 web_app.md
 web_app_launch_checklist.md
 web_app_enhancements.md
+dashboard_spec.md
 
 # Throwaway verification scripts (Playwright drivers, debug probes)
 _*.mjs

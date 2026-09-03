@@ -17,8 +17,10 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 export default function SiteChrome({ children }) {
   const pathname = usePathname() || '';
   const isShop = pathname === '/order' || pathname.startsWith('/order/');
+  // The internal dashboard has its own shell and no marketing chrome either.
+  const isDashboard = pathname === '/dashboard' || pathname.startsWith('/dashboard/');
 
-  if (isShop) return <>{children}</>;
+  if (isShop || isDashboard) return <>{children}</>;
 
   return (
     <>

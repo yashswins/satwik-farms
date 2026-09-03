@@ -47,7 +47,18 @@ const nextConfig = {
   },
   // Set security headers
   async headers() {
+    // The internal dashboard is unlisted, not merely unlinked: never indexed,
+    // never cached by the CDN or a shared browser. Deliberately NOT in
+    // robots.txt — a Disallow line advertises the path.
+    const dashboardHeaders = [
+      { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' },
+      { key: 'Cache-Control', value: 'private, no-store' },
+    ];
     return [
+      { source: '/dashboard', headers: dashboardHeaders },
+      { source: '/dashboard/:path*', headers: dashboardHeaders },
+      { source: '/api/dashboard/:path*', headers: dashboardHeaders },
+      { source: '/api/auth/:path*', headers: dashboardHeaders },
       {
         source: '/:path*',
         headers: [
