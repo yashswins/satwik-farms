@@ -33,8 +33,8 @@ export function deriveStatus({ health, funnelConfigured, funnelEventsToday, now 
     },
     {
       key: 'catalog', label: 'Catalogue feed',
-      state: !snap ? 'unknown' : !p.catalog?.configured ? 'warn' : p.catalog.age_seconds === null ? 'bad' : p.catalog.age_seconds > 1800 ? 'warn' : 'ok',
-      text: p.catalog?.configured ? (p.catalog.age_seconds === null ? 'not loaded' : `${p.catalog.products} products · ${Math.round(p.catalog.age_seconds / 60)} min old`) : 'not configured',
+      state: !snap ? 'unknown' : !p.catalog?.configured ? 'warn' : p.catalog.age_seconds === null ? ((p.uptime_seconds ?? Infinity) < 180 ? 'warn' : 'bad') : p.catalog.age_seconds > 1800 ? 'warn' : 'ok',
+      text: p.catalog?.configured ? (p.catalog.age_seconds === null ? ((p.uptime_seconds ?? Infinity) < 180 ? 'loading after restart' : 'not loaded') : `${p.catalog.products} products · ${Math.round(p.catalog.age_seconds / 60)} min old`) : 'not configured',
     },
     {
       key: 'mirror', label: 'Invoice mirror',
