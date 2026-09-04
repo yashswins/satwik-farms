@@ -29,7 +29,7 @@ export default function CatalogueCheck({ snapshot }) {
   rows.sort((a, b) => order[KIND[a.kind].tone] - order[KIND[b.kind].tone] || String(a.name).localeCompare(String(b.name)));
   const checkedAt = snapshot?.taken_at ? ago(`${snapshot.taken_at}Z`) : null;
   const subtitle = payload
-    ? `${num(payload.checked_products)} active Sheet products checked ${checkedAt} against the Accu360 item list and the last ${payload.price_drift_days ?? 14} days of invoices`
+    ? `${num(payload.checked_products)} active Sheet products checked ${checkedAt} against the Accu360 item list; prices judged on each product's latest invoice lines against the Sheet price of their day`
     : 'No check has run yet';
   const critical = rows.filter((r) => KIND[r.kind].tone === 'critical').length;
 
@@ -51,7 +51,7 @@ export default function CatalogueCheck({ snapshot }) {
                       <td className="py-1.5 pr-3 text-xs">{r.sku ? <Link href={`/dashboard/products/${encodeURIComponent(r.sku)}`} className="hover:underline">{r.sku}</Link> : <span className="text-shop-text-secondary">—</span>}</td>
                       <td className="py-1.5 pr-3"><span className={`rounded-full px-2 py-0.5 text-xs font-medium ${TONE[k.tone]}`}>{k.label}</span></td>
                       <td className="py-1.5 pr-3 text-xs tabular-nums">{r.sheet_price !== undefined ? `${tsh(r.sheet_price)} / ${r.unit}` : (r.in_stock === false ? 'out of stock' : 'in stock')}</td>
-                      <td className="py-1.5 pr-3 text-xs tabular-nums">{r.invoiced_rate !== undefined ? `${tsh(r.invoiced_rate)} per stock unit (${r.drift_pct > 0 ? '+' : ''}${r.drift_pct}%, ${r.lines} lines) vs ${tsh(r.expected_rate)} expected` : ''}</td>
+                      <td className="py-1.5 pr-3 text-xs tabular-nums">{r.invoiced_rate !== undefined ? `${tsh(r.invoiced_rate)} per stock unit on the latest ${r.lines} lines${r.latest_line ? `, newest ${r.latest_line}` : ''} (${r.drift_pct > 0 ? '+' : ''}${r.drift_pct}%) vs ${tsh(r.expected_rate)} from the Sheet` : ''}</td>
                       <td className="py-1.5 text-xs text-shop-text-secondary">{k.why}</td>
                     </tr>
                   );
