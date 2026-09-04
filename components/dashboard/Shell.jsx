@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import Nav from '@/components/dashboard/Nav';
 import SignOutButton from '@/components/dashboard/SignOutButton';
+import ThemeToggle from '@/components/dashboard/ThemeToggle';
 
 /**
  * The signed-in frame: header (brand, who is signed in, sign out), navigation
@@ -64,7 +65,10 @@ function UserMenu({ user, compact = false }) {
           {user.role}{user.dev ? ' · dev bypass' : ''}
         </p>
       </div>
-      <SignOutButton />
+      <div className="flex items-center gap-2">
+        <ThemeToggle />
+        <SignOutButton />
+      </div>
     </div>
   );
 }

@@ -1,5 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // Dark mode follows the device unless an ancestor says otherwise: `.dark`
+  // forces dark, `.light` forces light. Only the dashboard uses `dark:` and it
+  // sets these on its own wrapper, so the marketing site is never affected.
+  darkMode: ['variant', [
+    '@media (prefers-color-scheme: dark) { &:not(.light *) }',
+    '&:is(.dark *)',
+  ]],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',

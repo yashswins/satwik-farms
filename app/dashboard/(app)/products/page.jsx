@@ -128,9 +128,11 @@ export default async function ProductsPage({ searchParams }) {
       </div>
 
       <Card title="Catalogue health" subtitle="Shop catalogue vs Accu360, from the backend's last check">
-        {catalogIssues.length === 0 && (disabledSelling.value || []).length === 0 ? <Empty>No problems: every active shop product exists and is enabled in Accu360, and no disabled item has sold recently.</Empty> : (
+        {catalogIssues.length === 0 && (disabledSelling.value || []).length === 0 ? <Empty>No problems: every active shop product exists and is enabled in Accu360, invoiced prices match the Sheet, and no disabled item has sold recently.</Empty> : (
           <ul className="space-y-1 text-sm">
-            {catalogIssues.filter((i) => i.kind.startsWith('item_')).map((i, idx) => <li key={idx} className="text-shop-error">{i.name || i.sku} ({i.sku}) is active in the shop but {i.kind === 'item_disabled_in_erp' ? 'disabled' : 'missing'} in Accu360 — carts with it are rejected.</li>)}
+            {catalogIssues.filter((i) => i.kind === 'item_missing_in_erp' || i.kind === 'item_disabled_in_erp').map((i, idx) => <li key={`e${idx}`} className="text-shop-error">{i.name || i.sku} ({i.sku}) is active in the shop but {i.kind === 'item_disabled_in_erp' ? 'disabled' : 'missing'} in Accu360 — carts with it are rejected.</li>)}
+            {catalogIssues.filter((i) => i.kind === 'item_no_sku').map((i, idx) => <li key={`n${idx}`} className="text-shop-warning">{i.name} is active in the shop with no Accu360 SKU — it cannot be ordered.</li>)}
+            {catalogIssues.filter((i) => i.kind.startsWith('price_drift')).map((i, idx) => <li key={`p${idx}`} className={i.kind === 'price_drift_online' ? 'text-shop-warning' : 'text-shop-text-secondary'}>{i.name || i.sku}: {i.kind === 'price_drift_online' ? 'app orders' : 'offline invoices'} charged {tsh(i.invoiced_rate)} per stock unit vs {tsh(i.expected_rate)} from the Sheet ({tsh(i.sheet_price)} / {i.unit}), {i.drift_pct > 0 ? '+' : ''}{i.drift_pct}% over {i.lines} lines in 14 days.</li>)}
             {(disabledSelling.value || []).map((d) => <li key={d.item_code} className="text-shop-text-secondary">{d.item_name} ({d.item_code}) is disabled in Accu360 yet appeared on {d.invoices} invoices in the last 30 days (last {dateLabel(d.last_sold)}).</li>)}
           </ul>
         )}

@@ -3,7 +3,9 @@ import Link from 'next/link';
 import AlertStrip from '@/components/dashboard/AlertStrip';
 import AutoRefresh from '@/components/dashboard/AutoRefresh';
 import Card, { Empty, Unavailable } from '@/components/dashboard/Card';
+import CatalogueCheck from '@/components/dashboard/CatalogueCheck';
 import ChannelBar from '@/components/dashboard/ChannelBar';
+import OrderingHealth from '@/components/dashboard/OrderingHealth';
 import KpiTile from '@/components/dashboard/KpiTile';
 import RefreshButton from '@/components/dashboard/RefreshButton';
 import SalesTrendChart from '@/components/dashboard/SalesTrendChart';
@@ -11,7 +13,7 @@ import StatusDots, { deriveStatus } from '@/components/dashboard/StatusDots';
 import { evaluateAlerts } from '@/lib/dashboard/alerts';
 import { isConfigured, query } from '@/lib/dashboard/db';
 import { ago, darTime, dateLabel, num, share, tsh } from '@/lib/dashboard/format';
-import { darDate, resolvePeriod } from '@/lib/dashboard/periods';
+import { addDays, darDate, resolvePeriod } from '@/lib/dashboard/periods';
 import {
   attemptsFor, channelSplit, discountPulse, freshness, headlineKpis, health, ordersKpis, pipeline24h,
   promoPulse, salesTrend, todayVsYesterdayToNow, topCustomers, topItems,
@@ -63,12 +65,15 @@ export default async function OverviewPage() {
     settle(discountPulse(mtd.start, mtd.end), null),
     settle(health(), { snapshots: {}, sync: [] }),
     settle(freshness(), { synced_at: null, latest_posting_date: null, invoices: 0 }),
-    settle(funnelConfigured() ? funnelCounts([today]) : Promise.resolve(null), null),
+    settle(funnelConfigured() ? funnelCounts(Array.from({ length: 7 }, (_, i) => addDays(today, -(6 - i)))) : Promise.resolve(null), null),
     settle(query("SELECT id, title, severity, status, customer_note, created_by FROM incidents WHERE status <> 'resolved' ORDER BY created_at DESC LIMIT 5"), []),
   ]);
 
   const funnelToday = funnel.value
-    ? { web: funnelTotals(funnel.value.web), app: funnelTotals(funnel.value.app) }
+    ? { web: funnelTotals({ [today]: funnel.value.web[today] }), app: funnelTotals({ [today]: funnel.value.app[today] }) }
+    : null;
+  const funnelWeek = funnel.value
+    ? (() => { const w = funnelTotals(funnel.value.web); const a = funnelTotals(funnel.value.app); return { placed: w.order_placed + a.order_placed, failed: w.order_failed + a.order_failed }; })()
     : null;
   const funnelEventsToday = funnelToday
     ? Object.values(funnelToday.web).reduce((a, b) => a + b, 0) + Object.values(funnelToday.app).reduce((a, b) => a + b, 0)
@@ -103,6 +108,8 @@ export default async function OverviewPage() {
       </div>
 
       <AlertStrip alerts={alerts} incidents={incidents.value} compact />
+
+      <CatalogueCheck snapshot={hlth.value.snapshots.catalog_checks ?? null} />
 
       {/* Sales tiles. Today is compared with yesterday up to the same time of day. */}
       {kpis.error ? <Unavailable what="Sales tiles" reason={kpis.error} /> : (
@@ -155,6 +162,8 @@ export default async function OverviewPage() {
       <Card title="Orders, last 90 days" subtitle="Invoices per day, online and offline; the blue line is app and web orders placed that day" href="/dashboard/orders">
         {trend.error ? <Unavailable what="Trend" reason={trend.error} /> : trend.value.length ? <SalesTrendChart series={trend.value} mode="orders" height={220} /> : <Empty />}
       </Card>
+
+      <OrderingHealth funnelToday={funnelToday} attemptsToday={attempts.value.totals} funnelWeek={funnelWeek} />
 
       <Card title="Online orders, last 24 hours" subtitle="From our own order records; never counted as sales" href="/dashboard/orders" hrefLabel="Orders page">
         {pipeline.error || !pipeline.value ? <Unavailable what="Pipeline" reason={pipeline.error} /> : (
