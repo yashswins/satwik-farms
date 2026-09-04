@@ -26,7 +26,7 @@ export default async function CustomersPage({ searchParams }) {
   const now = new Date();
   const { period, channelKey } = parsePageParams(sp, { now });
   const current = { period, channelKey };
-  const by = sp.by === 'revenue' ? 'revenue' : 'invoices';
+  const by = sp.by === 'invoices' ? 'invoices' : 'revenue';
   const q = typeof sp.q === 'string' ? sp.q.trim().slice(0, 60) : '';
 
   const [k, kPrev, topRows, weekly, freq, coh, lap, mig, found] = await Promise.all([
@@ -49,7 +49,7 @@ export default async function CustomersPage({ searchParams }) {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold">Customers</h1>
-          <p className="text-xs text-shop-text-secondary">{period.label} · {dateLabel(period.start)} – {dateLabel(period.end)} · names come from the app where known, then the Accu360 contact</p>
+          <p className="text-xs text-shop-text-secondary">{period.label} · {dateLabel(period.start)} – {dateLabel(period.end)} · names come from Accu360's full-name field, then the linked contact, then the name typed in the app</p>
         </div>
         <PageControls period={period} channelKey="all" showChannel={false} />
       </div>
@@ -76,7 +76,7 @@ export default async function CustomersPage({ searchParams }) {
         </div>
       )}
 
-      <Card title={`Top customers by ${by}`} subtitle={period.label} href={hrefWith('/dashboard/customers', current, { by: by === 'invoices' ? 'revenue' : undefined })} hrefLabel={by === 'invoices' ? 'Sort by revenue' : 'Sort by invoices'}>
+      <Card title={`Top customers by ${by === 'revenue' ? 'total value' : 'invoices'}`} subtitle={period.label} href={hrefWith('/dashboard/customers', current, { by: by === 'revenue' ? 'invoices' : undefined })} hrefLabel={by === 'revenue' ? 'Sort by invoices' : 'Sort by total value'}>
         {topRows.error ? <Unavailable what="Top customers" reason={topRows.error} /> : topRows.value.length === 0 ? <Empty /> : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">

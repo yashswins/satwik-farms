@@ -13,7 +13,7 @@ import { ago, darTime, dateLabel, num, share, tsh } from '@/lib/dashboard/format
 import { hrefWith, parsePageParams } from '@/lib/dashboard/params';
 import { addDays, darDate } from '@/lib/dashboard/periods';
 import {
-  attemptsByDay, attention, invoiceLag, orderList, promoCodesSeen, reconciliationState, statusByDay,
+  ATTENTION_SINCE, attemptsByDay, attention, handledRecently, invoiceLag, orderList, promoCodesSeen, reconciliationState, statusByDay,
 } from '@/lib/dashboard/queries/orders';
 import { requireDashboardUser } from '@/lib/dashboard/session';
 import { funnelConfigured, funnelCounts } from '@/lib/dashboard/upstash';
@@ -30,6 +30,7 @@ async function settle(promise, fallback = null) {
 }
 
 const CHANNEL = { web: 'Web', mobile_release: 'App', mobile_debug: 'App (debug)', dashboard: 'Dashboard' };
+const channelLabel = (c) => CHANNEL[c] || (c ? c : 'App (before 3 Sep)');
 const OUTCOMES = [
   { key: 'accepted', name: 'Accepted', color: '#53B175' },
   { key: 'queued', name: 'Queued', color: '#8FCFA5' },
@@ -72,9 +73,10 @@ export default async function OrdersPage({ searchParams }) {
   const combo = sp.combo === '1';
   const q = typeof sp.q === 'string' ? sp.q.slice(0, 80) : '';
   const dates14 = Array.from({ length: 14 }, (_, i) => addDays(today, -(13 - i)));
+  const showHandled = sp.handled === '1';
 
-  const [att, attempts, statuses, lag, recon, list, promos, funnel] = await Promise.all([
-    settle(attention(14), null),
+  const [att, attempts, statuses, lag, recon, list, promos, funnel, handled] = await Promise.all([
+    settle(attention({ includeHandled: showHandled }), null),
     settle(attemptsByDay(14), []),
     settle(statusByDay(14), []),
     settle(invoiceLag(30), null),
@@ -82,6 +84,7 @@ export default async function OrdersPage({ searchParams }) {
     settle(orderList({ status, channelKey, promo, combo, q, start: period.start, end: period.end, page }), { rows: [], total: 0, page: 1, pages: 1 }),
     settle(promoCodesSeen(), []),
     settle(funnelConfigured() ? funnelCounts(dates14) : Promise.resolve(null), null),
+    settle(handledRecently(30), []),
   ]);
 
   // Attempts vs outcomes per day, with the funnel's never-arrived gap.
@@ -127,7 +130,19 @@ export default async function OrdersPage({ searchParams }) {
     revalidatePath('/dashboard/orders');
   }
 
+  async function markHandled(formData) {
+    'use server';
+    const user = await requireDashboardUser();
+    const orderId = String(formData.get('order_id') || '').slice(0, 40);
+    const bucket = String(formData.get('bucket') || '').slice(0, 40);
+    const note = String(formData.get('note') || '').slice(0, 300);
+    if (orderId) await recordAudit(user.email, 'handled', { order_id: orderId, bucket, note });
+    revalidatePath('/dashboard/orders');
+    revalidatePath('/dashboard');
+  }
+
   const attentionCount = att.value ? Object.entries(att.value).filter(([k]) => k !== 'twins').reduce((s, [, v]) => s + v.length, 0) : 0;
+  const handledById = Object.fromEntries((handled.value || []).map((h) => [h.order_id, h]));
 
   return (
     <div className="space-y-5">
@@ -138,8 +153,13 @@ export default async function OrdersPage({ searchParams }) {
         </div>
       </div>
 
-      <Card title={attentionCount ? `${num(attentionCount)} orders need attention` : 'Nothing needs attention'} subtitle="Last 14 days, one section per reason">
-        {att.error ? <Unavailable what="Attention list" reason={att.error} /> : attentionCount === 0 ? <Empty>Every online order of the last two weeks was accepted, written to Accu360 and invoiced on time.</Empty> : (
+      <Card
+        title={attentionCount ? `${num(attentionCount)} orders need attention` : 'Nothing needs attention'}
+        subtitle={`Orders placed since ${dateLabel(ATTENTION_SINCE, { year: true })} (fresh slate), deleted Sales Orders from the last 14 days. Mark a row handled once it is dealt with: it disappears from here and the order page records who handled it.`}
+        href={showHandled ? '/dashboard/orders' : '/dashboard/orders?handled=1'}
+        hrefLabel={showHandled ? 'Hide handled' : `Show handled (${num((handled.value || []).length)})`}
+      >
+        {att.error ? <Unavailable what="Attention list" reason={att.error} /> : attentionCount === 0 ? <Empty>Every online order since the fresh slate was accepted, written to Accu360 and invoiced on time, or has been marked handled.</Empty> : (
           <div className="space-y-5">
             {BUCKETS.map(([key, title, action]) => {
               const rows = att.value[key] || [];
@@ -150,7 +170,7 @@ export default async function OrdersPage({ searchParams }) {
                   <p className="mb-2 text-xs text-shop-text-secondary">{action}</p>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
-                      <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Order</th><th className="py-1 pr-3">When</th><th className="py-1 pr-3">Customer</th><th className="py-1 pr-3 text-right">Total</th><th className="py-1 pr-3">Channel</th><th className="py-1 pr-3">Detail</th>{key === 'reconcile' && backendConfigured() && <th className="py-1" />}</tr></thead>
+                      <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Order</th><th className="py-1 pr-3">When</th><th className="py-1 pr-3">Customer</th><th className="py-1 pr-3 text-right">Total</th><th className="py-1 pr-3">Channel</th><th className="py-1 pr-3">Detail</th><th className="py-1" /></tr></thead>
                       <tbody>
                         {rows.map((r) => (
                           <tr key={`${key}-${r.id}-${r.invoice || ''}`} className="border-t border-shop-border align-top dark:border-[#2E352E]">
@@ -158,22 +178,34 @@ export default async function OrdersPage({ searchParams }) {
                             <td className="py-1.5 pr-3 whitespace-nowrap text-xs">{darTime(r.created_at)} · {ago(`${r.created_at}Z`)}</td>
                             <td className="py-1.5 pr-3">{r.customer_name}<br /><span className="text-xs text-shop-text-secondary">{r.customer_phone}</span></td>
                             <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(r.total)}{r.invoiced !== undefined && <><br /><span className="text-xs text-shop-text-secondary">invoiced {tsh(r.invoiced)}</span></>}</td>
-                            <td className="py-1.5 pr-3">{CHANNEL[r.channel] || r.channel || 'Online'}</td>
+                            <td className="py-1.5 pr-3">{channelLabel(r.channel)}</td>
                             <td className="py-1.5 pr-3 text-xs text-shop-text-secondary">
                               {key === 'notInvoiced' && `${r.so_name} · delivery ${dateLabel(r.delivery_date)} · ${r.so_status}`}
                               {key === 'soDeleted' && `${r.accu360_order_id} deleted ${ago(`${r.deleted_on}Z`)} by ${r.deleted_by || 'staff'}`}
                               {key === 'mismatch' && `${r.invoice} on ${dateLabel(r.posting_date)}`}
                               {!['notInvoiced', 'soDeleted', 'mismatch'].includes(key) && (r.failure_reason || r.accu360_order_id || '')}
                             </td>
-                            {key === 'reconcile' && backendConfigured() && (
-                              <td className="py-1.5">
-                                <form action={acknowledge} className="flex items-center gap-1">
-                                  <input type="hidden" name="order_id" value={r.id} />
-                                  <input name="note" placeholder="note" className="w-28 rounded border border-shop-border bg-transparent px-1 py-0.5 text-xs dark:border-[#2E352E]" />
-                                  <button type="submit" className="text-xs text-shop-primary-dark hover:underline">acknowledge</button>
-                                </form>
-                              </td>
-                            )}
+                            <td className="py-1.5">
+                              {handledById[r.id] ? (
+                                <span className="text-xs text-shop-primary-dark">handled by {handledById[r.id].actor} · {ago(`${handledById[r.id].at}Z`)}</span>
+                              ) : (
+                                <div className="flex flex-col gap-1">
+                                  <form action={markHandled} className="flex items-center gap-1">
+                                    <input type="hidden" name="order_id" value={r.id} />
+                                    <input type="hidden" name="bucket" value={key} />
+                                    <input name="note" placeholder="note" className="w-28 rounded border border-shop-border bg-transparent px-1 py-0.5 text-xs dark:border-[#2E352E]" />
+                                    <button type="submit" className="text-xs font-medium text-shop-primary-dark hover:underline">mark handled</button>
+                                  </form>
+                                  {key === 'reconcile' && backendConfigured() && (
+                                    <form action={acknowledge} className="flex items-center gap-1">
+                                      <input type="hidden" name="order_id" value={r.id} />
+                                      <input name="note" placeholder="note for backend" className="w-28 rounded border border-shop-border bg-transparent px-1 py-0.5 text-xs dark:border-[#2E352E]" />
+                                      <button type="submit" className="text-xs text-shop-text-secondary hover:underline">acknowledge</button>
+                                    </form>
+                                  )}
+                                </div>
+                              )}
+                            </td>
                           </tr>
                         ))}
                       </tbody>
@@ -188,6 +220,16 @@ export default async function OrdersPage({ searchParams }) {
           </div>
         )}
       </Card>
+
+      {showHandled && (
+        <Card title="Recently handled" subtitle="Who cleared what, most recent first">
+          {(handled.value || []).length === 0 ? <Empty>Nothing marked handled yet.</Empty> : (
+            <ul className="divide-y divide-shop-border text-xs dark:divide-[#2E352E]">
+              {handled.value.map((h, i) => <li key={i} className="flex flex-wrap gap-x-3 py-1.5"><span className="w-28 text-shop-text-secondary">{darTime(h.at)} · {ago(`${h.at}Z`)}</span><Link href={`/dashboard/orders/${encodeURIComponent(h.order_id)}`} className="font-medium hover:underline">{h.order_id}</Link><span className="text-shop-text-secondary">{h.bucket}</span><span>{h.actor}</span>{h.note && <span className="text-shop-text-secondary">{h.note}</span>}</li>)}
+            </ul>
+          )}
+        </Card>
+      )}
 
       <div className="grid gap-4 xl:grid-cols-2">
         <Card title="Attempts vs outcomes" subtitle="Every POST the server saw, by outcome, last 14 days. “Never arrived” = checkouts that reported failure minus what the server rejected or failed.">
@@ -263,7 +305,7 @@ export default async function OrdersPage({ searchParams }) {
                     <td className="py-1.5 pr-3 whitespace-nowrap"><Link href={`/dashboard/orders/${encodeURIComponent(r.id)}`} className="hover:underline">{r.id}</Link></td>
                     <td className="py-1.5 pr-3 whitespace-nowrap text-xs">{dateLabel(String(r.created_at).slice(0, 10))} {darTime(r.created_at)}</td>
                     <td className="py-1.5 pr-3">{r.customer_name}</td>
-                    <td className="py-1.5 pr-3 text-xs">{CHANNEL[r.channel] || 'Online'}{r.app_version ? <span className="text-shop-text-secondary"> · {r.app_version}</span> : ''}</td>
+                    <td className="py-1.5 pr-3 text-xs">{channelLabel(r.channel)}{r.app_version ? <span className="text-shop-text-secondary"> · {r.app_version}</span> : ''}</td>
                     <td className="py-1.5 pr-3 text-right tabular-nums">{r.lines}{r.has_combo ? <span className="ml-1 text-[10px] text-shop-primary-dark">combo</span> : null}</td>
                     <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(r.total)}{r.discount > 0 && <span className="block text-[11px] text-shop-text-secondary">−{tsh(r.discount)}</span>}</td>
                     <td className="py-1.5 pr-3 text-xs">{r.promo_code || ''}</td>

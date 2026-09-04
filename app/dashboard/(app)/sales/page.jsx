@@ -12,7 +12,7 @@ import { hrefWith, parsePageParams } from '@/lib/dashboard/params';
 import { darDate } from '@/lib/dashboard/periods';
 import {
   bucketed, byCategory, cancelledAndAmended, drafts, futureDated, heatmap, invoiceList,
-  invoiceStatuses, outstandingList, outstandingTotals, summary,
+  invoiceStatuses, summary,
 } from '@/lib/dashboard/queries/sales';
 
 export const metadata = { title: 'Sales' };
@@ -38,15 +38,13 @@ export default async function SalesPage({ searchParams }) {
   const status = typeof sp.status === 'string' ? sp.status.slice(0, 40) : '';
   const minAmount = Number(sp.min) || 0;
 
-  const [cur, prev, chart, chartPrev, cats, heat, outList, outTot, list, statuses, draft, future, cancelled] = await Promise.all([
+  const [cur, prev, chart, chartPrev, cats, heat, list, statuses, draft, future, cancelled] = await Promise.all([
     settle(summary(period.start, period.end, channels)),
     settle(summary(period.compareStart, period.compareEnd, channels)),
     settle(bucketed(period.start, period.end, channels)),
     settle(bucketed(period.compareStart, period.compareEnd, channels)),
     settle(byCategory(period.start, period.end, channels), []),
     settle(heatmap(period.start, period.end, channels), { grid: [], max: 0 }),
-    settle(outstandingList(25), []),
-    settle(outstandingTotals(), { amount: 0, invoices: 0, older_than_30d: 0 }),
     settle(invoiceList({ start: period.start, end: period.end, channels, q, status, minAmount, page }), { rows: [], total: 0, page: 1, pages: 1 }),
     settle(invoiceStatuses(), []),
     settle(drafts(), { n: 0 }),
@@ -71,14 +69,13 @@ export default async function SalesPage({ searchParams }) {
       </div>
 
       {cur.error || !s ? <Unavailable what="Summary" reason={cur.error} /> : (
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-7">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
           <KpiTile label="Sales" value={s.sales} previous={p?.sales} compareLabel={period.compareLabel} />
           <KpiTile label="Invoices" value={s.invoices} previous={p?.invoices} compareLabel={period.compareLabel} format="num" />
           <KpiTile label="Average invoice" value={aiv(s)} previous={aiv(p)} compareLabel={period.compareLabel} />
           <KpiTile label="Customers" value={s.customers} previous={p?.customers} compareLabel={period.compareLabel} format="num" />
           <KpiTile label="Discount given" value={s.discount} previous={p?.discount} compareLabel={period.compareLabel} polarity="down" sub={s.sales ? `${((s.discount / (s.sales + s.discount)) * 100).toFixed(1)}% of gross` : undefined} />
           <KpiTile label="Returns" value={s.returns} previous={p?.returns} compareLabel={period.compareLabel} polarity="down" format="num" sub={s.returns ? tsh(-s.returns_value) : 'none'} />
-          <KpiTile label="Outstanding" value={outTot.value.amount} sub={`${num(outTot.value.invoices)} invoices · ${num(outTot.value.older_than_30d)} older than 30 d`} href="#outstanding" tone={outTot.value.invoices ? 'warning' : undefined} />
         </div>
       )}
 
@@ -110,32 +107,6 @@ export default async function SalesPage({ searchParams }) {
           <li><span className="text-2xl font-semibold tabular-nums">{num(future.value?.n ?? 0)}</span><p className="text-xs text-shop-text-secondary">submitted invoices dated after today ({tsh(future.value?.amount ?? 0, { compact: true })}) — held out of Sales until their date</p></li>
           <li><span className="text-2xl font-semibold tabular-nums">{num(cancelled.value?.cancelled ?? 0)}</span><p className="text-xs text-shop-text-secondary">cancelled in this period, {num(cancelled.value?.amended ?? 0)} of them replaced by an amendment</p></li>
         </ul>
-      </Card>
-
-      <Card title="Outstanding invoices" subtitle="Largest balances first, across all time" className="scroll-mt-4">
-        <div id="outstanding" />
-        {outList.error ? <Unavailable what="Outstanding" reason={outList.error} /> : outList.value.length === 0 ? <Empty>Nothing outstanding.</Empty> : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary">
-                <tr><th className="py-1 pr-3">Invoice</th><th className="py-1 pr-3">Date</th><th className="py-1 pr-3">Customer</th><th className="py-1 pr-3 text-right">Total</th><th className="py-1 pr-3 text-right">Outstanding</th><th className="py-1 pr-3">Status</th><th className="py-1 text-right">Age</th></tr>
-              </thead>
-              <tbody>
-                {outList.value.map((r) => (
-                  <tr key={r.name} className="border-t border-shop-border dark:border-[#2E352E]">
-                    <td className="py-1.5 pr-3"><a href={`${ACCU360}${encodeURIComponent(r.name)}`} target="_blank" rel="noreferrer" className="hover:underline">{r.name}</a></td>
-                    <td className="py-1.5 pr-3 whitespace-nowrap">{dateLabel(r.posting_date)}</td>
-                    <td className="py-1.5 pr-3"><Link href={`/dashboard/customers/${encodeURIComponent(r.customer)}`} className="hover:underline">{r.display_name}</Link></td>
-                    <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(r.grand_total)}</td>
-                    <td className="py-1.5 pr-3 text-right tabular-nums font-medium">{tsh(r.outstanding)}</td>
-                    <td className="py-1.5 pr-3">{r.status}</td>
-                    <td className="py-1.5 text-right tabular-nums">{r.age_days} d</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </Card>
 
       <Card title="Invoices" subtitle={`${num(list.value.total)} in ${period.label.toLowerCase()} · ${channelLabel}`}>

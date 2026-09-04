@@ -23,7 +23,7 @@ async function settle(promise, fallback = null) {
   }
 }
 
-const ORDER = ['app', 'web', 'online_unsplit', 'offline'];
+const ORDER = ['app', 'web', 'offline'];
 
 export default async function ChannelsPage({ searchParams }) {
   const sp = (await searchParams) ?? {};
@@ -45,7 +45,7 @@ export default async function ChannelsPage({ searchParams }) {
 
   const byCh = Object.fromEntries((kpis.value || []).map((r) => [r.channel, r]));
   const byChPrev = Object.fromEntries((kpisPrev.value || []).map((r) => [r.channel, r]));
-  const columns = ORDER.filter((c) => byCh[c] || byChPrev[c] || c !== 'online_unsplit');
+  const columns = ORDER;
   const totalSales = Object.values(byCh).reduce((s, r) => s + r.sales, 0);
 
   const weeklyData = (weekly.value.series || []).map((w) => ({ label: dateLabel(w.bucket), ...w }));

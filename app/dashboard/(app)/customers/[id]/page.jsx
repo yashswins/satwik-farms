@@ -24,9 +24,9 @@ export default async function CustomerPage({ params }) {
   const d = await detail(id);
   if (!d) notFound();
   const h = d.header;
-  const name = h.app_name || h.contact_name || h.customer_name || h.name;
+  const name = h.full_name || h.app_name || h.contact_name || h.customer_name || h.name;
   const t = d.totals || {};
-  const monthly = (d.monthly || []).map((m) => ({ bucket: m.month, sales: m.sales, invoices: m.invoices, app: 0, web: 0, online_unsplit: 0, offline: 0 }));
+  const monthly = (d.monthly || []).map((m) => ({ bucket: m.month, sales: m.sales, invoices: m.invoices, app: 0, web: 0, offline: 0 }));
 
   return (
     <div className="space-y-5">
@@ -40,12 +40,11 @@ export default async function CustomerPage({ params }) {
         {h.customer_address && <p className="mt-1 text-xs text-shop-text-secondary">Last app address: {h.customer_address}</p>}
       </div>
 
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         <Tile label="Lifetime revenue" value={tsh(t.revenue ?? 0, { compact: true })} />
         <Tile label="Invoices" value={num(t.invoices ?? 0)} sub={t.invoices ? `${pct((t.online_invoices ?? 0) / t.invoices, 0)} online` : ''} />
         <Tile label="Average invoice" value={tsh(t.invoices ? t.revenue / t.invoices : 0, { compact: true })} />
         <Tile label="First / last" value={t.first_invoice ? dateLabel(t.first_invoice) : '–'} sub={t.last_invoice ? `last ${dateLabel(t.last_invoice, { year: true })}` : ''} />
-        <Tile label="Outstanding" value={tsh(t.outstanding ?? 0, { compact: true })} />
       </div>
 
       <div className="grid gap-4 xl:grid-cols-3">
