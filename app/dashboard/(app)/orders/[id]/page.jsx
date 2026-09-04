@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 
 import Card, { Empty } from '@/components/dashboard/Card';
 import { isConfigured } from '@/lib/dashboard/db';
-import { ago, darTime, dateLabel, num, tsh } from '@/lib/dashboard/format';
+import { ago, darTime, dateLabel, dateOnly, num, tsh } from '@/lib/dashboard/format';
 import { orderDetail } from '@/lib/dashboard/queries/orders';
 
 export const dynamic = 'force-dynamic';
@@ -100,7 +100,7 @@ export default async function OrderDetailPage({ params }) {
         <ol className="space-y-2 text-sm">
           {timeline.map((t, i) => (
             <li key={i} className="flex gap-3">
-              <span className="w-28 shrink-0 text-xs text-shop-text-secondary">{String(t.at).length > 10 ? `${dateLabel(String(t.at).slice(0, 10))} ${darTime(t.at)}` : dateLabel(t.at)}</span>
+              <span className="w-28 shrink-0 text-xs text-shop-text-secondary">{String(t.at).length > 10 ? `${dateLabel(dateOnly(t.at))} ${darTime(t.at)}` : dateLabel(t.at)}</span>
               <span>{t.href ? <a href={t.href} target="_blank" rel="noreferrer" className="hover:underline">{t.what}</a> : t.what}</span>
             </li>
           ))}

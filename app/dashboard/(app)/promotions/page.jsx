@@ -4,7 +4,7 @@ import KpiTile from '@/components/dashboard/KpiTile';
 import PageControls from '@/components/dashboard/PageControls';
 import StackedBarChart from '@/components/dashboard/StackedBarChart';
 import { isConfigured } from '@/lib/dashboard/db';
-import { ago, dateLabel, num, share, tsh } from '@/lib/dashboard/format';
+import { ago, dateLabel, dateOnly, num, share, tsh } from '@/lib/dashboard/format';
 import { parsePageParams } from '@/lib/dashboard/params';
 import { health } from '@/lib/dashboard/queries/overview';
 import { alaCarte, comboUsage, discountKpis, discountSourceWeekly, promoUsage, subtotalHistogram } from '@/lib/dashboard/queries/promotions';
@@ -125,7 +125,7 @@ export default async function PromotionsPage({ searchParams }) {
                     <td className="py-1.5 pr-3 text-right tabular-nums">{num(r.used?.orders ?? 0)}{r.used?.auto_applied ? <span className="block text-[11px] text-shop-text-secondary">{r.used.auto_applied} auto</span> : null}</td>
                     <td className="py-1.5 pr-3 text-right tabular-nums">{r.used ? tsh(r.used.ordered_value) : ''}</td>
                     <td className="py-1.5 pr-3 text-right tabular-nums">{r.used ? tsh(r.used.cost) : ''}</td>
-                    <td className="py-1.5 pr-3 text-xs text-shop-text-secondary">{r.used ? `${dateLabel(String(r.used.first_used).slice(0, 10))} – ${ago(`${r.used.last_used}Z`)}` : ''}</td>
+                    <td className="py-1.5 pr-3 text-xs text-shop-text-secondary">{r.used ? `${dateLabel(dateOnly(r.used.first_used))} – ${ago(`${r.used.last_used}Z`)}` : ''}</td>
                     <td className="py-1.5 text-xs text-shop-text-secondary">{r.refused ? `${r.refused.refused} (${r.refused.reasons})` : ''}</td>
                   </tr>
                 ))}

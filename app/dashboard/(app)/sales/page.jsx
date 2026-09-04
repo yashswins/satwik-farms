@@ -129,7 +129,7 @@ export default async function SalesPage({ searchParams }) {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary">
-                <tr><th className="py-1 pr-3">Invoice</th><th className="py-1 pr-3">Date</th><th className="py-1 pr-3">Customer</th><th className="py-1 pr-3">Channel</th><th className="py-1 pr-3 text-right">Lines</th><th className="py-1 pr-3 text-right">Total</th><th className="py-1 pr-3 text-right">Discount</th><th className="py-1 pr-3">Status</th><th className="py-1">Order</th></tr>
+                <tr><th className="py-1 pr-3">Invoice</th><th className="py-1 pr-3">Date</th><th className="py-1 pr-3">Customer</th><th className="hidden md:table-cell py-1 pr-3">Channel</th><th className="hidden md:table-cell py-1 pr-3 text-right">Lines</th><th className="py-1 pr-3 text-right">Total</th><th className="hidden md:table-cell py-1 pr-3 text-right">Discount</th><th className="py-1 pr-3">Status</th><th className="hidden md:table-cell py-1">Order</th></tr>
               </thead>
               <tbody>
                 {list.value.rows.map((r) => (
@@ -137,12 +137,12 @@ export default async function SalesPage({ searchParams }) {
                     <td className="py-1.5 pr-3 whitespace-nowrap"><a href={`${ACCU360}${encodeURIComponent(r.name)}`} target="_blank" rel="noreferrer" className="hover:underline">{r.name}</a>{r.is_return ? <span className="ml-1 text-xs text-shop-error">return</span> : null}</td>
                     <td className="py-1.5 pr-3 whitespace-nowrap">{dateLabel(r.posting_date)} <span className="text-xs text-shop-text-secondary">{String(r.posting_time || '').slice(0, 5)}</span></td>
                     <td className="py-1.5 pr-3"><Link href={`/dashboard/customers/${encodeURIComponent(r.customer)}`} className="hover:underline">{r.display_name}</Link></td>
-                    <td className="py-1.5 pr-3">{CHANNEL_LABELS[r.channel] || 'Offline'}</td>
-                    <td className="py-1.5 pr-3 text-right tabular-nums">{r.lines}</td>
+                    <td className="hidden md:table-cell py-1.5 pr-3">{CHANNEL_LABELS[r.channel] || 'Offline'}</td>
+                    <td className="hidden md:table-cell py-1.5 pr-3 text-right tabular-nums">{r.lines}</td>
                     <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(r.grand_total)}</td>
-                    <td className="py-1.5 pr-3 text-right tabular-nums text-shop-text-secondary">{r.discount_amount ? tsh(r.discount_amount) : ''}</td>
+                    <td className="hidden md:table-cell py-1.5 pr-3 text-right tabular-nums text-shop-text-secondary">{r.discount_amount ? tsh(r.discount_amount) : ''}</td>
                     <td className="py-1.5 pr-3">{r.status}</td>
-                    <td className="py-1.5">{r.sf_order_id ? <Link href={`/dashboard/orders/${encodeURIComponent(r.sf_order_id)}`} className="text-xs hover:underline">{r.sf_order_id}</Link> : ''}</td>
+                    <td className="hidden md:table-cell py-1.5">{r.sf_order_id ? <Link href={`/dashboard/orders/${encodeURIComponent(r.sf_order_id)}`} className="text-xs hover:underline">{r.sf_order_id}</Link> : ''}</td>
                   </tr>
                 ))}
               </tbody>

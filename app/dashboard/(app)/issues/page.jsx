@@ -5,7 +5,7 @@ import Card, { Empty, Unavailable } from '@/components/dashboard/Card';
 import StatusDots, { deriveStatus } from '@/components/dashboard/StatusDots';
 import { THRESHOLDS, evaluateAlerts } from '@/lib/dashboard/alerts';
 import { isConfigured, query } from '@/lib/dashboard/db';
-import { ago, darTime, dateLabel, num } from '@/lib/dashboard/format';
+import { ago, darTime, dateLabel, dateOnly, num } from '@/lib/dashboard/format';
 import { IMPACTS, SEVERITIES, STATUSES, createIncident, openIncidents, recentIncidents, updateIncident } from '@/lib/dashboard/incidents';
 import { darDate } from '@/lib/dashboard/periods';
 import { attemptsFor, health } from '@/lib/dashboard/queries/overview';
@@ -160,12 +160,12 @@ export default async function IssuesPage() {
       <div className="grid gap-4 xl:grid-cols-2">
         <Card title="Timeline, 14 days" subtitle="Incidents, mirror errors, last Render event">
           {timeline.length === 0 ? <Empty>Quiet.</Empty> : (
-            <ol className="space-y-1.5 text-sm">{timeline.map((t, i) => <li key={i} className="flex gap-3"><span className="w-32 shrink-0 text-xs text-shop-text-secondary">{dateLabel(String(t.at).slice(0, 10))} {darTime(t.at)}</span><span>{t.what}{t.by ? <span className="text-xs text-shop-text-secondary"> — {t.by}</span> : null}</span></li>)}</ol>
+            <ol className="space-y-1.5 text-sm">{timeline.map((t, i) => <li key={i} className="flex gap-3"><span className="w-32 shrink-0 text-xs text-shop-text-secondary">{dateLabel(dateOnly(t.at))} {darTime(t.at)}</span><span>{t.what}{t.by ? <span className="text-xs text-shop-text-secondary"> — {t.by}</span> : null}</span></li>)}</ol>
           )}
         </Card>
         <Card title="Security events" subtitle="Denied sign-ins, user changes and exports, last 14 days">
           {security.value.length === 0 ? <Empty>None.</Empty> : (
-            <ul className="space-y-1 text-xs">{security.value.map((a, i) => <li key={i}><span className="text-shop-text-secondary">{dateLabel(String(a.at).slice(0, 10))} {darTime(a.at)}</span> · <strong>{a.action}</strong> · {a.actor || '—'} {a.detail ? <span className="text-shop-text-secondary">{typeof a.detail === 'string' ? a.detail : JSON.stringify(a.detail)}</span> : null} {a.ip ? <span className="text-shop-text-tertiary">{a.ip}</span> : null}</li>)}</ul>
+            <ul className="space-y-1 text-xs">{security.value.map((a, i) => <li key={i}><span className="text-shop-text-secondary">{dateLabel(dateOnly(a.at))} {darTime(a.at)}</span> · <strong>{a.action}</strong> · {a.actor || '—'} {a.detail ? <span className="text-shop-text-secondary">{typeof a.detail === 'string' ? a.detail : JSON.stringify(a.detail)}</span> : null} {a.ip ? <span className="text-shop-text-tertiary">{a.ip}</span> : null}</li>)}</ul>
           )}
         </Card>
       </div>

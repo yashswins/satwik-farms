@@ -80,19 +80,19 @@ export default async function CustomersPage({ searchParams }) {
         {topRows.error ? <Unavailable what="Top customers" reason={topRows.error} /> : topRows.value.length === 0 ? <Empty /> : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">#</th><th className="py-1 pr-3">Customer</th><th className="py-1 pr-3">Group</th><th className="py-1 pr-3 text-right">Invoices</th><th className="py-1 pr-3 text-right">Revenue</th><th className="py-1 pr-3 text-right">Avg</th><th className="py-1 pr-3">Online</th><th className="py-1 pr-3">Last</th><th className="py-1">Since</th></tr></thead>
+              <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">#</th><th className="py-1 pr-3">Customer</th><th className="hidden md:table-cell py-1 pr-3">Group</th><th className="py-1 pr-3 text-right">Invoices</th><th className="py-1 pr-3 text-right">Revenue</th><th className="hidden md:table-cell py-1 pr-3 text-right">Avg</th><th className="hidden md:table-cell py-1 pr-3">Online</th><th className="py-1 pr-3">Last</th><th className="hidden md:table-cell py-1">Since</th></tr></thead>
               <tbody>
                 {topRows.value.map((c, i) => (
                   <tr key={c.customer} className="border-t border-shop-border dark:border-[#2E352E]">
                     <td className="py-1.5 pr-3 text-xs text-shop-text-secondary">{i + 1}</td>
                     <td className="py-1.5 pr-3"><Link href={`/dashboard/customers/${encodeURIComponent(c.customer)}`} className="hover:underline">{c.display_name}</Link>{c.phone && c.phone !== c.display_name ? <span className="ml-1 text-xs text-shop-text-secondary">{c.phone}</span> : null}</td>
-                    <td className="py-1.5 pr-3 text-xs text-shop-text-secondary">{c.customer_group}</td>
+                    <td className="hidden md:table-cell py-1.5 pr-3 text-xs text-shop-text-secondary">{c.customer_group}</td>
                     <td className="py-1.5 pr-3 text-right tabular-nums">{num(c.invoices)}</td>
                     <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(c.revenue)}</td>
-                    <td className="py-1.5 pr-3 text-right tabular-nums text-shop-text-secondary">{tsh(c.invoices ? c.revenue / c.invoices : 0, { compact: true })}</td>
-                    <td className="py-1.5 pr-3 text-xs">{c.invoices ? pct(c.online_invoices / c.invoices, 0) : '–'}</td>
+                    <td className="hidden md:table-cell py-1.5 pr-3 text-right tabular-nums text-shop-text-secondary">{tsh(c.invoices ? c.revenue / c.invoices : 0, { compact: true })}</td>
+                    <td className="hidden md:table-cell py-1.5 pr-3 text-xs">{c.invoices ? pct(c.online_invoices / c.invoices, 0) : '–'}</td>
                     <td className="py-1.5 pr-3 whitespace-nowrap text-xs">{dateLabel(c.last_invoice)}</td>
-                    <td className="py-1.5 whitespace-nowrap text-xs text-shop-text-secondary">{c.first_ever ? dateLabel(c.first_ever, { year: true }) : ''}</td>
+                    <td className="hidden md:table-cell py-1.5 whitespace-nowrap text-xs text-shop-text-secondary">{c.first_ever ? dateLabel(c.first_ever, { year: true }) : ''}</td>
                   </tr>
                 ))}
               </tbody>

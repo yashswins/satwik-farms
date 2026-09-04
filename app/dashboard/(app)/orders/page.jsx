@@ -9,7 +9,7 @@ import StackedBarChart from '@/components/dashboard/StackedBarChart';
 import { THRESHOLDS } from '@/lib/dashboard/alerts';
 import { acknowledgeReconciliation, backendConfigured } from '@/lib/dashboard/backend';
 import { isConfigured } from '@/lib/dashboard/db';
-import { ago, darTime, dateLabel, num, share, tsh } from '@/lib/dashboard/format';
+import { ago, darTime, dateLabel, dateOnly, num, share, tsh } from '@/lib/dashboard/format';
 import { hrefWith, parsePageParams } from '@/lib/dashboard/params';
 import { addDays, darDate } from '@/lib/dashboard/periods';
 import {
@@ -170,15 +170,15 @@ export default async function OrdersPage({ searchParams }) {
                   <p className="mb-2 text-xs text-shop-text-secondary">{action}</p>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm">
-                      <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Order</th><th className="py-1 pr-3">When</th><th className="py-1 pr-3">Customer</th><th className="py-1 pr-3 text-right">Total</th><th className="py-1 pr-3">Channel</th><th className="py-1 pr-3">Detail</th><th className="py-1" /></tr></thead>
+                      <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Order</th><th className="hidden md:table-cell py-1 pr-3">When</th><th className="py-1 pr-3">Customer</th><th className="py-1 pr-3 text-right">Total</th><th className="hidden md:table-cell py-1 pr-3">Channel</th><th className="py-1 pr-3">Detail</th><th className="py-1" /></tr></thead>
                       <tbody>
                         {rows.map((r) => (
                           <tr key={`${key}-${r.id}-${r.invoice || ''}`} className="border-t border-shop-border align-top dark:border-[#2E352E]">
                             <td className="py-1.5 pr-3 whitespace-nowrap"><Link href={`/dashboard/orders/${encodeURIComponent(r.id)}`} className="hover:underline">{r.id}</Link></td>
-                            <td className="py-1.5 pr-3 whitespace-nowrap text-xs">{darTime(r.created_at)} · {ago(`${r.created_at}Z`)}</td>
+                            <td className="hidden md:table-cell py-1.5 pr-3 whitespace-nowrap text-xs">{darTime(r.created_at)} · {ago(`${r.created_at}Z`)}</td>
                             <td className="py-1.5 pr-3">{r.customer_name}<br /><span className="text-xs text-shop-text-secondary">{r.customer_phone}</span></td>
                             <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(r.total)}{r.invoiced !== undefined && <><br /><span className="text-xs text-shop-text-secondary">invoiced {tsh(r.invoiced)}</span></>}</td>
-                            <td className="py-1.5 pr-3">{channelLabel(r.channel)}</td>
+                            <td className="hidden md:table-cell py-1.5 pr-3">{channelLabel(r.channel)}</td>
                             <td className="py-1.5 pr-3 text-xs text-shop-text-secondary">
                               {key === 'notInvoiced' && `${r.so_name} · delivery ${dateLabel(r.delivery_date)} · ${r.so_status}`}
                               {key === 'soDeleted' && `${r.accu360_order_id} deleted ${ago(`${r.deleted_on}Z`)} by ${r.deleted_by || 'staff'}`}
@@ -298,20 +298,20 @@ export default async function OrdersPage({ searchParams }) {
         {list.error ? <Unavailable what="Order list" reason={list.error} /> : list.value.rows.length === 0 ? <Empty>No orders match.</Empty> : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Order</th><th className="py-1 pr-3">Placed</th><th className="py-1 pr-3">Customer</th><th className="py-1 pr-3">Channel</th><th className="py-1 pr-3 text-right">Lines</th><th className="py-1 pr-3 text-right">Total</th><th className="py-1 pr-3">Promo</th><th className="py-1 pr-3">Status</th><th className="py-1 pr-3">Sales Order</th><th className="py-1">Invoice</th></tr></thead>
+              <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Order</th><th className="py-1 pr-3">Placed</th><th className="py-1 pr-3">Customer</th><th className="hidden md:table-cell py-1 pr-3">Channel</th><th className="hidden md:table-cell py-1 pr-3 text-right">Lines</th><th className="py-1 pr-3 text-right">Total</th><th className="hidden md:table-cell py-1 pr-3">Promo</th><th className="py-1 pr-3">Status</th><th className="hidden md:table-cell py-1 pr-3">Sales Order</th><th className="hidden md:table-cell py-1">Invoice</th></tr></thead>
               <tbody>
                 {list.value.rows.map((r) => (
                   <tr key={r.id} className="border-t border-shop-border dark:border-[#2E352E]">
                     <td className="py-1.5 pr-3 whitespace-nowrap"><Link href={`/dashboard/orders/${encodeURIComponent(r.id)}`} className="hover:underline">{r.id}</Link></td>
-                    <td className="py-1.5 pr-3 whitespace-nowrap text-xs">{dateLabel(String(r.created_at).slice(0, 10))} {darTime(r.created_at)}</td>
+                    <td className="py-1.5 pr-3 whitespace-nowrap text-xs">{dateLabel(dateOnly(r.created_at))} {darTime(r.created_at)}</td>
                     <td className="py-1.5 pr-3">{r.customer_name}</td>
-                    <td className="py-1.5 pr-3 text-xs">{channelLabel(r.channel)}{r.app_version ? <span className="text-shop-text-secondary"> · {r.app_version}</span> : ''}</td>
-                    <td className="py-1.5 pr-3 text-right tabular-nums">{r.lines}{r.has_combo ? <span className="ml-1 text-[10px] text-shop-primary-dark">combo</span> : null}</td>
+                    <td className="hidden md:table-cell py-1.5 pr-3 text-xs">{channelLabel(r.channel)}{r.app_version ? <span className="text-shop-text-secondary"> · {r.app_version}</span> : ''}</td>
+                    <td className="hidden md:table-cell py-1.5 pr-3 text-right tabular-nums">{r.lines}{r.has_combo ? <span className="ml-1 text-[10px] text-shop-primary-dark">combo</span> : null}</td>
                     <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(r.total)}{r.discount > 0 && <span className="block text-[11px] text-shop-text-secondary">−{tsh(r.discount)}</span>}</td>
-                    <td className="py-1.5 pr-3 text-xs">{r.promo_code || ''}</td>
+                    <td className="hidden md:table-cell py-1.5 pr-3 text-xs">{r.promo_code || ''}</td>
                     <td className="py-1.5 pr-3">{r.status}</td>
-                    <td className="py-1.5 pr-3 text-xs">{r.accu360_order_id || ''}</td>
-                    <td className="py-1.5 text-xs">{r.invoice ? `${r.invoice} · ${tsh(r.invoiced, { compact: true })}` : ''}</td>
+                    <td className="hidden md:table-cell py-1.5 pr-3 text-xs">{r.accu360_order_id || ''}</td>
+                    <td className="hidden md:table-cell py-1.5 text-xs">{r.invoice ? `${r.invoice} · ${tsh(r.invoiced, { compact: true })}` : ''}</td>
                   </tr>
                 ))}
               </tbody>

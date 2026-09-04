@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Card({ title, subtitle, href, hrefLabel = 'See all', children, className = '' }) {
   return (
     <section
-      className={`rounded-shop-md border border-shop-border bg-shop-surface p-4 shadow-sm
+      className={`min-w-0 rounded-shop-md border border-shop-border bg-shop-surface p-4 shadow-sm
                   dark:border-[#2E352E] dark:bg-[#1A1E1A] ${className}`}
     >
       {(title || href) && (

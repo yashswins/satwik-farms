@@ -64,7 +64,7 @@ export default async function ProductsPage({ searchParams }) {
         {rows.error ? <Unavailable what="Items" reason={rows.error} /> : top.length === 0 ? <Empty /> : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">#</th><th className="py-1 pr-3">Item</th><th className="py-1 pr-3">Category</th><th className="py-1 pr-3 text-right">Qty</th><th className="py-1 pr-3">Unit</th><th className="py-1 pr-3 text-right">Revenue</th><th className="py-1 pr-3 text-right">Share</th><th className="py-1 pr-3 text-right">Invoices</th><th className="py-1 text-right">vs prior</th></tr></thead>
+              <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">#</th><th className="py-1 pr-3">Item</th><th className="hidden md:table-cell py-1 pr-3">Category</th><th className="py-1 pr-3 text-right">Qty</th><th className="hidden md:table-cell py-1 pr-3">Unit</th><th className="py-1 pr-3 text-right">Revenue</th><th className="hidden md:table-cell py-1 pr-3 text-right">Share</th><th className="hidden md:table-cell py-1 pr-3 text-right">Invoices</th><th className="py-1 text-right">vs prior</th></tr></thead>
               <tbody>
                 {top.map((r, i) => {
                   const d = delta(r.revenue, r.revenue_prev);
@@ -72,12 +72,12 @@ export default async function ProductsPage({ searchParams }) {
                     <tr key={r.item_code} className="border-t border-shop-border dark:border-[#2E352E]">
                       <td className="py-1.5 pr-3 text-xs text-shop-text-secondary">{i + 1}</td>
                       <td className="py-1.5 pr-3"><Link href={`/dashboard/products/${encodeURIComponent(r.item_code)}`} className="hover:underline">{r.item_name || r.item_code}</Link></td>
-                      <td className="py-1.5 pr-3 text-xs text-shop-text-secondary">{r.item_group}</td>
+                      <td className="hidden md:table-cell py-1.5 pr-3 text-xs text-shop-text-secondary">{r.item_group}</td>
                       <td className="py-1.5 pr-3 text-right tabular-nums">{num(Math.round(r.qty * 10) / 10)}</td>
-                      <td className="py-1.5 pr-3 text-xs text-shop-text-secondary">{r.uom}</td>
+                      <td className="hidden md:table-cell py-1.5 pr-3 text-xs text-shop-text-secondary">{r.uom}</td>
                       <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(r.revenue)}</td>
-                      <td className="py-1.5 pr-3 text-right tabular-nums text-shop-text-secondary">{totalRevenue ? pct(r.revenue / totalRevenue, 1) : '–'}</td>
-                      <td className="py-1.5 pr-3 text-right tabular-nums">{num(r.invoices)}</td>
+                      <td className="hidden md:table-cell py-1.5 pr-3 text-right tabular-nums text-shop-text-secondary">{totalRevenue ? pct(r.revenue / totalRevenue, 1) : '–'}</td>
+                      <td className="hidden md:table-cell py-1.5 pr-3 text-right tabular-nums">{num(r.invoices)}</td>
                       <td className={`py-1.5 text-right text-xs tabular-nums ${d.good === null ? 'text-shop-text-secondary' : d.good ? 'text-shop-primary-dark' : 'text-shop-error'}`}>{d.text}</td>
                     </tr>
                   );
@@ -111,7 +111,7 @@ export default async function ProductsPage({ searchParams }) {
           {stale.error ? <Unavailable what="Not selling" reason={stale.error} /> : stale.value.length === 0 ? <Empty>Everything enabled has sold recently.</Empty> : (
             <div className="max-h-96 overflow-auto">
               <table className="w-full text-sm">
-                <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Item</th><th className="py-1 pr-3">Category</th><th className="py-1">Last sold</th></tr></thead>
+                <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Item</th><th className="hidden md:table-cell py-1 pr-3">Category</th><th className="py-1">Last sold</th></tr></thead>
                 <tbody>{stale.value.map((r) => <tr key={r.item_code} className="border-t border-shop-border dark:border-[#2E352E]"><td className="py-1 pr-3"><Link href={`/dashboard/products/${encodeURIComponent(r.item_code)}`} className="hover:underline">{r.item_name}</Link> <span className="text-xs text-shop-text-secondary">{r.item_code}</span></td><td className="py-1 pr-3 text-xs text-shop-text-secondary">{r.item_group}</td><td className="py-1 text-xs">{r.last_sold ? dateLabel(r.last_sold, { year: true }) : 'never'}</td></tr>)}</tbody>
               </table>
             </div>

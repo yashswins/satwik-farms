@@ -5,7 +5,7 @@ import Bars from '@/components/dashboard/Bars';
 import BucketChart from '@/components/dashboard/BucketChart';
 import Card, { Empty } from '@/components/dashboard/Card';
 import { isConfigured } from '@/lib/dashboard/db';
-import { CHANNEL_LABELS, darTime, dateLabel, num, pct, tsh } from '@/lib/dashboard/format';
+import { CHANNEL_LABELS, darTime, dateLabel, dateOnly, num, pct, tsh } from '@/lib/dashboard/format';
 import { detail } from '@/lib/dashboard/queries/customers';
 
 export const dynamic = 'force-dynamic';
@@ -61,8 +61,8 @@ export default async function CustomerPage({ params }) {
           {d.invoices.length === 0 ? <Empty /> : (
             <div className="max-h-[28rem] overflow-auto">
               <table className="w-full text-sm">
-                <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Invoice</th><th className="py-1 pr-3">Date</th><th className="py-1 pr-3 text-right">Lines</th><th className="py-1 pr-3 text-right">Total</th><th className="py-1 pr-3">Status</th><th className="py-1">Channel</th></tr></thead>
-                <tbody>{d.invoices.map((r) => <tr key={r.name} className="border-t border-shop-border dark:border-[#2E352E]"><td className="py-1 pr-3 whitespace-nowrap"><a href={`${ACCU360}sales-invoice/${encodeURIComponent(r.name)}`} target="_blank" rel="noreferrer" className="hover:underline">{r.name}</a></td><td className="py-1 pr-3 whitespace-nowrap">{dateLabel(r.posting_date)}</td><td className="py-1 pr-3 text-right tabular-nums">{r.lines}</td><td className="py-1 pr-3 text-right tabular-nums">{tsh(r.grand_total)}{r.outstanding > 0 ? <span className="block text-[11px] text-shop-warning">{tsh(r.outstanding)} due</span> : null}</td><td className="py-1 pr-3 text-xs">{r.status}</td><td className="py-1 text-xs">{CHANNEL_LABELS[r.channel] || 'Offline'}{r.sf_order_id ? <Link href={`/dashboard/orders/${encodeURIComponent(r.sf_order_id)}`} className="ml-1 hover:underline">↗</Link> : null}</td></tr>)}</tbody>
+                <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Invoice</th><th className="py-1 pr-3">Date</th><th className="hidden md:table-cell py-1 pr-3 text-right">Lines</th><th className="py-1 pr-3 text-right">Total</th><th className="py-1 pr-3">Status</th><th className="py-1">Channel</th></tr></thead>
+                <tbody>{d.invoices.map((r) => <tr key={r.name} className="border-t border-shop-border dark:border-[#2E352E]"><td className="py-1 pr-3 whitespace-nowrap"><a href={`${ACCU360}sales-invoice/${encodeURIComponent(r.name)}`} target="_blank" rel="noreferrer" className="hover:underline">{r.name}</a></td><td className="py-1 pr-3 whitespace-nowrap">{dateLabel(r.posting_date)}</td><td className="hidden md:table-cell py-1 pr-3 text-right tabular-nums">{r.lines}</td><td className="py-1 pr-3 text-right tabular-nums">{tsh(r.grand_total)}{r.outstanding > 0 ? <span className="block text-[11px] text-shop-warning">{tsh(r.outstanding)} due</span> : null}</td><td className="py-1 pr-3 text-xs">{r.status}</td><td className="py-1 text-xs">{CHANNEL_LABELS[r.channel] || 'Offline'}{r.sf_order_id ? <Link href={`/dashboard/orders/${encodeURIComponent(r.sf_order_id)}`} className="ml-1 hover:underline">↗</Link> : null}</td></tr>)}</tbody>
               </table>
             </div>
           )}
@@ -72,7 +72,7 @@ export default async function CustomerPage({ params }) {
             <div className="max-h-[28rem] overflow-auto">
               <table className="w-full text-sm">
                 <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Order</th><th className="py-1 pr-3">Placed</th><th className="py-1 pr-3 text-right">Total</th><th className="py-1 pr-3">Status</th><th className="py-1">Channel</th></tr></thead>
-                <tbody>{d.orders.map((o) => <tr key={o.id} className="border-t border-shop-border dark:border-[#2E352E]"><td className="py-1 pr-3 whitespace-nowrap"><Link href={`/dashboard/orders/${encodeURIComponent(o.id)}`} className="hover:underline">{o.id}</Link></td><td className="py-1 pr-3 whitespace-nowrap text-xs">{dateLabel(String(o.created_at).slice(0, 10))} {darTime(o.created_at)}</td><td className="py-1 pr-3 text-right tabular-nums">{tsh(o.total)}{o.promo_code ? <span className="block text-[11px] text-shop-text-secondary">{o.promo_code}</span> : null}</td><td className={`py-1 pr-3 text-xs ${['failed', 'rejected'].includes(o.status) ? 'text-shop-error' : ''}`}>{o.status}</td><td className="py-1 text-xs">{ORDER_CHANNEL[o.channel] || 'Online'}</td></tr>)}</tbody>
+                <tbody>{d.orders.map((o) => <tr key={o.id} className="border-t border-shop-border dark:border-[#2E352E]"><td className="py-1 pr-3 whitespace-nowrap"><Link href={`/dashboard/orders/${encodeURIComponent(o.id)}`} className="hover:underline">{o.id}</Link></td><td className="py-1 pr-3 whitespace-nowrap text-xs">{dateLabel(dateOnly(o.created_at))} {darTime(o.created_at)}</td><td className="py-1 pr-3 text-right tabular-nums">{tsh(o.total)}{o.promo_code ? <span className="block text-[11px] text-shop-text-secondary">{o.promo_code}</span> : null}</td><td className={`py-1 pr-3 text-xs ${['failed', 'rejected'].includes(o.status) ? 'text-shop-error' : ''}`}>{o.status}</td><td className="py-1 text-xs">{ORDER_CHANNEL[o.channel] || 'Online'}</td></tr>)}</tbody>
               </table>
             </div>
           )}
