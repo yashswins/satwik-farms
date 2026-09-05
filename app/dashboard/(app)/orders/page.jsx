@@ -141,7 +141,14 @@ export default async function OrdersPage({ searchParams }) {
     revalidatePath('/dashboard');
   }
 
-  const attentionCount = att.value ? Object.entries(att.value).filter(([k]) => k !== 'twins').reduce((s, [, v]) => s + v.length, 0) : 0;
+  const attentionCount = att.value ? Object.entries(att.value).filter(([k]) => k !== 'twins' && k !== 'mismatch').reduce((s, [, v]) => s + v.length, 0) : 0;
+  // G is informational, so it lives in its own collapsed, paged card below (owner, 2026-09-05).
+  const mismatchRows = att.value?.mismatch || [];
+  const G_PAGE = 10;
+  const gPages = Math.max(1, Math.ceil(mismatchRows.length / G_PAGE));
+  const gPage = Math.min(gPages, Math.max(1, Number(sp.gpage) || 1));
+  const gSlice = mismatchRows.slice((gPage - 1) * G_PAGE, gPage * G_PAGE);
+  const gHref = (n) => hrefWith('/dashboard/orders', current, { status, promo, combo: combo ? 1 : undefined, q, handled: showHandled ? 1 : undefined, gpage: n > 1 ? n : undefined });
   const handledById = Object.fromEntries((handled.value || []).map((h) => [h.order_id, h]));
 
   return (
@@ -162,6 +169,7 @@ export default async function OrdersPage({ searchParams }) {
         {att.error ? <Unavailable what="Attention list" reason={att.error} /> : attentionCount === 0 ? <Empty>Every online order since the fresh slate was accepted, written to Accu360 and invoiced on time, or has been marked handled.</Empty> : (
           <div className="space-y-5">
             {BUCKETS.map(([key, title, action]) => {
+              if (key === 'mismatch') return null;
               const rows = att.value[key] || [];
               if (rows.length === 0) return null;
               return (
@@ -220,6 +228,53 @@ export default async function OrdersPage({ searchParams }) {
           </div>
         )}
       </Card>
+
+      {mismatchRows.length > 0 && (
+        <Card title="G · Invoiced for a different amount" subtitle="Informational — substitutions or price changes, not losses">
+          <details open={Boolean(sp.gpage)} className="group">
+            <summary className="cursor-pointer select-none text-sm text-shop-text-secondary hover:text-shop-text">
+              <span className="font-medium text-shop-text">{num(mismatchRows.length)} orders</span> since {dateLabel(ATTENTION_SINCE)} — <span className="group-open:hidden">show</span><span className="hidden group-open:inline">hide</span>
+            </summary>
+            <div className="mt-3 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Order</th><th className="hidden md:table-cell py-1 pr-3">When</th><th className="py-1 pr-3">Customer</th><th className="py-1 pr-3 text-right">Ordered</th><th className="py-1 pr-3 text-right">Invoiced</th><th className="hidden md:table-cell py-1 pr-3">Invoice</th><th className="py-1" /></tr></thead>
+                <tbody>
+                  {gSlice.map((r) => (
+                    <tr key={`g-${r.id}-${r.invoice || ''}`} className="border-t border-shop-border align-top dark:border-[#2E352E]">
+                      <td className="py-1.5 pr-3 whitespace-nowrap"><Link href={`/dashboard/orders/${encodeURIComponent(r.id)}`} className="hover:underline">{r.id}</Link></td>
+                      <td className="hidden md:table-cell py-1.5 pr-3 whitespace-nowrap text-xs">{dateLabel(dateOnly(r.created_at))} {darTime(r.created_at)}</td>
+                      <td className="py-1.5 pr-3">{r.customer_name}<br /><span className="text-xs text-shop-text-secondary">{r.customer_phone}</span></td>
+                      <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(r.total)}</td>
+                      <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(r.invoiced)}<br /><span className={`text-xs ${Number(r.invoiced) >= Number(r.total) ? 'text-shop-primary-dark' : 'text-shop-error'}`}>{Number(r.invoiced) >= Number(r.total) ? '+' : '−'}{tsh(Math.abs(Number(r.invoiced) - Number(r.total)))}</span></td>
+                      <td className="hidden md:table-cell py-1.5 pr-3 text-xs text-shop-text-secondary">{r.invoice} · {dateLabel(r.posting_date)}</td>
+                      <td className="py-1.5">
+                        {handledById[r.id] ? (
+                          <span className="text-xs text-shop-primary-dark">handled by {handledById[r.id].actor} · {ago(`${handledById[r.id].at}Z`)}</span>
+                        ) : (
+                          <form action={markHandled} className="flex items-center gap-1">
+                            <input type="hidden" name="order_id" value={r.id} />
+                            <input type="hidden" name="bucket" value="mismatch" />
+                            <button type="submit" className="text-xs font-medium text-shop-primary-dark hover:underline">mark handled</button>
+                          </form>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              {gPages > 1 && (
+                <div className="mt-3 flex items-center justify-between text-xs text-shop-text-secondary">
+                  <span>Page {gPage} of {gPages}</span>
+                  <div className="flex gap-3">
+                    {gPage > 1 && <Link href={gHref(gPage - 1)} className="hover:underline">← Previous</Link>}
+                    {gPage < gPages && <Link href={gHref(gPage + 1)} className="hover:underline">Next →</Link>}
+                  </div>
+                </div>
+              )}
+            </div>
+          </details>
+        </Card>
+      )}
 
       {showHandled && (
         <Card title="Recently handled" subtitle="Who cleared what, most recent first">
