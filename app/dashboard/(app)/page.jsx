@@ -128,7 +128,7 @@ export default async function OverviewPage() {
                 value={current.sales}
                 previous={prev.sales}
                 compareLabel={isToday && todayCmp.value ? `vs yesterday to ${todayCmp.value.time}` : period.compareLabel}
-                sub={`${num(current.invoices)} invoices · avg ${tsh(current.invoices ? current.sales / current.invoices : 0, { compact: true })}${isToday && todayCmp.value ? ` · all of yesterday ${tsh(todayCmp.value.yesterdayFull.sales, { compact: true })}` : ''}`}
+                sub={`avg ${tsh(current.invoices ? current.sales / current.invoices : 0, { compact: true })} per order${isToday && todayCmp.value ? ` · all of yesterday ${tsh(todayCmp.value.yesterdayFull.sales, { compact: true })}` : ''}`}
                 href={`/dashboard/sales?period=${period.key}`}
               />
             );
@@ -136,19 +136,19 @@ export default async function OverviewPage() {
         </div>
       )}
 
-      {/* Orders tiles: app and web orders accepted, from our own records. */}
+      {/* Orders tiles: invoices across every channel; the app/web/offline split lives in the charts below. */}
       {orders.error ? <Unavailable what="Order tiles" reason={orders.error} /> : (
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
           {orders.value.map(({ period, current, previous }) => (
             <KpiTile
               key={period.key}
-              label={`Online orders ${period.label.toLowerCase()}`}
+              label={`Orders ${period.label.toLowerCase()}`}
               value={current.orders}
               previous={previous.orders}
               compareLabel={period.compareLabel}
               format="num"
-              sub={`${num(current.app)} app · ${num(current.web)} web · ${tsh(current.value, { compact: true })} ordered`}
-              href={`/dashboard/orders?period=${period.key}`}
+              sub={`${num(current.customers)} customers · ${num(current.new_customers)} first-time`}
+              href={`/dashboard/sales?period=${period.key}`}
             />
           ))}
         </div>
