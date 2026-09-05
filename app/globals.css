@@ -121,3 +121,36 @@ body {
     background-attachment: scroll;
   }
 }
+
+/* --- Dashboard theme scope ------------------------------------------------
+   Tell the browser which colour scheme the dashboard is in, so native
+   controls it draws itself (select dropdown lists, date pickers, scrollbars,
+   checkboxes) match the page. Without this a dark dashboard got light
+   dropdown lists with light text (owner, 2026-09-05). The scope follows the
+   device by default; .light / .dark come from the toggle. */
+#dashboard-theme-scope { color-scheme: light; }
+#dashboard-theme-scope.dark { color-scheme: dark; }
+@media (prefers-color-scheme: dark) {
+  #dashboard-theme-scope:not(.light) { color-scheme: dark; }
+}
+
+/* Native controls get an explicit surface in each theme (the id selector
+   outranks utility classes such as bg-transparent on purpose). */
+#dashboard-theme-scope :is(select, textarea, input:not([type='checkbox']):not([type='radio']):not([type='range'])) {
+  background-color: #FFFFFF;
+}
+#dashboard-theme-scope option { background-color: #FFFFFF; color: inherit; }
+#dashboard-theme-scope.dark :is(select, textarea, input:not([type='checkbox']):not([type='radio']):not([type='range'])),
+#dashboard-theme-scope.dark option {
+  background-color: #1A1E1A;
+  color: #D4EDD4;
+}
+#dashboard-theme-scope.dark :is(input, textarea)::placeholder { color: #8FA58F; }
+@media (prefers-color-scheme: dark) {
+  #dashboard-theme-scope:not(.light) :is(select, textarea, input:not([type='checkbox']):not([type='radio']):not([type='range'])),
+  #dashboard-theme-scope:not(.light) option {
+    background-color: #1A1E1A;
+    color: #D4EDD4;
+  }
+  #dashboard-theme-scope:not(.light) :is(input, textarea)::placeholder { color: #8FA58F; }
+}
