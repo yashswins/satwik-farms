@@ -6,8 +6,9 @@ import KpiTile from '@/components/dashboard/KpiTile';
 import PageControls from '@/components/dashboard/PageControls';
 import StackedBarChart from '@/components/dashboard/StackedBarChart';
 import { isConfigured } from '@/lib/dashboard/db';
-import { dateLabel, num, pct, tsh } from '@/lib/dashboard/format';
+import { dateLabel, num, pct, rangeLabel, tsh } from '@/lib/dashboard/format';
 import { hrefWith, parsePageParams } from '@/lib/dashboard/params';
+import { darDate } from '@/lib/dashboard/periods';
 import { cohorts, frequency, kpis, lapsed, migration, newVsReturningWeekly, search, top } from '@/lib/dashboard/queries/customers';
 
 export const metadata = { title: 'Customers' };
@@ -24,6 +25,7 @@ export default async function CustomersPage({ searchParams }) {
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();
+  const today = darDate(now);
   const { period, channelKey } = parsePageParams(sp, { now });
   const current = { period, channelKey };
   const by = sp.by === 'invoices' ? 'invoices' : 'revenue';
@@ -49,9 +51,9 @@ export default async function CustomersPage({ searchParams }) {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold">Customers</h1>
-          <p className="text-xs text-shop-text-secondary">{period.label} · {dateLabel(period.start)} – {dateLabel(period.end)} · names come from Accu360's full-name field, then the linked contact, then the name typed in the app</p>
+          <p className="text-xs text-shop-text-secondary">{period.label} · {rangeLabel(period.start, period.end)} · names come from Accu360's full-name field, then the linked contact, then the name typed in the app</p>
         </div>
-        <PageControls period={period} channelKey="all" showChannel={false} />
+        <PageControls period={period} channelKey="all" showChannel={false} today={today} />
       </div>
 
       <form method="get" className="flex flex-wrap items-end gap-2 text-sm">

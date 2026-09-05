@@ -4,8 +4,9 @@ import KpiTile from '@/components/dashboard/KpiTile';
 import PageControls from '@/components/dashboard/PageControls';
 import StackedBarChart from '@/components/dashboard/StackedBarChart';
 import { isConfigured } from '@/lib/dashboard/db';
-import { ago, dateLabel, dateOnly, num, share, tsh } from '@/lib/dashboard/format';
+import { ago, dateLabel, dateOnly, num, rangeLabel, share, tsh } from '@/lib/dashboard/format';
 import { parsePageParams } from '@/lib/dashboard/params';
+import { darDate } from '@/lib/dashboard/periods';
 import { health } from '@/lib/dashboard/queries/overview';
 import { alaCarte, comboUsage, discountKpis, discountSourceWeekly, promoUsage, subtotalHistogram } from '@/lib/dashboard/queries/promotions';
 import { splitIds, truthy } from '@/lib/order/catalog';
@@ -48,6 +49,7 @@ export default async function PromotionsPage({ searchParams }) {
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();
+  const today = darDate(now);
   const { period } = parsePageParams(sp, { now });
 
   const [kpi, kpiPrev, usage, sources, hist, combos, cat, hlth] = await Promise.all([
@@ -94,9 +96,9 @@ export default async function PromotionsPage({ searchParams }) {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold">Promotions, discounts and combos</h1>
-          <p className="text-xs text-shop-text-secondary">{period.label} · {dateLabel(period.start)} – {dateLabel(period.end)}. Discount amounts are invoice truth; which code earned them is known from our own orders since 3 Sep 2026.</p>
+          <p className="text-xs text-shop-text-secondary">{period.label} · {rangeLabel(period.start, period.end)}. Discount amounts are invoice truth; which code earned them is known from our own orders since 3 Sep 2026.</p>
         </div>
-        <PageControls period={period} channelKey="all" showChannel={false} />
+        <PageControls period={period} channelKey="all" showChannel={false} today={today} />
       </div>
 
       {kpi.error || !kpi.value ? <Unavailable what="KPIs" reason={kpi.error} /> : (

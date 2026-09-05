@@ -8,6 +8,7 @@ import SalesTrendChart from '@/components/dashboard/SalesTrendChart';
 import { isConfigured } from '@/lib/dashboard/db';
 import { CHANNEL_LABELS, dateLabel, num, tsh } from '@/lib/dashboard/format';
 import { parsePageParams } from '@/lib/dashboard/params';
+import { darDate } from '@/lib/dashboard/periods';
 import { itemDetail } from '@/lib/dashboard/queries/products';
 
 export const dynamic = 'force-dynamic';
@@ -22,6 +23,7 @@ export default async function ItemPage({ params, searchParams }) {
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();
+  const today = darDate(now);
   const { period } = parsePageParams(sp, { now, defaultPeriod: 'last30' });
   const d = await itemDetail(itemCode, period.start, period.end, now);
   if (!d) notFound();
@@ -36,7 +38,7 @@ export default async function ItemPage({ params, searchParams }) {
           <h1 className="text-xl font-semibold">{d.info.item_name || d.info.item_code} {d.info.disabled ? <span className="ml-2 rounded-full bg-shop-error/10 px-2 py-0.5 text-xs text-shop-error">disabled in Accu360</span> : null}</h1>
           <p className="text-xs text-shop-text-secondary">{d.info.item_group} · {period.label}</p>
         </div>
-        <PageControls period={period} channelKey="all" showChannel={false} />
+        <PageControls period={period} channelKey="all" showChannel={false} today={today} />
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">

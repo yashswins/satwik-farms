@@ -273,7 +273,7 @@ export default async function OrdersPage({ searchParams }) {
 
       <Card title="Order list" subtitle={`${num(list.value.total)} orders · ${period.label}`}>
         <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
-          <PageControls period={period} channelKey={channelKey} />
+          <PageControls period={period} channelKey={channelKey} today={today} />
           <form method="get" className="flex flex-wrap items-end gap-2 text-sm">
             {period.key !== 'mtd' && <input type="hidden" name="period" value={period.key} />}
             {period.key === 'custom' && <><input type="hidden" name="from" value={period.start} /><input type="hidden" name="to" value={period.end} /></>}

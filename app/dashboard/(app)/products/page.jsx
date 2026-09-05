@@ -4,8 +4,9 @@ import Bars from '@/components/dashboard/Bars';
 import Card, { Empty, Unavailable } from '@/components/dashboard/Card';
 import PageControls from '@/components/dashboard/PageControls';
 import { isConfigured } from '@/lib/dashboard/db';
-import { dateLabel, delta, num, pct, tsh } from '@/lib/dashboard/format';
+import { dateLabel, delta, num, pct, rangeLabel, tsh } from '@/lib/dashboard/format';
 import { hrefWith, parsePageParams } from '@/lib/dashboard/params';
+import { darDate } from '@/lib/dashboard/periods';
 import { health } from '@/lib/dashboard/queries/overview';
 import { boughtTogether, disabledItemsStillSelling, items, notSelling } from '@/lib/dashboard/queries/products';
 import { byCategory } from '@/lib/dashboard/queries/sales';
@@ -24,6 +25,7 @@ export default async function ProductsPage({ searchParams }) {
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();
+  const today = darDate(now);
   const { period, channels, channelKey, channelLabel } = parsePageParams(sp, { now });
   const current = { period, channelKey };
   const by = sp.by === 'qty' ? 'qty' : 'revenue';
@@ -55,9 +57,9 @@ export default async function ProductsPage({ searchParams }) {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold">Products</h1>
-          <p className="text-xs text-shop-text-secondary">{period.label} · {dateLabel(period.start)} – {dateLabel(period.end)} · {channelLabel} · from invoice lines</p>
+          <p className="text-xs text-shop-text-secondary">{period.label} · {rangeLabel(period.start, period.end)} · {channelLabel} · from invoice lines</p>
         </div>
-        <PageControls period={period} channelKey={channelKey} />
+        <PageControls period={period} channelKey={channelKey} today={today} />
       </div>
 
       <Card title={`Best sellers by ${by === 'qty' ? 'quantity' : 'revenue'}`} subtitle={`${num(sold.length)} items sold · quantities mix kg and pieces, so compare within a unit`} href={hrefWith('/dashboard/products', current, { by: by === 'qty' ? undefined : 'qty' })} hrefLabel={by === 'qty' ? 'Sort by revenue' : 'Sort by quantity'}>

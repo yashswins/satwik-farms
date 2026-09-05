@@ -7,6 +7,7 @@ import CatalogueCheck from '@/components/dashboard/CatalogueCheck';
 import ChannelBar from '@/components/dashboard/ChannelBar';
 import OrderingHealth from '@/components/dashboard/OrderingHealth';
 import KpiTile from '@/components/dashboard/KpiTile';
+import DayLookup from '@/components/dashboard/DayLookup';
 import RefreshButton from '@/components/dashboard/RefreshButton';
 import SalesTrendChart from '@/components/dashboard/SalesTrendChart';
 import StatusDots, { deriveStatus } from '@/components/dashboard/StatusDots';
@@ -104,7 +105,10 @@ export default async function OverviewPage() {
           <h1 className="text-xl font-semibold">Overview</h1>
           <p className="text-xs text-shop-text-secondary">{dateLabel(today, { year: true })} · Dar es Salaam time · refreshes itself every 5 minutes</p>
         </div>
-        <RefreshButton />
+        <div className="flex flex-wrap items-center gap-2">
+          <DayLookup today={today} />
+          <RefreshButton />
+        </div>
       </div>
 
       <AlertStrip alerts={alerts} incidents={incidents.value} compact />

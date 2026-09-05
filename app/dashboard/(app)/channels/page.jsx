@@ -7,7 +7,7 @@ import LineChartSimple from '@/components/dashboard/LineChartSimple';
 import PageControls from '@/components/dashboard/PageControls';
 import StackedBarChart from '@/components/dashboard/StackedBarChart';
 import { isConfigured } from '@/lib/dashboard/db';
-import { CHANNEL_COLORS, CHANNEL_LABELS, dateLabel, delta, num, pct, tsh } from '@/lib/dashboard/format';
+import { CHANNEL_COLORS, CHANNEL_LABELS, dateLabel, delta, num, pct, rangeLabel, tsh } from '@/lib/dashboard/format';
 import { parsePageParams } from '@/lib/dashboard/params';
 import { addDays, darDate } from '@/lib/dashboard/periods';
 import { adoptionMonthly, appVersions, basketByChannel, channelKpis, probablyOnline } from '@/lib/dashboard/queries/channels';
@@ -69,9 +69,9 @@ export default async function ChannelsPage({ searchParams }) {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold">Channels</h1>
-          <p className="text-xs text-shop-text-secondary">{period.label} · {dateLabel(period.start)} – {dateLabel(period.end)} · {period.compareLabel}. Online = App + Web; an invoice with an SF order id is online, one without is offline.</p>
+          <p className="text-xs text-shop-text-secondary">{period.label} · {rangeLabel(period.start, period.end)} · {period.compareLabel}. Online = App + Web; an invoice with an SF order id is online, one without is offline.</p>
         </div>
-        <PageControls period={period} channelKey="all" showChannel={false} />
+        <PageControls period={period} channelKey="all" showChannel={false} today={today} />
       </div>
 
       <Card title="Channel comparison" subtitle="Invoice truth; deltas against the comparison period">

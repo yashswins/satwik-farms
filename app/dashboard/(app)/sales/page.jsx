@@ -7,7 +7,7 @@ import Heatmap from '@/components/dashboard/Heatmap';
 import KpiTile from '@/components/dashboard/KpiTile';
 import PageControls from '@/components/dashboard/PageControls';
 import { isConfigured } from '@/lib/dashboard/db';
-import { CHANNEL_LABELS, dateLabel, num, tsh } from '@/lib/dashboard/format';
+import { CHANNEL_LABELS, dateLabel, num, rangeLabel, tsh } from '@/lib/dashboard/format';
 import { hrefWith, parsePageParams } from '@/lib/dashboard/params';
 import { darDate } from '@/lib/dashboard/periods';
 import {
@@ -62,10 +62,10 @@ export default async function SalesPage({ searchParams }) {
         <div>
           <h1 className="text-xl font-semibold">Sales</h1>
           <p className="text-xs text-shop-text-secondary">
-            {period.label} · {dateLabel(period.start)} – {dateLabel(period.end)} · {channelLabel} · {period.compareLabel}
+            {period.label} · {rangeLabel(period.start, period.end)} · {channelLabel} · {period.compareLabel}
           </p>
         </div>
-        <PageControls period={period} channelKey={channelKey} />
+        <PageControls period={period} channelKey={channelKey} today={today} />
       </div>
 
       {cur.error || !s ? <Unavailable what="Summary" reason={cur.error} /> : (

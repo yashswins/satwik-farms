@@ -1,20 +1,20 @@
 'use client';
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
 
+import DateRangePicker from '@/components/dashboard/DateRangePicker';
 import { CHANNEL_FILTERS } from '@/lib/dashboard/params';
 import { PERIOD_KEYS, PERIOD_LABELS } from '@/lib/dashboard/periods';
 
 /**
- * Period picker + channel filter, kept in the URL so a view can be shared by
- * link and the back button works. Changing either resets pagination.
+ * Period presets, a calendar for any day or range, and the channel filter —
+ * all kept in the URL so a view can be shared by link and the back button
+ * works. Changing any of them resets pagination.
  */
-export default function PageControls({ period, channelKey, showChannel = true }) {
+export default function PageControls({ period, channelKey, today, showChannel = true }) {
   const router = useRouter();
   const pathname = usePathname();
   const search = useSearchParams();
-  const [custom, setCustom] = useState({ from: period.start, to: period.end });
 
   function push(overrides) {
     const params = new URLSearchParams(search.toString());
@@ -37,23 +37,18 @@ export default function PageControls({ period, channelKey, showChannel = true })
       <select
         id="period"
         value={period.key}
-        onChange={(e) => push({ period: e.target.value, from: e.target.value === 'custom' ? custom.from : undefined, to: e.target.value === 'custom' ? custom.to : undefined })}
+        onChange={(e) => push({ period: e.target.value, from: e.target.value === 'custom' ? period.start : undefined, to: e.target.value === 'custom' ? period.end : undefined })}
         className="rounded-shop-sm border border-shop-border bg-shop-surface px-2 py-1.5 dark:border-[#2E352E] dark:bg-[#1A1E1A]"
       >
         {PERIOD_KEYS.map((k) => <option key={k} value={k}>{PERIOD_LABELS[k]}</option>)}
       </select>
 
-      {period.key === 'custom' && (
-        <form
-          className="flex items-center gap-1"
-          onSubmit={(e) => { e.preventDefault(); push({ period: 'custom', from: custom.from, to: custom.to }); }}
-        >
-          <input type="date" value={custom.from} onChange={(e) => setCustom({ ...custom, from: e.target.value })} className="rounded-shop-sm border border-shop-border bg-shop-surface px-2 py-1 text-xs dark:border-[#2E352E] dark:bg-[#1A1E1A]" aria-label="From" />
-          <span className="text-xs text-shop-text-secondary">to</span>
-          <input type="date" value={custom.to} onChange={(e) => setCustom({ ...custom, to: e.target.value })} className="rounded-shop-sm border border-shop-border bg-shop-surface px-2 py-1 text-xs dark:border-[#2E352E] dark:bg-[#1A1E1A]" aria-label="To" />
-          <button type="submit" className="rounded-shop-sm bg-shop-primary px-2 py-1 text-xs font-medium text-white">Apply</button>
-        </form>
-      )}
+      <DateRangePicker
+        start={period.start}
+        end={period.end}
+        today={today || period.end}
+        onApply={(from, to) => push({ period: 'custom', from, to })}
+      />
 
       {showChannel && (
         <div role="group" aria-label="Channel" className="flex overflow-hidden rounded-shop-sm border border-shop-border dark:border-[#2E352E]">
