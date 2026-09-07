@@ -7,7 +7,9 @@ const KIND = {
   item_missing_in_erp: { label: 'Not in Accu360', tone: 'critical', why: 'Any cart with it is rejected at checkout' },
   item_disabled_in_erp: { label: 'Disabled in Accu360', tone: 'critical', why: 'Any cart with it is rejected at checkout' },
   item_no_sku: { label: 'No SKU on the Sheet', tone: 'warning', why: 'Cannot be ordered' },
-  price_drift_online: { label: 'App price ≠ Sheet', tone: 'warning', why: 'App orders invoiced at a different rate' },
+  price_drift_online: { label: 'App price ≠ Sheet', tone: 'warning', why: 'App orders invoiced at a different rate from the Sheet of their day' },
+  // Online drift judged against what the app charged for each order (basis 'order' from the backend).
+  invoiced_not_app_price: { label: 'Invoiced ≠ app price', tone: 'warning', why: 'Accu360 billed a different rate from what the customer paid in the app' },
   price_drift_offline: { label: 'Staff price ≠ Sheet', tone: 'info', why: 'Offline invoices charge a different rate' },
 };
 const TONE = {
@@ -24,9 +26,10 @@ const TONE = {
  */
 export default function CatalogueCheck({ snapshot }) {
   const payload = snapshot?.payload || null;
-  const rows = (payload?.issues || []).filter((i) => KIND[i.kind]);
+  const kindOf = (i) => (i.kind === 'price_drift_online' && i.basis === 'order' ? 'invoiced_not_app_price' : i.kind);
+  const rows = (payload?.issues || []).filter((i) => KIND[kindOf(i)]);
   const order = { critical: 0, warning: 1, info: 2 };
-  rows.sort((a, b) => order[KIND[a.kind].tone] - order[KIND[b.kind].tone] || String(a.name).localeCompare(String(b.name)));
+  rows.sort((a, b) => order[KIND[kindOf(a)].tone] - order[KIND[kindOf(b)].tone] || String(a.name).localeCompare(String(b.name)));
   const checkedAt = snapshot?.taken_at ? ago(`${snapshot.taken_at}Z`) : null;
   const subtitle = payload
     ? `${num(payload.checked_products)} active Sheet products checked ${checkedAt} against the Accu360 item list; prices judged on each product's latest invoice lines against the Sheet price of their day`
@@ -44,14 +47,14 @@ export default function CatalogueCheck({ snapshot }) {
               <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Product</th><th className="py-1 pr-3">SKU</th><th className="py-1 pr-3">Problem</th><th className="py-1 pr-3">Sheet</th><th className="py-1 pr-3">Invoiced</th><th className="py-1">Effect</th></tr></thead>
               <tbody>
                 {rows.map((r, i) => {
-                  const k = KIND[r.kind];
+                  const k = KIND[kindOf(r)];
                   return (
                     <tr key={`${r.kind}-${r.sku || r.name}-${i}`} className="border-t border-shop-border dark:border-[#2E352E]">
                       <td className="py-1.5 pr-3 font-medium">{r.name || r.sku}</td>
                       <td className="py-1.5 pr-3 text-xs">{r.sku ? <Link href={`/dashboard/products/${encodeURIComponent(r.sku)}`} className="hover:underline">{r.sku}</Link> : <span className="text-shop-text-secondary">—</span>}</td>
                       <td className="py-1.5 pr-3"><span className={`rounded-full px-2 py-0.5 text-xs font-medium ${TONE[k.tone]}`}>{k.label}</span></td>
                       <td className="py-1.5 pr-3 text-xs tabular-nums">{r.sheet_price !== undefined ? `${tsh(r.sheet_price)} / ${r.unit}` : (r.in_stock === false ? 'out of stock' : 'in stock')}</td>
-                      <td className="py-1.5 pr-3 text-xs tabular-nums">{r.invoiced_rate !== undefined ? `${tsh(r.invoiced_rate)} per stock unit on the latest ${r.lines} lines${r.latest_line ? `, newest ${r.latest_line}` : ''} (${r.drift_pct > 0 ? '+' : ''}${r.drift_pct}%) vs ${tsh(r.expected_rate)} from the Sheet` : ''}</td>
+                      <td className="py-1.5 pr-3 text-xs tabular-nums">{r.invoiced_rate !== undefined ? `${tsh(r.invoiced_rate)} per stock unit on the latest ${r.lines} lines${r.latest_line ? `, newest ${r.latest_line}` : ''} (${r.drift_pct > 0 ? '+' : ''}${r.drift_pct}%) vs ${r.basis === 'order' ? `${tsh(r.app_rate)} the app charged` : `${tsh(r.expected_rate)} from the Sheet`}` : ''}</td>
                       <td className="py-1.5 text-xs text-shop-text-secondary">{k.why}</td>
                     </tr>
                   );
