@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import Bars from '@/components/dashboard/Bars';
 import Card, { Empty, Unavailable } from '@/components/dashboard/Card';
 import KpiTile from '@/components/dashboard/KpiTile';
@@ -8,7 +10,7 @@ import { ago, dateLabel, dateOnly, num, rangeLabel, share, tsh } from '@/lib/das
 import { parsePageParams } from '@/lib/dashboard/params';
 import { darDate } from '@/lib/dashboard/periods';
 import { health } from '@/lib/dashboard/queries/overview';
-import { alaCarte, comboUsage, discountKpis, discountSourceWeekly, promoUsage, subtotalHistogram } from '@/lib/dashboard/queries/promotions';
+import { alaCarte, comboUsage, discountKpis, discountMismatches, discountSourceWeekly, promoUsage, subtotalHistogram, tierOrders } from '@/lib/dashboard/queries/promotions';
 import { splitIds, truthy } from '@/lib/order/catalog';
 import { getServerCatalog } from '@/lib/order/serverCatalog';
 
@@ -52,7 +54,7 @@ export default async function PromotionsPage({ searchParams }) {
   const today = darDate(now);
   const { period } = parsePageParams(sp, { now });
 
-  const [kpi, kpiPrev, usage, sources, hist, combos, cat, hlth] = await Promise.all([
+  const [kpi, kpiPrev, usage, sources, hist, combos, cat, hlth, tierList, mismatches] = await Promise.all([
     settle(discountKpis(period.start, period.end), null),
     settle(discountKpis(period.compareStart, period.compareEnd), null),
     settle(promoUsage(period.start, period.end), { used: [], refused: [] }),
@@ -61,6 +63,8 @@ export default async function PromotionsPage({ searchParams }) {
     settle(comboUsage(period.start, period.end), []),
     settle(catalogWithin(6000), null),
     settle(health(), { snapshots: {} }),
+    settle(tierOrders(period.start, period.end), []),
+    settle(discountMismatches(period.start, period.end), []),
   ]);
 
   const catalog = cat.value || {};
@@ -76,6 +80,22 @@ export default async function PromotionsPage({ searchParams }) {
 
   const tiers = (catalog.discount_tiers || []).map((t) => ({ id: t.id, label: t.label || '', minSpend: Number(t.min_spend) || 0, percentOff: Number(t.percent_off) || 0, active: truthy(t.is_active) }));
   const histRows = (hist.value || []).map((h) => ({ label: `TSH ${num(h.bucket)}–${num(h.bucket + 5000)}`, value: h.orders }));
+
+  // Which tier earned each order: the highest threshold the subtotal clears.
+  // Without the Sheet (catalogue race lost) orders are grouped by the
+  // percentage they actually received.
+  const byThreshold = [...tiers].sort((a, b) => b.minSpend - a.minSpend);
+  const tierBuckets = new Map();
+  for (const o2 of tierList.value || []) {
+    const cfg = byThreshold.find((x) => o2.subtotal >= x.minSpend);
+    const key = cfg ? cfg.id : `${Math.round((o2.discount / (o2.subtotal || 1)) * 100)}%`;
+    const b = tierBuckets.get(key) || { key, cfg, orders: 0, discount: 0, subtotal: 0 };
+    b.orders += 1; b.discount += o2.discount; b.subtotal += o2.subtotal;
+    tierBuckets.set(key, b);
+  }
+  const tierRows = tiers.map((cfg) => tierBuckets.get(cfg.id) || { key: cfg.id, cfg, orders: 0, discount: 0, subtotal: 0 })
+    .concat([...tierBuckets.values()].filter((b) => !b.cfg));
+  const tierTotal = (tierList.value || []).length;
 
   const comboConfig = (catalog.combos || []).map((c) => ({ id: String(c.id || '').trim(), name: c.name || '', price: Number(c.combo_price ?? c.price) || 0, original: c.original_price == null ? null : Number(c.original_price), active: truthy(c.is_active), productIds: splitIds(c.product_ids) }));
   const usageByCombo = Object.fromEntries((combos.value || []).map((c) => [c.combo_id, c]));
@@ -105,9 +125,9 @@ export default async function PromotionsPage({ searchParams }) {
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
           <KpiTile label="Discount given" value={inv.discount} previous={invp?.discount} compareLabel={period.compareLabel} polarity="down" sub={`${share(inv.discounted, inv.invoices)} of invoices · from invoices`} />
           <KpiTile label="Discount cost" value={inv.sales ? Math.round((inv.discount / (inv.sales + inv.discount)) * 1000) / 10 : 0} format="num" polarity="down" sub="% of gross sales" />
-          <KpiTile label="Orders with a promo" value={o.promo_orders} previous={op?.promo_orders} compareLabel={period.compareLabel} format="num" sub={`${share(o.promo_orders, o.orders)} of ${num(o.orders)} online orders`} />
-          <KpiTile label="Promo cost" value={o.promo_cost} previous={op?.promo_cost} compareLabel={period.compareLabel} polarity="down" sub="online orders, recorded codes" />
-          <KpiTile label="Avg order with promo" value={o.aiv_with_promo} sub={`vs ${tsh(o.aiv_without, { compact: true })} without`} />
+          <KpiTile label="Orders with a discount" value={o.discounted_orders} previous={op?.discounted_orders} compareLabel={period.compareLabel} format="num" sub={`${num(o.tier_orders)} spend tier · ${num(o.promo_orders)} promo code · of ${num(o.orders)} online orders`} />
+          <KpiTile label="Online discount cost" value={o.discount_cost} previous={op?.discount_cost} compareLabel={period.compareLabel} polarity="down" sub={`${tsh(o.tier_cost, { compact: true })} tiers · ${tsh(o.promo_cost, { compact: true })} codes · from our orders`} />
+          <KpiTile label="Avg order with discount" value={o.aiv_with_discount} sub={`vs ${tsh(o.aiv_without, { compact: true })} without`} />
           <KpiTile label="Orders with a combo" value={o.combo_orders} previous={op?.combo_orders} compareLabel={period.compareLabel} format="num" sub={`${share(o.combo_orders, o.orders)} attach rate`} />
         </div>
       )}
@@ -142,10 +162,63 @@ export default async function PromotionsPage({ searchParams }) {
           {sources.error ? <Unavailable what="Sources" reason={sources.error} /> : <StackedBarChart data={sourceData} series={SOURCES} />}
         </Card>
         <Card title="Spend tiers" subtitle={tiers.length ? `Thresholds: ${tiers.map((t) => `${tsh(t.minSpend, { compact: true })} → ${t.percentOff}%${t.active ? '' : ' (inactive)'}`).join(' · ')}` : 'No spend tiers in the Sheet'}>
+          {tierList.error ? <Unavailable what="Tier usage" reason={tierList.error} /> : (
+            <div className="mb-4 overflow-x-auto">
+              <p className="mb-2 text-sm">{tierTotal === 0 ? 'No online order earned a spend-tier discount in this period.' : <><span className="font-medium">{num(tierTotal)}</span> {tierTotal === 1 ? 'order' : 'orders'} earned a spend-tier discount, <span className="font-medium">{tsh(tierRows.reduce((s2, r) => s2 + r.discount, 0))}</span> in total.</>}</p>
+              {tierRows.length > 0 && (
+                <table className="w-full text-sm">
+                  <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Tier</th><th className="py-1 pr-3 text-right">Threshold</th><th className="py-1 pr-3 text-right">Off</th><th className="py-1 pr-3 text-right">Orders</th><th className="py-1 pr-3 text-right">Discount given</th><th className="hidden md:table-cell py-1 text-right">Avg subtotal</th></tr></thead>
+                  <tbody>
+                    {tierRows.map((r) => (
+                      <tr key={r.key} className="border-t border-shop-border dark:border-[#2E352E]">
+                        <td className="py-1.5 pr-3">{r.cfg ? (r.cfg.label || r.cfg.id) : `${r.key} off (tier not in the Sheet)`}{r.cfg && !r.cfg.active ? <span className="ml-1 text-xs text-shop-text-secondary">inactive</span> : null}</td>
+                        <td className="py-1.5 pr-3 text-right tabular-nums">{r.cfg ? tsh(r.cfg.minSpend) : '–'}</td>
+                        <td className="py-1.5 pr-3 text-right tabular-nums">{r.cfg ? `${r.cfg.percentOff}%` : r.key}</td>
+                        <td className="py-1.5 pr-3 text-right tabular-nums">{num(r.orders)}{r.orders ? <span className="ml-1 text-xs text-shop-text-secondary">{share(r.orders, o?.orders ?? 0)}</span> : null}</td>
+                        <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(r.discount)}</td>
+                        <td className="hidden md:table-cell py-1.5 text-right tabular-nums">{r.orders ? tsh(r.subtotal / r.orders, { compact: true }) : '–'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+          )}
           <p className="mb-2 text-xs text-shop-text-secondary">Where online order subtotals fall (TSH 5,000 buckets) — a tier threshold just above a busy bucket is money left on the table, one just below it is a discount everybody gets.</p>
           {hist.error ? <Unavailable what="Histogram" reason={hist.error} /> : <Bars rows={histRows} format={(v) => `${num(v)} orders`} max={20} />}
         </Card>
       </div>
+
+      <Card title="Discount check: app vs Accu360" subtitle="Discounted online orders whose invoices carry a different discount from the one the app gave. Invoices are the truth for money; the app's discount is what the customer was promised.">
+        {mismatches.error ? <Unavailable what="Discount check" reason={mismatches.error} /> : (mismatches.value || []).length === 0 ? (
+          <Empty>Every discounted online order in this period was invoiced with the discount the app gave.</Empty>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="text-left text-xs uppercase tracking-wide text-shop-text-secondary"><tr><th className="py-1 pr-3">Order</th><th className="hidden md:table-cell py-1 pr-3">Customer</th><th className="py-1 pr-3">Source</th><th className="py-1 pr-3 text-right">App discount</th><th className="py-1 pr-3 text-right">Invoiced</th><th className="py-1">What happened</th></tr></thead>
+              <tbody>
+                {mismatches.value.map((r) => {
+                  const app = Number(r.app_discount); const inv2 = Number(r.invoiced_discount);
+                  const what = inv2 === 0 ? 'discount missing on the invoice'
+                    : app === 0 ? 'discount given in Accu360 only'
+                      : Math.abs(inv2 - 2 * app) <= 1 ? `applied twice across ${r.invoices} invoices`
+                        : inv2 > app ? 'more than the app gave' : 'less than the app gave';
+                  return (
+                    <tr key={r.id} className="border-t border-shop-border align-top dark:border-[#2E352E]">
+                      <td className="py-1.5 pr-3 whitespace-nowrap"><Link href={`/dashboard/orders/${encodeURIComponent(r.id)}`} className="hover:underline">{r.id}</Link><br /><span className="text-xs text-shop-text-secondary">{dateLabel(dateOnly(r.created_at))} · {r.invoice_names}</span></td>
+                      <td className="hidden md:table-cell py-1.5 pr-3">{r.customer_name}</td>
+                      <td className="py-1.5 pr-3 text-xs">{r.discount_source === 'tier' ? 'Spend tier' : r.promo_code || r.discount_source || '–'}</td>
+                      <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(app)}</td>
+                      <td className="py-1.5 pr-3 text-right tabular-nums">{tsh(inv2)}</td>
+                      <td className={`py-1.5 text-xs ${inv2 > app ? 'text-shop-error' : 'text-shop-warning'}`}>{what}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </Card>
 
       <Card title="Combos" subtitle="From our order lines; the ERP has no idea which lines were a bundle">
         {comboRows.length === 0 ? <Empty>No combos configured or sold.</Empty> : (
