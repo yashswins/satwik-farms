@@ -1,6 +1,7 @@
 ---
 title: "Constipation: Causes, Symptoms & Natural Relief Through Ayurveda and Naturopathy"
 date: "April 23, 2026"
+dateModified: "September 13, 2026"
 category: "Wellness"
 image: "/images/constipation-cover.jpg"
 ogImage: "/images/og-constipation.jpg"
@@ -226,6 +227,7 @@ If you found this helpful, you may also like:
 - [The Gut: Where Ancient Wisdom Meets Modern Science](/blog/gut-health-ayurveda-modern-science)
 - [Satwik Yoghurt (Dahi): A Gut-Healing Superfood](/blog/satwik-yoghurt-dahi)
 - [Flax Seeds: Benefits, Nutrition & Daily Dosage](/blog/flax-seeds-superfood-benefits)
+- [Sweet Potato (Shakarkand): A Fibre-Rich Root for Digestion & Nourishment](/blog/sweet-potato-shakarkand-benefits-ayurveda)
 - [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)
 - [Satwik Mixed Aachar: Sun-Cured Pickle for Digestion & Gut Health](/blog/satwik-mixed-aachar)
 - [Walking for Health: How a Daily Walk Eases Constipation & More](/blog/walking-for-health-benefits)

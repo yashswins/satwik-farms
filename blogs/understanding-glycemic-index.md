@@ -1,7 +1,7 @@
 ---
 title: "Understanding Glycemic Index: Your Guide to Better Blood Sugar Management"
 date: "February 14, 2026"
-dateModified: "September 2, 2026"
+dateModified: "September 13, 2026"
 category: "Education"
 image: "/images/glycemic-index.jpeg"
 imageAlt: "Glycemic index guide — how common Indian foods like rice, roti, dal and fruit affect blood sugar"
@@ -215,6 +215,7 @@ Continue exploring blood-sugar-friendly foods:
 
 - [Barley: A Superfood for Diabetics and Beyond](/blog/barley-superfood)
 - [Millet Master: Our Diabetic-Friendly Multigrain Atta](/blog/multigrain-atta-diabetic-mix)
+- [Sweet Potato (Shakarkand): Nutrition, Ayurvedic View & Benefits for Diabetes](/blog/sweet-potato-shakarkand-benefits-ayurveda)
 - [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
 - [Dried Jamun Pulp: An Ancient Superfood for Blood Sugar Control](/blog/dried-jamun-pulp)
 - [Dried Jamun Seed Powder (Jamun Beej Churna)](/blog/dried-jamun-seed-powder)

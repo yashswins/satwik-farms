@@ -1,6 +1,7 @@
 ---
 title: "Millet Master: Our Diabetic-Friendly Multigrain Atta"
 date: "March 28, 2026"
+dateModified: "September 13, 2026"
 category: "Products"
 image: "/images/multigrain_atta.jpeg"
 excerpt: "Discover our 100% wheat-free multigrain atta, engineered for glycemic control with complex millets and high-quality plant proteins for stable blood sugar."
@@ -105,6 +106,7 @@ More for the diabetic-friendly kitchen:
 
 - [Understanding Glycemic Index: A Guide to Better Blood Sugar Management](/blog/understanding-glycemic-index)
 - [Barley: A Superfood for Diabetics and Beyond](/blog/barley-superfood)
+- [Sweet Potato (Shakarkand): Nutrition, Ayurvedic View & Benefits for Diabetes](/blog/sweet-potato-shakarkand-benefits-ayurveda)
 - [Bitter Gourd Powder: Benefits for Blood Sugar, Detox & Immunity](/blog/bitter-gourd-powder-benefits)
 - [Dried Jamun Pulp: An Ancient Superfood for Blood Sugar Control](/blog/dried-jamun-pulp)
 - [Dried Jamun Seed Powder (Jamun Beej Churna)](/blog/dried-jamun-seed-powder)

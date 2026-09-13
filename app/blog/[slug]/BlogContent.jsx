@@ -296,6 +296,13 @@ export default function BlogContent({ content }) {
           object-position: center bottom !important;
         }
 
+        /* Sweet potato blog — inline photo at 420px, top-anchored so the top-right logo stays visible */
+        .blog-content img[src*="sweet-potato-conv"] {
+          height: 420px !important;
+          object-fit: cover !important;
+          object-position: center top !important;
+        }
+
         /* Walking blog — inline night-walk photo at standard 420px cover crop */
         .blog-content img[src*="walking2-conv"] {
           height: 420px !important;
