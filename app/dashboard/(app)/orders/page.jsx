@@ -7,7 +7,7 @@ import LineChartSimple from '@/components/dashboard/LineChartSimple';
 import PageControls from '@/components/dashboard/PageControls';
 import StackedBarChart from '@/components/dashboard/StackedBarChart';
 import { THRESHOLDS } from '@/lib/dashboard/alerts';
-import { acknowledgeReconciliation, backendConfigured } from '@/lib/dashboard/backend';
+import { acknowledgeReconciliation, backendConfigured, closeErpSyncJob } from '@/lib/dashboard/backend';
 import { isConfigured } from '@/lib/dashboard/db';
 import { ago, darTime, dateLabel, dateOnly, num, share, tsh } from '@/lib/dashboard/format';
 import { hrefWith, parsePageParams } from '@/lib/dashboard/params';
@@ -122,7 +122,7 @@ export default async function OrdersPage({ searchParams }) {
     const orderId = String(formData.get('order_id') || '');
     const note = String(formData.get('note') || '').slice(0, 300);
     try {
-      await acknowledgeReconciliation(orderId, `${note || 'acknowledged from dashboard'} (${user.email})`);
+      await acknowledgeReconciliation(orderId);
       await recordAudit(user.email, 'acknowledge', { order_id: orderId, note });
     } catch (error) {
       await recordAudit(user.email, 'acknowledge', { order_id: orderId, error: error.message });
@@ -136,7 +136,20 @@ export default async function OrdersPage({ searchParams }) {
     const orderId = String(formData.get('order_id') || '').slice(0, 40);
     const bucket = String(formData.get('bucket') || '').slice(0, 40);
     const note = String(formData.get('note') || '').slice(0, 300);
-    if (orderId) await recordAudit(user.email, 'handled', { order_id: orderId, bucket, note });
+    if (!orderId) return;
+    // Handled means dealt with by hand, so the backend has to stop writing it
+    // too. The audit row alone left SF-20260916-d90ad083 retrying hourly for
+    // eight days after it was marked, with the backlog alert on throughout.
+    let outbox = null;
+    if (backendConfigured()) {
+      try {
+        const r = await closeErpSyncJob(orderId, `${note || 'marked handled'} (${user.email})`.slice(0, 300));
+        outbox = r.closed ? 'closed' : r.reason;
+      } catch (error) {
+        outbox = `error: ${error.message}`;
+      }
+    }
+    await recordAudit(user.email, 'handled', { order_id: orderId, bucket, note, outbox });
     revalidatePath('/dashboard/orders');
     revalidatePath('/dashboard');
   }
@@ -162,7 +175,7 @@ export default async function OrdersPage({ searchParams }) {
 
       <Card
         title={attentionCount ? `${num(attentionCount)} orders need attention` : 'Nothing needs attention'}
-        subtitle={`Orders placed since ${dateLabel(ATTENTION_SINCE, { year: true })} (fresh slate), deleted Sales Orders from the last 14 days. Mark a row handled once it is dealt with: it disappears from here and the order page records who handled it.`}
+        subtitle={`Orders placed since ${dateLabel(ATTENTION_SINCE, { year: true })} (fresh slate), deleted Sales Orders from the last 14 days. Mark a row handled once it is dealt with: it disappears from here, the order page records who handled it, and if the order is still waiting to reach Accu360 the backend stops retrying it.`}
         href={showHandled ? '/dashboard/orders' : '/dashboard/orders?handled=1'}
         hrefLabel={showHandled ? 'Hide handled' : `Show handled (${num((handled.value || []).length)})`}
       >
