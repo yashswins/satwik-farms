@@ -87,6 +87,7 @@ export default async function OverviewPage() {
   const alerts = evaluateAlerts({
     healthSnapshot: hlth.value.snapshots.health ?? null,
     catalogSnapshot: hlth.value.snapshots.catalog_checks ?? null,
+    dataChecksSnapshot: hlth.value.snapshots.data_checks ?? null,
     sync: hlth.value.sync,
     funnelToday,
     attemptsToday: attempts.value.totals,
