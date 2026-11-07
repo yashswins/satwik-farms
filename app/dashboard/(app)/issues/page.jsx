@@ -46,6 +46,7 @@ export default async function IssuesPage() {
     healthSnapshot: hlth.value.snapshots.health ?? null,
     catalogSnapshot: hlth.value.snapshots.catalog_checks ?? null,
     dataChecksSnapshot: hlth.value.snapshots.data_checks ?? null,
+    truthSnapshot: hlth.value.snapshots.truth_check ?? null,
     sync: hlth.value.sync, funnelToday, attemptsToday: attempts.value.totals,
     now: now.getTime(), businessHours: darHour >= 6 && darHour < 22,
   });
