@@ -10,6 +10,7 @@ import { dateLabel, num, pct, rangeLabel, tsh } from '@/lib/dashboard/format';
 import { hrefWith, parsePageParams } from '@/lib/dashboard/params';
 import { darDate } from '@/lib/dashboard/periods';
 import { cohorts, frequency, kpis, lapsed, migration, newVsReturningWeekly, search, top } from '@/lib/dashboard/queries/customers';
+import { requireDashboardUser } from '@/lib/dashboard/session';
 
 export const metadata = { title: 'Customers' };
 export const dynamic = 'force-dynamic';
@@ -22,6 +23,7 @@ async function settle(promise, fallback = null) {
 }
 
 export default async function CustomersPage({ searchParams }) {
+  await requireDashboardUser();
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();

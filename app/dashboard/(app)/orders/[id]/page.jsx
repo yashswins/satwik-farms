@@ -5,6 +5,7 @@ import Card, { Empty } from '@/components/dashboard/Card';
 import { isConfigured } from '@/lib/dashboard/db';
 import { ago, darTime, dateLabel, dateOnly, num, tsh } from '@/lib/dashboard/format';
 import { orderDetail } from '@/lib/dashboard/queries/orders';
+import { requireDashboardUser } from '@/lib/dashboard/session';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,6 +19,7 @@ const ACCU360_SO = 'https://satwik.accu360.cloud/app/sales-order/';
 const ACCU360_SI = 'https://satwik.accu360.cloud/app/sales-invoice/';
 
 export default async function OrderDetailPage({ params }) {
+  await requireDashboardUser();
   const { id } = await params;
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const detail = await orderDetail(id);

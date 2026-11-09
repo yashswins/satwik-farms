@@ -13,6 +13,7 @@ import { health } from '@/lib/dashboard/queries/overview';
 import { alaCarte, comboUsage, discountKpis, discountMismatches, discountSourceWeekly, promoUsage, subtotalHistogram, tierOrders } from '@/lib/dashboard/queries/promotions';
 import { splitIds, truthy } from '@/lib/order/catalog';
 import { getServerCatalog } from '@/lib/order/serverCatalog';
+import { requireDashboardUser } from '@/lib/dashboard/session';
 
 export const metadata = { title: 'Promotions' };
 export const dynamic = 'force-dynamic';
@@ -48,6 +49,7 @@ const SOURCES = [
 ];
 
 export default async function PromotionsPage({ searchParams }) {
+  await requireDashboardUser();
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();

@@ -14,6 +14,7 @@ import {
   bucketed, byCategory, cancelledAndAmended, drafts, futureDated, heatmap, invoiceList,
   invoiceStatuses, onlineByPeriod, summary,
 } from '@/lib/dashboard/queries/sales';
+import { requireDashboardUser } from '@/lib/dashboard/session';
 
 export const metadata = { title: 'Sales' };
 export const dynamic = 'force-dynamic';
@@ -28,6 +29,7 @@ async function settle(promise, fallback = null) {
 const ACCU360 = 'https://satwik.accu360.cloud/app/sales-invoice/';
 
 export default async function SalesPage({ searchParams }) {
+  await requireDashboardUser();
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();

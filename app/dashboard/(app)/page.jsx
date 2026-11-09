@@ -20,6 +20,7 @@ import {
   promoPulse, salesTrend, todayVsYesterdayToNow, topCustomers, topItems,
 } from '@/lib/dashboard/queries/overview';
 import { funnelConfigured, funnelCounts, funnelTotals } from '@/lib/dashboard/upstash';
+import { requireDashboardUser } from '@/lib/dashboard/session';
 
 export const metadata = { title: 'Overview' };
 export const dynamic = 'force-dynamic';
@@ -35,6 +36,7 @@ async function settle(promise, fallback = null) {
 }
 
 export default async function OverviewPage() {
+  await requireDashboardUser();
   if (!isConfigured()) {
     return (
       <Card title="Dashboard database not configured">

@@ -10,6 +10,7 @@ import { darDate } from '@/lib/dashboard/periods';
 import { health } from '@/lib/dashboard/queries/overview';
 import { boughtTogether, disabledItemsStillSelling, items, notSelling } from '@/lib/dashboard/queries/products';
 import { byCategory } from '@/lib/dashboard/queries/sales';
+import { requireDashboardUser } from '@/lib/dashboard/session';
 
 export const metadata = { title: 'Products' };
 export const dynamic = 'force-dynamic';
@@ -22,6 +23,7 @@ async function settle(promise, fallback = null) {
 }
 
 export default async function ProductsPage({ searchParams }) {
+  await requireDashboardUser();
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();

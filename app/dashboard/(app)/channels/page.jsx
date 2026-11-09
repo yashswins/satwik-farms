@@ -12,6 +12,7 @@ import { parsePageParams } from '@/lib/dashboard/params';
 import { addDays, darDate } from '@/lib/dashboard/periods';
 import { adoptionMonthly, appVersions, basketByChannel, channelKpis, probablyOnline } from '@/lib/dashboard/queries/channels';
 import { bucketed } from '@/lib/dashboard/queries/sales';
+import { requireDashboardUser } from '@/lib/dashboard/session';
 
 export const metadata = { title: 'Channels' };
 export const dynamic = 'force-dynamic';
@@ -26,6 +27,7 @@ async function settle(promise, fallback = null) {
 const ORDER = ['app', 'web', 'offline'];
 
 export default async function ChannelsPage({ searchParams }) {
+  await requireDashboardUser();
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();

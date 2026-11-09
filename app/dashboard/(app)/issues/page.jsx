@@ -24,6 +24,7 @@ async function settle(promise, fallback = null) {
 }
 
 export default async function IssuesPage() {
+  await requireDashboardUser();
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();
   const today = darDate(now);

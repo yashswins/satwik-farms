@@ -10,6 +10,7 @@ import { CHANNEL_LABELS, dateLabel, num, tsh } from '@/lib/dashboard/format';
 import { parsePageParams } from '@/lib/dashboard/params';
 import { darDate } from '@/lib/dashboard/periods';
 import { itemDetail } from '@/lib/dashboard/queries/products';
+import { requireDashboardUser } from '@/lib/dashboard/session';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,6 +20,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ItemPage({ params, searchParams }) {
+  await requireDashboardUser();
   const { itemCode } = await params;
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;

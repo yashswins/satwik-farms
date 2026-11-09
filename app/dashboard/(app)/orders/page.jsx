@@ -62,6 +62,7 @@ const BUCKETS = [
 ];
 
 export default async function OrdersPage({ searchParams }) {
+  await requireDashboardUser();
   const sp = (await searchParams) ?? {};
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const now = new Date();

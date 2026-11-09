@@ -7,6 +7,7 @@ import Card, { Empty } from '@/components/dashboard/Card';
 import { isConfigured } from '@/lib/dashboard/db';
 import { CHANNEL_LABELS, darTime, dateLabel, dateOnly, num, pct, tsh } from '@/lib/dashboard/format';
 import { detail } from '@/lib/dashboard/queries/customers';
+import { requireDashboardUser } from '@/lib/dashboard/session';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,6 +20,7 @@ const ACCU360 = 'https://satwik.accu360.cloud/app/';
 const ORDER_CHANNEL = { web: 'Web', mobile_release: 'App', mobile_debug: 'App (debug)' };
 
 export default async function CustomerPage({ params }) {
+  await requireDashboardUser();
   const { id } = await params;
   if (!isConfigured()) return <Card title="Dashboard database not configured" />;
   const d = await detail(id);
