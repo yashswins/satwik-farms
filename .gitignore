@@ -54,3 +54,8 @@ files/
 # Internal planning notes — not for the public repo
 sheet_changes.md
 apps_script.gs
+# Apps Script helpers can hold the catalogue Sheet ID: keep them all out of the public repo
+apps_script*.gs
+
+# Internal trade-catalogue generator (prices, supplier curation) — not for the public repo
+scripts/trade-catalogue/
