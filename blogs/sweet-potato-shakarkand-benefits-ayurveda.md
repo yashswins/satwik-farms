@@ -149,3 +149,4 @@ More from the Satwik wellness collection:
 - [Constipation: Natural Relief Through Ayurveda & Naturopathy](/blog/constipation-ayurvedic-guide)
 - [Jackfruit: Nature's Giant Superfruit — Nutrition, Raw vs Ripe](/blog/jackfruit-nutrition-raw-vs-ripe-part-1)
 - [Ash Gourd: The Yogic Superfood & Ayurvedic Powerhouse](/blog/ash-gourd-ayurvedic-superfood)
+- [Chhath Puja: History, Significance & the Sacred Harvest Offerings](/blog/chhath-puja-history-significance-traditions)

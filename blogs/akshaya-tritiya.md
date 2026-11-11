@@ -114,6 +114,7 @@ At Satwik Farms, we celebrate this spirit every day — nurturing the earth with
 
 If you enjoyed this, you may also like:
 
+- [Chhath Puja: History, Significance & the Four Sacred Days](/blog/chhath-puja-history-significance-traditions)
 - [Triphala: The Ayurvedic Three-Fruit Wonder](/blog/triphala-ayurvedic-guide)
 - [Satwik Farming: Holistic, Regenerative Agriculture](/blog/satwik-farming-technique)
 - [How to Charge Water for Positive Energy](/blog/how-to-charge-water)

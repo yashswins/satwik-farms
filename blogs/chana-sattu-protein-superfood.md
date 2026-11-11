@@ -137,3 +137,4 @@ Continue exploring plant-powered nutrition from the Satwik collection:
 - [The Power of Our Roasted Seed Mix: A Nutritional Powerhouse](/blog/roasted-seed-mix)
 - [Understanding Glycemic Index: Your Guide to Better Blood Sugar Management](/blog/understanding-glycemic-index)
 - [Satwik Paustik Ladoo: Healthy Sugar-Free Ladoo with Ayurvedic Benefits](/blog/satwik-paustik-ladoo)
+- [Chhath Puja: History, Significance & the Four Sacred Days of Bihar's Great Festival](/blog/chhath-puja-history-significance-traditions)

@@ -303,6 +303,14 @@ export default function BlogContent({ content }) {
           object-position: center top !important;
         }
 
+        /* Chhath Puja blog — inline photos at standard 420px cover crop */
+        .blog-content img[src*="chhath-2-conv"],
+        .blog-content img[src*="chhath-3-conv"] {
+          height: 420px !important;
+          object-fit: cover !important;
+          object-position: center !important;
+        }
+
         /* Walking blog — inline night-walk photo at standard 420px cover crop */
         .blog-content img[src*="walking2-conv"] {
           height: 420px !important;
