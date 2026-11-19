@@ -72,7 +72,7 @@ A brisk walk can:
 - Help reduce visceral fat
 - Improve oxygen delivery to tissues
 
-Even a 30-minute walk activates hundreds of muscles and can meaningfully support metabolic health.
+Even a 30-minute walk activates hundreds of muscles and can meaningfully support metabolic health. That muscle stimulus is something extra protein cannot provide on its own — see [Protein Overdose: Are We Eating Too Much Protein?](/blog/harmful-effects-of-excessive-protein-intake)
 
 ---
 

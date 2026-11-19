@@ -39,7 +39,7 @@ The exact values depend on the variety of chana, the roasting method and process
 
 ### 1. Rich Source of Plant Protein
 
-With around 22 g protein per 100 g, chana sattu can help vegetarian and vegan diets meet daily protein requirements. Protein is essential for maintaining muscles, tissues and normal body functions.
+With around 22 g protein per 100 g, chana sattu can help vegetarian and vegan diets meet [daily protein requirements](/blog/harmful-effects-of-excessive-protein-intake). Protein is essential for maintaining muscles, tissues and normal body functions.
 
 ### 2. Naturally High in Fibre
 

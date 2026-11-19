@@ -64,7 +64,7 @@ Unlike most plant foods, soy protein contains **all nine essential amino acids**
 - Comparable to milk and eggs
 - Excellent for vegetarians and vegans who may otherwise need to combine foods to get a full amino-acid profile
 
-This makes tofu especially valuable for muscle maintenance, recovery after exercise, healthy ageing and weight management.
+This makes tofu especially valuable for muscle maintenance, recovery after exercise, healthy ageing and weight management. To see how soy compares with other plant and animal proteins, read our [vegetarian vs non-vegetarian protein comparison](/blog/vegetarian-vs-non-vegetarian-protein).
 
 > **Tofu vs paneer:** both are pressed curds, but tofu is plant-based and lower in saturated fat, while paneer is dairy-based and higher in calcium and B12. They're complementary, not competing — see our guide to [Satwik Paneer: A Fresh, Soft Cottage Cheese](/blog/satwik-paneer).
 
@@ -223,7 +223,7 @@ For most healthy adults, moderate daily amounts are well within safe limits:
 | Managing blood sugar | 100–200 g |
 | Older adults | 100–150 g |
 
-As always, **variety matters** — let tofu be one of several protein sources, not the only one.
+As always, **variety matters** — let tofu be one of several protein sources, not the only one. And more protein is not always better: see [how much protein your body actually needs each day](/blog/harmful-effects-of-excessive-protein-intake).
 
 ---
 

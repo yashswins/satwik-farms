@@ -154,7 +154,7 @@ Sprouts provide prebiotic fibres that nourish beneficial gut bacteria. A healthy
 ## Key Health Benefits
 
 **1. Excellent Plant Protein Source**
-Together, chana and moong provide balanced vegetarian protein to support muscle repair, growth, enzyme production, and hormone synthesis.
+Together, chana and moong provide [balanced vegetarian protein](/blog/vegetarian-vs-non-vegetarian-protein) to support muscle repair, growth, enzyme production, and hormone synthesis.
 
 **2. Improved Digestion**
 Their fibre may support regular bowel movements, improved stool bulk, and reduced bloating when introduced gradually.
